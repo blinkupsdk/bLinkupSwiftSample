@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "blinkupswiftsdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/blinkupsdk/bLinkupSwiftSDK",
+      "state" : {
+        "revision" : "f92187c80f4c9cf0d89a1502be33da19aec8a8e8",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 2
+}
