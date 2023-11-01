@@ -33,84 +33,10 @@ struct EventCell: View {
     @State private var viewState: Int? = 0
     
     var body: some View {
-        VStack(spacing: 0) {
-            Text(place.name)
-                .frame(maxWidth: .infinity)
-            
-            HStack(spacing: 0) {
-                
-                Image(systemName: "square.and.arrow.down")
-                    .padding()
-                    .onTapGesture(perform: enter)
-                
-                Image(systemName: "square.and.arrow.up")
-                    .padding()
-                    .onTapGesture(perform: leave)
-                
-                Spacer()
-                
-                ActivityIndicator(isAnimating: $isLoading, style: .large)
-                
-                Spacer()
-
-                NavigationLink(
-                    destination: TrackView(),
-                    tag: 1,
-                    selection: $viewState,
-                    label: { EmptyView() }
-                )
-                .frame(width: 0)
-                .hidden()
-                
-                NavigationLink(
-                    destination: VenueMapView(place: place),
-                    tag: 2,
-                    selection: $viewState,
-                    label: { EmptyView() }
-                )
-                .frame(width: 0)
-                .hidden()
-                
-                NavigationLink(
-                    destination: PresenceView(place: place),
-                    tag: 3,
-                    selection: $viewState,
-                    label: { EmptyView() }
-                )
-                .frame(width: 0)
-                .hidden()
-                
-                Image(systemName: "lasso")
-                    .padding()
-                    .onTapGesture {
-                        viewState = 1
-                    }
-                
-                Image(systemName: "map")
-                    .padding()
-                    .onTapGesture {
-                        viewState = 2
-                    }
-                
-                Image(systemName: "person.wave.2")
-                    .padding()
-                    .onTapGesture {
-                        viewState = 3
-                    }
-            }
-            .frame(maxWidth: .infinity)
-        }
-    }
-    
-    func enter() { updatePresense(true) }
-    
-    func leave() { updatePresense(false) }
-    
-    func updatePresense(_ p: Bool) {
-        isLoading = true
-        bLinkup.setUserAtEvent(p, at: place, completion: { _ in
-            isLoading = false
-        })
+        Text(place.name)
+            .lineLimit(3)
+            .padding()
+            .frame(width: 200, height: 70)
     }
 }
 

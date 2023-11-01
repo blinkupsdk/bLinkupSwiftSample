@@ -22,7 +22,6 @@
 		EB10F19E2AF00F0B006D8DC8 /* PresenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F19C2AF00F0B006D8DC8 /* PresenceView.swift */; };
 		EB10F19F2AF00F0B006D8DC8 /* PresenceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F19D2AF00F0B006D8DC8 /* PresenceCell.swift */; };
 		EB10F1A02AF014AB006D8DC8 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1842AF00A9E006D8DC8 /* StartView.swift */; };
-		EB4AF5572AF078700085A61F /* bLinkup in Frameworks */ = {isa = PBXBuildFile; productRef = EB4AF5562AF078700085A61F /* bLinkup */; };
 		EB832C542AF02D69008B4F5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB832C4A2AF02D68008B4F5C /* Main.storyboard */; };
 		EB832C552AF02D69008B4F5C /* VenueMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C4B2AF02D68008B4F5C /* VenueMapVC.swift */; };
 		EB832C562AF02D69008B4F5C /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C4C2AF02D68008B4F5C /* PlacesViewController.swift */; };
@@ -36,6 +35,8 @@
 		EB832C612AF03824008B4F5C /* FriendsPresenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C602AF03824008B4F5C /* FriendsPresenceViewController.swift */; };
 		EB832C632AF04BE1008B4F5C /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C622AF04BE1008B4F5C /* EventsView.swift */; };
 		EB832C652AF0516E008B4F5C /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C642AF0516E008B4F5C /* EventCell.swift */; };
+		EBA86E512AF28A7A0091EF63 /* EventMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA86E502AF28A7A0091EF63 /* EventMenu.swift */; };
+		EBF480092AF2B7510010030D /* bLinkup in Frameworks */ = {isa = PBXBuildFile; productRef = EBF480082AF2B7510010030D /* bLinkup */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		EB832C602AF03824008B4F5C /* FriendsPresenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsPresenceViewController.swift; sourceTree = "<group>"; };
 		EB832C622AF04BE1008B4F5C /* EventsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
 		EB832C642AF0516E008B4F5C /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		EBA86E502AF28A7A0091EF63 /* EventMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB4AF5572AF078700085A61F /* bLinkup in Frameworks */,
+				EBF480092AF2B7510010030D /* bLinkup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +212,7 @@
 			children = (
 				EB832C622AF04BE1008B4F5C /* EventsView.swift */,
 				EB832C642AF0516E008B4F5C /* EventCell.swift */,
+				EBA86E502AF28A7A0091EF63 /* EventMenu.swift */,
 				EB10F19C2AF00F0B006D8DC8 /* PresenceView.swift */,
 				EB10F19D2AF00F0B006D8DC8 /* PresenceCell.swift */,
 				EB10F18E2AF00B7D006D8DC8 /* ProfileView.swift */,
@@ -269,7 +272,7 @@
 			);
 			name = DemoApp;
 			packageProductDependencies = (
-				EB4AF5562AF078700085A61F /* bLinkup */,
+				EBF480082AF2B7510010030D /* bLinkup */,
 			);
 			productName = DemoApp;
 			productReference = EB10F14A2AF00754006D8DC8 /* DemoApp.app */;
@@ -344,7 +347,7 @@
 			);
 			mainGroup = EB10F1412AF00754006D8DC8;
 			packageReferences = (
-				EB4AF5552AF078700085A61F /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */,
+				EBF480072AF2B7510010030D /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */,
 			);
 			productRefGroup = EB10F14B2AF00754006D8DC8 /* Products */;
 			projectDirPath = "";
@@ -404,6 +407,7 @@
 				EB832C552AF02D69008B4F5C /* VenueMapVC.swift in Sources */,
 				EB10F18B2AF00AF0006D8DC8 /* BlinkupHeaderView.swift in Sources */,
 				EB832C5D2AF02D69008B4F5C /* SearchViewController.swift in Sources */,
+				EBA86E512AF28A7A0091EF63 /* EventMenu.swift in Sources */,
 				EB832C562AF02D69008B4F5C /* PlacesViewController.swift in Sources */,
 				EB832C5B2AF02D69008B4F5C /* TrackViewController.swift in Sources */,
 				EB10F1922AF00CDA006D8DC8 /* LoadingView.swift in Sources */,
@@ -572,7 +576,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -587,6 +591,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -610,7 +615,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -625,6 +630,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -760,20 +766,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		EB4AF5552AF078700085A61F /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */ = {
+		EBF480072AF2B7510010030D /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/blinkupsdk/bLinkupSwiftSDK";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.0;
+				version = 1.0.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EB4AF5562AF078700085A61F /* bLinkup */ = {
+		EBF480082AF2B7510010030D /* bLinkup */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EB4AF5552AF078700085A61F /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */;
+			package = EBF480072AF2B7510010030D /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */;
 			productName = bLinkup;
 		};
 /* End XCSwiftPackageProductDependency section */

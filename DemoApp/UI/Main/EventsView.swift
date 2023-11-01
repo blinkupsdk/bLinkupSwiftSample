@@ -10,27 +10,54 @@ import bLinkup
 
 struct EventsView: View {
     @State var isLoading = true
+    @State var isLoadingFromMenu = false
 
-    @State var places: [Place] = []
-
+    @State var places: [Place]?
+    @State var place: Place?
+    
     enum Navigation: Hashable {
         case presence(Place)
         case map(Place)
     }
-
+    
     var body: some View {
-        LoadingView(isShowing: $isLoading) {
-            List {
-                ForEach(places, id: \.id) { place in
-                    EventCell(place: place)
+        ZStack {
+            VStack(spacing: 20) {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(places ?? [], id: \.id) { place in
+                            EventCell(place: place)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .fill( place == self.place ? .green : .blue)
+                                        .opacity(0.3)
+                                )
+                                .onTapGesture {
+                                    self.place = place
+                                }
+                        }
+                    }
+                    .refreshable {
+                        try? await loadEvents()
+                    }
                 }
+                .frame(height: 70)
+                
+                EventMenu(place: place, isLoading: $isLoadingFromMenu)
+                    .frame(width: 250)
+                    .opacity(isLoading ? 0 : (place == nil ? 0.5 : 1))
+                    .disabled(place == nil)
+
+                Spacer()
             }
-            .listStyle(InsetGroupedListStyle())
-            .refreshable {
-                try? await loadEvents()
-            }
+            .padding()
+                        
+            LoadingView(isShowing: $isLoading) { Rectangle().fill(.clear) }
+            
+            LoadingView(isShowing: $isLoadingFromMenu) { Rectangle().fill(.clear) }
         }
         .onAppear(perform: {
+            guard places == nil else { return }
             Task { try? await loadEvents() }
         })
         .transition(.opacity)
@@ -49,6 +76,7 @@ struct EventsView: View {
         Task {
             self.isLoading = true
             self.places = try await bLinkup.getEvents()
+            self.place = self.places?.first
             self.isLoading = false
         }
     }
@@ -56,6 +84,7 @@ struct EventsView: View {
 
 #Preview {
     NavigationStack {
-        EventsView(isLoading: false, places: [Place(id: "1", name: "Stadium")])
+        EventsView(isLoading: false, places: [Place(id: "1", name: "Fiserv Forum"),
+                                              Place(id: "2", name: "American Family field field")])
     }
 }

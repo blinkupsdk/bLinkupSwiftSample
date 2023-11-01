@@ -11,7 +11,7 @@ import bLinkup
 struct PresenceView: View {
     @Environment(\.presentationMode) var presentationMode
     
-    let place: Place
+    let place: Place?
     
     @State var isLoading = true
     @State var presence: [Presence] = []
@@ -48,6 +48,7 @@ struct PresenceView: View {
     }
     
     func loadPresence() async throws {
+        guard let place else { return }
         Task {
             do {
                 self.isLoading = true

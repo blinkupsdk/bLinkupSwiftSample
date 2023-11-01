@@ -110,6 +110,16 @@ class ConnectionRequestsViewController: UIViewController,
         }))
         
         if bLinkup.user?.id == obj.source.id {
+            menu.addAction(.init(title: "cancel", style: .default, handler: { _ in
+                bLinkup.cancelFriendRequest(obj){ [weak self] in
+                    switch $0 {
+                    case .failure(let error):
+                        self?.showError(error)
+                    case .success:
+                        self?.refreshData()
+                    }
+                }
+            }))
         } else {
             menu.addAction(.init(title: "accept", style: .default, handler: { _ in
                 bLinkup.acceptFriendRequest(obj) { [weak self] in

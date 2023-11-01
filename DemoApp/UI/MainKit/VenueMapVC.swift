@@ -11,7 +11,7 @@ import UIKit
 
 struct VenueMapView: UIViewControllerRepresentable {
     @Environment(\.presentationMode) var presentationMode
-    let place: Place
+    let place: Place?
     
     func makeUIViewController(context: Context) -> VenueMapVC {
         return VenueMapVC.instantiate(place)
@@ -22,12 +22,12 @@ struct VenueMapView: UIViewControllerRepresentable {
 
 class VenueMapVC: UIViewController, UIScrollViewDelegate {
     var places: [Place]?
-    var place: Place!
+    var place: Place?
     
     @IBOutlet var scrollView: UIScrollView?
     @IBOutlet var imageView: UIImageView?
     
-    static func instantiate(_ place: Place) -> VenueMapVC {
+    static func instantiate(_ place: Place?) -> VenueMapVC {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle(for: VenueMapVC.self))
         let vc = storyboard.instantiateViewController(withIdentifier: "VenueMapVC") as! VenueMapVC
         vc.place = place

@@ -4,7 +4,4 @@
    <FileRef
       location = "group:DemoApp.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:../bLinkup.xcodeproj">
-   </FileRef>
 </Workspace>

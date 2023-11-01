@@ -14,13 +14,27 @@ struct ProfileView: View {
     @State var isLoading: Bool = false
     @State private var name = ""
     @State private var phone = ""
-    
+    @State private var showSaveButton = false
+
     var body: some View {
         ZStack {
             Form {
                 Section(header: Text("My Account")) {
                     Text(phone.isEmpty ? "Phone number" : phone)
+                    
                     TextField("Name", text: $name)
+                        .onReceive(name.publisher) { _ in
+                            updateSaveButton()
+                        }
+                    
+                    if showSaveButton {
+                        HStack {
+                            Spacer()
+                            Button(action: updateUser, label: {
+                                Text("Save")
+                            })
+                        }
+                    }
                 }
                 
                 Section(header: Text("Relationships")) {
@@ -59,16 +73,16 @@ struct ProfileView: View {
                     }
                 }
             }
-            .refreshable {
-                loadCurrentUser()
-            }
+            .refreshable(action: {
+                await loadCurrentUser()
+            })
             .accentColor(.blBlue)
             
             LoadingView(isShowing: $isLoading) { Rectangle().fill(.clear) }
         }
         .navigationTitle("Profile")
         .onAppear {
-            loadCurrentUser()
+            Task { await loadCurrentUser() }
         }
     }
     
@@ -78,15 +92,25 @@ struct ProfileView: View {
         })
     }
     
-    func loadCurrentUser() {
+    func updateSaveButton() {
+       showSaveButton = bLinkup.user?.name?.isEmpty != false || name != bLinkup.user?.name
+    }
+    
+    func loadCurrentUser() async {
+        guard let user = try? await bLinkup.getCurrentUser() 
+        else { return }
+        
+        self.name = user.name ?? ""
+        self.phone = user.phone_number ?? ""
+    }
+    
+    func updateUser() {
         Task {
-            do {
-                let user = try await bLinkup.getCurrentUser()
-                self.name = user.name ?? ""
-                self.phone = user.phone_number ?? ""
-            } catch {
-                print(error)
-            }
+            guard let update = try? await bLinkup.updateUser(name: name, email: "")
+            else { return }
+            
+            self.name = update.name ?? ""
+            showSaveButton = false
         }
     }
 }

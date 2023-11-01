@@ -70,7 +70,11 @@ class ConnectionsViewController: UIViewController,
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         cell.accessoryType = .disclosureIndicator
         cell.selectionStyle = .none
-        cell.textLabel?.text = obj.id
+        if bLinkup.user?.id == obj.source.id {
+            cell.textLabel?.text = obj.target.name ?? "?"
+        } else {
+            cell.textLabel?.text = obj.source.name ?? "?"
+        }
         cell.detailTextLabel?.text =
         (obj.source.phone_number ?? "?")
         + " -> "
