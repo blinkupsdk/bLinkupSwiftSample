@@ -5,8 +5,8 @@
 //  Created on 9/18/23.
 //
 
-import SwiftUI
 import bLinkup
+import SwiftUI
 
 struct ProfileView: View {
     @Binding var isLoggedIn: Bool
@@ -42,7 +42,14 @@ struct ProfileView: View {
                         SearchView()
                             .navigationTitle("Search")
                     }, label: {
-                        Text("Search friends")
+                        Text("Search")
+                    })
+                    
+                    NavigationLink(destination: {
+                        MatchingPhoneBookView()
+                            .navigationTitle("Mathching phonebook")
+                    }, label: {
+                        Text("Search using phonebook")
                     })
                     
                     NavigationLink(destination: {
@@ -63,6 +70,7 @@ struct ProfileView: View {
                 Section(header: Text("More Information")) {
                     Link("Privacy Policy", destination: URL(string: "https://www.blinkupapp.com/")!)
                     Link("Terms of Service", destination: URL(string: "https://www.blinkupapp.com/")!)
+                    Link("App settings", destination: URL(string: UIApplication.openSettingsURLString)!)
                 }
                 
                 Section(header: Text("Account Actions")) {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB0D698F2AF5502F00307594 /* bLinkup in Frameworks */ = {isa = PBXBuildFile; productRef = EB0D698E2AF5502F00307594 /* bLinkup */; };
 		EB10F14E2AF00754006D8DC8 /* DemoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F14D2AF00754006D8DC8 /* DemoAppApp.swift */; };
 		EB10F1502AF00754006D8DC8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F14F2AF00754006D8DC8 /* ContentView.swift */; };
 		EB10F1522AF00756006D8DC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB10F1512AF00756006D8DC8 /* Assets.xcassets */; };
@@ -36,7 +37,7 @@
 		EB832C632AF04BE1008B4F5C /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C622AF04BE1008B4F5C /* EventsView.swift */; };
 		EB832C652AF0516E008B4F5C /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C642AF0516E008B4F5C /* EventCell.swift */; };
 		EBA86E512AF28A7A0091EF63 /* EventMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA86E502AF28A7A0091EF63 /* EventMenu.swift */; };
-		EBF480092AF2B7510010030D /* bLinkup in Frameworks */ = {isa = PBXBuildFile; productRef = EBF480082AF2B7510010030D /* bLinkup */; };
+		EBF480192AF2C1490010030D /* MatchingPhoneBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF480182AF2C1490010030D /* MatchingPhoneBookView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = EB10F1492AF00754006D8DC8;
 			remoteInfo = DemoApp;
+		};
+		EBF4800F2AF2B9B20010030D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBF4800A2AF2B9B20010030D /* bLinkup.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B4BD2ACE258CA6FF007371E2;
+			remoteInfo = bLinkup;
+		};
+		EBF480112AF2B9B20010030D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBF4800A2AF2B9B20010030D /* bLinkup.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B4BD2B11258CA7DF007371E2;
+			remoteInfo = bLinkupTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -77,6 +92,7 @@
 		EB10F1982AF00EC5006D8DC8 /* bLinkup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = bLinkup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB10F19C2AF00F0B006D8DC8 /* PresenceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresenceView.swift; sourceTree = "<group>"; };
 		EB10F19D2AF00F0B006D8DC8 /* PresenceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresenceCell.swift; sourceTree = "<group>"; };
+		EB520DE42AF32FE300BDDCF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EB832C4A2AF02D68008B4F5C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		EB832C4B2AF02D68008B4F5C /* VenueMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueMapVC.swift; sourceTree = "<group>"; };
 		EB832C4C2AF02D68008B4F5C /* PlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +107,8 @@
 		EB832C622AF04BE1008B4F5C /* EventsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
 		EB832C642AF0516E008B4F5C /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		EBA86E502AF28A7A0091EF63 /* EventMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMenu.swift; sourceTree = "<group>"; };
+		EBF4800A2AF2B9B20010030D /* bLinkup.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = bLinkup.xcodeproj; path = ../_SDK/bLinkup.xcodeproj; sourceTree = "<group>"; };
+		EBF480182AF2C1490010030D /* MatchingPhoneBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingPhoneBookView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBF480092AF2B7510010030D /* bLinkup in Frameworks */,
+				EB0D698F2AF5502F00307594 /* bLinkup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +161,7 @@
 		EB10F14C2AF00754006D8DC8 /* DemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				EB520DE42AF32FE300BDDCF1 /* Info.plist */,
 				EB10F14D2AF00754006D8DC8 /* DemoAppApp.swift */,
 				EB10F1772AF00780006D8DC8 /* Resources */,
 				EB10F1812AF009DE006D8DC8 /* UI */,
@@ -216,6 +235,7 @@
 				EB10F19C2AF00F0B006D8DC8 /* PresenceView.swift */,
 				EB10F19D2AF00F0B006D8DC8 /* PresenceCell.swift */,
 				EB10F18E2AF00B7D006D8DC8 /* ProfileView.swift */,
+				EBF480182AF2C1490010030D /* MatchingPhoneBookView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -231,6 +251,7 @@
 		EB10F1932AF00D8F006D8DC8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EBF4800A2AF2B9B20010030D /* bLinkup.xcodeproj */,
 				EB10F1982AF00EC5006D8DC8 /* bLinkup.framework */,
 				EB10F1942AF00D8F006D8DC8 /* bLinkup.framework */,
 			);
@@ -255,6 +276,15 @@
 			path = MainKit;
 			sourceTree = "<group>";
 		};
+		EBF4800B2AF2B9B20010030D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EBF480102AF2B9B20010030D /* bLinkup.framework */,
+				EBF480122AF2B9B20010030D /* bLinkupTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -272,7 +302,7 @@
 			);
 			name = DemoApp;
 			packageProductDependencies = (
-				EBF480082AF2B7510010030D /* bLinkup */,
+				EB0D698E2AF5502F00307594 /* bLinkup */,
 			);
 			productName = DemoApp;
 			productReference = EB10F14A2AF00754006D8DC8 /* DemoApp.app */;
@@ -347,10 +377,16 @@
 			);
 			mainGroup = EB10F1412AF00754006D8DC8;
 			packageReferences = (
-				EBF480072AF2B7510010030D /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */,
+				EB0D698D2AF5502F00307594 /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */,
 			);
 			productRefGroup = EB10F14B2AF00754006D8DC8 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = EBF4800B2AF2B9B20010030D /* Products */;
+					ProjectRef = EBF4800A2AF2B9B20010030D /* bLinkup.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				EB10F1492AF00754006D8DC8 /* DemoApp */,
@@ -359,6 +395,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		EBF480102AF2B9B20010030D /* bLinkup.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = bLinkup.framework;
+			remoteRef = EBF4800F2AF2B9B20010030D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EBF480122AF2B9B20010030D /* bLinkupTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = bLinkupTests.xctest;
+			remoteRef = EBF480112AF2B9B20010030D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		EB10F1482AF00754006D8DC8 /* Resources */ = {
@@ -393,6 +446,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB10F18F2AF00B7D006D8DC8 /* ProfileView.swift in Sources */,
+				EBF480192AF2C1490010030D /* MatchingPhoneBookView.swift in Sources */,
 				EB832C5F2AF02DAA008B4F5C /* UIViewController+Error.swift in Sources */,
 				EB10F1A02AF014AB006D8DC8 /* StartView.swift in Sources */,
 				EB10F1502AF00754006D8DC8 /* ContentView.swift in Sources */,
@@ -576,11 +630,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DemoApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = bLinkupSample;
 				INFOPLIST_KEY_NSContactsUsageDescription = "To connect you with your friends";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "To connect you with your friends";
@@ -615,11 +670,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DemoApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = bLinkupSample;
 				INFOPLIST_KEY_NSContactsUsageDescription = "To connect you with your friends";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "To connect you with your friends";
@@ -766,20 +822,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		EBF480072AF2B7510010030D /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */ = {
+		EB0D698D2AF5502F00307594 /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/blinkupsdk/bLinkupSwiftSDK";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.1;
+				version = 1.0.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EBF480082AF2B7510010030D /* bLinkup */ = {
+		EB0D698E2AF5502F00307594 /* bLinkup */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EBF480072AF2B7510010030D /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */;
+			package = EB0D698D2AF5502F00307594 /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */;
 			productName = bLinkup;
 		};
 /* End XCSwiftPackageProductDependency section */

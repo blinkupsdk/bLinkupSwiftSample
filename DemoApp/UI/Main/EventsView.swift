@@ -27,11 +27,16 @@ struct EventsView: View {
                     HStack {
                         ForEach(places ?? [], id: \.id) { place in
                             EventCell(place: place)
-                                .background(
+                                .background(content: {
                                     RoundedRectangle(cornerRadius: 10)
-                                        .fill( place == self.place ? .green : .blue)
-                                        .opacity(0.3)
-                                )
+                                        .stroke(place == self.place ? .green : .clear, lineWidth: 2)
+                                        .background {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .fill( place == self.place ? .green : .blue)
+                                                .opacity(0.3)
+                                        }
+                                })
+                                .padding(.all, 2)
                                 .onTapGesture {
                                     self.place = place
                                 }

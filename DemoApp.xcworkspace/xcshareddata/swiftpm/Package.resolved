@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/blinkupsdk/bLinkupSwiftSDK",
       "state" : {
-        "revision" : "fecbfdf31fd6e123eb1a2e6a3f24df52cb19b685",
-        "version" : "1.0.1"
+        "revision" : "d8a882c01cd601537b43ddeaf3f68e99f0901031",
+        "version" : "1.0.2"
       }
     }
   ],

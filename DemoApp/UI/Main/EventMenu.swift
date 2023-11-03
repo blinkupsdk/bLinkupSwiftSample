@@ -12,8 +12,6 @@ struct EventMenu: View {
     let place: Place?
     
     @Binding var isLoading: Bool
-    
-    //                    "lasso", "map", "person.wave.2")
 
     var body: some View {
         VStack(spacing: 10) {
@@ -34,7 +32,7 @@ struct EventMenu: View {
                 Text("Presence")
                     .padding()
                     .padding(.horizontal)
-                    .background(Capsule().fill(.gray))
+                    .background(RoundedRectangle(cornerRadius: 20).fill(.gray.opacity(0.5)))
             })
             
             NavigationLink(destination: {
@@ -43,7 +41,7 @@ struct EventMenu: View {
                 Text("Venue map")
                     .padding()
                     .padding(.horizontal)
-                    .background(Capsule().fill(.gray))
+                    .background(RoundedRectangle(cornerRadius: 20).fill(.gray.opacity(0.5)))
             })
             
             NavigationLink(destination: {
@@ -53,7 +51,7 @@ struct EventMenu: View {
                 Text("Tracking for devs")
                     .padding()
                     .padding(.horizontal)
-                    .background(Capsule().fill(.gray))
+                    .background(RoundedRectangle(cornerRadius: 20).fill(.gray.opacity(0.5)))
             })
 
         }
@@ -104,9 +102,13 @@ struct MenuButton: View {
                 Text(title)
             }
         })
+        .frame(width: 100)
         .padding()
-        .padding(.horizontal)
-        .background(Capsule().fill(.gray))
-        .frame(width: 130)
+        .overlay(
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(.black)
+                .shadow(color: .black.opacity(0.5), radius: 7, x: 0, y: 3)
+        )
+
     }
 }
