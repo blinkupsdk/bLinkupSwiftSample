@@ -40,7 +40,7 @@ struct TabbarView: View {
                 }
 
                 NavigationStack {
-                    ProfileView(isLoggedIn: $isLoggedIn)
+                    SettingsView(isLoggedIn: $isLoggedIn)
                 }
                 .tabItem {
                     Label("Profile", systemImage: "gearshape")
