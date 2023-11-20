@@ -604,7 +604,7 @@
         <!--Map-->
         <scene sceneID="RwH-ch-Exw">
             <objects>
-                <viewController storyboardIdentifier="VenueMapVC" id="tPj-U9-gdj" customClass="VenueMapVC" customModule="DemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VenueMapVC" automaticallyAdjustsScrollViewInsets="NO" id="tPj-U9-gdj" customClass="VenueMapVC" customModule="DemoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pVC-K9-8ZX">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -635,7 +635,7 @@
                             <constraint firstItem="Ifn-gQ-e7x" firstAttribute="bottom" secondItem="Y1b-kg-LKq" secondAttribute="bottom" id="f7H-CO-sB4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Map" id="z6b-8K-gi0"/>
+                    <navigationItem key="navigationItem" title="Map" style="browser" id="z6b-8K-gi0"/>
                     <connections>
                         <outlet property="imageView" destination="zFK-5D-3v6" id="FMf-54-N30"/>
                         <outlet property="scrollView" destination="Y1b-kg-LKq" id="tS5-7z-7ai"/>

@@ -12,7 +12,7 @@ struct EventMenu: View {
     let place: Place?
     
     @Binding var isLoading: Bool
-
+    
     var body: some View {
         VStack(spacing: 10) {
             HStack {
@@ -54,6 +54,16 @@ struct EventMenu: View {
                     .background(RoundedRectangle(cornerRadius: 20).fill(.gray.opacity(0.5)))
             })
 
+            NavigationLink(destination: {
+                VenueMapView2(place: place)
+                    .navigationBarTitleDisplayMode(.inline)
+            }, label: {
+                Text("map2")
+                    .padding()
+                    .padding(.horizontal)
+                    .background(RoundedRectangle(cornerRadius: 20).fill(.gray.opacity(0.5)))
+            })
+            
         }
         .padding(.vertical)
         .foregroundColor(.black)

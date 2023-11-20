@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EB0D698F2AF5502F00307594 /* bLinkup in Frameworks */ = {isa = PBXBuildFile; productRef = EB0D698E2AF5502F00307594 /* bLinkup */; };
 		EB10F14E2AF00754006D8DC8 /* DemoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F14D2AF00754006D8DC8 /* DemoAppApp.swift */; };
 		EB10F1502AF00754006D8DC8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F14F2AF00754006D8DC8 /* ContentView.swift */; };
 		EB10F1522AF00756006D8DC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB10F1512AF00756006D8DC8 /* Assets.xcassets */; };
@@ -23,6 +22,8 @@
 		EB10F19E2AF00F0B006D8DC8 /* PresenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F19C2AF00F0B006D8DC8 /* PresenceView.swift */; };
 		EB10F19F2AF00F0B006D8DC8 /* PresenceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F19D2AF00F0B006D8DC8 /* PresenceCell.swift */; };
 		EB10F1A02AF014AB006D8DC8 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1842AF00A9E006D8DC8 /* StartView.swift */; };
+		EB52ACBA2B05368F00A2DB1F /* VenueMapView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB52ACB92B05368F00A2DB1F /* VenueMapView2.swift */; };
+		EB6E64872AFE944600DA2312 /* bLinkup in Frameworks */ = {isa = PBXBuildFile; productRef = EB6E64862AFE944600DA2312 /* bLinkup */; };
 		EB832C542AF02D69008B4F5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB832C4A2AF02D68008B4F5C /* Main.storyboard */; };
 		EB832C552AF02D69008B4F5C /* VenueMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C4B2AF02D68008B4F5C /* VenueMapVC.swift */; };
 		EB832C562AF02D69008B4F5C /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C4C2AF02D68008B4F5C /* PlacesViewController.swift */; };
@@ -38,6 +39,8 @@
 		EB832C652AF0516E008B4F5C /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C642AF0516E008B4F5C /* EventCell.swift */; };
 		EBA86E512AF28A7A0091EF63 /* EventMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA86E502AF28A7A0091EF63 /* EventMenu.swift */; };
 		EBF480192AF2C1490010030D /* MatchingPhoneBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF480182AF2C1490010030D /* MatchingPhoneBookView.swift */; };
+		EBF592DE2B07BA9000808ACF /* VenueMapShareView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF592DD2B07BA9000808ACF /* VenueMapShareView2.swift */; };
+		EBF592E02B07BE2A00808ACF /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF592DF2B07BE2A00808ACF /* ActivityViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +96,7 @@
 		EB10F19C2AF00F0B006D8DC8 /* PresenceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresenceView.swift; sourceTree = "<group>"; };
 		EB10F19D2AF00F0B006D8DC8 /* PresenceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresenceCell.swift; sourceTree = "<group>"; };
 		EB520DE42AF32FE300BDDCF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		EB52ACB92B05368F00A2DB1F /* VenueMapView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueMapView2.swift; sourceTree = "<group>"; };
 		EB832C4A2AF02D68008B4F5C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		EB832C4B2AF02D68008B4F5C /* VenueMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueMapVC.swift; sourceTree = "<group>"; };
 		EB832C4C2AF02D68008B4F5C /* PlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 		EBA86E502AF28A7A0091EF63 /* EventMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMenu.swift; sourceTree = "<group>"; };
 		EBF4800A2AF2B9B20010030D /* bLinkup.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = bLinkup.xcodeproj; path = ../_SDK/bLinkup.xcodeproj; sourceTree = "<group>"; };
 		EBF480182AF2C1490010030D /* MatchingPhoneBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingPhoneBookView.swift; sourceTree = "<group>"; };
+		EBF592DD2B07BA9000808ACF /* VenueMapShareView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueMapShareView2.swift; sourceTree = "<group>"; };
+		EBF592DF2B07BE2A00808ACF /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB0D698F2AF5502F00307594 /* bLinkup in Frameworks */,
+				EB6E64872AFE944600DA2312 /* bLinkup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +242,9 @@
 				EB10F19D2AF00F0B006D8DC8 /* PresenceCell.swift */,
 				EB10F18E2AF00B7D006D8DC8 /* ProfileView.swift */,
 				EBF480182AF2C1490010030D /* MatchingPhoneBookView.swift */,
+				EB52ACB92B05368F00A2DB1F /* VenueMapView2.swift */,
+				EBF592DD2B07BA9000808ACF /* VenueMapShareView2.swift */,
+				EBF592DF2B07BE2A00808ACF /* ActivityViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -302,7 +311,7 @@
 			);
 			name = DemoApp;
 			packageProductDependencies = (
-				EB0D698E2AF5502F00307594 /* bLinkup */,
+				EB6E64862AFE944600DA2312 /* bLinkup */,
 			);
 			productName = DemoApp;
 			productReference = EB10F14A2AF00754006D8DC8 /* DemoApp.app */;
@@ -377,7 +386,6 @@
 			);
 			mainGroup = EB10F1412AF00754006D8DC8;
 			packageReferences = (
-				EB0D698D2AF5502F00307594 /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */,
 			);
 			productRefGroup = EB10F14B2AF00754006D8DC8 /* Products */;
 			projectDirPath = "";
@@ -449,8 +457,10 @@
 				EBF480192AF2C1490010030D /* MatchingPhoneBookView.swift in Sources */,
 				EB832C5F2AF02DAA008B4F5C /* UIViewController+Error.swift in Sources */,
 				EB10F1A02AF014AB006D8DC8 /* StartView.swift in Sources */,
+				EBF592E02B07BE2A00808ACF /* ActivityViewController.swift in Sources */,
 				EB10F1502AF00754006D8DC8 /* ContentView.swift in Sources */,
 				EB832C592AF02D69008B4F5C /* MyPresenceViewController.swift in Sources */,
+				EB52ACBA2B05368F00A2DB1F /* VenueMapView2.swift in Sources */,
 				EB832C612AF03824008B4F5C /* FriendsPresenceViewController.swift in Sources */,
 				EB832C652AF0516E008B4F5C /* EventCell.swift in Sources */,
 				EB10F1852AF00A9E006D8DC8 /* TabbarView.swift in Sources */,
@@ -464,6 +474,7 @@
 				EBA86E512AF28A7A0091EF63 /* EventMenu.swift in Sources */,
 				EB832C562AF02D69008B4F5C /* PlacesViewController.swift in Sources */,
 				EB832C5B2AF02D69008B4F5C /* TrackViewController.swift in Sources */,
+				EBF592DE2B07BA9000808ACF /* VenueMapShareView2.swift in Sources */,
 				EB10F1922AF00CDA006D8DC8 /* LoadingView.swift in Sources */,
 				EB10F19F2AF00F0B006D8DC8 /* PresenceCell.swift in Sources */,
 				EB832C582AF02D69008B4F5C /* ConnectionRequestsViewController.swift in Sources */,
@@ -821,21 +832,9 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		EB0D698D2AF5502F00307594 /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/blinkupsdk/bLinkupSwiftSDK";
-			requirement = {
-				kind = exactVersion;
-				version = 1.0.2;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		EB0D698E2AF5502F00307594 /* bLinkup */ = {
+		EB6E64862AFE944600DA2312 /* bLinkup */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EB0D698D2AF5502F00307594 /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */;
 			productName = bLinkup;
 		};
 /* End XCSwiftPackageProductDependency section */
