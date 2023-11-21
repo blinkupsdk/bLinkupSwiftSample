@@ -21,7 +21,7 @@ struct MapView: View {
             }
             .accentColor(.blBlue)
         }
-        .navigationTitle("Friends")
+        .navigationTitle("Map")
     }
 }
 
