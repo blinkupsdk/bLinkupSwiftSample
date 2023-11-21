@@ -25,20 +25,22 @@ struct TabbarView: View {
                     Label("Places", systemImage: "photo.stack")
                 }
 
-//                NavigationStack {
-//                    FriendListView()
-//                }
-//                .tabItem {
-//                    Label("", systemImage: "person.3")
-//                }
+                NavigationStack {
+                    MyPresenceView()
+                        .navigationTitle("Presence")
+                }
+                .tabItem {
+                    Label("My Presence", systemImage: "person.3")
+                }
+
+                NavigationStack {
+                    MapListView()
+                        .navigationTitle("Map")
+                }
+                .tabItem {
+                    Label("Map", systemImage: "map")
+                }
 //
-//                NavigationStack {
-//                    StadiumView()
-//                        .tabItem {
-//                            Label("", systemImage: "map")
-//                        }
-//                }
-//                
 //                NavigationStack {
 //                    SearchView()
 //                        .tabItem {
