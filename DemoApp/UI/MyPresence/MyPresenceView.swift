@@ -34,7 +34,6 @@ struct MyPresenceView: View {
                         actionsHeader()
                             .frame(maxWidth: .infinity)
                     })
-                    .listRowBackground(Color.clear)
                 }
                 .refreshable(action: {
                     loadData()

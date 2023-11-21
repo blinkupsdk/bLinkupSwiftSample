@@ -19,10 +19,11 @@ struct TabbarView: View {
             
             TabView {
                 NavigationStack {
-                    EventsView()
+                    FriendsView()
+                        .navigationTitle("Friends")
                 }
                 .tabItem {
-                    Label("Places", systemImage: "photo.stack")
+                    Label("Friends", systemImage: "person.3")
                 }
 
                 NavigationStack {
@@ -30,7 +31,7 @@ struct TabbarView: View {
                         .navigationTitle("Presence")
                 }
                 .tabItem {
-                    Label("My Presence", systemImage: "person.3")
+                    Label("Presence", systemImage: "location.fill")
                 }
 
                 NavigationStack {
@@ -40,19 +41,12 @@ struct TabbarView: View {
                 .tabItem {
                     Label("Map", systemImage: "map")
                 }
-//
-//                NavigationStack {
-//                    SearchView()
-//                        .tabItem {
-//                            Label("", systemImage: "person.badge.plus")
-//                        }
-//                }
-//                
+
                 NavigationStack {
-                    ProfileView(isLoggedIn: $isLoggedIn)
+                    SettingsView(isLoggedIn: $isLoggedIn)
                 }
                 .tabItem {
-                    Label("Profile", systemImage: "gearshape")
+                    Label("Settings", systemImage: "gearshape")
                 }
             }
         }
