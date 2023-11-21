@@ -26,14 +26,14 @@ struct TabbarView: View {
                 }
 
                 NavigationStack {
-
+//                  PresenceView()
                 }
                 .tabItem {
                     Label("Presence", systemImage: "location.fill")
                 }
                 
                 NavigationStack {
-
+                    MapView(isLoggedIn: $isLoggedIn)
                 }
                 .tabItem {
                     Label("Map", systemImage: "map.fill")
