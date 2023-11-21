@@ -19,21 +19,21 @@ struct TabbarView: View {
             
             TabView {
                 NavigationStack {
-                    EventsView()
+                    FriendsView(isLoggedIn: $isLoggedIn)
                 }
                 .tabItem {
                     Label("Friends", systemImage: "person.3")
                 }
 
                 NavigationStack {
-//                  FriendListView()
+
                 }
                 .tabItem {
                     Label("Presence", systemImage: "location.fill")
                 }
-//
+                
                 NavigationStack {
-//                  StadiumView()
+
                 }
                 .tabItem {
                     Label("Map", systemImage: "map.fill")

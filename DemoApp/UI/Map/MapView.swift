@@ -1,5 +1,5 @@
 //
-//  FriendsView.swift
+//  MapView.swift
 //  DemoApp
 //
 //  Created by Surielis Rodriguez on 11/20/23.
@@ -10,7 +10,7 @@ import SwiftUI
 import bLinkup
 import SwiftUI
 
-struct FriendsView: View {
+struct MapView: View {
     @Binding var isLoggedIn: Bool
     
 
@@ -26,5 +26,5 @@ struct FriendsView: View {
 }
 
 #Preview {
-    FriendsView(isLoggedIn: .constant(true))
+    MapView(isLoggedIn: .constant(true))
 }
