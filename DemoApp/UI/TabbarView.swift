@@ -22,28 +22,28 @@ struct TabbarView: View {
                     EventsView()
                 }
                 .tabItem {
-                    Label("Places", systemImage: "person.3")
+                    Label("Friends", systemImage: "person.3")
                 }
 
                 NavigationStack {
 //                  FriendListView()
                 }
                 .tabItem {
-                    Label("", systemImage: "location.fill")
+                    Label("Presence", systemImage: "location.fill")
                 }
 //
                 NavigationStack {
 //                  StadiumView()
                 }
                 .tabItem {
-                    Label("", systemImage: "map.fill")
+                    Label("Map", systemImage: "map.fill")
                 }
 
                 NavigationStack {
                     SettingsView(isLoggedIn: $isLoggedIn)
                 }
                 .tabItem {
-                    Label("Profile", systemImage: "gearshape")
+                    Label("Settings", systemImage: "gearshape")
                 }
             }
         }
