@@ -11,8 +11,6 @@ import bLinkup
 import SwiftUI
 
 struct MapView: View {
-    @Binding var isLoggedIn: Bool
-    
 
     var body: some View {
         ZStack {
@@ -26,5 +24,5 @@ struct MapView: View {
 }
 
 #Preview {
-    MapView(isLoggedIn: .constant(true))
+    MapView()
 }

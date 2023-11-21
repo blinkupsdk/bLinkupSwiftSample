@@ -11,8 +11,6 @@ import bLinkup
 import SwiftUI
 
 struct FriendsView: View {
-    @Binding var isLoggedIn: Bool
-    
 
     var body: some View {
         ZStack {
@@ -26,5 +24,5 @@ struct FriendsView: View {
 }
 
 #Preview {
-    FriendsView(isLoggedIn: .constant(true))
+    FriendsView()
 }
