@@ -25,16 +25,12 @@
 		EB6B77842B0C1AAB00AD8EC7 /* MapListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6B77832B0C1AAB00AD8EC7 /* MapListView.swift */; };
 		EB6DF24B2B0D10CC0036A428 /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6DF24A2B0D10CC0036A428 /* FriendsView.swift */; };
 		EB6DF24E2B0D11750036A428 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6DF24D2B0D11750036A428 /* SettingsView.swift */; };
-		EB6DF2512B0D118E0036A428 /* bLinkup in Frameworks */ = {isa = PBXBuildFile; productRef = EB6DF2502B0D118E0036A428 /* bLinkup */; };
-		EB6DF2542B0D15B20036A428 /* bLinkup in Frameworks */ = {isa = PBXBuildFile; productRef = EB6DF2532B0D15B20036A428 /* bLinkup */; };
 		EB7F3F102B0C228D004CC2D8 /* MyPresenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F3F0F2B0C228D004CC2D8 /* MyPresenceView.swift */; };
 		EB7F3F122B0C24A4004CC2D8 /* MyPresenceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F3F112B0C24A4004CC2D8 /* MyPresenceCell.swift */; };
 		EB832C542AF02D69008B4F5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB832C4A2AF02D68008B4F5C /* Main.storyboard */; };
 		EB832C552AF02D69008B4F5C /* VenueMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C4B2AF02D68008B4F5C /* VenueMapVC.swift */; };
 		EB832C562AF02D69008B4F5C /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C4C2AF02D68008B4F5C /* PlacesViewController.swift */; };
-		EB832C572AF02D69008B4F5C /* ConnectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C4D2AF02D69008B4F5C /* ConnectionsViewController.swift */; };
 		EB832C582AF02D69008B4F5C /* ConnectionRequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C4E2AF02D69008B4F5C /* ConnectionRequestsViewController.swift */; };
-		EB832C592AF02D69008B4F5C /* MyPresenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C4F2AF02D69008B4F5C /* MyPresenceViewController.swift */; };
 		EB832C5B2AF02D69008B4F5C /* TrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C512AF02D69008B4F5C /* TrackViewController.swift */; };
 		EB832C5C2AF02D69008B4F5C /* VenueMapShareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C522AF02D69008B4F5C /* VenueMapShareVC.swift */; };
 		EB832C5D2AF02D69008B4F5C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C532AF02D69008B4F5C /* SearchViewController.swift */; };
@@ -43,6 +39,10 @@
 		EB832C632AF04BE1008B4F5C /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C622AF04BE1008B4F5C /* EventsView.swift */; };
 		EB832C652AF0516E008B4F5C /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C642AF0516E008B4F5C /* EventCell.swift */; };
 		EBA86E512AF28A7A0091EF63 /* EventMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA86E502AF28A7A0091EF63 /* EventMenu.swift */; };
+		EBB8F1AF2B10E3A200E782EA /* ConnectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB8F1AE2B10E3A200E782EA /* ConnectionCell.swift */; };
+		EBB8F1B02B10ECE000E782EA /* bLinkup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF480102AF2B9B20010030D /* bLinkup.framework */; };
+		EBB8F1B12B10ECE000E782EA /* bLinkup.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EBF480102AF2B9B20010030D /* bLinkup.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EBB8F1B42B10FC0000E782EA /* ConnectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB8F1B32B10FC0000E782EA /* ConnectionsViewController.swift */; };
 		EBF480192AF2C1490010030D /* MatchingPhoneBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF480182AF2C1490010030D /* MatchingPhoneBookView.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +77,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		EBB8F1B22B10ECE000E782EA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EBB8F1B12B10ECE000E782EA /* bLinkup.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		EB10F14A2AF00754006D8DC8 /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB10F14D2AF00754006D8DC8 /* DemoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAppApp.swift; sourceTree = "<group>"; };
@@ -107,9 +121,7 @@
 		EB832C4A2AF02D68008B4F5C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		EB832C4B2AF02D68008B4F5C /* VenueMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueMapVC.swift; sourceTree = "<group>"; };
 		EB832C4C2AF02D68008B4F5C /* PlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
-		EB832C4D2AF02D69008B4F5C /* ConnectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionsViewController.swift; sourceTree = "<group>"; };
 		EB832C4E2AF02D69008B4F5C /* ConnectionRequestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionRequestsViewController.swift; sourceTree = "<group>"; };
-		EB832C4F2AF02D69008B4F5C /* MyPresenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPresenceViewController.swift; sourceTree = "<group>"; };
 		EB832C512AF02D69008B4F5C /* TrackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackViewController.swift; sourceTree = "<group>"; };
 		EB832C522AF02D69008B4F5C /* VenueMapShareVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueMapShareVC.swift; sourceTree = "<group>"; };
 		EB832C532AF02D69008B4F5C /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +130,8 @@
 		EB832C622AF04BE1008B4F5C /* EventsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
 		EB832C642AF0516E008B4F5C /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		EBA86E502AF28A7A0091EF63 /* EventMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMenu.swift; sourceTree = "<group>"; };
+		EBB8F1AE2B10E3A200E782EA /* ConnectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionCell.swift; sourceTree = "<group>"; };
+		EBB8F1B32B10FC0000E782EA /* ConnectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionsViewController.swift; sourceTree = "<group>"; };
 		EBF4800A2AF2B9B20010030D /* bLinkup.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = bLinkup.xcodeproj; path = ../_SDK/bLinkup.xcodeproj; sourceTree = "<group>"; };
 		EBF480182AF2C1490010030D /* MatchingPhoneBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingPhoneBookView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,8 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB6DF2542B0D15B20036A428 /* bLinkup in Frameworks */,
-				EB6DF2512B0D118E0036A428 /* bLinkup in Frameworks */,
+				EBB8F1B02B10ECE000E782EA /* bLinkup.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				EB6DF24A2B0D10CC0036A428 /* FriendsView.swift */,
+				EBB8F1AE2B10E3A200E782EA /* ConnectionCell.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -310,14 +324,13 @@
 		EB832C312AF01D89008B4F5C /* MainKit */ = {
 			isa = PBXGroup;
 			children = (
+				EBB8F1B32B10FC0000E782EA /* ConnectionsViewController.swift */,
 				EB832C532AF02D69008B4F5C /* SearchViewController.swift */,
 				EB832C4E2AF02D69008B4F5C /* ConnectionRequestsViewController.swift */,
-				EB832C4D2AF02D69008B4F5C /* ConnectionsViewController.swift */,
 				EB832C4B2AF02D68008B4F5C /* VenueMapVC.swift */,
 				EB832C522AF02D69008B4F5C /* VenueMapShareVC.swift */,
 				EB832C512AF02D69008B4F5C /* TrackViewController.swift */,
 				EB832C4A2AF02D68008B4F5C /* Main.storyboard */,
-				EB832C4F2AF02D69008B4F5C /* MyPresenceViewController.swift */,
 				EB832C4C2AF02D68008B4F5C /* PlacesViewController.swift */,
 				EB832C602AF03824008B4F5C /* FriendsPresenceViewController.swift */,
 				EB832C5E2AF02DAA008B4F5C /* UIViewController+Error.swift */,
@@ -344,6 +357,7 @@
 				EB10F1462AF00754006D8DC8 /* Sources */,
 				EB10F1472AF00754006D8DC8 /* Frameworks */,
 				EB10F1482AF00754006D8DC8 /* Resources */,
+				EBB8F1B22B10ECE000E782EA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -351,8 +365,6 @@
 			);
 			name = DemoApp;
 			packageProductDependencies = (
-				EB6DF2502B0D118E0036A428 /* bLinkup */,
-				EB6DF2532B0D15B20036A428 /* bLinkup */,
 			);
 			productName = DemoApp;
 			productReference = EB10F14A2AF00754006D8DC8 /* DemoApp.app */;
@@ -427,7 +439,6 @@
 			);
 			mainGroup = EB10F1412AF00754006D8DC8;
 			packageReferences = (
-				EB6DF2522B0D15B20036A428 /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */,
 			);
 			productRefGroup = EB10F14B2AF00754006D8DC8 /* Products */;
 			projectDirPath = "";
@@ -499,13 +510,13 @@
 				EBF480192AF2C1490010030D /* MatchingPhoneBookView.swift in Sources */,
 				EB832C5F2AF02DAA008B4F5C /* UIViewController+Error.swift in Sources */,
 				EB10F1A02AF014AB006D8DC8 /* StartView.swift in Sources */,
+				EBB8F1B42B10FC0000E782EA /* ConnectionsViewController.swift in Sources */,
 				EB10F1502AF00754006D8DC8 /* ContentView.swift in Sources */,
 				EB7F3F102B0C228D004CC2D8 /* MyPresenceView.swift in Sources */,
-				EB832C592AF02D69008B4F5C /* MyPresenceViewController.swift in Sources */,
 				EB832C612AF03824008B4F5C /* FriendsPresenceViewController.swift in Sources */,
 				EB832C652AF0516E008B4F5C /* EventCell.swift in Sources */,
+				EBB8F1AF2B10E3A200E782EA /* ConnectionCell.swift in Sources */,
 				EB10F1852AF00A9E006D8DC8 /* TabbarView.swift in Sources */,
-				EB832C572AF02D69008B4F5C /* ConnectionsViewController.swift in Sources */,
 				EB832C632AF04BE1008B4F5C /* EventsView.swift in Sources */,
 				EB10F18A2AF00AF0006D8DC8 /* UserView.swift in Sources */,
 				EB832C5C2AF02D69008B4F5C /* VenueMapShareVC.swift in Sources */,
@@ -685,7 +696,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -725,7 +736,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -875,29 +886,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		EB6DF2522B0D15B20036A428 /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/blinkupsdk/bLinkupSwiftSDK";
-			requirement = {
-				kind = exactVersion;
-				version = 1.0.3;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		EB6DF2502B0D118E0036A428 /* bLinkup */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = bLinkup;
-		};
-		EB6DF2532B0D15B20036A428 /* bLinkup */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EB6DF2522B0D15B20036A428 /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */;
-			productName = bLinkup;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EB10F1422AF00754006D8DC8 /* Project object */;
 }

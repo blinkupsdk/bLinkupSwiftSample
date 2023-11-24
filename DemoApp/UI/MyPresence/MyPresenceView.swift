@@ -17,28 +17,26 @@ struct MyPresenceView: View {
     
     var body: some View {
         ZStack {
-            VStack {
-                List {
-                    Section(content: {
-                        ForEach(presence, id: \.id) { p in
-                            MyPresenceCell(presence: p, isSelected: selection == p)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .background(.gray.opacity(0.001))
-                                .onTapGesture {
-                                    withAnimation {
-                                        selection = p
-                                    }
+            List {
+                Section(content: {
+                    ForEach(presence, id: \.id) { p in
+                        MyPresenceCell(presence: p, isSelected: selection == p)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(.gray.opacity(0.001))
+                            .onTapGesture {
+                                withAnimation {
+                                    selection = p
                                 }
-                        }
-                    }, footer: {
-                        actionsHeader()
-                            .frame(maxWidth: .infinity)
-                    })
-                }
-                .refreshable(action: {
-                    loadData()
+                            }
+                    }
+                }, footer: {
+                    actionsHeader()
+                        .frame(maxWidth: .infinity)
                 })
             }
+            .refreshable(action: {
+                loadData()
+            })
             
             ActivityIndicator(isAnimating: $isLoading, style: .large)
         }
@@ -152,5 +150,6 @@ struct MyPresenceView: View {
                                         place: .init(id: "2", name: "Place2"),
                                         isPresent: false, insertedAt: nil)],
                        isFirstLoading: false)
+        .navigationTitle("Presence")
     }
 }

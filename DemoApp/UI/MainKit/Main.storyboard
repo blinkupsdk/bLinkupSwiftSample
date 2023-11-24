@@ -174,17 +174,11 @@
                                         <rect key="frame" x="0.0" y="105.00000000000001" width="393" height="52.666666666666671"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Connections"/>
-                                        <connections>
-                                            <segue destination="t1I-JL-Toh" kind="show" id="TAj-yx-46N"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vAU-uA-V5T">
                                         <rect key="frame" x="0.0" y="157.66666666666669" width="393" height="52.333333333333343"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="My Presence"/>
-                                        <connections>
-                                            <segue destination="xCU-Nc-Ma9" kind="show" id="aa8-Jw-jIg"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -320,41 +314,6 @@
             </objects>
             <point key="canvasLocation" x="6002" y="-16"/>
         </scene>
-        <!--Connections-->
-        <scene sceneID="NSc-HY-ylj">
-            <objects>
-                <viewController storyboardIdentifier="ConnectionsViewController" id="t1I-JL-Toh" customClass="ConnectionsViewController" customModule="DemoApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="z7F-37-2C8">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ymM-ww-0SH">
-                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="t1I-JL-Toh" id="JVY-NW-oYl"/>
-                                    <outlet property="delegate" destination="t1I-JL-Toh" id="x4o-hH-s1O"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="h6L-Vk-Tsg"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="h6L-Vk-Tsg" firstAttribute="bottom" secondItem="ymM-ww-0SH" secondAttribute="bottom" id="50b-bF-uBF"/>
-                            <constraint firstItem="ymM-ww-0SH" firstAttribute="top" secondItem="h6L-Vk-Tsg" secondAttribute="top" id="6Jm-ct-yaG"/>
-                            <constraint firstItem="h6L-Vk-Tsg" firstAttribute="trailing" secondItem="ymM-ww-0SH" secondAttribute="trailing" id="gXO-64-cHj"/>
-                            <constraint firstItem="ymM-ww-0SH" firstAttribute="leading" secondItem="h6L-Vk-Tsg" secondAttribute="leading" id="nKL-hQ-666"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Connections" id="W75-JY-XIY"/>
-                    <connections>
-                        <outlet property="tableView" destination="ymM-ww-0SH" id="Gsz-me-tHS"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iFQ-NJ-shn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6709" y="-16"/>
-        </scene>
         <!--Places-->
         <scene sceneID="omi-ec-xaE">
             <objects>
@@ -389,59 +348,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sS0-ko-h8U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2798" y="700"/>
-        </scene>
-        <!--My Presence-->
-        <scene sceneID="eCU-Hc-tOd">
-            <objects>
-                <viewController storyboardIdentifier="MyPresenceViewController" id="xCU-Nc-Ma9" customClass="MyPresenceViewController" customModule="DemoApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0bN-YU-K8w">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Lt2-Y2-XXD">
-                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="xCU-Nc-Ma9" id="Vcp-eX-XJH"/>
-                                    <outlet property="delegate" destination="xCU-Nc-Ma9" id="zfn-aL-sQQ"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="mSo-8i-hbS"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="mSo-8i-hbS" firstAttribute="bottom" secondItem="Lt2-Y2-XXD" secondAttribute="bottom" id="6hr-uG-hjJ"/>
-                            <constraint firstItem="Lt2-Y2-XXD" firstAttribute="leading" secondItem="mSo-8i-hbS" secondAttribute="leading" id="VbA-EK-gak"/>
-                            <constraint firstItem="mSo-8i-hbS" firstAttribute="trailing" secondItem="Lt2-Y2-XXD" secondAttribute="trailing" id="uXH-Kk-EzC"/>
-                            <constraint firstItem="Lt2-Y2-XXD" firstAttribute="top" secondItem="mSo-8i-hbS" secondAttribute="top" id="vUZ-Ew-mnz"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="My Presence" id="93J-Nh-9Ez">
-                        <rightBarButtonItems>
-                            <barButtonItem title="Out" width="30" id="m66-Cb-LWD">
-                                <connections>
-                                    <action selector="sendQuit:" destination="xCU-Nc-Ma9" id="R48-4f-rDj"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="In" width="25" id="orW-TL-2nS">
-                                <connections>
-                                    <action selector="sendEnter:" destination="xCU-Nc-Ma9" id="Kk8-ph-ygQ"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="..." width="25" id="ecq-qW-QXp">
-                                <connections>
-                                    <action selector="didTapMenu:" destination="xCU-Nc-Ma9" id="A2S-Pd-rHD"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="tableView" destination="Lt2-Y2-XXD" id="hz1-KM-2bA"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WXw-DJ-RbV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7376" y="-16"/>
         </scene>
         <!--Tracker-->
         <scene sceneID="mw3-Fu-cMw">

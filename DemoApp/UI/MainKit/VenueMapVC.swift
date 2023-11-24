@@ -42,8 +42,6 @@ class VenueMapVC: UIViewController, UIScrollViewDelegate {
         scrollView?.maximumZoomScale = 5
         scrollView?.delegate = self
         
-//        scrollView?.delegate = self
-        
         if place != nil {
             loadMap()
         } else if places != nil {
