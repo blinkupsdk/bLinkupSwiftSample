@@ -53,7 +53,7 @@ struct ProfileView: View {
                     })
                     
                     NavigationLink(destination: {
-                        ConnectionRequestsView()
+                        Text("Requests")
                             .navigationTitle("Friend requests")
                     }, label: {
                         Text("Friend requests")

@@ -12,9 +12,8 @@ import SwiftUI
 
 struct FriendsView: View {
     @State var search: String = ""
-    @State var connections: [Connection] = []
-    @State var presence: [String: Bool] = [:]
-    @State var filtered: [Connection] = []
+    @State var connections: [Record] = []
+    @State var filtered: [Record] = []
     @State var segment = 0
     
     @State private var isLoading = false
@@ -22,7 +21,16 @@ struct FriendsView: View {
     
     @Environment(\.isSearching) private var isSearching
     
-    let mineId = bLinkup.user?.id
+    let myId = bLinkup.user?.id
+    
+    struct Record: Equatable{
+        let connection: Connection
+        let presence: [Place]
+        
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            lhs.connection.id == rhs.connection.id
+        }
+    }
     
     var body: some View {
         ZStack {
@@ -33,41 +41,48 @@ struct FriendsView: View {
                 }
                 .pickerStyle(.segmented)
                 .padding(.horizontal)
-                
-                List {
-                    Section {
-                        ForEach(filtered, id: \.id) {
-                            let opponent = $0.opponent(of: bLinkup.user?.id)
-                            ConnectionCell(user: opponent, isPresent: presence[opponent?.id ?? ""] ?? false)
-                        }
-                    }
-                    if search.isEmpty && !isFirstTime && !isSearching {
-                        Section {
-                            NavigationLink("Match Phone Contacts", destination: {
-                                SearchView()
-                                    .navigationBarTitleDisplayMode(.inline)
-                                    .toolbar(.hidden, for: .tabBar)
-                            })
-                            
-                            NavigationLink("Pending requests",
-                                           destination: ConnectionRequestsView())
-                            
-                            HStack{
-                                Text("Blocked users")
-                                Spacer()
-                                HStack {
-                                    Image(systemName: "crown")
-                                    Text("COMING SOON")
+                    List {
+                        if !filtered.isEmpty {
+                            Section {
+                                ForEach(filtered, id: \.connection.id) {
+                                    let opponent = $0.connection.opponent(of: bLinkup.user?.id)
+                                    ConnectionCell(user: opponent, presence: $0.presence)
                                 }
-                                .font(.system(size: 12))
-                                .foregroundColor(.gray)
                             }
+                        } else if !isFirstTime {
+                            Text("No records")
                         }
-                        .foregroundColor(Color.accentColor)
+                        if search.isEmpty && !isFirstTime && !isSearching {
+                            Section {
+                                NavigationLink("Match Phone Contacts", destination: {
+                                    MatchingPhoneBookView()
+                                        .navigationTitle("Your Contacts")
+                                        .toolbar(.hidden, for: .tabBar)
+                                })
+                                
+                                NavigationLink("Pending requests", destination: {
+                                    RequestsView()
+                                        .navigationTitle("Requests")
+                                        .toolbar(.hidden, for: .tabBar)
+                                })
+                                
+                                HStack{
+                                    Text("Blocked users")
+                                    Spacer()
+                                    HStack {
+                                        Image(systemName: "crown")
+                                        Text("COMING SOON")
+                                    }
+                                    .font(.system(size: 12))
+                                    .foregroundColor(.gray)
+                                }
+                            }
+                            .foregroundColor(Color.accentColor)
+                        }
                     }
-                }
-                .accentColor(.blBlue)
-                .refreshable(action: { loadData() })
+                    .accentColor(.blBlue)
+                    .refreshable(action: { loadData() })
+
             }
             
             LoadingView(isShowing: $isLoading) { Rectangle().fill(.clear) }
@@ -76,6 +91,7 @@ struct FriendsView: View {
         .onAppear(perform: loadFirstTime)
         .onChange(of: search) { _ in updateFiltered() }
         .onChange(of: connections) { _ in updateFiltered() }
+        .onChange(of: segment) { _ in updateFiltered() }
     }
     
     func loadFirstTime() {
@@ -85,20 +101,34 @@ struct FriendsView: View {
     }
     
     func loadData() {
-        isLoading = true
-        bLinkup.getFriendList(completion: {
-            isLoading = false
-            switch $0 {
-            case .failure(let e):
-                print(e)
-            case .success(let list):
-                connections = list
+        Task {
+            do {
+                isLoading = true
+                let connections = try await bLinkup.getFriendList()
+                let places = try await bLinkup.getEvents()
+                var presence = [Presence]()
+                for p in places {
+                    let pr = try await bLinkup.getFriendsAtPlace(p)
+                    presence += pr
+                }
+                let result = connections
+                    .map({ con in
+                        let oppId = con.opponent(of: myId)?.id ?? ""
+                        let places = presence
+                            .filter({ $0.user.id == oppId && $0.isPresent })
+                            .compactMap({ $0.place })
+                        return Record(connection: con, presence: places)
+                    })
+                self.connections = result
+            } catch {
+                print(error)
             }
-        })
+            isLoading = false
+        }
     }
     
     func updateFiltered() {
-        guard let me = bLinkup.user?.id, !search.isEmpty else {
+        guard let myId else {
             filtered = connections
             return
         }
@@ -106,17 +136,14 @@ struct FriendsView: View {
         let search = search.lowercased()
         
         filtered = connections
+            .filter({ segment == 0 ? true : !$0.presence.isEmpty })
             .filter({
-                let opp = $0.source.id == me ? $0.target : $0.source
-                return opp.name?.lowercased().contains(search) == true
-                || opp.phone_number?.contains(search) == true
+                if search.isEmpty { return true }
+                let opp = $0.connection.opponent(of: myId)
+                return opp?.name?.lowercased().contains(search) == true
+                || opp?.phone_number?.contains(search) == true
+                || opp?.id.contains(search) == true
             })
-    }
-}
-
-extension Connection {
-    func opponent(of id: String?) -> User? {
-        target.id == id ? source : target
     }
 }
 

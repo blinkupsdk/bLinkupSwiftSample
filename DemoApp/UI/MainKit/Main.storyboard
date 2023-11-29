@@ -166,9 +166,6 @@
                                         <rect key="frame" x="0.0" y="52.666666666666657" width="393" height="52.333333333333343"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Connection Requests"/>
-                                        <connections>
-                                            <segue destination="emn-DZ-vi3" kind="show" id="dHe-bB-WpU"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYc-rz-ozP">
                                         <rect key="frame" x="0.0" y="105.00000000000001" width="393" height="52.666666666666671"/>
@@ -272,47 +269,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SR7-2Z-Moe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5326" y="-16"/>
-        </scene>
-        <!--Requests-->
-        <scene sceneID="FxP-dj-YaE">
-            <objects>
-                <viewController storyboardIdentifier="ConnectionRequestsViewController" id="emn-DZ-vi3" customClass="ConnectionRequestsViewController" customModule="DemoApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7eo-bq-Q1c">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="WVC-OB-l9B">
-                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="emn-DZ-vi3" id="uM3-dC-Zq9"/>
-                                    <outlet property="delegate" destination="emn-DZ-vi3" id="IfO-wb-Quc"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="c81-kz-7fT"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="c81-kz-7fT" firstAttribute="trailing" secondItem="WVC-OB-l9B" secondAttribute="trailing" id="5Up-yU-Q7g"/>
-                            <constraint firstItem="c81-kz-7fT" firstAttribute="bottom" secondItem="WVC-OB-l9B" secondAttribute="bottom" id="Anf-lj-bXj"/>
-                            <constraint firstItem="WVC-OB-l9B" firstAttribute="leading" secondItem="c81-kz-7fT" secondAttribute="leading" id="IkR-t7-fJn"/>
-                            <constraint firstItem="WVC-OB-l9B" firstAttribute="top" secondItem="c81-kz-7fT" secondAttribute="top" id="wqO-Rt-dun"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Requests" id="w2v-n8-qTZ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vhr-4k-oFn">
-                            <connections>
-                                <action selector="addCustomRequest:" destination="emn-DZ-vi3" id="7gI-ae-3YF"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="tableView" destination="WVC-OB-l9B" id="VnP-bY-LnM"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aGp-Z9-FjO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6002" y="-16"/>
         </scene>
         <!--Places-->
         <scene sceneID="omi-ec-xaE">

@@ -10,10 +10,13 @@ import Contacts
 import SwiftUI
 
 struct MatchingPhoneBookView: View {
-    @State var isLoading: Bool = false
     @State var contacts: [bLinkupContact] = []
     @State var images = [String: Image]()
+
     @State var showActions = false
+    @State var isLoading: Bool = false
+    @State var showAlert: Bool = false
+    @State var alertMessage: String = ""
     
     var body: some View {
         if [CNAuthorizationStatus.denied, .restricted].contains(CNContactStore.authorizationStatus(for: .contacts)) {
@@ -21,8 +24,8 @@ struct MatchingPhoneBookView: View {
                      destination: URL(string: UIApplication.openSettingsURLString)!)
                 .padding()
                 .overlay(
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(.black, lineWidth: 2)
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(.black, lineWidth: 1)
                 )
         } else {
             VStack {
@@ -40,31 +43,42 @@ struct MatchingPhoneBookView: View {
                                 Text(c.phone)
                                     .font(.subheadline)
                             }
-                            .onTapGesture {
-                                showActions = true
-                            }
-                            .confirmationDialog("", isPresented: $showActions, actions: {
-                                Button("Send friend request", action: {
-                                    sendRequest(c)
-                                })
-                            })
                             
                             Spacer()
                         }
                         .frame(maxWidth: .infinity)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            showActions = true
+                        }
+                        .confirmationDialog("", isPresented: $showActions, actions: {
+                            Button("Send friend request", action: {
+                                sendRequest(c)
+                            })
+                        })
                     }
                 }
                 Spacer()
             }
             .onAppear(perform: matchPhonebook)
+            .alert(alertMessage, isPresented: $showAlert) {
+                Button("OK", role: .cancel) { }
+            }
         }
     }
     
     func sendRequest(_ contact: bLinkupContact) {
         guard let user = contact.asUser() else { return }
         isLoading = true
-        bLinkup.sendConnectionRequest(user: user, completion: { _ in
+        bLinkup.sendConnectionRequest(user: user, completion: {
             isLoading = false
+            switch $0 {
+            case .failure(let e):
+                alertMessage = e.localizedDescription
+            case .success:
+                alertMessage = "Sent"
+            }
+            showAlert = true
         })
     }
     

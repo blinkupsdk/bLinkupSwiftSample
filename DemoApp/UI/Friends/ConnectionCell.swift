@@ -10,28 +10,37 @@ import SwiftUI
 
 struct ConnectionCell: View {
     let user: User?
-    let isPresent: Bool
-    
+    let presence: [Place]
+
     var body: some View {
-        HStack {
-            Image(systemName: "person")
-            VStack(alignment: .leading) {
-                Text(user?.name ?? "?")
-                    .bold(isPresent)
-                    .underline(isPresent)
-                    .foregroundStyle(isPresent ? Color.accentColor : .black)
-                
-                Text(user?.phone_number ?? "?")
-                    .foregroundStyle(.gray)
+        let isPresent = !presence.isEmpty
+        VStack(alignment: .leading) {
+            HStack {
+                Image(systemName: "person")
+                VStack(alignment: .leading) {
+                    Text(user?.name ?? "?")
+                        .bold(isPresent)
+                        .underline(isPresent)
+                        .foregroundStyle(isPresent ? Color.accentColor : .black)
+                    
+                    Text(user?.phone_number ?? "?")
+                        .foregroundStyle(.gray)
+                }
+                Spacer()
+                Image(systemName: "mappin.and.ellipse")
+                    .foregroundColor(isPresent ? .accentColor : .gray)
             }
-            Spacer()
-            Image(systemName: "mappin.and.ellipse")
-                .foregroundColor(isPresent ? .accentColor : .gray)
+            ForEach(presence, id: \.id) { presence in
+                Text(presence.name)
+                    .foregroundStyle(.gray)
+                    .font(.system(size: 12))
+                    .padding(.leading, 27)
+            }
         }
         .frame(maxWidth: .infinity)
     }
 }
 
 #Preview {
-    ConnectionCell(user: .init(id: "1", name: "Friend"), isPresent: false)
+    ConnectionCell(user: .init(id: "1", name: "Friend"), presence: [])
 }
