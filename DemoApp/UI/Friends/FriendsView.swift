@@ -23,12 +23,14 @@ struct FriendsView: View {
     
     let myId = bLinkup.user?.id
     
-    struct Record: Equatable{
+    struct Record: Equatable {
         let connection: Connection
         let presence: [Place]
+        let withMe: Bool
         
         public static func == (lhs: Self, rhs: Self) -> Bool {
             lhs.connection.id == rhs.connection.id
+            && lhs.presence == rhs.presence
         }
     }
     
@@ -46,7 +48,7 @@ struct FriendsView: View {
                             Section {
                                 ForEach(filtered, id: \.connection.id) {
                                     let opponent = $0.connection.opponent(of: bLinkup.user?.id)
-                                    ConnectionCell(user: opponent, presence: $0.presence)
+                                    ConnectionCell(user: opponent, presence: $0.presence, withMe: $0.withMe)
                                 }
                             }
                         } else if !isFirstTime {
@@ -104,6 +106,8 @@ struct FriendsView: View {
         Task {
             do {
                 isLoading = true
+                let myPresence = try await bLinkup.getMyPresences()
+                let myPlaceId = myPresence.first(where: { $0.isPresent })?.place?.id
                 let connections = try await bLinkup.getFriendList()
                 let places = try await bLinkup.getEvents()
                 var presence = [Presence]()
@@ -117,7 +121,9 @@ struct FriendsView: View {
                         let places = presence
                             .filter({ $0.user.id == oppId && $0.isPresent })
                             .compactMap({ $0.place })
-                        return Record(connection: con, presence: places)
+                        return Record(connection: con, 
+                                      presence: places,
+                                      withMe: myPlaceId != nil && places.contains(where: { $0.id == myPlaceId }))
                     })
                 self.connections = result
             } catch {

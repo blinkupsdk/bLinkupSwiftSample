@@ -11,24 +11,24 @@ import SwiftUI
 struct ConnectionCell: View {
     let user: User?
     let presence: [Place]
-
+    let withMe: Bool
+    
     var body: some View {
-        let isPresent = !presence.isEmpty
         VStack(alignment: .leading) {
             HStack {
                 Image(systemName: "person")
                 VStack(alignment: .leading) {
                     Text(user?.name ?? "?")
-                        .bold(isPresent)
-                        .underline(isPresent)
-                        .foregroundStyle(isPresent ? Color.accentColor : .black)
+                        .bold(withMe)
+                        .underline(withMe)
+                        .foregroundStyle(withMe ? Color.accentColor : .black)
                     
                     Text(user?.phone_number ?? "?")
                         .foregroundStyle(.gray)
                 }
                 Spacer()
                 Image(systemName: "mappin.and.ellipse")
-                    .foregroundColor(isPresent ? .accentColor : .gray)
+                    .foregroundColor(withMe ? .accentColor : .gray)
             }
             ForEach(presence, id: \.id) { presence in
                 Text(presence.name)
@@ -42,5 +42,5 @@ struct ConnectionCell: View {
 }
 
 #Preview {
-    ConnectionCell(user: .init(id: "1", name: "Friend"), presence: [])
+    ConnectionCell(user: .init(id: "1", name: "Friend"), presence: [], withMe: false)
 }
