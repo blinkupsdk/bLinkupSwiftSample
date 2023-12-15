@@ -20,8 +20,13 @@ struct StartView: View {
     
     @State var isLoading = false
     @State var screenState: ScreenState = .login
+    #if DEBUG
+    @State var mobileNumber: String = "+380951299232"
+    @State var accessToken: String = "123456"
+    #else
     @State var mobileNumber: String = "" //123123"
     @State var accessToken: String = "" //123456"
+    #endif
     @State var showCodeValidator = false
     @State var user: User?
     

@@ -11,7 +11,7 @@ import UIKit
 
 struct VenueMapShareView: UIViewControllerRepresentable {
     @Environment(\.presentationMode) var presentationMode
-    let point: BlinkPoint
+    @Binding var point: BlinkPoint
     
     func makeUIViewController(context: Context) -> VenueMapShareVC {
         return VenueMapShareVC.instantiate(point)

@@ -24,8 +24,8 @@ class VenueMapVC: UIViewController, UIScrollViewDelegate {
     var places: [Place]?
     var place: Place?
     
-    @IBOutlet var scrollView: UIScrollView?
-    @IBOutlet var imageView: UIImageView?
+    @IBOutlet var scrollView: ImageScrollView?
+    var imageView: UIImageView? { scrollView?.zoomView }
     
     static func instantiate(_ place: Place?) -> VenueMapVC {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle(for: VenueMapVC.self))
@@ -36,12 +36,7 @@ class VenueMapVC: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        scrollView?.decelerationRate = .fast
-        scrollView?.minimumZoomScale = 1
-        scrollView?.maximumZoomScale = 5
-        scrollView?.delegate = self
-        
+                        
         if place != nil {
             loadMap()
         } else if places != nil {
@@ -90,8 +85,11 @@ class VenueMapVC: UIViewController, UIScrollViewDelegate {
             else { return }
             
             DispatchQueue.main.async { [weak self] in
-                self?.imageView?.image = image
+                self?.scrollView?.display(image: image)
                 self?.updateBlinkPoints()
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.1, execute: {
+                    self?.updateBlinkPoints()
+                })
             }
         }.resume()
     }
@@ -100,28 +98,38 @@ class VenueMapVC: UIViewController, UIScrollViewDelegate {
         imageView
     }
     
+    @IBAction
     func updateBlinkPoints() {
-        imageView?.subviews.forEach({ $0.removeFromSuperview() })
-        guard let rect = imageView?.contentRect,
+        guard let container = self.imageView,
+              let rect = imageView?.contentRect,
               let iSize = imageView?.image?.size
         else { return }
-
-        imageView?.isUserInteractionEnabled = true
         
+        container.subviews.forEach({ $0.removeFromSuperview() })
+        imageView?.isUserInteractionEnabled = true
+            
+        let icon = UIImage(systemName: "mappin.and.ellipse")?
+            .applyingSymbolConfiguration(.init(pointSize: iSize.width*0.05)) ?? UIImage()
+
+        print("++++")
+        print("rect:", rect)
+        print("image size:", iSize)
+        print("icon size:", icon.size)
+
         place?.blinkpoints?.enumerated().forEach({
-            let icon = UIImage(systemName: "mappin.and.ellipse")?
-                .applyingSymbolConfiguration(.init(pointSize: 25)) ?? UIImage()
             let mark = UIImageView(image: icon)
             
-            let x = ($0.element.x - icon.size.width / 2) / iSize.width * rect.width
-            let y = ($0.element.y - icon.size.height) / iSize.height * rect.height + rect.minY
+            let x = $0.element.x / iSize.width * rect.width
+            let y = $0.element.y / iSize.height * rect.height - icon.size.height/5 + rect.origin.y
             mark.accessibilityIdentifier = "\($0.offset + 1000)"
             let tap = UITapGestureRecognizer(target: self, action: #selector(pinTap(_:)))
             mark.addGestureRecognizer(tap)
             mark.isUserInteractionEnabled = true
             
-            imageView?.addSubview(mark)
+            container.addSubview(mark)
             mark.center = CGPoint(x: x, y: y)
+            
+            print($0.offset, ". (\($0.element.x), \($0.element.y)) -> (\(x), \(y)", $0.element.name)
         })
     }
     
