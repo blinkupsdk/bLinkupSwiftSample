@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB094F542B35A88700E10022 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB094F532B35A88700E10022 /* String+Extensions.swift */; };
+		EB094F5A2B35B0E900E10022 /* FoundUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB094F592B35B0E900E10022 /* FoundUserView.swift */; };
 		EB10F14E2AF00754006D8DC8 /* DemoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F14D2AF00754006D8DC8 /* DemoAppApp.swift */; };
 		EB10F1502AF00754006D8DC8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F14F2AF00754006D8DC8 /* ContentView.swift */; };
 		EB10F1522AF00756006D8DC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB10F1512AF00756006D8DC8 /* Assets.xcassets */; };
@@ -15,7 +17,7 @@
 		EB10F1692AF00756006D8DC8 /* DemoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1682AF00756006D8DC8 /* DemoAppUITests.swift */; };
 		EB10F16B2AF00756006D8DC8 /* DemoAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F16A2AF00756006D8DC8 /* DemoAppUITestsLaunchTests.swift */; };
 		EB10F1852AF00A9E006D8DC8 /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1832AF00A9E006D8DC8 /* TabbarView.swift */; };
-		EB10F18A2AF00AF0006D8DC8 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1872AF00AEF006D8DC8 /* UserView.swift */; };
+		EB10F18A2AF00AF0006D8DC8 /* UserUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1872AF00AEF006D8DC8 /* UserUpdateView.swift */; };
 		EB10F18B2AF00AF0006D8DC8 /* BlinkupHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1882AF00AEF006D8DC8 /* BlinkupHeaderView.swift */; };
 		EB10F1922AF00CDA006D8DC8 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1912AF00CDA006D8DC8 /* LoadingView.swift */; };
 		EB10F1A02AF014AB006D8DC8 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1842AF00A9E006D8DC8 /* StartView.swift */; };
@@ -33,7 +35,6 @@
 		EB832C5F2AF02DAA008B4F5C /* UIViewController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C5E2AF02DAA008B4F5C /* UIViewController+Error.swift */; };
 		EBA712102B30A39F00EB4A70 /* bLinkup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF480102AF2B9B20010030D /* bLinkup.framework */; };
 		EBA712112B30A39F00EB4A70 /* bLinkup.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EBF480102AF2B9B20010030D /* bLinkup.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EBAA5F412B1799470040ADF7 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA5F3E2B1799470040ADF7 /* ActivityViewController.swift */; };
 		EBB4910D2B2C8A8000BD7C78 /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4910C2B2C8A8000BD7C78 /* ImageScrollView.swift */; };
 		EBB8F1AF2B10E3A200E782EA /* ConnectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB8F1AE2B10E3A200E782EA /* ConnectionCell.swift */; };
 		EBB8F1B42B10FC0000E782EA /* ConnectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB8F1B32B10FC0000E782EA /* ConnectionsViewController.swift */; };
@@ -86,6 +87,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EB094F532B35A88700E10022 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		EB094F592B35B0E900E10022 /* FoundUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundUserView.swift; sourceTree = "<group>"; };
 		EB10F14A2AF00754006D8DC8 /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB10F14D2AF00754006D8DC8 /* DemoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAppApp.swift; sourceTree = "<group>"; };
 		EB10F14F2AF00754006D8DC8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,7 +101,7 @@
 		EB10F16A2AF00756006D8DC8 /* DemoAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EB10F1832AF00A9E006D8DC8 /* TabbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 		EB10F1842AF00A9E006D8DC8 /* StartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
-		EB10F1872AF00AEF006D8DC8 /* UserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		EB10F1872AF00AEF006D8DC8 /* UserUpdateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserUpdateView.swift; sourceTree = "<group>"; };
 		EB10F1882AF00AEF006D8DC8 /* BlinkupHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlinkupHeaderView.swift; sourceTree = "<group>"; };
 		EB10F1912AF00CDA006D8DC8 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		EB10F1942AF00D8F006D8DC8 /* bLinkup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = bLinkup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,7 +119,6 @@
 		EB832C512AF02D69008B4F5C /* TrackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackViewController.swift; sourceTree = "<group>"; };
 		EB832C522AF02D69008B4F5C /* VenueMapShareVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueMapShareVC.swift; sourceTree = "<group>"; };
 		EB832C5E2AF02DAA008B4F5C /* UIViewController+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Error.swift"; sourceTree = "<group>"; };
-		EBAA5F3E2B1799470040ADF7 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		EBB4910C2B2C8A8000BD7C78 /* ImageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageScrollView.swift; sourceTree = "<group>"; };
 		EBB8F1AE2B10E3A200E782EA /* ConnectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionCell.swift; sourceTree = "<group>"; };
 		EBB8F1B32B10FC0000E782EA /* ConnectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionsViewController.swift; sourceTree = "<group>"; };
@@ -224,7 +226,6 @@
 				EB7323CA2B167C4400DF6CF1 /* Extensions */,
 				EB10F1902AF00CC9006D8DC8 /* General */,
 				EB10F1822AF009E8006D8DC8 /* Login */,
-				EB10F18D2AF00B46006D8DC8 /* Main */,
 				EB6DF2492B0D10CC0036A428 /* Friends */,
 				EB7F3F0E2B0C2236004CC2D8 /* MyPresence */,
 				EB6B77822B0C1A8B00AD8EC7 /* Map */,
@@ -239,17 +240,9 @@
 			children = (
 				EB10F1842AF00A9E006D8DC8 /* StartView.swift */,
 				EB10F1882AF00AEF006D8DC8 /* BlinkupHeaderView.swift */,
-				EB10F1872AF00AEF006D8DC8 /* UserView.swift */,
+				EB10F1872AF00AEF006D8DC8 /* UserUpdateView.swift */,
 			);
 			path = Login;
-			sourceTree = "<group>";
-		};
-		EB10F18D2AF00B46006D8DC8 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				EBAA5F3E2B1799470040ADF7 /* ActivityViewController.swift */,
-			);
-			path = Main;
 			sourceTree = "<group>";
 		};
 		EB10F1902AF00CC9006D8DC8 /* General */ = {
@@ -285,6 +278,7 @@
 				EBB8F1AE2B10E3A200E782EA /* ConnectionCell.swift */,
 				EBF480182AF2C1490010030D /* MatchingPhoneBookView.swift */,
 				EB7323C82B167AE400DF6CF1 /* RequestsView.swift */,
+				EB094F592B35B0E900E10022 /* FoundUserView.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -301,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				EB7323CB2B167C5500DF6CF1 /* SDK+Extensions.swift */,
+				EB094F532B35A88700E10022 /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -498,7 +493,6 @@
 			files = (
 				EBF480192AF2C1490010030D /* MatchingPhoneBookView.swift in Sources */,
 				EB832C5F2AF02DAA008B4F5C /* UIViewController+Error.swift in Sources */,
-				EBAA5F412B1799470040ADF7 /* ActivityViewController.swift in Sources */,
 				EB10F1A02AF014AB006D8DC8 /* StartView.swift in Sources */,
 				EBB8F1B42B10FC0000E782EA /* ConnectionsViewController.swift in Sources */,
 				EBB4910D2B2C8A8000BD7C78 /* ImageScrollView.swift in Sources */,
@@ -507,7 +501,7 @@
 				EBB8F1AF2B10E3A200E782EA /* ConnectionCell.swift in Sources */,
 				EB10F1852AF00A9E006D8DC8 /* TabbarView.swift in Sources */,
 				EB7323CC2B167C5500DF6CF1 /* SDK+Extensions.swift in Sources */,
-				EB10F18A2AF00AF0006D8DC8 /* UserView.swift in Sources */,
+				EB10F18A2AF00AF0006D8DC8 /* UserUpdateView.swift in Sources */,
 				EB832C5C2AF02D69008B4F5C /* VenueMapShareVC.swift in Sources */,
 				EB6DF24B2B0D10CC0036A428 /* FriendsView.swift in Sources */,
 				EB7323C92B167AE400DF6CF1 /* RequestsView.swift in Sources */,
@@ -516,6 +510,8 @@
 				EB6DF24E2B0D11750036A428 /* SettingsView.swift in Sources */,
 				EB832C5B2AF02D69008B4F5C /* TrackViewController.swift in Sources */,
 				EB6B77842B0C1AAB00AD8EC7 /* MapListView.swift in Sources */,
+				EB094F542B35A88700E10022 /* String+Extensions.swift in Sources */,
+				EB094F5A2B35B0E900E10022 /* FoundUserView.swift in Sources */,
 				EB7F3F122B0C24A4004CC2D8 /* MyPresenceCell.swift in Sources */,
 				EB10F1922AF00CDA006D8DC8 /* LoadingView.swift in Sources */,
 				EB10F14E2AF00754006D8DC8 /* DemoAppApp.swift in Sources */,
@@ -680,7 +676,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -720,7 +716,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;

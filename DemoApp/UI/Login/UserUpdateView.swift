@@ -1,5 +1,5 @@
 //
-//  UserView.swift
+//  UserUpdateView.swift
 //  bLinkupSDKTestShellApp
 //
 //  Created by Michael Rogers on 7/17/23.
@@ -8,7 +8,7 @@
 import SwiftUI
 import bLinkup
 
-struct UserView: View {
+struct UserUpdateView: View {
     @Binding var isLoggedIn: Bool
     
     @State var isLoading: Bool = false
@@ -89,6 +89,6 @@ struct UserView: View {
 
 struct UserView_Previews: PreviewProvider {
     static var previews: some View {
-        UserView(isLoggedIn: .constant(false))
+        UserUpdateView(isLoggedIn: .constant(false))
     }
 }

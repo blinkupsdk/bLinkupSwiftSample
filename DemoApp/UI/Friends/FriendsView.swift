@@ -12,15 +12,15 @@ import SwiftUI
 
 struct FriendsView: View {
     @State var search: String = ""
+    @State var searchResult: [User] = []
     @State var connections: [Record] = []
     @State var filtered: [Record] = []
     @State var segment = 0
     
     @State private var isLoading = false
     @State private var isFirstTime = true
-    
-    @Environment(\.isSearching) private var isSearching
-    
+    @State private var searchTask: Task<(), Error>?
+
     let myId = bLinkup.user?.id
     
     struct Record: Equatable {
@@ -43,55 +43,81 @@ struct FriendsView: View {
                 }
                 .pickerStyle(.segmented)
                 .padding(.horizontal)
-                    List {
+                List {
+                    Section {
                         if !filtered.isEmpty {
-                            Section {
-                                ForEach(filtered, id: \.connection.id) {
-                                    let opponent = $0.connection.opponent(of: bLinkup.user?.id)
-                                    ConnectionCell(user: opponent, presence: $0.presence, withMe: $0.withMe)
-                                }
+                            ForEach(filtered, id: \.connection.id) { c in
+                                let opponent = c.connection.opponent(of: bLinkup.user?.id)
+                                ConnectionCell(user: opponent, presence: c.presence, withMe: c.withMe)
+                                    .contentShape(Rectangle())
+                                    .contextMenu(menuItems: {
+                                        Button("Block") {
+                                            blockUser(c.connection)
+                                        }
+                                    })
                             }
                         } else if !isFirstTime {
-                            Text("No records")
-                        }
-                        if search.isEmpty && !isFirstTime && !isSearching {
-                            Section {
-                                NavigationLink("Match Phone Contacts", destination: {
-                                    MatchingPhoneBookView()
-                                        .navigationTitle("Your Contacts")
-                                        .toolbar(.hidden, for: .tabBar)
-                                })
-                                
-                                NavigationLink("Pending requests", destination: {
-                                    RequestsView()
-                                        .navigationTitle("Requests")
-                                        .toolbar(.hidden, for: .tabBar)
-                                })
-                                
-                                HStack{
-                                    Text("Blocked users")
-                                    Spacer()
-                                    HStack {
-                                        Image(systemName: "crown")
-                                        Text("COMING SOON")
-                                    }
-                                    .font(.system(size: 12))
-                                    .foregroundColor(.gray)
-                                }
-                            }
-                            .foregroundColor(Color.accentColor)
+                            Text("No connections")
                         }
                     }
-                    .accentColor(.blBlue)
-                    .refreshable(action: { loadData() })
-
+                    if search.isEmpty && !isFirstTime {
+                        Section {
+                            NavigationLink("Match Phone Contacts", destination: {
+                                MatchingPhoneBookView()
+                                    .navigationTitle("Your Contacts")
+                                    .toolbar(.hidden, for: .tabBar)
+                            })
+                            
+                            NavigationLink("Pending requests", destination: {
+                                RequestsView()
+                                    .navigationTitle("Requests")
+                                    .toolbar(.hidden, for: .tabBar)
+                            })
+                            
+                            HStack{
+                                Text("Blocked users")
+                                Spacer()
+                                HStack {
+                                    Image(systemName: "crown")
+                                    Text("COMING SOON")
+                                }
+                                .font(.system(size: 12))
+                                .foregroundColor(.gray)
+                            }
+                        }
+                        .foregroundColor(Color.accentColor)
+                    } else if !search.isEmpty && !isFirstTime {
+                        Section {
+                            if searchResult.isEmpty {
+                                Text("Found no users")
+                            } else {
+                                ForEach(searchResult, id: \.id) { u in
+                                    let isConnected = connections.contains(where: { $0.connection.id == u.id })
+                                    FoundUserView(user: u, highlightIcon: !isConnected)
+                                        .contentShape(Rectangle())
+                                        .contextMenu(menuItems: {
+                                            if isConnected {
+                                                EmptyView()
+                                            } else {
+                                                Button("Send friend request") {
+                                                    inviteUser(u)
+                                                }
+                                            }
+                                        })
+                                }
+                            }
+                        }
+                    }
+                }
+                .accentColor(.blBlue)
+                .refreshable(action: { loadData() })
             }
             
             LoadingView(isShowing: $isLoading) { Rectangle().fill(.clear) }
         }
         .searchable(text: $search, prompt: "search for friends")
         .onAppear(perform: loadFirstTime)
-        .onChange(of: search) { _ in updateFiltered() }
+        .onChange(of: search) { _ in updateFiltered(); searchUsers() }
         .onChange(of: connections) { _ in updateFiltered() }
         .onChange(of: segment) { _ in updateFiltered() }
     }
@@ -150,6 +176,30 @@ struct FriendsView: View {
                 || opp?.phone_number?.contains(search) == true
                 || opp?.id.contains(search) == true
             })
+    }
+    
+    func searchUsers() {
+        searchTask?.cancel()
+        guard let s = search.nonEmpty else { return }
+        searchTask = Task {
+            try await Task.sleep(nanoseconds: 70_000_000)
+            searchResult = try await bLinkup.findUsers(query:s)
+        }
+    }
+    
+    func inviteUser(_ user: User) {
+        isLoading = true
+        bLinkup.sendConnectionRequest(user: user, completion: { res in
+            isLoading = false
+        })
+    }
+    
+    func blockUser(_ c: Connection) {
+        isLoading = true
+        bLinkup.updateConnection(c, status: .blocked, completion: { res in
+            isLoading = false
+            loadData()
+        })
     }
 }
 

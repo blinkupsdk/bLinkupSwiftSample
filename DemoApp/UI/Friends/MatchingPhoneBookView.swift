@@ -13,7 +13,6 @@ struct MatchingPhoneBookView: View {
     @State var contacts: [bLinkupContact] = []
     @State var images = [String: Image]()
 
-    @State var showActions = false
     @State var isLoading: Bool = false
     @State var showAlert: Bool = false
     @State var alertMessage: String = ""
@@ -48,10 +47,7 @@ struct MatchingPhoneBookView: View {
                         }
                         .frame(maxWidth: .infinity)
                         .contentShape(Rectangle())
-                        .onTapGesture {
-                            showActions = true
-                        }
-                        .confirmationDialog("", isPresented: $showActions, actions: {
+                        .contextMenu(menuItems: {
                             Button("Send friend request", action: {
                                 sendRequest(c)
                             })

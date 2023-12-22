@@ -46,9 +46,9 @@ struct StartView: View {
                 }
             }
         case .user:
-            UserView(isLoggedIn: $isLoggedIn,
-                     name: user?.name ?? "", 
-                     email: user?.email_address ?? "")
+            UserUpdateView(isLoggedIn: $isLoggedIn,
+                           name: user?.name ?? "", 
+                           email: user?.email_address ?? "")
         }
 
     }

@@ -14,8 +14,6 @@ struct RequestsView: View {
     
     @State var isLoading = false
     @State var isFirstTime = true
-    @State var showActions = false
-    @State var selectedItem: ConnectionRequest?
     @State var showAlert: Bool = false
     @State var alertMessage: String = ""
     
@@ -33,19 +31,13 @@ struct RequestsView: View {
                             Spacer()
                         }
                         .contentShape(Rectangle())
-                        .onTapGesture {
-                            selectedItem = req
-                            showActions = true
-                        }
+                        .contextMenu(menuItems: {
+                            menuForRequest(req)
+                        })
                     }
                 }
                 .accentColor(.blBlue)
                 .refreshable(action: { loadData() })
-                .confirmationDialog("", isPresented: $showActions, actions: {
-                    if let selectedItem {
-                        menuForRequest(selectedItem)
-                    }
-                })
             }
             
             LoadingView(isShowing: $isLoading) { Rectangle().fill(.clear) }
