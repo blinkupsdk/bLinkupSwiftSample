@@ -7,6 +7,7 @@
 
 
 import bLinkup
+import CoreLocation
 import SwiftUI
 import UIKit
 
@@ -22,22 +23,20 @@ struct TrackView: UIViewControllerRepresentable {
 
 
 class TrackViewController: UIViewController,
-    UITableViewDataSource, UITableViewDelegate
+                           UITableViewDataSource, UITableViewDelegate,
+                           CLLocationManagerDelegate
 {
     @IBOutlet var tableView: UITableView?
-    @IBOutlet var xLabel: UILabel?
-    @IBOutlet var yLabel: UILabel?
-    @IBOutlet var radiusLabel: UILabel?
+    @IBOutlet var currentLabel: UILabel?
+    @IBOutlet var nearestNameLabel: UILabel?
+    @IBOutlet var nearestPosLabel: UILabel?
+    @IBOutlet var distanceLabel: UILabel?
     @IBOutlet var log: UITextView?
 
-    var models = [GeoPoint]()
-    var dir = [String: Bool]()
-    var start: GeoPoint?
-    var current: GeoPoint?
-    
-    deinit {
-        bLinkup.stopTracking()
-    }
+    var current: CLLocation?
+    var models = [Presence]() { willSet { addLog(models, newValue) }}
+    var track: String?
+    let manager = CLLocationManager()
     
     static func instantiate() -> TrackViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle(for: TrackViewController.self))
@@ -45,62 +44,65 @@ class TrackViewController: UIViewController,
         return vc
     }
     
+    deinit {
+        if let track { bLinkup.removeTrackingObserver(id: track) }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        startTracking()
+        navigationItem.title = "Geofencing"
+        
+        bLinkup.addGeofencingObserver(handleTrack)
+        manager.delegate = self
+        manager.startUpdatingLocation()
     }
     
-    @IBAction func didTapStart(_ sender: Any? = nil) {
-        startTracking()
-    }
-    
-    @IBAction func didTapStop(_ sender: Any? = nil) {
-        bLinkup.stopTracking()
-    }
-    
-    func startTracking() {
-        bLinkup.startTracking(handler: { [weak self] p, dir in
-            if p.name.starts(with: "start_") { self?.start = p }
-            if p.name == "current" {
-                self?.current = p
-            } else {
-                self?.dir[p.name] = dir
-                self?.addPresence(p)
-                self?.log?.text = "\(p.name) -> \(dir ? "in" : "out")\n"
-                + (self?.log?.text ?? "")
-            }
-            self?.updateCurrentLocationLabels()
-        })
+    func handleTrack(_ p: [Presence]) {
+        self.models = p
+        tableView?.reloadData()
+        updateCurrentLocationLabels()
     }
     
     // MARK: -
     
-    func addPresence(_ p: GeoPoint) {
-        if let index = models.firstIndex(where: { $0.name == p.name }) {
-            models[index] = p
-        } else {
-            models.append(p)
-        }
-        tableView?.reloadData()
-    }
-    
-    //
     func updateCurrentLocationLabels() {
         let oneDeg = 111134.0 //(1 deg = 111km 134m)
-        if let p = current {
-            xLabel?.text = p.x.description
-            yLabel?.text = p.y.description
-            radiusLabel?.text = p.r.description
-            if let start {
-                xLabel?.text = (xLabel?.text ?? "") + ": \(Int((start.x-p.x)*oneDeg))"
-                yLabel?.text = (yLabel?.text ?? "") + ": \(Int((start.y-p.y)*oneDeg))"
-            }
+        currentLabel?.text = current?.message ?? "?"
+        if let current,
+           let min = models
+            .compactMap({ $0.place })
+            .filter({ $0.latitude != nil && $0.longitude != nil })
+            .min(by: {
+                let l = CLLocation(latitude: $0.latitude!, longitude: $0.longitude!)
+                let r = CLLocation(latitude: $1.latitude!, longitude: $1.longitude!)
+                return current.distance(from: l) < current.distance(from: r)
+            })
+        {
+            let l = CLLocation(latitude: min.latitude!, longitude: min.longitude!)
+            nearestNameLabel?.text = min.name
+            nearestPosLabel?.text = l.message(radius: min.radius ?? -1)
+            distanceLabel?.text = String(format: "%.0fm", current.distance(from: l))
         } else {
-            xLabel?.text = nil
-            yLabel?.text = nil
-            radiusLabel?.text = nil
+            nearestNameLabel?.text = "-"
+            nearestPosLabel?.text = "-"
+            distanceLabel?.text = "-"
         }
+    }
+    
+    func addLog(_ old: [Presence], _ new: [Presence]) {
+        new.forEach({ p in
+            if old.first(where: { $0 == p })?.isPresent == p.isPresent { return }
+            self.log?.text = "\(p.place?.name ?? "?") -> \(p.isPresent ? "in" : "out")\n"
+            + (self.log?.text ?? "")
+        })
+    }
+    
+    // MARK: - CLLocationManagerDelegate
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        current = locations.first
+        updateCurrentLocationLabels()
     }
     
     // MARK: - UITableViewDataSource, UITableViewDelegate
@@ -112,30 +114,41 @@ class TrackViewController: UIViewController,
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        let obj = models[indexPath.row]
+        let p = models[indexPath.row]
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-        cell.selectionStyle = .none
-        cell.textLabel?.text = obj.name
-        cell.detailTextLabel?.text = "x\(obj.x) y\(obj.y) r\(Int(obj.r))"
-        cell.accessoryType = dir[obj.name] == true ? .checkmark : .none
+        if let obj = p.place {
+            cell.selectionStyle = .none
+            cell.textLabel?.text = obj.name
+            if let x = obj.longitude,
+                let y = obj.latitude,
+                let r = obj.radius 
+            {
+                cell.detailTextLabel?.text = "x\(x) y\(y) r\(Int(r))"
+            } else {
+                cell.detailTextLabel?.text = nil
+            }
+            cell.accessoryType = p.isPresent == true ? .checkmark : .none
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         45
     }
+}
+
+extension CLLocation {
+    var message: String {
+        let x = String(format: "%.5f", coordinate.longitude)
+        let y = String(format: "%.5f", coordinate.latitude)
+        let acc = String(format: "%.0f", horizontalAccuracy)
+        return "x\(x) y\(y) acc\(acc)"
+    }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let obj = models[indexPath.row]
-        
-        let menu = UIAlertController()
-
-//        menu.addAction(.init(title: "copy ID", style: .default, handler: { _ in
-//            UIPasteboard.general.string = obj.id
-//        }))
-
-        menu.addAction(.init(title: "cancel", style: .cancel))
-                       
-        present(menu, animated: true)
+    func message(radius: Double) -> String {
+        let x = String(format: "%.5f", coordinate.longitude)
+        let y = String(format: "%.5f", coordinate.latitude)
+        let r = String(format: "%.0f", radius)
+        return "x\(x) y\(y) r\(r)"
     }
 }

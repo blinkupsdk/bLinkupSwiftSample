@@ -86,6 +86,7 @@ struct MyPresenceView: View {
             
             NavigationLink(destination: {
                 TrackView()
+                    .navigationTitle("Geofencing")
             }, label: {
                 HStack {
                     Text("</>")
