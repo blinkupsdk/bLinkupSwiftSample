@@ -25,15 +25,16 @@ struct RequestsView: View {
                         let fromMe = req.source.id == bLinkup.user?.id
                         let opponent = req.opponent(of: bLinkup.user?.id)
                         
-                        HStack {
-                            Image(systemName: fromMe ? "arrow.right" : "arrow.left")
-                            Text(opponent?.name ?? "?")
-                            Spacer()
+                        Menu {
+                            menuForRequest(req)
+                        } label: {
+                            HStack {
+                                Image(systemName: fromMe ? "arrow.right" : "arrow.left")
+                                Text(opponent?.name ?? "?")
+                                Spacer()
+                            }
                         }
                         .contentShape(Rectangle())
-                        .contextMenu(menuItems: {
-                            menuForRequest(req)
-                        })
                     }
                 }
                 .accentColor(.blBlue)
@@ -67,6 +68,21 @@ struct RequestsView: View {
         }
     }
     
+    func block(_ user: User) {
+        isLoading = true
+        bLinkup.blockUser(user, completion: {
+            isLoading = false
+            switch $0 {
+            case .success:
+                alertMessage = "Blocked"
+            case .failure(let e):
+                alertMessage = e.localizedDescription
+            }
+            showAlert = true
+            loadData()
+        })
+    }
+    
     @ViewBuilder
     func menuForRequest(_ obj: ConnectionRequest) -> some View {
         if bLinkup.user?.id == obj.source.id {
@@ -81,6 +97,9 @@ struct RequestsView: View {
                     showAlert = true
                     loadData()
                 }
+            }
+            Button("Block") {
+                block(obj.target)
             }
         } else {
             Button("Accept request") {
@@ -108,7 +127,9 @@ struct RequestsView: View {
                     loadData()
                 })
             }
-            
+            Button("Block") {
+                block(obj.source)
+            }
         }
     }
 }

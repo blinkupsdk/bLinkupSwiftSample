@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		EB094F542B35A88700E10022 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB094F532B35A88700E10022 /* String+Extensions.swift */; };
 		EB094F5A2B35B0E900E10022 /* FoundUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB094F592B35B0E900E10022 /* FoundUserView.swift */; };
+		EB10D1782B4733B2006FE7AC /* BlocksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10D1752B4733B2006FE7AC /* BlocksView.swift */; };
+		EB10D17B2B474CC3006FE7AC /* bLinkup in Frameworks */ = {isa = PBXBuildFile; productRef = EB10D17A2B474CC3006FE7AC /* bLinkup */; };
 		EB10F14E2AF00754006D8DC8 /* DemoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F14D2AF00754006D8DC8 /* DemoAppApp.swift */; };
 		EB10F1502AF00754006D8DC8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F14F2AF00754006D8DC8 /* ContentView.swift */; };
 		EB10F1522AF00756006D8DC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB10F1512AF00756006D8DC8 /* Assets.xcassets */; };
@@ -33,8 +35,6 @@
 		EB832C5B2AF02D69008B4F5C /* TrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C512AF02D69008B4F5C /* TrackViewController.swift */; };
 		EB832C5C2AF02D69008B4F5C /* VenueMapShareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C522AF02D69008B4F5C /* VenueMapShareVC.swift */; };
 		EB832C5F2AF02DAA008B4F5C /* UIViewController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C5E2AF02DAA008B4F5C /* UIViewController+Error.swift */; };
-		EBA712102B30A39F00EB4A70 /* bLinkup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF480102AF2B9B20010030D /* bLinkup.framework */; };
-		EBA712112B30A39F00EB4A70 /* bLinkup.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EBF480102AF2B9B20010030D /* bLinkup.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EBB4910D2B2C8A8000BD7C78 /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4910C2B2C8A8000BD7C78 /* ImageScrollView.swift */; };
 		EBB8F1AF2B10E3A200E782EA /* ConnectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB8F1AE2B10E3A200E782EA /* ConnectionCell.swift */; };
 		EBB8F1B42B10FC0000E782EA /* ConnectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB8F1B32B10FC0000E782EA /* ConnectionsViewController.swift */; };
@@ -72,23 +72,10 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		EBA712122B30A39F00EB4A70 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				EBA712112B30A39F00EB4A70 /* bLinkup.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		EB094F532B35A88700E10022 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		EB094F592B35B0E900E10022 /* FoundUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundUserView.swift; sourceTree = "<group>"; };
+		EB10D1752B4733B2006FE7AC /* BlocksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlocksView.swift; sourceTree = "<group>"; };
 		EB10F14A2AF00754006D8DC8 /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB10F14D2AF00754006D8DC8 /* DemoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAppApp.swift; sourceTree = "<group>"; };
 		EB10F14F2AF00754006D8DC8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -131,7 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBA712102B30A39F00EB4A70 /* bLinkup.framework in Frameworks */,
+				EB10D17B2B474CC3006FE7AC /* bLinkup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +266,7 @@
 				EBF480182AF2C1490010030D /* MatchingPhoneBookView.swift */,
 				EB7323C82B167AE400DF6CF1 /* RequestsView.swift */,
 				EB094F592B35B0E900E10022 /* FoundUserView.swift */,
+				EB10D1752B4733B2006FE7AC /* BlocksView.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -342,7 +330,6 @@
 				EB10F1462AF00754006D8DC8 /* Sources */,
 				EB10F1472AF00754006D8DC8 /* Frameworks */,
 				EB10F1482AF00754006D8DC8 /* Resources */,
-				EBA712122B30A39F00EB4A70 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -350,6 +337,7 @@
 			);
 			name = DemoApp;
 			packageProductDependencies = (
+				EB10D17A2B474CC3006FE7AC /* bLinkup */,
 			);
 			productName = DemoApp;
 			productReference = EB10F14A2AF00754006D8DC8 /* DemoApp.app */;
@@ -424,6 +412,7 @@
 			);
 			mainGroup = EB10F1412AF00754006D8DC8;
 			packageReferences = (
+				EB10D1792B474CC3006FE7AC /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */,
 			);
 			productRefGroup = EB10F14B2AF00754006D8DC8 /* Products */;
 			projectDirPath = "";
@@ -499,6 +488,7 @@
 				EB10F1502AF00754006D8DC8 /* ContentView.swift in Sources */,
 				EB7F3F102B0C228D004CC2D8 /* MyPresenceView.swift in Sources */,
 				EBB8F1AF2B10E3A200E782EA /* ConnectionCell.swift in Sources */,
+				EB10D1782B4733B2006FE7AC /* BlocksView.swift in Sources */,
 				EB10F1852AF00A9E006D8DC8 /* TabbarView.swift in Sources */,
 				EB7323CC2B167C5500DF6CF1 /* SDK+Extensions.swift in Sources */,
 				EB10F18A2AF00AF0006D8DC8 /* UserUpdateView.swift in Sources */,
@@ -676,13 +666,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DemoApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = bLinkupSample;
+				INFOPLIST_KEY_CFBundleDisplayName = "bLinkup Demo";
 				INFOPLIST_KEY_NSContactsUsageDescription = "To connect you with your friends";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "To connect you with your friends";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "To connect you with your friends";
@@ -716,13 +706,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DemoApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = bLinkupSample;
+				INFOPLIST_KEY_CFBundleDisplayName = "bLinkup Demo";
 				INFOPLIST_KEY_NSContactsUsageDescription = "To connect you with your friends";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "To connect you with your friends";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "To connect you with your friends";
@@ -866,6 +856,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EB10D1792B474CC3006FE7AC /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/blinkupsdk/bLinkupSwiftSDK";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EB10D17A2B474CC3006FE7AC /* bLinkup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB10D1792B474CC3006FE7AC /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */;
+			productName = bLinkup;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EB10F1422AF00754006D8DC8 /* Project object */;
 }

@@ -10,7 +10,7 @@ import Contacts
 import SwiftUI
 
 struct MatchingPhoneBookView: View {
-    @State var contacts: [bLinkupContact] = []
+    @State var contacts: [Contact] = []
     @State var images = [String: Image]()
 
     @State var isLoading: Bool = false
@@ -30,28 +30,29 @@ struct MatchingPhoneBookView: View {
             VStack {
                 List {
                     ForEach(contacts, id: \.phone) { c in
-                        HStack {
-                            (images[c.phone] ?? Image(systemName: "person"))
-                                .frame(width: 30, height: 30)
-                                .clipShape(Circle())
-                            
-                            VStack(alignment: .leading) {
-                                Text(c.name)
-                                    .font(.body)
-                                
-                                Text(c.phone)
-                                    .font(.subheadline)
-                            }
-                            
-                            Spacer()
-                        }
-                        .frame(maxWidth: .infinity)
-                        .contentShape(Rectangle())
-                        .contextMenu(menuItems: {
+                        Menu {
                             Button("Send friend request", action: {
                                 sendRequest(c)
                             })
-                        })
+                        } label: {
+                            HStack {
+                                (images[c.phone] ?? Image(systemName: "person"))
+                                    .frame(width: 30, height: 30)
+                                    .clipShape(Circle())
+                                
+                                VStack(alignment: .leading) {
+                                    Text(c.name)
+                                        .font(.body)
+                                    
+                                    Text(c.phone)
+                                        .font(.subheadline)
+                                }
+                                
+                                Spacer()
+                            }
+                            .frame(maxWidth: .infinity)
+                        }
+                        .contentShape(Rectangle())
                     }
                 }
                 Spacer()
@@ -63,7 +64,7 @@ struct MatchingPhoneBookView: View {
         }
     }
     
-    func sendRequest(_ contact: bLinkupContact) {
+    func sendRequest(_ contact: Contact) {
         guard let user = contact.asUser() else { return }
         isLoading = true
         bLinkup.sendConnectionRequest(user: user, completion: {

@@ -48,13 +48,14 @@ struct FriendsView: View {
                         if !filtered.isEmpty {
                             ForEach(filtered, id: \.connection.id) { c in
                                 let opponent = c.connection.opponent(of: bLinkup.user?.id)
-                                ConnectionCell(user: opponent, presence: c.presence, withMe: c.withMe)
-                                    .contentShape(Rectangle())
-                                    .contextMenu(menuItems: {
-                                        Button("Block") {
-                                            blockUser(c.connection)
-                                        }
-                                    })
+                                Menu {
+                                    Button("Block") {
+                                        block(c.connection)
+                                    }
+                                } label: {
+                                    ConnectionCell(user: opponent, presence: c.presence, withMe: c.withMe)
+                                }
+                                .contentShape(Rectangle())
                             }
                         } else if !isFirstTime {
                             Text("No connections")
@@ -74,16 +75,11 @@ struct FriendsView: View {
                                     .toolbar(.hidden, for: .tabBar)
                             })
                             
-                            HStack{
-                                Text("Blocked users")
-                                Spacer()
-                                HStack {
-                                    Image(systemName: "crown")
-                                    Text("COMING SOON")
-                                }
-                                .font(.system(size: 12))
-                                .foregroundColor(.gray)
-                            }
+                            NavigationLink("Blocked users", destination: {
+                                BlocksView()
+                                    .navigationTitle("Blocked users")
+                                    .toolbar(.hidden, for: .tabBar)
+                            })
                         }
                         .foregroundColor(Color.accentColor)
                     } else if !search.isEmpty && !isFirstTime {
@@ -93,17 +89,21 @@ struct FriendsView: View {
                             } else {
                                 ForEach(searchResult, id: \.id) { u in
                                     let isConnected = connections.contains(where: { $0.connection.id == u.id })
-                                    FoundUserView(user: u, highlightIcon: !isConnected)
-                                        .contentShape(Rectangle())
-                                        .contextMenu(menuItems: {
-                                            if isConnected {
-                                                EmptyView()
-                                            } else {
-                                                Button("Send friend request") {
-                                                    inviteUser(u)
-                                                }
+                                    Menu {
+                                        if isConnected {
+                                            EmptyView()
+                                        } else {
+                                            Button("Send friend request") {
+                                                inviteUser(u)
                                             }
-                                        })
+                                        }
+                                        Button("Block") {
+                                            block(u)
+                                        }
+                                    } label: {
+                                        FoundUserView(user: u, highlightIcon: !isConnected)
+                                    }
+                                    .contentShape(Rectangle())
                                 }
                             }
                         }
@@ -182,7 +182,7 @@ struct FriendsView: View {
         searchTask?.cancel()
         guard let s = search.nonEmpty else { return }
         searchTask = Task {
-            try await Task.sleep(nanoseconds: 70_000_000)
+            try await Task.sleep(nanoseconds: 700_000_000)
             searchResult = try await bLinkup.findUsers(query:s)
         }
     }
@@ -194,9 +194,14 @@ struct FriendsView: View {
         })
     }
     
-    func blockUser(_ c: Connection) {
+    func block(_ c: Connection) {
+        guard let op = c.opponent(of: bLinkup.user?.id) else { return }
+        block(op)
+    }
+    
+    func block(_ u: User) {
         isLoading = true
-        bLinkup.updateConnection(c, status: .blocked, completion: { res in
+        bLinkup.blockUser(u, completion: { res in
             isLoading = false
             loadData()
         })
