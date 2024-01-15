@@ -5,6 +5,7 @@
 //  Created by Oleksandr Chernov on 11.10.2023.
 //
 
+import Combine
 import SwiftUI
 import bLinkup
 
@@ -66,6 +67,15 @@ struct StartView: View {
             TextField("Phone Number", text: $mobileNumber)
                 .multilineTextAlignment(.center)
                 .keyboardType(.phonePad)
+                .textContentType(.telephoneNumber)
+                .onReceive(Just(mobileNumber), perform: { newValue in
+                    var filtered = newValue.filter { "0123456789".contains($0) }
+                    if newValue.first == "+" { filtered = "+" + filtered }
+                    filtered = String(filtered.prefix(20))
+                    if filtered != newValue {
+                        mobileNumber = filtered
+                    }
+                })
                 .padding(.bottom, 40)
                 .foregroundColor(.black)
                         
