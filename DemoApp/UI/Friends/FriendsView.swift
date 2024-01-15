@@ -31,6 +31,7 @@ struct FriendsView: View {
         public static func == (lhs: Self, rhs: Self) -> Bool {
             lhs.connection.id == rhs.connection.id
             && lhs.presence == rhs.presence
+            && lhs.withMe == rhs.withMe
         }
     }
     

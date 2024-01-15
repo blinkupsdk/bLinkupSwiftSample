@@ -65,6 +65,7 @@ struct StartView: View {
             
             TextField("Phone Number", text: $mobileNumber)
                 .multilineTextAlignment(.center)
+                .keyboardType(.phonePad)
                 .padding(.bottom, 40)
                 .foregroundColor(.black)
                         
@@ -94,6 +95,8 @@ struct StartView: View {
                 .foregroundColor(.black)
             
             TextField("Verification Code", text: $accessToken)
+                .keyboardType(.numberPad)
+                .textContentType(.oneTimeCode)
                 .multilineTextAlignment(.center)
                 .padding(.top, 10)
                 .padding(.bottom, 40)
