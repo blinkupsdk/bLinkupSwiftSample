@@ -83,47 +83,11 @@ struct MatchingPhoneBookView: View {
         Task {
             isLoading = true
             do {
-                let myContacts = try await getContacts()
-                let contacts = try await bLinkup.findContacts(myContacts)
-                self.contacts = contacts
+                self.contacts = try await bLinkup.findContacts()
             } catch {
             }
             isLoading = false
         }
-    }
-    
-    func getContacts() async throws -> [PhoneBookContact] {
-        try await withCheckedThrowingContinuation({ cont in
-            let contactStore = CNContactStore()
-            let key = [CNContactGivenNameKey,CNContactFamilyNameKey,
-                       CNContactThumbnailImageDataKey,CNContactImageDataKey,
-                       CNContactPhoneNumbersKey] as [CNKeyDescriptor]
-            let request = CNContactFetchRequest(keysToFetch: key)
-            var result = [PhoneBookContact]()
-            var images = [String: Image]()
-            do {
-                try contactStore.enumerateContacts(with: request, usingBlock: { (contact, stoppingPointer) in
-                    let filter = Set<Character>("()- ")
-                    for phone in contact.phoneNumbers {
-                        let num = String(phone.value.stringValue.filter({ !filter.contains($0) }))
-                        let name = [contact.givenName, contact.familyName]
-                            .compactMap({ $0 })
-                            .joined(separator: " ")
-                        let c = PhoneBookContact(phone: num, name: name)
-                        result.append(c)
-                        if let data = contact.thumbnailImageData ?? contact.imageData,
-                           let image = UIImage(data: data)
-                        {
-                            images[num] = Image(uiImage: image)
-                        }
-                    }
-                })
-                self.images = images
-                cont.resume(returning: result)
-            } catch {
-                cont.resume(throwing: error)
-            }
-        })
     }
 }
 

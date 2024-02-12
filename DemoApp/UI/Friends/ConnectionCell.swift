@@ -23,7 +23,7 @@ struct ConnectionCell: View {
                         .underline(withMe)
                         .foregroundStyle(withMe ? Color.accentColor : .black)
                     
-                    Text(user?.phone_number ?? "?")
+                    Text(user?.phoneNumber ?? "?")
                         .foregroundStyle(.gray)
                 }
                 Spacer()

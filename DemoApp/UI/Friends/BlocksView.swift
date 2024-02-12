@@ -53,7 +53,7 @@ struct BlocksView: View {
     
     func loadData() {
         isLoading = true
-        bLinkup.getBlockedUsers {
+        bLinkup.getBlocks {
             isLoading = false
             switch $0 {
             case .failure(let error):

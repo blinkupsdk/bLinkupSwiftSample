@@ -53,6 +53,9 @@ struct FriendsView: View {
                                     Button("Block") {
                                         block(c.connection)
                                     }
+                                    Button("Delete") {
+                                        delete(c.connection)
+                                    }
                                 } label: {
                                     ConnectionCell(user: opponent, presence: c.presence, withMe: c.withMe)
                                 }
@@ -174,7 +177,7 @@ struct FriendsView: View {
                 if search.isEmpty { return true }
                 let opp = $0.connection.opponent(of: myId)
                 return opp?.name?.lowercased().contains(search) == true
-                || opp?.phone_number?.contains(search) == true
+                || opp?.phoneNumber?.contains(search) == true
                 || opp?.id.contains(search) == true
             })
     }
@@ -198,6 +201,14 @@ struct FriendsView: View {
     func block(_ c: Connection) {
         guard let op = c.opponent(of: bLinkup.user?.id) else { return }
         block(op)
+    }
+    
+    func delete(_ c: Connection) {
+        isLoading = true
+        bLinkup.deleteConnection(c, completion: { res in
+            isLoading = false
+            loadData()
+        })
     }
     
     func block(_ u: User) {

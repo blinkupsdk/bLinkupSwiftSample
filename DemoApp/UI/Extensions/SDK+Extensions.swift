@@ -10,7 +10,7 @@ import Foundation
 
 extension Connection {
     func opponent(of id: String?) -> User? {
-        target.id == id ? source : target
+        targetUser.id == id ? sourceUser : targetUser
     }
 }
 

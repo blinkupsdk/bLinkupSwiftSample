@@ -44,11 +44,10 @@ struct SettingsView: View {
                 }
                 
                 Section(header: Text("Account Actions")) {
-                    Text("Delete Account")
-                        .foregroundColor(.red)
-                    Button(action: logout) {
-                        Text("Log Out")
+                    Button(action: deleteUser) {
+                        Text("Delet account").foregroundStyle(.red)
                     }
+                    Button("Log Out", action: logout)
                 }
             }
             .refreshable(action: {
@@ -62,6 +61,12 @@ struct SettingsView: View {
         .onAppear {
             Task { await loadCurrentUser() }
         }
+    }
+    
+    func deleteUser() {
+        bLinkup.deleteCurrentUser(completion: { _ in
+            isLoggedIn = false
+        })
     }
     
     func logout() {
@@ -79,7 +84,7 @@ struct SettingsView: View {
         else { return }
         
         self.name = user.name ?? ""
-        self.phone = user.phone_number ?? ""
+        self.phone = user.phoneNumber ?? ""
     }
     
     func updateUser() {

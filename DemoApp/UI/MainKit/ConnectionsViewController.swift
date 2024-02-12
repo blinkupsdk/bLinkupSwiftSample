@@ -70,15 +70,15 @@ class ConnectionsViewController: UIViewController,
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         cell.accessoryType = .disclosureIndicator
         cell.selectionStyle = .none
-        if bLinkup.user?.id == obj.source.id {
-            cell.textLabel?.text = obj.target.name ?? "?"
+        if bLinkup.user?.id == obj.sourceUser.id {
+            cell.textLabel?.text = obj.targetUser.name ?? "?"
         } else {
-            cell.textLabel?.text = obj.source.name ?? "?"
+            cell.textLabel?.text = obj.sourceUser.name ?? "?"
         }
         cell.detailTextLabel?.text =
-        (obj.source.phone_number ?? "?")
+        (obj.sourceUser.phoneNumber ?? "?")
         + " -> "
-        + (obj.target.phone_number ?? "?")
+        + (obj.targetUser.phoneNumber ?? "?")
         + " = "
         + obj.status.rawValue
 

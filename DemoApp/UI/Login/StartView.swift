@@ -49,7 +49,7 @@ struct StartView: View {
         case .user:
             UserUpdateView(isLoggedIn: $isLoggedIn,
                            name: user?.name ?? "", 
-                           email: user?.email_address ?? "")
+                           email: user?.emailAddress ?? "")
         }
 
     }
@@ -137,7 +137,7 @@ struct StartView: View {
     // MARK: - Data
     
     func requestCode() {
-        bLinkup.requestCode(phone: mobileNumber) { result in
+        bLinkup.requestCode(phoneNumber: mobileNumber) { result in
             switch result{
             case .success(let message):
                 print(message)
@@ -149,7 +149,7 @@ struct StartView: View {
     }
     
     func login() {
-        bLinkup.confirmCode(phone: mobileNumber, code: accessToken) { result in
+        bLinkup.confirmCode(phoneNumber: mobileNumber, verificationCode: accessToken) { result in
             switch result{
             case .success(let user):
                 if bLinkup.isUserDetailsRequired {
