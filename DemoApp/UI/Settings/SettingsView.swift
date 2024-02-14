@@ -45,7 +45,7 @@ struct SettingsView: View {
                 
                 Section(header: Text("Account Actions")) {
                     Button(action: deleteUser) {
-                        Text("Delet account").foregroundStyle(.red)
+                        Text("Delete account").foregroundStyle(.red)
                     }
                     Button("Log Out", action: logout)
                 }
