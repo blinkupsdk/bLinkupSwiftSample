@@ -22,7 +22,10 @@
 		EB10F18B2AF00AF0006D8DC8 /* BlinkupHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1882AF00AEF006D8DC8 /* BlinkupHeaderView.swift */; };
 		EB10F1922AF00CDA006D8DC8 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1912AF00CDA006D8DC8 /* LoadingView.swift */; };
 		EB10F1A02AF014AB006D8DC8 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1842AF00A9E006D8DC8 /* StartView.swift */; };
-		EB56B5C02BBA58CA00CF7195 /* bLinkup in Frameworks */ = {isa = PBXBuildFile; productRef = EB56B5BF2BBA58CA00CF7195 /* bLinkup */; };
+		EB56B5C32BBB08ED00CF7195 /* bLinkup in Frameworks */ = {isa = PBXBuildFile; productRef = EB56B5C22BBB08ED00CF7195 /* bLinkup */; };
+		EB56B5C62BBB0BAA00CF7195 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56B5C52BBB0BAA00CF7195 /* DB.swift */; };
+		EB56B5C82BBB0D9500CF7195 /* CustomerSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56B5C72BBB0D9500CF7195 /* CustomerSelectorView.swift */; };
+		EB56B5CB2BBB182400CF7195 /* bLinkup in Frameworks */ = {isa = PBXBuildFile; productRef = EB56B5CA2BBB182400CF7195 /* bLinkup */; };
 		EB6B77842B0C1AAB00AD8EC7 /* MapListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6B77832B0C1AAB00AD8EC7 /* MapListView.swift */; };
 		EB6DF24B2B0D10CC0036A428 /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6DF24A2B0D10CC0036A428 /* FriendsView.swift */; };
 		EB6DF24E2B0D11750036A428 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6DF24D2B0D11750036A428 /* SettingsView.swift */; };
@@ -76,6 +79,8 @@
 		EB10F1912AF00CDA006D8DC8 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		EB3EBF882B6801860037B14D /* bLinkup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = bLinkup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB520DE42AF32FE300BDDCF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		EB56B5C52BBB0BAA00CF7195 /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
+		EB56B5C72BBB0D9500CF7195 /* CustomerSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerSelectorView.swift; sourceTree = "<group>"; };
 		EB6B77832B0C1AAB00AD8EC7 /* MapListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapListView.swift; sourceTree = "<group>"; };
 		EB6DF24A2B0D10CC0036A428 /* FriendsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
 		EB6DF24D2B0D11750036A428 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -96,7 +101,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB56B5C02BBA58CA00CF7195 /* bLinkup in Frameworks */,
+				EB56B5CB2BBB182400CF7195 /* bLinkup in Frameworks */,
+				EB56B5C32BBB08ED00CF7195 /* bLinkup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +151,7 @@
 				EB10F14D2AF00754006D8DC8 /* DemoAppApp.swift */,
 				EB10F1772AF00780006D8DC8 /* Resources */,
 				EB10F1812AF009DE006D8DC8 /* UI */,
+				EB56B5C42BBB0B5B00CF7195 /* Source */,
 			);
 			path = DemoApp;
 			sourceTree = "<group>";
@@ -206,6 +213,7 @@
 				EB10F1842AF00A9E006D8DC8 /* StartView.swift */,
 				EB10F1882AF00AEF006D8DC8 /* BlinkupHeaderView.swift */,
 				EB10F1872AF00AEF006D8DC8 /* UserUpdateView.swift */,
+				EB56B5C72BBB0D9500CF7195 /* CustomerSelectorView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -224,6 +232,14 @@
 				EB3EBF882B6801860037B14D /* bLinkup.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB56B5C42BBB0B5B00CF7195 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				EB56B5C52BBB0BAA00CF7195 /* DB.swift */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 		EB6B77822B0C1A8B00AD8EC7 /* Map */ = {
@@ -301,7 +317,8 @@
 			);
 			name = DemoApp;
 			packageProductDependencies = (
-				EB56B5BF2BBA58CA00CF7195 /* bLinkup */,
+				EB56B5C22BBB08ED00CF7195 /* bLinkup */,
+				EB56B5CA2BBB182400CF7195 /* bLinkup */,
 			);
 			productName = DemoApp;
 			productReference = EB10F14A2AF00754006D8DC8 /* DemoApp.app */;
@@ -376,7 +393,7 @@
 			);
 			mainGroup = EB10F1412AF00754006D8DC8;
 			packageReferences = (
-				EB56B5BE2BBA58CA00CF7195 /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */,
+				EB56B5C92BBB182400CF7195 /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */,
 			);
 			productRefGroup = EB10F14B2AF00754006D8DC8 /* Products */;
 			projectDirPath = "";
@@ -433,9 +450,11 @@
 				EB7323CC2B167C5500DF6CF1 /* SDK+Extensions.swift in Sources */,
 				EB10F18A2AF00AF0006D8DC8 /* UserUpdateView.swift in Sources */,
 				EB6DF24B2B0D10CC0036A428 /* FriendsView.swift in Sources */,
+				EB56B5C82BBB0D9500CF7195 /* CustomerSelectorView.swift in Sources */,
 				EB7323C92B167AE400DF6CF1 /* RequestsView.swift in Sources */,
 				EB10F18B2AF00AF0006D8DC8 /* BlinkupHeaderView.swift in Sources */,
 				EB6DF24E2B0D11750036A428 /* SettingsView.swift in Sources */,
+				EB56B5C62BBB0BAA00CF7195 /* DB.swift in Sources */,
 				EB832C5B2AF02D69008B4F5C /* TrackViewController.swift in Sources */,
 				EB6B77842B0C1AAB00AD8EC7 /* MapListView.swift in Sources */,
 				EB094F542B35A88700E10022 /* String+Extensions.swift in Sources */,
@@ -604,7 +623,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 29;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -644,7 +663,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 29;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -796,7 +815,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		EB56B5BE2BBA58CA00CF7195 /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */ = {
+		EB56B5C92BBB182400CF7195 /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/blinkupsdk/bLinkupSwiftSDK";
 			requirement = {
@@ -807,9 +826,13 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EB56B5BF2BBA58CA00CF7195 /* bLinkup */ = {
+		EB56B5C22BBB08ED00CF7195 /* bLinkup */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EB56B5BE2BBA58CA00CF7195 /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */;
+			productName = bLinkup;
+		};
+		EB56B5CA2BBB182400CF7195 /* bLinkup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB56B5C92BBB182400CF7195 /* XCRemoteSwiftPackageReference "bLinkupSwiftSDK" */;
 			productName = bLinkup;
 		};
 /* End XCSwiftPackageProductDependency section */
