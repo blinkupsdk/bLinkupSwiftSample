@@ -48,6 +48,13 @@ struct SettingsView: View {
                         Text("Delete account").foregroundStyle(.red)
                     }
                     Button("Log Out", action: logout)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .overlay(alignment: .bottomTrailing, content: {
+                            Text(info())
+                                .font(.system(size: 10))
+                                .foregroundStyle(.gray)
+                                .frame(maxWidth: 150, alignment: .trailing)
+                        })
                 }
             }
             .refreshable(action: {
@@ -95,6 +102,18 @@ struct SettingsView: View {
             self.name = update.name ?? ""
             showSaveButton = false
         }
+    }
+    
+    func info() -> String {
+        let customer = bLinkup.customer?.name ?? "?"
+
+        let appInfo = Bundle.main.infoDictionary
+        let appVer = appInfo?["CFBundleShortVersionString"] ?? "-"
+        let appBuild = appInfo?[kCFBundleVersionKey as String] ?? "-"
+
+        let info = "\(customer) v.\(appVer)(\(appBuild))"
+        return info
+        
     }
 }
 
