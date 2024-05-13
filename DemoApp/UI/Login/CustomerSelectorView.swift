@@ -14,14 +14,24 @@ private let kCustomers = [
     Customer(id: "iqPbaubl_9FtQTTBGrueAdom0TnlSbTPZO675ZLQS1o=", name: "Charlotte Hornets"),
     Customer(id: "uzU20c9Zs6_-Sn3o_lv9jrPM4kZeH5nnnn05iNfc1FE=", name: "Atlanta Braves"),
     Customer(id: "ssD1qVnNw1KFPT3eFFtquHiSo0qlZzcK783Kwku9xWU=", name: "Clemson Tigers"),
+    Customer(id: "7x1oDfFEpUj4LVIzz8XSskomH5dINsRZmLY6XZSfPvE=", name: "Test"),
 ]
 
 struct CustomerSelectorView: View {
     @Binding var customer: Customer?
+    @Binding var appType: Int
     
     @State var customs: [Customer] = DB.shared.get(key: .keyCustomCustomers) ?? []
     
     var body: some View {
+        
+        Picker("Choose", selection: $appType) {
+            Text("Demo").tag(0)
+            Text("SDK-UI").tag(1)
+        }
+        .pickerStyle(.segmented)
+        .padding()
+        
         Form {
                 if !customs.isEmpty {
                     Section(header: Text("Private")) {
@@ -52,6 +62,7 @@ struct CustomerSelectorView: View {
                                 Image(systemName: "person")
                                 Text(customer.name ?? customer.id)
                             }
+                            .foregroundStyle(customer.id == bLinkup.customer?.id ? .black : .blue)
                         })
                     }
                 }
@@ -64,5 +75,5 @@ struct CustomerSelectorView: View {
 }
 
 #Preview {
-    CustomerSelectorView(customer: .constant(nil))
+    CustomerSelectorView(customer: .constant(Customer(id: "")), appType: .constant(0))
 }

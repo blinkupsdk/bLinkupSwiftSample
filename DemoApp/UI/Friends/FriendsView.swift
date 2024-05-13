@@ -5,8 +5,6 @@
 //  Created by Surielis Rodriguez on 11/20/23.
 //
 
-import SwiftUI
-
 import bLinkup
 import SwiftUI
 
@@ -70,19 +68,16 @@ struct FriendsView: View {
                             NavigationLink("Match Phone Contacts", destination: {
                                 MatchingPhoneBookView()
                                     .navigationTitle("Your Contacts")
-                                    .toolbar(.hidden, for: .tabBar)
                             })
                             
                             NavigationLink("Pending requests", destination: {
                                 RequestsView()
                                     .navigationTitle("Requests")
-                                    .toolbar(.hidden, for: .tabBar)
                             })
                             
                             NavigationLink("Blocked users", destination: {
                                 BlocksView()
                                     .navigationTitle("Blocked users")
-                                    .toolbar(.hidden, for: .tabBar)
                             })
                         }
                         .foregroundColor(Color.accentColor)
@@ -221,7 +216,7 @@ struct FriendsView: View {
 }
 
 #Preview {
-    NavigationStack {
+    NavigationView {
         FriendsView()
             .navigationTitle("Friends")
     }

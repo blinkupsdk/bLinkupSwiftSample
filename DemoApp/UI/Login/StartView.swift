@@ -19,14 +19,11 @@ private let gradient = LinearGradient(gradient: Gradient(colors: [.blGreen, .blB
 
 struct StartView: View {
     @Binding var isLoggedIn: Bool
-    
+    @Binding var customer: Customer?
+
     @State var isLoading = false
     @State var screenState: ScreenState = .login
-    @State var customer: Customer? = DB.shared.get(key: .keyCustomer) {
-        didSet {
-            DB.shared.set(customer, key: .keyCustomer)
-        }
-    }
+    
     #if DEBUG
     @State var mobileNumber: String = "+380951299232"
     @State var accessToken: String = "123456"
@@ -40,22 +37,19 @@ struct StartView: View {
     var body: some View {
         switch screenState {
         case .login:
-            if customer == nil {
-                CustomerSelectorView(customer: $customer)
-            } else {
-                LoadingView(isShowing: $isLoading) {
-                    NavigationStack {
-                        loginView()
-                            .padding(.horizontal)
-                            .navigationDestination(isPresented: $showCodeValidator) {
-                                codeView()
-                                    .padding(.horizontal)
-                                    .navigationTitle("")
-                                    .navigationBarHidden(true)
-                            }
-                    }
-                }
+            NavigationView {
+                loginView()
+                    .padding(.horizontal)
+                
+                NavigationLink(destination: codeView()
+                    .padding(.horizontal)
+                    .navigationTitle("")
+                    .navigationBarHidden(true),
+                               isActive: $showCodeValidator) {
+                    EmptyView()
+                }.hidden()
             }
+            .addLoadingView(isLoading: $isLoading)
         case .user:
             UserUpdateView(isLoggedIn: $isLoggedIn,
                            name: user?.name ?? "", 
@@ -191,5 +185,5 @@ struct StartView: View {
 }
 
 #Preview {
-    StartView(isLoggedIn: .constant(false))
+    StartView(isLoggedIn: .constant(false), customer: .constant(nil))
 }

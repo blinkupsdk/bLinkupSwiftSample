@@ -18,7 +18,7 @@ struct TabbarView: View {
             Spacer()
             
             TabView {
-                NavigationStack {
+                NavigationView {
                     FriendsView()
                         .navigationTitle("Friends")
                 }
@@ -26,7 +26,7 @@ struct TabbarView: View {
                     Label("Friends", systemImage: "person.3")
                 }
 
-                NavigationStack {
+                NavigationView {
                     MyPresenceView()
                         .navigationTitle("Presence")
                 }
@@ -34,7 +34,7 @@ struct TabbarView: View {
                     Label("Presence", systemImage: "location.fill")
                 }
 
-                NavigationStack {
+                NavigationView {
                     MapListView()
                         .navigationTitle("Map")
                 }
@@ -42,7 +42,7 @@ struct TabbarView: View {
                     Label("Map", systemImage: "map")
                 }
 
-                NavigationStack {
+                NavigationView {
                     SettingsView(isLoggedIn: $isLoggedIn)
                 }
                 .tabItem {

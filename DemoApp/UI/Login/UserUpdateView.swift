@@ -77,7 +77,7 @@ struct UserUpdateView: View {
             switch result {
             case .failure(let error):
                 print(error)
-            case .success(let user):
+            case .success:
                 isLoggedIn = true
             }
         })

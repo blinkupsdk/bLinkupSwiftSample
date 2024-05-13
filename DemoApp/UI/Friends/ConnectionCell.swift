@@ -19,7 +19,7 @@ struct ConnectionCell: View {
                 Image(systemName: "person")
                 VStack(alignment: .leading) {
                     Text(user?.name ?? "?")
-                        .bold(withMe)
+                        .fontWeight(withMe ? .bold : .regular)
                         .underline(withMe)
                         .foregroundStyle(withMe ? Color.accentColor : .black)
                     

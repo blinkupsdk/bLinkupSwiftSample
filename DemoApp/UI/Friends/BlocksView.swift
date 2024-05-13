@@ -81,7 +81,7 @@ struct BlocksView: View {
 }
 
 #Preview {
-    NavigationStack {
+    NavigationView {
         RequestsView()
             .navigationTitle("Blocks")
             .navigationBarTitleDisplayMode(.inline)

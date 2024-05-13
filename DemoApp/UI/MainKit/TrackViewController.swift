@@ -67,7 +67,7 @@ class TrackViewController: UIViewController,
     // MARK: -
     
     func updateCurrentLocationLabels() {
-        let oneDeg = 111134.0 //(1 deg = 111km 134m)
+//        let oneDeg = 111134.0 //(1 deg = 111km 134m)
         currentLabel?.text = current?.message ?? "?"
         if let current,
            let min = models

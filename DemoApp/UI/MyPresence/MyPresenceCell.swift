@@ -27,7 +27,7 @@ struct MyPresenceCell: View {
             }
             
             Text(presence.place?.name ?? "?")
-                .bold(presence.isPresent)
+                .fontWeight(presence.isPresent ? .bold : .regular)
                 .underline(presence.isPresent)
                 .foregroundStyle(presence.isPresent ? Color.accentColor : .black)
             

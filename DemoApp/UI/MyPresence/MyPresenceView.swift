@@ -141,7 +141,7 @@ struct MyPresenceView: View {
 }
 
 #Preview {
-    NavigationStack {
+    NavigationView {
         MyPresenceView(presence: [.init(id: "1",
                                         user: .init(id: "1", name: "User"),
                                         place: .init(id: "1", name: "Place1"),

@@ -46,7 +46,7 @@ struct MapListView: View {
 }
 
 #Preview {
-    NavigationStack {
+    NavigationView {
         MapListView(places: [.init(id: "1", name: "Place1"),
                              .init(id: "2", name: "Place2")])
         .navigationTitle("Map")

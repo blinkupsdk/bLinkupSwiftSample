@@ -8,18 +8,14 @@
 import SwiftUI
 import bLinkup
 
-struct ContentView: View {
-
-    @State var isLoggedIn: Bool
+struct DemoRootView: View {
+    @State var isLoggedIn: Bool = !bLinkup.isLoginRequired
+    @Binding var customer: Customer?
     
-    init(isLoggedIn: Bool? = nil) {
-        self.isLoggedIn = isLoggedIn ?? !bLinkup.isLoginRequired
-    }
-  
     var body: some View {
         switch isLoggedIn {
         case false:
-            StartView(isLoggedIn: $isLoggedIn)
+            StartView(isLoggedIn: $isLoggedIn, customer: $customer)
         case true:
             TabbarView(isLoggedIn: $isLoggedIn)
         }
@@ -27,6 +23,6 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(isLoggedIn: false)
+    DemoRootView(isLoggedIn: false, customer: .constant(nil))
 }
 

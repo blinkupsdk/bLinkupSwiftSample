@@ -135,7 +135,7 @@ struct RequestsView: View {
 }
 
 #Preview {
-    NavigationStack {
+    NavigationView {
         RequestsView()
             .navigationTitle("Requests")
             .navigationBarTitleDisplayMode(.inline)
