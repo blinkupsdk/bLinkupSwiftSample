@@ -68,31 +68,37 @@ struct DemoAppApp: App {
             return .init(primary: UIColor(red: 0, green: 0.14, blue: 0.3, alpha: 1),
                          secondary: UIColor(red: 0.8, green: 0.05, blue: 0.2, alpha: 1),
                          fontName: nil,
-                         logo: "Logo2",
+                         logo: "logoDemo",
                          name: c.name)
         case "Ph1bFOq1moKmm0in2lxsfZ5v-No-Og6wWxEKM-6F1OM=": //Milwaukee Bucks
-            return .init(primary: UIColor(red: 0.95, green: 0, blue: 0.6, alpha: 1),
+            return .init(primary: UIColor(red: 0, green: 0.25, blue: 0.125, alpha: 1),
                          secondary: UIColor(red: 0.8, green: 0.05, blue: 0.2, alpha: 1),
                          fontName: "AmericanTypewriter",
-                         logo: "Logo2",
+                         logo: "logoMilwaukee",
                          name: c.name)
         case "iqPbaubl_9FtQTTBGrueAdom0TnlSbTPZO675ZLQS1o=": //Charlotte Hornets"
-            return .init(primary: UIColor(red: 0, green: 0.92, blue: 0.28, alpha: 1),
+            return .init(primary: UIColor(red: 0, green: 0.54, blue: 0.64, alpha: 1),
                          secondary: UIColor(red: 0.8, green: 0.05, blue: 0.2, alpha: 1),
                          fontName: "GillSans",
-                         logo: "Logo2",
+                         logo: "logoHornets",
                          name: c.name)
         case "uzU20c9Zs6_-Sn3o_lv9jrPM4kZeH5nnnn05iNfc1FE=": //Atlanta Braves
             return .init(primary: UIColor(red: 0.75, green: 0.02, blue: 0.20, alpha: 1),
                          secondary: UIColor(red: 0.8, green: 0.05, blue: 0.2, alpha: 1),
                          fontName: "HelveticaNeue",
-                         logo: "Atlanta",
+                         logo: "logoAtlanta",
+                         name: c.name)
+        case "ssD1qVnNw1KFPT3eFFtquHiSo0qlZzcK783Kwku9xWU=": // Clemson Tigers
+            return .init(primary: UIColor(red: 0.9, green: 0.45, blue: 0.18, alpha: 1),
+                         secondary: UIColor(red: 0.8, green: 0.05, blue: 0.2, alpha: 1),
+                         fontName: nil,
+                         logo: "logoTigers",
                          name: c.name)
         default:
             return .init(primary: UIColor(red: 0, green: 0.25, blue: 0.125, alpha: 1),
                          secondary: UIColor(red: 0.8, green: 0.05, blue: 0.2, alpha: 1),
                          fontName: nil,
-                         logo: "Logo2",
+                         logo: "logoDemo",
                          name: c.name)
         }
     }
