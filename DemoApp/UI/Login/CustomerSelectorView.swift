@@ -8,15 +8,6 @@
 import bLinkup
 import SwiftUI
 
-private let kCustomers = [
-    Customer(id: "Ph_yH2e8JRpc0WBKiNNOYUYJs03kNEY3DXh7WIrXlJo=", name: "Chicago Demo"),
-    Customer(id: "Ph1bFOq1moKmm0in2lxsfZ5v-No-Og6wWxEKM-6F1OM=", name: "Milwaukee Bucks"),
-    Customer(id: "iqPbaubl_9FtQTTBGrueAdom0TnlSbTPZO675ZLQS1o=", name: "Charlotte Hornets"),
-    Customer(id: "uzU20c9Zs6_-Sn3o_lv9jrPM4kZeH5nnnn05iNfc1FE=", name: "Atlanta Braves"),
-    Customer(id: "ssD1qVnNw1KFPT3eFFtquHiSo0qlZzcK783Kwku9xWU=", name: "Clemson Tigers"),
-    Customer(id: "7x1oDfFEpUj4LVIzz8XSskomH5dINsRZmLY6XZSfPvE=", name: "Test"),
-]
-
 struct CustomerSelectorView: View {
     @Binding var customer: Customer?
     @Binding var appType: Int
@@ -54,7 +45,7 @@ struct CustomerSelectorView: View {
                     }
                 }
                 Section(header: Text("Public")) {
-                    ForEach(kCustomers, id: \.id) { customer in
+                    ForEach(Target.customers, id: \.id) { customer in
                         Button(action: {
                             self.customer = customer
                         }, label: {
