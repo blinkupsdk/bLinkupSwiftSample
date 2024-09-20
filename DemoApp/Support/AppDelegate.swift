@@ -10,7 +10,7 @@ import FirebaseMessaging
 import UIKit
 
 class AppDelegate: NSObject, UIApplicationDelegate,
-                    UNUserNotificationCenterDelegate, MessagingDelegate
+                   UNUserNotificationCenterDelegate, MessagingDelegate
 {
     var messagingToken: String?
     { didSet { onMessagingToken?(messagingToken) }}
@@ -22,23 +22,14 @@ class AppDelegate: NSObject, UIApplicationDelegate,
     ) -> Bool {
         FirebaseApp.configure()
         
+        Messaging.messaging().delegate = self
+
         UNUserNotificationCenter.current().delegate = self
-        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
         UNUserNotificationCenter.current().requestAuthorization(
-            options: authOptions,
+            options: [.alert, .badge, .sound],
             completionHandler: { _, _ in }
         )
         application.registerForRemoteNotifications()
-        
-        Messaging.messaging().delegate = self
-        
-        Messaging.messaging().token { token, error in
-            if let error = error {
-                print("Error fetching FCM registration token: \(error)")
-            } else if let token = token {
-                print("FCM registration token: \(token)")
-            }
-        }
         
         return true
     }
