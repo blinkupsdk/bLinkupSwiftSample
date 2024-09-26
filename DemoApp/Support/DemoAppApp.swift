@@ -11,6 +11,7 @@ import bLinkup
 @main
 struct DemoAppApp: App {
     @State var customer: Customer?
+    @State var showApp: Bool = false
     @State var appType: Int = UserDefaults.standard.integer(forKey: "AppType")
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
@@ -24,22 +25,33 @@ struct DemoAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if let customer = customer {
-                switch appType {
-                case 0:
-                    DemoRootView(customer: $customer)
-                default:
-                    BlinkupRootScreen(customer: customer,
-                                      branding: Target.branding(for: customer),
-                                      onClose: { self.customer = nil })
-                    .onChange(of: customer) { print($0.name ?? "-") }
+            CustomerSelectorView(customer: $customer, appType: $appType)
+                .sheet(isPresented: $showApp) {
+                    if let customer = customer {
+                        switch appType {
+                        case 0:
+                            DemoRootView(customer: $customer)
+                        default:
+                            BlinkupRootScreen(customer: customer,
+                                              branding: Target.branding(for: customer),
+                                              onClose: { self.customer = nil })
+                            .onChange(of: customer) { print($0.name ?? "-") }
+                        }
+                    } else {
+                        EmptyView()
+                    }
                 }
-            } else {
-                CustomerSelectorView(customer: $customer, appType: $appType)
-            }
         }
         .onChange(of: appType) { v in
             UserDefaults.standard.set(v, forKey: "AppType")
+        }
+        .onChange(of: customer) { v in
+                showApp = v != nil
+        }
+        .onChange(of: showApp) { v in
+            if !v {
+                customer = nil
+            }
         }
     }
     
