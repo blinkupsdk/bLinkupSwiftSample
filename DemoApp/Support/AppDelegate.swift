@@ -5,6 +5,7 @@
 //  Created by Oleksandr Chernov on 06/09/2024.
 //
 
+import bLinkup
 import FirebaseCore
 import FirebaseMessaging
 import UIKit
@@ -37,8 +38,8 @@ class AppDelegate: NSObject, UIApplicationDelegate,
     func application(_ application: UIApplication,
                      didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
     ) {
-        Messaging.messaging().apnsToken = deviceToken
-//        print(deviceToken.map({ String(format: "%02.2hhx", $0) }))
+        let token = deviceToken.map({ String(format: "%02.2hhx", $0) }).joined()
+        bLinkup.setPushID(token, completion: { _ in })
     }
     
     // MARK: - UNUserNotificationCenterDelegate

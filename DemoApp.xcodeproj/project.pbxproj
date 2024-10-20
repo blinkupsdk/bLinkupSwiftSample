@@ -782,7 +782,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 47;
+				CURRENT_PROJECT_VERSION = 56;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -823,7 +823,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 47;
+				CURRENT_PROJECT_VERSION = 56;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -940,7 +940,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 47;
+				CURRENT_PROJECT_VERSION = 56;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -948,15 +948,14 @@
 				INFOPLIST_FILE = DemoApp/Support/staging/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = bLinkupSTG;
 				INFOPLIST_KEY_NSContactsUsageDescription = "to identify friends using the app, allowing us to notify you when they're nearby'";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "1 to notify you when friends are nearby, facilitating spontaneous meetups";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "1 o notify you when friends are nearby, facilitating spontaneous meetups";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -981,7 +980,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 47;
+				CURRENT_PROJECT_VERSION = 56;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -997,7 +996,6 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -52,8 +52,11 @@ struct CustomerSelectorView: View {
                             HStack {
                                 Image(systemName: "person")
                                 Text(customer.name ?? customer.id)
+                                if customer.id == bLinkup.customer?.id {
+                                    Spacer()
+                                    Image(systemName: "checkmark")
+                                }
                             }
-                            .foregroundStyle(customer.id == bLinkup.customer?.id ? .black : .blue)
                         })
                     }
                 }
