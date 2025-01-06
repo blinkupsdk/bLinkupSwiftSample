@@ -23,6 +23,12 @@
 		EB10F1922AF00CDA006D8DC8 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1912AF00CDA006D8DC8 /* LoadingView.swift */; };
 		EB10F1A02AF014AB006D8DC8 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1842AF00A9E006D8DC8 /* StartView.swift */; };
 		EB38AFD02BDFFB000064B82C /* bLinkup in Frameworks */ = {isa = PBXBuildFile; productRef = EB38AFCF2BDFFB000064B82C /* bLinkup */; };
+		EB42AD722CE4D24B0091CB37 /* NewCustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42AD712CE4D2440091CB37 /* NewCustomerView.swift */; };
+		EB42AD732CE4D24B0091CB37 /* NewCustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42AD712CE4D2440091CB37 /* NewCustomerView.swift */; };
+		EB42AD752CE4D3510091CB37 /* AppCustomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42AD742CE4D34E0091CB37 /* AppCustomer.swift */; };
+		EB42AD762CE4D3510091CB37 /* AppCustomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42AD742CE4D34E0091CB37 /* AppCustomer.swift */; };
+		EB42AD782CE4F7C00091CB37 /* UIColor+Extenions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42AD772CE4F7B90091CB37 /* UIColor+Extenions.swift */; };
+		EB42AD792CE4F7C00091CB37 /* UIColor+Extenions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42AD772CE4F7B90091CB37 /* UIColor+Extenions.swift */; };
 		EB56B5C62BBB0BAA00CF7195 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56B5C52BBB0BAA00CF7195 /* DB.swift */; };
 		EB56B5C82BBB0D9500CF7195 /* CustomerSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56B5C72BBB0D9500CF7195 /* CustomerSelectorView.swift */; };
 		EB6B77842B0C1AAB00AD8EC7 /* MapListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6B77832B0C1AAB00AD8EC7 /* MapListView.swift */; };
@@ -114,6 +120,9 @@
 		EB10F1872AF00AEF006D8DC8 /* UserUpdateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserUpdateView.swift; sourceTree = "<group>"; };
 		EB10F1882AF00AEF006D8DC8 /* BlinkupHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlinkupHeaderView.swift; sourceTree = "<group>"; };
 		EB10F1912AF00CDA006D8DC8 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		EB42AD712CE4D2440091CB37 /* NewCustomerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCustomerView.swift; sourceTree = "<group>"; };
+		EB42AD742CE4D34E0091CB37 /* AppCustomer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomer.swift; sourceTree = "<group>"; };
+		EB42AD772CE4F7B90091CB37 /* UIColor+Extenions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extenions.swift"; sourceTree = "<group>"; };
 		EB520DE42AF32FE300BDDCF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB56B5C52BBB0BAA00CF7195 /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
 		EB56B5C72BBB0D9500CF7195 /* CustomerSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerSelectorView.swift; sourceTree = "<group>"; };
@@ -266,10 +275,12 @@
 		EB10F1822AF009E8006D8DC8 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				EB42AD742CE4D34E0091CB37 /* AppCustomer.swift */,
 				EB10F1842AF00A9E006D8DC8 /* StartView.swift */,
+				EB56B5C72BBB0D9500CF7195 /* CustomerSelectorView.swift */,
 				EB10F1882AF00AEF006D8DC8 /* BlinkupHeaderView.swift */,
 				EB10F1872AF00AEF006D8DC8 /* UserUpdateView.swift */,
-				EB56B5C72BBB0D9500CF7195 /* CustomerSelectorView.swift */,
+				EB42AD712CE4D2440091CB37 /* NewCustomerView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -329,6 +340,7 @@
 		EB7323CA2B167C4400DF6CF1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EB42AD772CE4F7B90091CB37 /* UIColor+Extenions.swift */,
 				EB094F532B35A88700E10022 /* String+Extensions.swift */,
 			);
 			path = Extensions;
@@ -570,6 +582,7 @@
 				EBB8F1B42B10FC0000E782EA /* ConnectionsViewController.swift in Sources */,
 				EB10F1502AF00754006D8DC8 /* DemoRootView.swift in Sources */,
 				EB7F3F102B0C228D004CC2D8 /* MyPresenceView.swift in Sources */,
+				EB42AD752CE4D3510091CB37 /* AppCustomer.swift in Sources */,
 				EBB8F1AF2B10E3A200E782EA /* ConnectionCell.swift in Sources */,
 				EB10D1782B4733B2006FE7AC /* BlocksView.swift in Sources */,
 				EB10F1852AF00A9E006D8DC8 /* TabbarView.swift in Sources */,
@@ -577,6 +590,7 @@
 				EB6DF24B2B0D10CC0036A428 /* FriendsView.swift in Sources */,
 				EB56B5C82BBB0D9500CF7195 /* CustomerSelectorView.swift in Sources */,
 				EB7323C92B167AE400DF6CF1 /* RequestsView.swift in Sources */,
+				EB42AD732CE4D24B0091CB37 /* NewCustomerView.swift in Sources */,
 				EB10F18B2AF00AF0006D8DC8 /* BlinkupHeaderView.swift in Sources */,
 				EB6DF24E2B0D11750036A428 /* SettingsView.swift in Sources */,
 				EB56B5C62BBB0BAA00CF7195 /* DB.swift in Sources */,
@@ -584,6 +598,7 @@
 				EB6B77842B0C1AAB00AD8EC7 /* MapListView.swift in Sources */,
 				EBBED7A52C931FE40041A0DC /* Target.swift in Sources */,
 				EB094F542B35A88700E10022 /* String+Extensions.swift in Sources */,
+				EB42AD792CE4F7C00091CB37 /* UIColor+Extenions.swift in Sources */,
 				EB094F5A2B35B0E900E10022 /* FoundUserView.swift in Sources */,
 				EB7F3F122B0C24A4004CC2D8 /* MyPresenceCell.swift in Sources */,
 				EB10F1922AF00CDA006D8DC8 /* LoadingView.swift in Sources */,
@@ -619,6 +634,7 @@
 				EBBED77E2C931ACB0041A0DC /* ConnectionsViewController.swift in Sources */,
 				EBBED77F2C931ACB0041A0DC /* DemoRootView.swift in Sources */,
 				EBBED7802C931ACB0041A0DC /* MyPresenceView.swift in Sources */,
+				EB42AD762CE4D3510091CB37 /* AppCustomer.swift in Sources */,
 				EBBED7812C931ACB0041A0DC /* ConnectionCell.swift in Sources */,
 				EBBED7822C931ACB0041A0DC /* BlocksView.swift in Sources */,
 				EBBED7832C931ACB0041A0DC /* TabbarView.swift in Sources */,
@@ -626,6 +642,7 @@
 				EBBED7852C931ACB0041A0DC /* FriendsView.swift in Sources */,
 				EBBED7862C931ACB0041A0DC /* CustomerSelectorView.swift in Sources */,
 				EBBED7872C931ACB0041A0DC /* RequestsView.swift in Sources */,
+				EB42AD722CE4D24B0091CB37 /* NewCustomerView.swift in Sources */,
 				EBBED7882C931ACB0041A0DC /* BlinkupHeaderView.swift in Sources */,
 				EBBED7892C931ACB0041A0DC /* SettingsView.swift in Sources */,
 				EBBED78A2C931ACB0041A0DC /* DB.swift in Sources */,
@@ -633,6 +650,7 @@
 				EBBED78C2C931ACB0041A0DC /* MapListView.swift in Sources */,
 				EBBED7A72C9320D10041A0DC /* Target.swift in Sources */,
 				EBBED78D2C931ACB0041A0DC /* String+Extensions.swift in Sources */,
+				EB42AD782CE4F7C00091CB37 /* UIColor+Extenions.swift in Sources */,
 				EBBED78E2C931ACB0041A0DC /* FoundUserView.swift in Sources */,
 				EBBED78F2C931ACB0041A0DC /* MyPresenceCell.swift in Sources */,
 				EBBED7902C931ACB0041A0DC /* LoadingView.swift in Sources */,
@@ -782,7 +800,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 59;
+				CURRENT_PROJECT_VERSION = 63;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -823,7 +841,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 59;
+				CURRENT_PROJECT_VERSION = 63;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -940,7 +958,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 59;
+				CURRENT_PROJECT_VERSION = 63;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -980,7 +998,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 59;
+				CURRENT_PROJECT_VERSION = 63;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;

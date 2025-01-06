@@ -9,37 +9,46 @@ import bLinkup
 import SwiftUI
 
 struct CustomerSelectorView: View {
-    @Binding var customer: Customer?
+    @Binding var customer: AppCustomer?
     @Binding var appType: Int
     
-    @State var customs: [Customer] = DB.shared.get(key: .keyCustomCustomers) ?? []
+    @State var customs: [AppCustomer] = DB.shared.get(key: .keyCustomCustomers) ?? []
+    @State private var showAddCustomer = false
+    @State private var customerForMenu: AppCustomer?
+    @State private var customerToEdit: AppCustomer?
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         
-        Picker("Choose", selection: $appType) {
-            Text("Demo").tag(0)
-            Text("SDK-UI").tag(1)
+        HStack {
+            Picker("Choose", selection: $appType) {
+                Text("Demo").tag(0)
+                Text("SDK-UI").tag(1)
+            }
+            .pickerStyle(.segmented)
+            
+            Button(action: { showAddCustomer = true },
+                   label: { Image(systemName: "plus") })
         }
-        .pickerStyle(.segmented)
         .padding()
-        
         Form {
                 if !customs.isEmpty {
                     Section(header: Text("Private")) {
                         ForEach(customs, id: \.id) { customer in
-                            Button(action: {
-                                self.customer = customer
-                            }, label: {
-                                HStack {
-                                    Image(systemName: "person")
-                                    Text(customer.name ?? customer.id)
-                                    Spacer()
-                                    Button(action: {
-                                        customs = DB.shared.removeCustomer(customer)
-                                    }, label: {
-                                        Image(systemName: "trash")
-                                    })
+                            HStack {
+                                Image(systemName: "person")
+                                Text(customer.name ?? customer.id)
+                                Spacer()
+                                if customer.id == bLinkup.customer?.id {
+                                    Image(systemName: "checkmark")
                                 }
+                            }
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                self.customer = customer
+                            }
+                            .onLongPressGesture(minimumDuration: 0.6, perform: {
+                                customerForMenu = customer
                             })
                         }
                     }
@@ -62,12 +71,37 @@ struct CustomerSelectorView: View {
                 }
         }
         .refreshable {
-            let list: [Customer] = DB.shared.get(key: .keyCustomCustomers) ?? []
+            let list: [AppCustomer] = DB.shared.get(key: .keyCustomCustomers) ?? []
             customs = list
         }
+        .sheet(item: $customerToEdit) { c in
+            NewCustomerView(c)
+                .onDisappear() {
+                    customs = DB.shared.get(key: .keyCustomCustomers) ?? []
+                }
+        }
+        .sheet(isPresented: $showAddCustomer,  content: {
+            NewCustomerView(nil)
+                .onDisappear() {
+                    customs = DB.shared.get(key: .keyCustomCustomers) ?? []
+                }
+        })
+        .actionSheet(item: $customerForMenu, content: { c in
+            ActionSheet(title: Text(c.name ?? c.id),
+                        message: nil,
+                        buttons: [
+                            .default(Text("Edit"), action: {
+                                customerToEdit = c
+                            }),
+                            .destructive(Text("Delete"), action: {
+                                customs = DB.shared.removeCustomer(c)
+                            }),
+                            .cancel()
+                        ])
+        })
     }
 }
 
 #Preview {
-    CustomerSelectorView(customer: .constant(Customer(id: "")), appType: .constant(0))
+    CustomerSelectorView(customer: .constant(AppCustomer(id: "")), appType: .constant(0))
 }

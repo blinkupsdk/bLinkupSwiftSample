@@ -10,7 +10,7 @@ import bLinkup
 
 struct DemoRootView: View {
     @State var isLoggedIn: Bool = !bLinkup.isLoginRequired
-    @Binding var customer: Customer?
+    @Binding var customer: AppCustomer?
     
     var body: some View {
         switch isLoggedIn {

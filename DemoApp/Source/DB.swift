@@ -31,8 +31,8 @@ class DB {
     // custom Customers
     
     @discardableResult
-    func addCustomer(_ c: Customer) -> [Customer] {
-        var list: [Customer] = get(key: .keyCustomCustomers) ?? []
+    func addCustomer(_ c: AppCustomer) -> [AppCustomer] {
+        var list: [AppCustomer] = get(key: .keyCustomCustomers) ?? []
         list = list.filter({ $0.id != c.id })
         list.insert(c, at: 0)
         set(list, key: .keyCustomCustomers)
@@ -40,8 +40,16 @@ class DB {
     }
     
     @discardableResult
-    func removeCustomer(_ c: Customer) -> [Customer] {
-        var list: [Customer] = get(key: .keyCustomCustomers) ?? []
+    func removeCustomer(_ c: AppCustomer) -> [AppCustomer] {
+        var list: [AppCustomer] = get(key: .keyCustomCustomers) ?? []
+        list = list.filter({ $0.id != c.id })
+        set(list, key: .keyCustomCustomers)
+        return list
+    }
+    
+    @discardableResult
+    func removeCustomer(_ c: Customer) -> [AppCustomer] {
+        var list: [AppCustomer] = get(key: .keyCustomCustomers) ?? []
         list = list.filter({ $0.id != c.id })
         set(list, key: .keyCustomCustomers)
         return list

@@ -19,7 +19,7 @@ private let gradient = LinearGradient(gradient: Gradient(colors: [.blGreen, .blB
 
 struct StartView: View {
     @Binding var isLoggedIn: Bool
-    @Binding var customer: Customer?
+    @Binding var customer: AppCustomer?
 
     @State var isLoading = false
     @State var screenState: ScreenState = .login
@@ -151,7 +151,7 @@ struct StartView: View {
     // MARK: - Data
     
     func requestCode() {
-        guard let customer else { return }
+        guard let customer = customer?.asBlinkupCustomer() else { return }
         isLoading = true
         bLinkup.requestCode(customer: customer, phoneNumber: mobileNumber) { result in
             isLoading = false

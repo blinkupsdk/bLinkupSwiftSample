@@ -12,25 +12,16 @@ import UIKit
 
 enum Target {
     static let customers = [
-        Customer(id: "TkPnD3_yP3j6dUEAksgRjJ-auYijyUECLxVEnFqHJVE=", name: "STG-Test2"),
-        Customer(id: "CzWgbh_Y0-Lod0VCjhwkiIDt5y3QxLLcoy0FcEDoc9E=", name: "STG-Test"),
+        AppCustomer(id: "TkPnD3_yP3j6dUEAksgRjJ-auYijyUECLxVEnFqHJVE=",
+                    name: "STG-Test",
+                    primary: "004020",
+                    secondary: "CC0D33",
+                    logo: "logoDemo"),
+        AppCustomer(id: "CzWgbh_Y0-Lod0VCjhwkiIDt5y3QxLLcoy0FcEDoc9E=",
+                    name: "STG-Legacy",
+                    primary: "004020",
+                    secondary: "CC0D33",
+                    logo: "logoMilwaukee",
+                    font: "AmericanTypewriter"),
     ]
-    
-    static func branding(for c: Customer) -> Branding {
-        switch c.id {
-        case "TkPnD3_yP3j6dUEAksgRjJ-auYijyUECLxVEnFqHJVE=",
-            "CzWgbh_Y0-Lod0VCjhwkiIDt5y3QxLLcoy0FcEDoc9E=": // Staging
-            return Branding(primary: UIColor(red: 0, green: 0.25, blue: 0.125, alpha: 1),
-                            secondary: UIColor(red: 0.8, green: 0.05, blue: 0.2, alpha: 1),
-                            fontName: "AmericanTypewriter",
-                            logo: "logoMilwaukee",
-                            name: c.name)
-        default:
-            return Branding(primary: UIColor(red: 0, green: 0.25, blue: 0.125, alpha: 1),
-                            secondary: UIColor(red: 0.8, green: 0.05, blue: 0.2, alpha: 1),
-                            fontName: nil,
-                            logo: "logoDemo",
-                            name: c.name)
-        }
-    }
 }

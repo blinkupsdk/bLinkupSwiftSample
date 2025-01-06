@@ -10,7 +10,7 @@ import bLinkup
 
 @main
 struct DemoAppApp: App {
-    @State var customer: Customer?
+    @State var customer: AppCustomer?
     @State var showApp: Bool = false
     @State var appType: Int = UserDefaults.standard.integer(forKey: "AppType")
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
@@ -32,8 +32,8 @@ struct DemoAppApp: App {
                         case 0:
                             DemoRootView(customer: $customer)
                         default:
-                            BlinkupRootScreen(customer: customer,
-                                              branding: Target.branding(for: customer),
+                            BlinkupRootScreen(customer: customer.asBlinkupCustomer(),
+                                              branding: customer.asBlinkupBranding(),
                                               onClose: { self.customer = nil })
                             .onChange(of: customer) { print($0.name ?? "-") }
                         }
@@ -71,7 +71,7 @@ struct DemoAppApp: App {
                 return
             }
             let name = components.queryItems?.first(where: { $0.name == "name" })?.value
-            let c = Customer(id: id, name: name)
+            let c = AppCustomer(id: id, name: name)
             DB.shared.addCustomer(c)
         default:
             print("Unknown URL, we can't handle this one!")
