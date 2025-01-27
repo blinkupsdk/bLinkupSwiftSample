@@ -35,14 +35,7 @@ struct CustomerSelectorView: View {
                 if !customs.isEmpty {
                     Section(header: Text("Private")) {
                         ForEach(customs, id: \.id) { customer in
-                            HStack {
-                                Image(systemName: "person")
-                                Text(customer.name ?? customer.id)
-                                Spacer()
-                                if customer.id == bLinkup.customer?.id {
-                                    Image(systemName: "checkmark")
-                                }
-                            }
+                            CustomerView(customer: customer)
                             .contentShape(Rectangle())
                             .onTapGesture {
                                 self.customer = customer
@@ -58,14 +51,7 @@ struct CustomerSelectorView: View {
                         Button(action: {
                             self.customer = customer
                         }, label: {
-                            HStack {
-                                Image(systemName: "person")
-                                Text(customer.name ?? customer.id)
-                                if customer.id == bLinkup.customer?.id {
-                                    Spacer()
-                                    Image(systemName: "checkmark")
-                                }
-                            }
+                            CustomerView(customer: customer)
                         })
                     }
                 }
@@ -99,6 +85,21 @@ struct CustomerSelectorView: View {
                             .cancel()
                         ])
         })
+    }
+}
+
+fileprivate struct CustomerView: View {
+    let customer: AppCustomer
+    var body: some View {
+        HStack {
+            Image(systemName: "person")
+            Text(customer.name ?? customer.id)
+            if customer.id == bLinkup.customer?.id {
+                Spacer()
+                Image(systemName: "checkmark")
+                    .tint(bLinkup.isLoginRequired ? .blue : .green)
+            }
+        }
     }
 }
 
