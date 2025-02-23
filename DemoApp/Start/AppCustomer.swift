@@ -21,8 +21,8 @@ struct AppCustomer: Codable, Identifiable, Equatable {
     }
     
     func asBlinkupBranding() -> Branding {
-        Branding(primary: UIColor(hex: primary ?? ""),
-                 secondary: UIColor(hex: primary ?? ""),
+        Branding(primaryHEX: primary,
+                 secondaryHEX: secondary,
                  fontName: font,
                  logo: logo,
                  name: name)

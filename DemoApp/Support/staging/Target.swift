@@ -14,13 +14,11 @@ enum Target {
     static let customers = [
         AppCustomer(id: "TkPnD3_yP3j6dUEAksgRjJ-auYijyUECLxVEnFqHJVE=",
                     name: "STG-Test",
-                    primary: "004020",
-                    secondary: "CC0D33",
+                    primary: "#FFFF00",
+                    secondary: "#F0FFFF",
                     logo: "logoDemo"),
         AppCustomer(id: "CzWgbh_Y0-Lod0VCjhwkiIDt5y3QxLLcoy0FcEDoc9E=",
                     name: "STG-Legacy",
-                    primary: "004020",
-                    secondary: "CC0D33",
                     logo: "logoMilwaukee",
                     font: "AmericanTypewriter"),
     ]

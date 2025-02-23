@@ -9,13 +9,13 @@ import SwiftUI
 
 extension UIColor {
     convenience init?(hex: String?) {
-        guard let hex else { return nil }
+        guard let hex = hex?.nonEmpty else { return nil }
         
         let h = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int: UInt64 = 0
         Scanner(string: h).scanHexInt64(&int)
         let a, r, g, b: UInt64
-        switch hex.count {
+        switch h.count {
         case 3: // RGB (12-bit)
             (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
         case 6: // RGB (24-bit)
@@ -23,7 +23,7 @@ extension UIColor {
         case 8: // ARGB (32-bit)
             (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
         default:
-            (a, r, g, b) = (1, 1, 1, 0)
+            return nil;
         }
 
         self.init(red: Double(r) / 255,

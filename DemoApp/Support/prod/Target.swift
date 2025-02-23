@@ -46,5 +46,8 @@ enum Target {
         AppCustomer(id: "blXZyvR8f2s54U948MuU9rSxeinYE1G1sYGq0V2P0GM=",
                     name: "Scrut",
                     logo: "logoDemo"),
+        AppCustomer(id: "845hxVpXeRyfJ2IlVfF6fNSNfUU3w0V3W1VZ0R6bhlI=",
+                    name: "Marq",
+                    logo: "logoDemo"),
     ]
 }

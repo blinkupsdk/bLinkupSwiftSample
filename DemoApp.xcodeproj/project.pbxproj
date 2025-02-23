@@ -214,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				EB10F1772AF00780006D8DC8 /* Resources */,
+				EBCD6B3F2D67946D00164F35 /* Start */,
 				EB10F1812AF009DE006D8DC8 /* UI */,
 				EB56B5C42BBB0B5B00CF7195 /* Source */,
 				EBBED7702C931A150041A0DC /* Support */,
@@ -275,12 +276,9 @@
 		EB10F1822AF009E8006D8DC8 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				EB42AD742CE4D34E0091CB37 /* AppCustomer.swift */,
 				EB10F1842AF00A9E006D8DC8 /* StartView.swift */,
-				EB56B5C72BBB0D9500CF7195 /* CustomerSelectorView.swift */,
 				EB10F1882AF00AEF006D8DC8 /* BlinkupHeaderView.swift */,
 				EB10F1872AF00AEF006D8DC8 /* UserUpdateView.swift */,
-				EB42AD712CE4D2440091CB37 /* NewCustomerView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -396,6 +394,16 @@
 				EBBED7A62C9320D10041A0DC /* Target.swift */,
 			);
 			path = staging;
+			sourceTree = "<group>";
+		};
+		EBCD6B3F2D67946D00164F35 /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				EB42AD742CE4D34E0091CB37 /* AppCustomer.swift */,
+				EB56B5C72BBB0D9500CF7195 /* CustomerSelectorView.swift */,
+				EB42AD712CE4D2440091CB37 /* NewCustomerView.swift */,
+			);
+			path = Start;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -800,7 +808,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 67;
+				CURRENT_PROJECT_VERSION = 71;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -841,7 +849,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 67;
+				CURRENT_PROJECT_VERSION = 71;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -958,7 +966,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 67;
+				CURRENT_PROJECT_VERSION = 71;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -998,7 +1006,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 67;
+				CURRENT_PROJECT_VERSION = 71;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;

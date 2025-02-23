@@ -32,29 +32,31 @@ struct CustomerSelectorView: View {
         }
         .padding()
         Form {
-                if !customs.isEmpty {
-                    Section(header: Text("Private")) {
-                        ForEach(customs, id: \.id) { customer in
-                            CustomerView(customer: customer)
+            if !customs.isEmpty {
+                Section(header: Text("Private")) {
+                    ForEach(customs, id: \.id) { customer in
+                        CustomerView(customer: customer)
                             .contentShape(Rectangle())
                             .onTapGesture {
                                 self.customer = customer
                             }
+                            .contentShape(Rectangle())
                             .onLongPressGesture(minimumDuration: 0.6, perform: {
                                 customerForMenu = customer
                             })
-                        }
+                            .contentShape(Rectangle())
                     }
                 }
-                Section(header: Text("Public")) {
-                    ForEach(Target.customers, id: \.id) { customer in
-                        Button(action: {
-                            self.customer = customer
-                        }, label: {
-                            CustomerView(customer: customer)
-                        })
-                    }
+            }
+            Section(header: Text("Public")) {
+                ForEach(Target.customers, id: \.id) { customer in
+                    Button(action: {
+                        self.customer = customer
+                    }, label: {
+                        CustomerView(customer: customer)
+                    })
                 }
+            }
         }
         .refreshable {
             let list: [AppCustomer] = DB.shared.get(key: .keyCustomCustomers) ?? []
