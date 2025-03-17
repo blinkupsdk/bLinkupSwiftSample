@@ -11,6 +11,9 @@ import CoreLocation
 import SwiftUI
 import UIKit
 
+private let kLogsN = 1000
+private var kLogI = 0
+
 struct TrackView: UIViewControllerRepresentable {
     @Environment(\.presentationMode) var presentationMode
     
@@ -31,12 +34,10 @@ class TrackViewController: UIViewController,
     @IBOutlet var nearestNameLabel: UILabel?
     @IBOutlet var nearestPosLabel: UILabel?
     @IBOutlet var distanceLabel: UILabel?
-    @IBOutlet var log: UITextView?
+    @IBOutlet var logView: UITextView?
 
-    var current: CLLocation?
-    var models = [Presence]() { willSet { addLog(models, newValue) }}
-    var track: String?
-    let manager = CLLocationManager()
+    private let tracker = TrackingObject()
+    private var presence = [Presence]()
     
     static func instantiate() -> TrackViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle(for: TrackViewController.self))
@@ -44,77 +45,76 @@ class TrackViewController: UIViewController,
         return vc
     }
     
-    deinit {
-        if let track { bLinkup.removeTrackingObserver(id: track) }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.title = "Geofencing"
         
-        bLinkup.addGeofencingObserver(handleTrack)
-        manager.delegate = self
-        manager.startUpdatingLocation()
+        tracker.onLocationUpdate = { [weak self] loc, pl in
+            DispatchQueue.main.async {
+                self?.updateFormLocation(location: loc, nearest: pl)
+            }
+        }
+        tracker.onPresenceUpdate = { [weak self] pr in
+            DispatchQueue.main.async {
+                self?.updateFormPresence(pr)
+            }
+        }
     }
     
-    func handleTrack(_ p: [Presence]) {
-        self.models = p
-        tableView?.reloadData()
-        updateCurrentLocationLabels()
+    @IBAction func share() {
+        let text = LogsManager.shared.export()
+        let vc = UIActivityViewController(activityItems:[text],
+                                          applicationActivities: nil)
+        vc.popoverPresentationController?.sourceView = self.view
+        present(vc, animated: true, completion: nil)
     }
     
     // MARK: -
     
-    func updateCurrentLocationLabels() {
-//        let oneDeg = 111134.0 //(1 deg = 111km 134m)
-        currentLabel?.text = current?.message ?? "?"
-        if let current,
-           let min = models
-            .compactMap({ $0.place })
-            .filter({ $0.latitude != nil && $0.longitude != nil })
-            .min(by: {
-                let l = CLLocation(latitude: $0.latitude!, longitude: $0.longitude!)
-                let r = CLLocation(latitude: $1.latitude!, longitude: $1.longitude!)
-                return current.distance(from: l) < current.distance(from: r)
-            })
-        {
-            let l = CLLocation(latitude: min.latitude!, longitude: min.longitude!)
-            nearestNameLabel?.text = min.name
-            nearestPosLabel?.text = l.message(radius: min.radius ?? -1)
-            distanceLabel?.text = String(format: "%.0fm", current.distance(from: l))
+    @MainActor
+    func updateFormLocation(location: CLLocation?, nearest: Place?) {
+        currentLabel?.text = location?.message ?? "?"
+        if let location, let p = nearest {
+            let l = CLLocation(latitude: p.latitude!, longitude: p.longitude!)
+            nearestNameLabel?.text = p.name
+            nearestPosLabel?.text = l.message(radius: p.radius ?? -1)
+            distanceLabel?.text = String(format: "%.0fm", location.distance(from: l))
         } else {
             nearestNameLabel?.text = "-"
             nearestPosLabel?.text = "-"
             distanceLabel?.text = "-"
         }
+        updateLogView()
     }
     
-    func addLog(_ old: [Presence], _ new: [Presence]) {
-        new.forEach({ p in
-            if old.first(where: { $0 == p })?.isPresent == p.isPresent { return }
-            self.log?.text = "\(p.place?.name ?? "?") -> \(p.isPresent ? "in" : "out")\n"
-            + (self.log?.text ?? "")
-        })
+    @MainActor
+    func updateFormPresence(_ p: Presence) {
+        if let index = presence.firstIndex(of: p) {
+            presence[index] = p
+        } else {
+            presence.append(p)
+        }
+        tableView?.reloadData()
+        updateLogView()
     }
     
-    // MARK: - CLLocationManagerDelegate
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        current = locations.first
-        updateCurrentLocationLabels()
+    func updateLogView() {
+        logView?.text = LogsManager.shared.logs
+            .reversed()
+            .joined()
     }
     
     // MARK: - UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        models.count
+        presence.count
     }
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        let p = models[indexPath.row]
+        let p = presence[indexPath.row]
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         if let obj = p.place {
             cell.selectionStyle = .none

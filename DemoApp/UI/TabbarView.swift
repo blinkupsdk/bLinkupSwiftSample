@@ -12,6 +12,27 @@ struct TabbarView: View {
     
     @State var showPortfolio: Bool = false
     @State private var showSettingsView = false
+    @State var error: Error? = nil {
+        didSet { showError = error != nil }
+    }
+    @State var showError = false
+
+    let tracker: TrackingObject
+    
+    init(isLoggedIn: Binding<Bool>) {
+        tracker = TrackingObject()
+        
+        self._isLoggedIn = isLoggedIn
+        
+        tracker.onLocationUpdate = {
+            if let l = $0 {
+                LogsManager.shared.addLogLocation(l, nearest: $1)
+            }
+        }
+        tracker.onPresenceUpdate = {
+            LogsManager.shared.addLogPresence($0)
+        }
+    }
     
     var body: some View {
         VStack {
@@ -27,7 +48,7 @@ struct TabbarView: View {
                 }
 
                 NavigationView {
-                    MyPresenceView()
+                    MyPresenceView(error: $error)
                         .navigationTitle("Presence")
                 }
                 .tabItem {
@@ -49,6 +70,9 @@ struct TabbarView: View {
                     Label("Settings", systemImage: "gearshape")
                 }
             }
+        }
+        .alert(error?.localizedDescription ?? "?", isPresented: $showError) {
+            Button("OK", role: .cancel) { error = nil }
         }
         .navigationBarTitle("", displayMode: .inline)
     }

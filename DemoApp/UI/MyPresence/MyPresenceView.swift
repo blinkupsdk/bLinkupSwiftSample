@@ -9,28 +9,40 @@ import bLinkup
 import SwiftUI
 
 struct MyPresenceView: View {
+    struct ARecord: Identifiable, Equatable, Hashable {
+        var id: String { place.id }
+        let place: Place
+        let presence: Presence?
+        
+        static func == (lhs: ARecord, rhs: ARecord) -> Bool {
+            lhs.place == rhs.place && lhs.presence == rhs.presence
+        }
+        
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(place)
+            if let presence {
+                hasher.combine(presence)
+            }
+        }
+    }
     
-    @State var presence: [Presence] = []
-    @State var selection: Presence?
+    @State var records: [ARecord] = []
     @State var isLoading = false
     @State var isFirstLoading = true
+    @Binding var error: Error?
     
     var body: some View {
         ZStack {
             List {
                 Section(content: {
-                    ForEach(presence, id: \.id) { p in
-                        MyPresenceCell(presence: p, isSelected: selection == p)
+                    ForEach(records, id: \.id) { r in
+                        MyPresenceCell(rec: r, updater: touchPresence)
                             .frame(maxWidth: .infinity, alignment: .leading)
+                            .frame(height: 30)
                             .background(.gray.opacity(0.001))
-                            .onTapGesture {
-                                withAnimation {
-                                    selection = p
-                                }
-                            }
                     }
-                }, footer: {
-                    actionsHeader()
+                }, header: {
+                    actionsSection()
                         .frame(maxWidth: .infinity)
                 })
             }
@@ -47,46 +59,15 @@ struct MyPresenceView: View {
         }
     }
     
-    func actionsHeader() -> some View {
+    func actionsSection() -> some View {
         VStack {
             Text("Manually set presence")
                 .font(.title3)
             
-            HStack {
-                Button(action: {
-                    updatePresence(true)
-                }, label: {
-                    HStack {
-                        Image(systemName: "square.and.arrow.down")
-                        Text("in")
-                    }
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(width: 130)
-                    .background(Color.accentColor)
-                    .clipShape(RoundedRectangle(cornerRadius:5))
-                })
-                
-                Button(action: {
-                    updatePresence(false)
-                }, label: {
-                    HStack {
-                        Image(systemName: "square.and.arrow.up")
-                        Text("Out")
-                    }
-                    .foregroundColor(.black)
-                    .padding()
-                    .frame(width: 130)
-                    .background(
-                        RoundedRectangle(cornerRadius: 5)
-                            .strokeBorder(.black, lineWidth: 1)
-                    )
-                })
-            }
-            
             NavigationLink(destination: {
                 TrackView()
                     .navigationTitle("Geofencing")
+                    .navigationBarTitleDisplayMode(.inline)
             }, label: {
                 HStack {
                     Text("</>")
@@ -103,32 +84,29 @@ struct MyPresenceView: View {
             })
         }
         .font(.system(size: 14))
-        .opacity(selection == nil ? 0.5 : 1)
-        .allowsHitTesting(selection != nil)
     }
     
     func loadData() {
-        isLoading = true
-        bLinkup.getMyPresences {
-            isLoading = false
-            switch $0 {
-            case .failure(let error):
-                print(error)
-            case .success(let list):
-                self.presence = list
-                let id = selection?.place?.id
-                selection = id == nil ? list.first : (list.first(where: { $0.place?.id == id }) ?? list.first)
+        Task {
+            isLoading = true
+            do {
+                let presence = try await bLinkup.getMyPresences()
+                let places = try await bLinkup.getEvents()
+                self.records = places.compactMap({ p in
+                    ARecord(place: p, presence: presence.first(where: { $0.place?.id == p.id }))
+                })
+            } catch {
+                self.error = error
             }
+            isLoading = false
         }
     }
     
-    func updatePresence( _ p: Bool) {
-        guard let place = selection?.place,
-              selection?.isPresent != p
-        else { return }
+    func touchPresence( _ r: ARecord) {
+        let pres = r.presence?.isPresent == true
         
         isLoading = true
-        bLinkup.setUserAtEvent(p, at: place) {
+        bLinkup.setUserAtEvent(!pres, at: r.place) {
             isLoading = false
             switch $0 {
             case .failure(let error):
@@ -142,15 +120,18 @@ struct MyPresenceView: View {
 
 #Preview {
     NavigationView {
-        MyPresenceView(presence: [.init(id: "1",
-                                        user: .init(id: "1", name: "User"),
-                                        place: .init(id: "1", name: "Place1"),
-                                        isPresent: true, insertedAt: nil),
-                                  .init(id: "2",
-                                        user: .init(id: "2", name: "User"),
-                                        place: .init(id: "2", name: "Place2"),
-                                        isPresent: false, insertedAt: nil)],
-                       isFirstLoading: false)
+        MyPresenceView(records: [.init(place: .init(id: "1", name: "Place1"),
+                                       presence: .init(id: "1",
+                                                       user: .init(id: "1", name: "User"),
+                                                       place: .init(id: "1", name: "Place1"),
+                                                       isPresent: true, insertedAt: nil)),
+                                       .init(place: .init(id: "2", name: "Place2"),
+                                             presence: .init(id: "2",
+                                                             user: .init(id: "2", name: "User"),
+                                                             place: .init(id: "2", name: "Place2"),
+                                                             isPresent: false, insertedAt: nil))
+        ],
+                       isFirstLoading: false, error: .constant(nil))
         .navigationTitle("Presence")
     }
 }

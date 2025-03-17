@@ -22,6 +22,10 @@
 		EB10F18B2AF00AF0006D8DC8 /* BlinkupHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1882AF00AEF006D8DC8 /* BlinkupHeaderView.swift */; };
 		EB10F1922AF00CDA006D8DC8 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1912AF00CDA006D8DC8 /* LoadingView.swift */; };
 		EB10F1A02AF014AB006D8DC8 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1842AF00A9E006D8DC8 /* StartView.swift */; };
+		EB1A8F132D7EEF4F008917B9 /* LogsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A8F122D7EEF4B008917B9 /* LogsManager.swift */; };
+		EB1A8F142D7EEF4F008917B9 /* LogsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A8F122D7EEF4B008917B9 /* LogsManager.swift */; };
+		EB1A8F162D7EF063008917B9 /* TrackingObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A8F152D7EF05C008917B9 /* TrackingObject.swift */; };
+		EB1A8F172D7EF063008917B9 /* TrackingObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A8F152D7EF05C008917B9 /* TrackingObject.swift */; };
 		EB38AFD02BDFFB000064B82C /* bLinkup in Frameworks */ = {isa = PBXBuildFile; productRef = EB38AFCF2BDFFB000064B82C /* bLinkup */; };
 		EB42AD722CE4D24B0091CB37 /* NewCustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42AD712CE4D2440091CB37 /* NewCustomerView.swift */; };
 		EB42AD732CE4D24B0091CB37 /* NewCustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42AD712CE4D2440091CB37 /* NewCustomerView.swift */; };
@@ -120,6 +124,8 @@
 		EB10F1872AF00AEF006D8DC8 /* UserUpdateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserUpdateView.swift; sourceTree = "<group>"; };
 		EB10F1882AF00AEF006D8DC8 /* BlinkupHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlinkupHeaderView.swift; sourceTree = "<group>"; };
 		EB10F1912AF00CDA006D8DC8 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		EB1A8F122D7EEF4B008917B9 /* LogsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsManager.swift; sourceTree = "<group>"; };
+		EB1A8F152D7EF05C008917B9 /* TrackingObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingObject.swift; sourceTree = "<group>"; };
 		EB42AD712CE4D2440091CB37 /* NewCustomerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCustomerView.swift; sourceTree = "<group>"; };
 		EB42AD742CE4D34E0091CB37 /* AppCustomer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomer.swift; sourceTree = "<group>"; };
 		EB42AD772CE4F7B90091CB37 /* UIColor+Extenions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extenions.swift"; sourceTree = "<group>"; };
@@ -269,6 +275,7 @@
 				EB6B77822B0C1A8B00AD8EC7 /* Map */,
 				EB6DF24C2B0D11750036A428 /* Settings */,
 				EB832C312AF01D89008B4F5C /* MainKit */,
+				EB1A8F112D7EEF41008917B9 /* Logs */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -296,6 +303,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB1A8F112D7EEF41008917B9 /* Logs */ = {
+			isa = PBXGroup;
+			children = (
+				EB1A8F122D7EEF4B008917B9 /* LogsManager.swift */,
+			);
+			path = Logs;
 			sourceTree = "<group>";
 		};
 		EB56B5C42BBB0B5B00CF7195 /* Source */ = {
@@ -358,6 +373,7 @@
 			children = (
 				EBB8F1B32B10FC0000E782EA /* ConnectionsViewController.swift */,
 				EB832C512AF02D69008B4F5C /* TrackViewController.swift */,
+				EB1A8F152D7EF05C008917B9 /* TrackingObject.swift */,
 				EB832C4A2AF02D68008B4F5C /* Main.storyboard */,
 				EB832C5E2AF02DAA008B4F5C /* UIViewController+Error.swift */,
 			);
@@ -589,6 +605,7 @@
 				EB10F1A02AF014AB006D8DC8 /* StartView.swift in Sources */,
 				EBB8F1B42B10FC0000E782EA /* ConnectionsViewController.swift in Sources */,
 				EB10F1502AF00754006D8DC8 /* DemoRootView.swift in Sources */,
+				EB1A8F162D7EF063008917B9 /* TrackingObject.swift in Sources */,
 				EB7F3F102B0C228D004CC2D8 /* MyPresenceView.swift in Sources */,
 				EB42AD752CE4D3510091CB37 /* AppCustomer.swift in Sources */,
 				EBB8F1AF2B10E3A200E782EA /* ConnectionCell.swift in Sources */,
@@ -609,6 +626,7 @@
 				EB42AD792CE4F7C00091CB37 /* UIColor+Extenions.swift in Sources */,
 				EB094F5A2B35B0E900E10022 /* FoundUserView.swift in Sources */,
 				EB7F3F122B0C24A4004CC2D8 /* MyPresenceCell.swift in Sources */,
+				EB1A8F142D7EEF4F008917B9 /* LogsManager.swift in Sources */,
 				EB10F1922AF00CDA006D8DC8 /* LoadingView.swift in Sources */,
 				EB10F14E2AF00754006D8DC8 /* DemoAppApp.swift in Sources */,
 			);
@@ -641,6 +659,7 @@
 				EBBED77D2C931ACB0041A0DC /* StartView.swift in Sources */,
 				EBBED77E2C931ACB0041A0DC /* ConnectionsViewController.swift in Sources */,
 				EBBED77F2C931ACB0041A0DC /* DemoRootView.swift in Sources */,
+				EB1A8F172D7EF063008917B9 /* TrackingObject.swift in Sources */,
 				EBBED7802C931ACB0041A0DC /* MyPresenceView.swift in Sources */,
 				EB42AD762CE4D3510091CB37 /* AppCustomer.swift in Sources */,
 				EBBED7812C931ACB0041A0DC /* ConnectionCell.swift in Sources */,
@@ -661,6 +680,7 @@
 				EB42AD782CE4F7C00091CB37 /* UIColor+Extenions.swift in Sources */,
 				EBBED78E2C931ACB0041A0DC /* FoundUserView.swift in Sources */,
 				EBBED78F2C931ACB0041A0DC /* MyPresenceCell.swift in Sources */,
+				EB1A8F132D7EEF4F008917B9 /* LogsManager.swift in Sources */,
 				EBBED7902C931ACB0041A0DC /* LoadingView.swift in Sources */,
 				EBBED7912C931ACB0041A0DC /* DemoAppApp.swift in Sources */,
 			);
@@ -808,7 +828,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 71;
+				CURRENT_PROJECT_VERSION = 72;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -849,7 +869,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 71;
+				CURRENT_PROJECT_VERSION = 72;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -966,7 +986,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 71;
+				CURRENT_PROJECT_VERSION = 72;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -1006,7 +1026,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 71;
+				CURRENT_PROJECT_VERSION = 72;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
