@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import bLinkup
+import bLinkupSDK
 
 struct DemoRootView: View {
     @State var isLoggedIn: Bool = !bLinkup.isLoginRequired

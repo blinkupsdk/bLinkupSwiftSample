@@ -5,7 +5,7 @@
 //  Created by Oleksandr Chernov on 06/09/2024.
 //
 
-import bLinkup
+import bLinkupSDK
 import FirebaseCore
 import FirebaseMessaging
 import UIKit

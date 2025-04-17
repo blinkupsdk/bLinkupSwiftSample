@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import bLinkup
+import bLinkupSDK
 
 struct UserUpdateView: View {
     @Binding var isLoggedIn: Bool

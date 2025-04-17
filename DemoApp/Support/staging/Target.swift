@@ -7,7 +7,7 @@
 
 import Foundation
 
-import bLinkup
+import bLinkupSDK
 import UIKit
 
 enum Target {

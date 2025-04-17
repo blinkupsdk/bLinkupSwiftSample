@@ -6,7 +6,7 @@
 //
 
 
-import bLinkup
+import bLinkupSDK
 import CoreLocation
 import SwiftUI
 import UIKit

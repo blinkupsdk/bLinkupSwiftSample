@@ -5,7 +5,7 @@
 //  Created by Oleksandr Chernov on 28.11.2023.
 //
 
-import bLinkup
+import bLinkupSDK
 import SwiftUI
 
 struct BlocksView: View {

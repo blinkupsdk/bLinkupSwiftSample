@@ -5,7 +5,7 @@
 //  Created by Oleksandr Chernov on 23.09.2023.
 //
 
-import bLinkup
+import bLinkupSDK
 import SwiftUI
 import UIKit
 

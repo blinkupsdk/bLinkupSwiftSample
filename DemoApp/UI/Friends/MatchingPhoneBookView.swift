@@ -5,7 +5,7 @@
 //  Created by Oleksandr Chernov on 01.11.2023.
 //
 
-import bLinkup
+import bLinkupSDK
 import Contacts
 import SwiftUI
 

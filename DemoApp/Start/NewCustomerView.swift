@@ -5,7 +5,7 @@
 //  Created by Oleksandr Chernov on 13/11/2024.
 //
 
-import bLinkup
+import bLinkupSDK
 import SwiftUI
 
 struct NewCustomerView: View {

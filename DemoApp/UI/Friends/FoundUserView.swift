@@ -5,7 +5,7 @@
 //  Created by Oleksandr Chernov on 22.12.2023.
 //
 
-import bLinkup
+import bLinkupSDK
 import SwiftUI
 
 struct FoundUserView: View {

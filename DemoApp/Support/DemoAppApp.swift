@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import bLinkup
+import bLinkupSDK
 
 @main
 struct DemoAppApp: App {

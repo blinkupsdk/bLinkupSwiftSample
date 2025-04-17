@@ -5,7 +5,7 @@
 //  Created by Surielis Rodriguez on 11/20/23.
 //
 
-import bLinkup
+import bLinkupSDK
 import SwiftUI
 
 struct FriendsView: View {

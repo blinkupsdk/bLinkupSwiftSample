@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 import SwiftUI
-import bLinkup
+import bLinkupSDK
 
 enum ScreenState {
     case login, user

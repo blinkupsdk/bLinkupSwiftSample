@@ -5,7 +5,7 @@
 //  Created by Oleksandr Chernov on 10/03/2025.
 //
 
-import bLinkup
+import bLinkupSDK
 import CoreLocation
 
 private let kLogsMax = 1000

@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB03A5DF2DB0F96B005B3A41 /* bLinkupSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB03A5DE2DB0F96B005B3A41 /* bLinkupSDK.framework */; };
+		EB03A5E02DB0F96B005B3A41 /* bLinkupSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB03A5DE2DB0F96B005B3A41 /* bLinkupSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EB03A5E32DB0F972005B3A41 /* bLinkupSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB03A5E22DB0F972005B3A41 /* bLinkupSDK.framework */; };
+		EB03A5E42DB0F972005B3A41 /* bLinkupSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB03A5E22DB0F972005B3A41 /* bLinkupSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EB094F542B35A88700E10022 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB094F532B35A88700E10022 /* String+Extensions.swift */; };
 		EB094F5A2B35B0E900E10022 /* FoundUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB094F592B35B0E900E10022 /* FoundUserView.swift */; };
 		EB10D1782B4733B2006FE7AC /* BlocksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10D1752B4733B2006FE7AC /* BlocksView.swift */; };
@@ -26,7 +30,6 @@
 		EB1A8F142D7EEF4F008917B9 /* LogsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A8F122D7EEF4B008917B9 /* LogsManager.swift */; };
 		EB1A8F162D7EF063008917B9 /* TrackingObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A8F152D7EF05C008917B9 /* TrackingObject.swift */; };
 		EB1A8F172D7EF063008917B9 /* TrackingObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A8F152D7EF05C008917B9 /* TrackingObject.swift */; };
-		EB38AFD02BDFFB000064B82C /* bLinkup in Frameworks */ = {isa = PBXBuildFile; productRef = EB38AFCF2BDFFB000064B82C /* bLinkup */; };
 		EB42AD722CE4D24B0091CB37 /* NewCustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42AD712CE4D2440091CB37 /* NewCustomerView.swift */; };
 		EB42AD732CE4D24B0091CB37 /* NewCustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42AD712CE4D2440091CB37 /* NewCustomerView.swift */; };
 		EB42AD752CE4D3510091CB37 /* AppCustomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42AD742CE4D34E0091CB37 /* AppCustomer.swift */; };
@@ -72,7 +75,6 @@
 		EBBED7912C931ACB0041A0DC /* DemoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F14D2AF00754006D8DC8 /* DemoAppApp.swift */; };
 		EBBED7932C931ACB0041A0DC /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = EBBED7782C931ACB0041A0DC /* FirebaseMessaging */; };
 		EBBED7942C931ACB0041A0DC /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = EBBED7772C931ACB0041A0DC /* FirebaseCrashlytics */; };
-		EBBED7952C931ACB0041A0DC /* bLinkup in Frameworks */ = {isa = PBXBuildFile; productRef = EBBED7732C931ACB0041A0DC /* bLinkup */; };
 		EBBED7962C931ACB0041A0DC /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = EBBED7752C931ACB0041A0DC /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		EBBED7982C931ACB0041A0DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB832C4A2AF02D68008B4F5C /* Main.storyboard */; };
 		EBBED79A2C931ACB0041A0DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB10F1542AF00756006D8DC8 /* Preview Assets.xcassets */; };
@@ -105,7 +107,34 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		EB03A5E12DB0F96B005B3A41 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EB03A5E02DB0F96B005B3A41 /* bLinkupSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB03A5E52DB0F972005B3A41 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EB03A5E42DB0F972005B3A41 /* bLinkupSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		EB03A5DE2DB0F96B005B3A41 /* bLinkupSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = bLinkupSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB03A5E22DB0F972005B3A41 /* bLinkupSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = bLinkupSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB094F532B35A88700E10022 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		EB094F592B35B0E900E10022 /* FoundUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundUserView.swift; sourceTree = "<group>"; };
 		EB10D1752B4733B2006FE7AC /* BlocksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlocksView.swift; sourceTree = "<group>"; };
@@ -161,8 +190,8 @@
 			files = (
 				EBC7507A2C8B33F5008D8763 /* FirebaseMessaging in Frameworks */,
 				EBC750782C8B33F5008D8763 /* FirebaseCrashlytics in Frameworks */,
-				EB38AFD02BDFFB000064B82C /* bLinkup in Frameworks */,
 				EBC750762C8B33F5008D8763 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				EB03A5DF2DB0F96B005B3A41 /* bLinkupSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,9 +213,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB03A5E32DB0F972005B3A41 /* bLinkupSDK.framework in Frameworks */,
 				EBBED7932C931ACB0041A0DC /* FirebaseMessaging in Frameworks */,
 				EBBED7942C931ACB0041A0DC /* FirebaseCrashlytics in Frameworks */,
-				EBBED7952C931ACB0041A0DC /* bLinkup in Frameworks */,
 				EBBED7962C931ACB0041A0DC /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,6 +330,8 @@
 		EB10F1932AF00D8F006D8DC8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB03A5E22DB0F972005B3A41 /* bLinkupSDK.framework */,
+				EB03A5DE2DB0F96B005B3A41 /* bLinkupSDK.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -432,6 +463,7 @@
 				EB10F1462AF00754006D8DC8 /* Sources */,
 				EB10F1472AF00754006D8DC8 /* Frameworks */,
 				EB10F1482AF00754006D8DC8 /* Resources */,
+				EB03A5E12DB0F96B005B3A41 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -439,7 +471,6 @@
 			);
 			name = DemoApp;
 			packageProductDependencies = (
-				EB38AFCF2BDFFB000064B82C /* bLinkup */,
 				EBC750752C8B33F5008D8763 /* FirebaseAnalyticsWithoutAdIdSupport */,
 				EBC750772C8B33F5008D8763 /* FirebaseCrashlytics */,
 				EBC750792C8B33F5008D8763 /* FirebaseMessaging */,
@@ -491,6 +522,7 @@
 				EBBED7792C931ACB0041A0DC /* Sources */,
 				EBBED7922C931ACB0041A0DC /* Frameworks */,
 				EBBED7972C931ACB0041A0DC /* Resources */,
+				EB03A5E52DB0F972005B3A41 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -498,7 +530,6 @@
 			);
 			name = DemoAppSTG;
 			packageProductDependencies = (
-				EBBED7732C931ACB0041A0DC /* bLinkup */,
 				EBBED7752C931ACB0041A0DC /* FirebaseAnalyticsWithoutAdIdSupport */,
 				EBBED7772C931ACB0041A0DC /* FirebaseCrashlytics */,
 				EBBED7782C931ACB0041A0DC /* FirebaseMessaging */,
@@ -540,7 +571,6 @@
 			);
 			mainGroup = EB10F1412AF00754006D8DC8;
 			packageReferences = (
-				EB38AFCC2BDFFAF10064B82C /* XCLocalSwiftPackageReference "../_SDK" */,
 				EBC750742C8B33F5008D8763 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = EB10F14B2AF00754006D8DC8 /* Products */;
@@ -828,7 +858,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 72;
+				CURRENT_PROJECT_VERSION = 74;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -869,7 +899,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 72;
+				CURRENT_PROJECT_VERSION = 74;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -986,7 +1016,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 72;
+				CURRENT_PROJECT_VERSION = 74;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -1026,7 +1056,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 72;
+				CURRENT_PROJECT_VERSION = 74;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -1109,17 +1139,6 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		EB38AFCC2BDFFAF10064B82C /* XCLocalSwiftPackageReference "../_SDK" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../_SDK;
-		};
-		EBBED7742C931ACB0041A0DC /* XCLocalSwiftPackageReference "../_SDK" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../_SDK;
-		};
-/* End XCLocalSwiftPackageReference section */
-
 /* Begin XCRemoteSwiftPackageReference section */
 		EBBED7762C931ACB0041A0DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -1140,16 +1159,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EB38AFCF2BDFFB000064B82C /* bLinkup */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EB38AFCC2BDFFAF10064B82C /* XCLocalSwiftPackageReference "../_SDK" */;
-			productName = bLinkup;
-		};
-		EBBED7732C931ACB0041A0DC /* bLinkup */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EBBED7742C931ACB0041A0DC /* XCLocalSwiftPackageReference "../_SDK" */;
-			productName = bLinkup;
-		};
 		EBBED7752C931ACB0041A0DC /* FirebaseAnalyticsWithoutAdIdSupport */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EBBED7762C931ACB0041A0DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

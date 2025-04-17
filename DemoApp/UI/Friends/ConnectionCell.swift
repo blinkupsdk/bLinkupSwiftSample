@@ -5,7 +5,7 @@
 //  Created by Oleksandr Chernov on 24.11.2023.
 //
 
-import bLinkup
+import bLinkupSDK
 import SwiftUI
 
 struct ConnectionCell: View {

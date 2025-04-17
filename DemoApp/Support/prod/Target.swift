@@ -5,7 +5,7 @@
 //  Created by Oleksandr Chernov on 12/09/2024.
 //
 
-import bLinkup
+import bLinkupSDK
 import UIKit
 
 enum Target {
