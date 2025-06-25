@@ -181,7 +181,7 @@ struct FriendsView: View {
         searchTask?.cancel()
         guard let s = search.nonEmpty else { return }
         searchTask = Task {
-            try await Task.sleep(nanoseconds: 700_000_000)
+            try await Task.sleep(for: .seconds(0.7))
             searchResult = try await bLinkup.findUsers(query:s)
         }
     }

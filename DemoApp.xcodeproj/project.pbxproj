@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EB03A5DF2DB0F96B005B3A41 /* bLinkupSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB03A5DE2DB0F96B005B3A41 /* bLinkupSDK.framework */; };
-		EB03A5E02DB0F96B005B3A41 /* bLinkupSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB03A5DE2DB0F96B005B3A41 /* bLinkupSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EB03A5E32DB0F972005B3A41 /* bLinkupSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB03A5E22DB0F972005B3A41 /* bLinkupSDK.framework */; };
-		EB03A5E42DB0F972005B3A41 /* bLinkupSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB03A5E22DB0F972005B3A41 /* bLinkupSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EB094F542B35A88700E10022 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB094F532B35A88700E10022 /* String+Extensions.swift */; };
 		EB094F5A2B35B0E900E10022 /* FoundUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB094F592B35B0E900E10022 /* FoundUserView.swift */; };
 		EB10D1782B4733B2006FE7AC /* BlocksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10D1752B4733B2006FE7AC /* BlocksView.swift */; };
@@ -30,12 +26,16 @@
 		EB1A8F142D7EEF4F008917B9 /* LogsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A8F122D7EEF4B008917B9 /* LogsManager.swift */; };
 		EB1A8F162D7EF063008917B9 /* TrackingObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A8F152D7EF05C008917B9 /* TrackingObject.swift */; };
 		EB1A8F172D7EF063008917B9 /* TrackingObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A8F152D7EF05C008917B9 /* TrackingObject.swift */; };
+		EB34BB062DF6D6C800E3E7E5 /* bLinkupSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4A7E7F2DE8BBF900EA2E41 /* bLinkupSDK.framework */; };
+		EB34BB072DF6D6C800E3E7E5 /* bLinkupSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB4A7E7F2DE8BBF900EA2E41 /* bLinkupSDK.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EB42AD722CE4D24B0091CB37 /* NewCustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42AD712CE4D2440091CB37 /* NewCustomerView.swift */; };
 		EB42AD732CE4D24B0091CB37 /* NewCustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42AD712CE4D2440091CB37 /* NewCustomerView.swift */; };
 		EB42AD752CE4D3510091CB37 /* AppCustomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42AD742CE4D34E0091CB37 /* AppCustomer.swift */; };
 		EB42AD762CE4D3510091CB37 /* AppCustomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42AD742CE4D34E0091CB37 /* AppCustomer.swift */; };
 		EB42AD782CE4F7C00091CB37 /* UIColor+Extenions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42AD772CE4F7B90091CB37 /* UIColor+Extenions.swift */; };
 		EB42AD792CE4F7C00091CB37 /* UIColor+Extenions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42AD772CE4F7B90091CB37 /* UIColor+Extenions.swift */; };
+		EB4A7E7C2DE8BBF400EA2E41 /* bLinkupSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4A7E7B2DE8BBF400EA2E41 /* bLinkupSDK.framework */; };
+		EB4A7E7D2DE8BBF400EA2E41 /* bLinkupSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB4A7E7B2DE8BBF400EA2E41 /* bLinkupSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EB56B5C62BBB0BAA00CF7195 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56B5C52BBB0BAA00CF7195 /* DB.swift */; };
 		EB56B5C82BBB0D9500CF7195 /* CustomerSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56B5C72BBB0D9500CF7195 /* CustomerSelectorView.swift */; };
 		EB6B77842B0C1AAB00AD8EC7 /* MapListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6B77832B0C1AAB00AD8EC7 /* MapListView.swift */; };
@@ -108,24 +108,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		EB03A5E12DB0F96B005B3A41 /* Embed Frameworks */ = {
+		EB34BB082DF6D6C800E3E7E5 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EB03A5E02DB0F96B005B3A41 /* bLinkupSDK.framework in Embed Frameworks */,
+				EB34BB072DF6D6C800E3E7E5 /* bLinkupSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EB03A5E52DB0F972005B3A41 /* Embed Frameworks */ = {
+		EB4A7E7E2DE8BBF400EA2E41 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EB03A5E42DB0F972005B3A41 /* bLinkupSDK.framework in Embed Frameworks */,
+				EB4A7E7D2DE8BBF400EA2E41 /* bLinkupSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,6 +158,8 @@
 		EB42AD712CE4D2440091CB37 /* NewCustomerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCustomerView.swift; sourceTree = "<group>"; };
 		EB42AD742CE4D34E0091CB37 /* AppCustomer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomer.swift; sourceTree = "<group>"; };
 		EB42AD772CE4F7B90091CB37 /* UIColor+Extenions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extenions.swift"; sourceTree = "<group>"; };
+		EB4A7E7B2DE8BBF400EA2E41 /* bLinkupSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = bLinkupSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB4A7E7F2DE8BBF900EA2E41 /* bLinkupSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = bLinkupSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB520DE42AF32FE300BDDCF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB56B5C52BBB0BAA00CF7195 /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
 		EB56B5C72BBB0D9500CF7195 /* CustomerSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerSelectorView.swift; sourceTree = "<group>"; };
@@ -191,7 +193,7 @@
 				EBC7507A2C8B33F5008D8763 /* FirebaseMessaging in Frameworks */,
 				EBC750782C8B33F5008D8763 /* FirebaseCrashlytics in Frameworks */,
 				EBC750762C8B33F5008D8763 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
-				EB03A5DF2DB0F96B005B3A41 /* bLinkupSDK.framework in Frameworks */,
+				EB4A7E7C2DE8BBF400EA2E41 /* bLinkupSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,10 +215,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB03A5E32DB0F972005B3A41 /* bLinkupSDK.framework in Frameworks */,
 				EBBED7932C931ACB0041A0DC /* FirebaseMessaging in Frameworks */,
 				EBBED7942C931ACB0041A0DC /* FirebaseCrashlytics in Frameworks */,
 				EBBED7962C931ACB0041A0DC /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				EB34BB062DF6D6C800E3E7E5 /* bLinkupSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +332,8 @@
 		EB10F1932AF00D8F006D8DC8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB4A7E7F2DE8BBF900EA2E41 /* bLinkupSDK.framework */,
+				EB4A7E7B2DE8BBF400EA2E41 /* bLinkupSDK.framework */,
 				EB03A5E22DB0F972005B3A41 /* bLinkupSDK.framework */,
 				EB03A5DE2DB0F96B005B3A41 /* bLinkupSDK.framework */,
 			);
@@ -463,7 +467,7 @@
 				EB10F1462AF00754006D8DC8 /* Sources */,
 				EB10F1472AF00754006D8DC8 /* Frameworks */,
 				EB10F1482AF00754006D8DC8 /* Resources */,
-				EB03A5E12DB0F96B005B3A41 /* Embed Frameworks */,
+				EB4A7E7E2DE8BBF400EA2E41 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -522,7 +526,7 @@
 				EBBED7792C931ACB0041A0DC /* Sources */,
 				EBBED7922C931ACB0041A0DC /* Frameworks */,
 				EBBED7972C931ACB0041A0DC /* Resources */,
-				EB03A5E52DB0F972005B3A41 /* Embed Frameworks */,
+				EB34BB082DF6D6C800E3E7E5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -784,7 +788,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -841,7 +845,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -858,7 +862,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 74;
+				CURRENT_PROJECT_VERSION = 77;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -875,12 +879,12 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3.0;
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.blinktech.lowDemoDev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -899,7 +903,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 74;
+				CURRENT_PROJECT_VERSION = 77;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -916,12 +920,12 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3.0;
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.blinktech.lowDemoDev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1016,7 +1020,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 74;
+				CURRENT_PROJECT_VERSION = 77;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -1032,12 +1036,12 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3.0;
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.blinktech.sampleSTG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1056,7 +1060,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 74;
+				CURRENT_PROJECT_VERSION = 77;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -1072,12 +1076,12 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3.0;
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.blinktech.sampleSTG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

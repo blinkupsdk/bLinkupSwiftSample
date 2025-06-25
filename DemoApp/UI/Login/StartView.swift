@@ -41,13 +41,14 @@ struct StartView: View {
                 loginView()
                     .padding(.horizontal)
                 
-                NavigationLink(destination: codeView()
-                    .padding(.horizontal)
-                    .navigationTitle("")
-                    .navigationBarHidden(true),
-                               isActive: $showCodeValidator) {
-                    EmptyView()
-                }.hidden()
+                NavigationLink(
+                    destination: codeView()
+                        .padding(.horizontal)
+                        .navigationTitle("")
+                        .navigationBarHidden(true),
+                    isActive: $showCodeValidator) {
+                        EmptyView()
+                    }.hidden()
             }
             .addLoadingView(isLoading: $isLoading)
         case .user:
