@@ -22,15 +22,13 @@ struct RequestsView: View {
             VStack {
                 List {
                     ForEach(requests, id: \.id) { req in
-                        let fromMe = req.source.id == bLinkup.user?.id
-                        let opponent = req.opponent(of: bLinkup.user?.id)
-                        
+                        let opponent = req.opponent
                         Menu {
                             menuForRequest(req)
                         } label: {
                             HStack {
-                                Image(systemName: fromMe ? "arrow.right" : "arrow.left")
-                                Text(opponent?.name ?? "?")
+                                Image(systemName: req.income ? "arrow.right" : "arrow.left")
+                                Text(opponent.name ?? "?")
                                 Spacer()
                             }
                         }

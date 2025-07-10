@@ -45,17 +45,17 @@ struct FriendsView: View {
                 List {
                     Section {
                         if !filtered.isEmpty {
-                            ForEach(filtered, id: \.connection.id) { c in
-                                let opponent = c.connection.opponent(of: bLinkup.user?.id)
+                            ForEach(filtered, id: \.connection.id) { r in
+                                let opponent = r.connection.opponent
                                 Menu {
                                     Button("Block") {
-                                        block(c.connection)
+                                        block(r.connection)
                                     }
                                     Button("Delete") {
-                                        delete(c.connection)
+                                        delete(r.connection)
                                     }
                                 } label: {
-                                    ConnectionCell(user: opponent, presence: c.presence, withMe: c.withMe)
+                                    ConnectionCell(user: opponent, presence: r.presence, withMe: r.withMe)
                                 }
                                 .contentShape(Rectangle())
                             }
