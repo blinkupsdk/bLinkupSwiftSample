@@ -15,7 +15,7 @@ struct FoundUserView: View {
     
     var body: some View {
         HStack {
-            Text(user.name ?? "?")
+            Text(user.name.nonEmpty ?? "?")
             Spacer()
             Image(systemName: icon)
                 .foregroundColor(highlightIcon ? .blue : .gray)
@@ -25,5 +25,5 @@ struct FoundUserView: View {
 }
 
 #Preview {
-    FoundUserView(user: .init(id: "a", name: "Will"))
+    FoundUserView(user: .intInit(name: "Will"))
 }

@@ -13,17 +13,6 @@ struct MyPresenceView: View {
         var id: String { place.id }
         let place: Place
         let presence: Presence?
-        
-        static func == (lhs: ARecord, rhs: ARecord) -> Bool {
-            lhs.place == rhs.place && lhs.presence == rhs.presence
-        }
-        
-        func hash(into hasher: inout Hasher) {
-            hasher.combine(place)
-            if let presence {
-                hasher.combine(presence)
-            }
-        }
     }
     
     @State var records: [ARecord] = []
@@ -120,16 +109,16 @@ struct MyPresenceView: View {
 
 #Preview {
     NavigationView {
-        MyPresenceView(records: [.init(place: .init(id: "1", name: "Place1"),
-                                       presence: .init(id: "1",
-                                                       user: .init(id: "1", name: "User"),
-                                                       place: .init(id: "1", name: "Place1"),
-                                                       isPresent: true, insertedAt: nil)),
-                                       .init(place: .init(id: "2", name: "Place2"),
-                                             presence: .init(id: "2",
-                                                             user: .init(id: "2", name: "User"),
-                                                             place: .init(id: "2", name: "Place2"),
-                                                             isPresent: false, insertedAt: nil))
+        let u1 = User.intInit(id: "1", name: "User1")
+        let u2 = User.intInit(id: "2", name: "User2")
+        let pl1 = Place(id: "1", name: "Place1", latitude: 0, longitude: 0, radius: 10)
+        let pl2 = Place(id: "2", name: "Place2", latitude: 0, longitude: 0, radius: 10)
+        let pr1 = Presence(id: "1", user: u1, place: pl1, isPresent: true, insertedAt: nil)
+        let pr2 = Presence(id: "2", user: u2, place: pl2, isPresent: true, insertedAt: nil)
+        
+        MyPresenceView(records: [
+            .init(place: pl1, presence: pr1),
+            .init(place: pl2, presence: pr2)
         ],
                        isFirstLoading: false, error: .constant(nil))
         .navigationTitle("Presence")

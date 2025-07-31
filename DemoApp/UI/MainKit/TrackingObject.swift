@@ -72,10 +72,9 @@ class TrackingObject: NSObject,  CLLocationManagerDelegate {
         guard let loc else { return nil }
         return presence
             .compactMap({ $0.place })
-            .filter({ $0.latitude != nil && $0.longitude != nil })
             .min(by: {
-                let l = CLLocation(latitude: $0.latitude!, longitude: $0.longitude!)
-                let r = CLLocation(latitude: $1.latitude!, longitude: $1.longitude!)
+                let l = CLLocation(latitude: $0.latitude, longitude: $0.longitude)
+                let r = CLLocation(latitude: $1.latitude, longitude: $1.longitude)
                 return loc.distance(from: l) < loc.distance(from: r)
             })
     }

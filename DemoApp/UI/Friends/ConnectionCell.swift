@@ -42,6 +42,6 @@ struct ConnectionCell: View {
 }
 
 #Preview {
-    ConnectionCell(user: User(name: "Friend"),
+    ConnectionCell(user: .intInit(name: "Friend"),
                    presence: [], withMe: false)
 }

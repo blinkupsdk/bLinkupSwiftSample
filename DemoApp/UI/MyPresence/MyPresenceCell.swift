@@ -45,10 +45,8 @@ struct MyPresenceCell: View {
 }
 
 #Preview {
-    MyPresenceCell(rec: .init(place: .init(id: "1", name: "Place1"),
-                              presence: .init(id: "1",
-                                              user: .init(id: "1", name: "User"),
-                                              place: .init(id: "1", name: "Place1"),
-                                              isPresent: true, insertedAt: nil)),
-                   updater: { _ in })
+    let u1 = User.intInit(id: "1", name: "User1")
+    let pl1 = Place(id: "1", name: "Place1", latitude: 0, longitude: 0, radius: 10)
+    let pr1 = Presence(id: "1", user: u1, place: pl1, isPresent: true, insertedAt: nil)
+    MyPresenceCell(rec: .init(place: pl1, presence: pr1), updater: { _ in })
 }

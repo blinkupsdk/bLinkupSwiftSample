@@ -70,17 +70,11 @@ class ConnectionsViewController: UIViewController,
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         cell.accessoryType = .disclosureIndicator
         cell.selectionStyle = .none
-        if bLinkup.user?.id == obj.sourceUser.id {
-            cell.textLabel?.text = obj.targetUser.name ?? "?"
-        } else {
-            cell.textLabel?.text = obj.sourceUser.name ?? "?"
-        }
-        cell.detailTextLabel?.text =
-        (obj.sourceUser.phoneNumber ?? "?")
-        + " -> "
-        + (obj.targetUser.phoneNumber ?? "?")
-        + " = "
-        + obj.status.rawValue
+        cell.textLabel?.text = obj.opponent.name
+        let s = obj.sourceUser.phoneNumber
+        let t = obj.targetUser.phoneNumber
+        let st = obj.status.rawValue
+        cell.detailTextLabel?.text = "\(s) -> \(t) = \(st)"
 
         return cell
     }
@@ -95,28 +89,28 @@ class ConnectionsViewController: UIViewController,
         }))
         
         menu.addAction(.init(title: "block", style: .default, handler: { _ in
-            bLinkup.updateConnection(obj, status: .blocked, completion: { [weak self] in
+            bLinkup.blockUser(obj.opponent) { [weak self] in
                 switch $0 {
                 case .failure(let error):
                     self?.showError(error)
                 case .success(let c):
-                    self?.models[indexPath.row] = c
+                    self?.models.remove(at: indexPath.row)
                     self?.tableView?.reloadData()
                 }
-            })
+            }
         }))
         
-        menu.addAction(.init(title: "unblock", style: .default, handler: { _ in
-            bLinkup.updateConnection(obj, status: .connected, completion: { [weak self] in
-                switch $0 {
-                case .failure(let error):
-                    self?.showError(error)
-                case .success(let c):
-                    self?.models[indexPath.row] = c
-                    self?.tableView?.reloadData()
-                }
-            })
-        }))
+//        menu.addAction(.init(title: "unblock", style: .default, handler: { _ in
+//            bLinkup.updateConnection(obj, status: .connected, completion: { [weak self] in
+//                switch $0 {
+//                case .failure(let error):
+//                    self?.showError(error)
+//                case .success(let c):
+//                    self?.models[indexPath.row] = c
+//                    self?.tableView?.reloadData()
+//                }
+//            })
+//        }))
         
         menu.addAction(.init(title: "cancel", style: .cancel))
                        

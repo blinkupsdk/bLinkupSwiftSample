@@ -76,9 +76,9 @@ class TrackViewController: UIViewController,
     func updateFormLocation(location: CLLocation?, nearest: Place?) {
         currentLabel?.text = location?.message ?? "?"
         if let location, let p = nearest {
-            let l = CLLocation(latitude: p.latitude!, longitude: p.longitude!)
+            let l = CLLocation(latitude: p.latitude, longitude: p.longitude)
             nearestNameLabel?.text = p.name
-            nearestPosLabel?.text = l.message(radius: p.radius ?? -1)
+            nearestPosLabel?.text = l.message(radius: p.radius)
             distanceLabel?.text = String(format: "%.0fm", location.distance(from: l))
         } else {
             nearestNameLabel?.text = "-"
@@ -119,14 +119,9 @@ class TrackViewController: UIViewController,
         if let obj = p.place {
             cell.selectionStyle = .none
             cell.textLabel?.text = obj.name
-            if let x = obj.longitude,
-                let y = obj.latitude,
-                let r = obj.radius 
-            {
-                cell.detailTextLabel?.text = "x\(x) y\(y) r\(Int(r))"
-            } else {
-                cell.detailTextLabel?.text = nil
-            }
+            
+            let (x, y, r) = (obj.longitude, obj.latitude, obj.radius)
+            cell.detailTextLabel?.text = "x\(x) y\(y) r\(Int(r))"
             cell.accessoryType = p.isPresent == true ? .checkmark : .none
         }
         return cell

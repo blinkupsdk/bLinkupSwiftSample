@@ -21,5 +21,9 @@ enum Target {
                     name: "STG-Legacy",
                     logo: "logoMilwaukee",
                     font: "AmericanTypewriter"),
+        AppCustomer(id: "j2LnaXXlqBhnGLNzHbKcVIJWt0NuZFVRiMmNJK19PWc=",
+                    name: "Dev-Maxim",
+                    logo: "logoMilwaukee",
+                    font: "AmericanTypewriter"),
     ]
 }

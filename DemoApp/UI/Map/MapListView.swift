@@ -15,9 +15,10 @@ struct MapListView: View {
     var body: some View {
         ZStack {
             List(places ?? [], id: \.id) { place in
-                NavigationLink(destination: VenueMapView(place: place),
-                               label: { Text(place.name) })
-                .frame(maxWidth: .infinity, alignment: .leading)
+                Text(place.name)
+//                NavigationLink(destination: VenueMapView(place: place),
+//                               label: { Text(place.name) })
+//                .frame(maxWidth: .infinity, alignment: .leading)
             }
             .refreshable(action: {
                 loadData()
@@ -46,9 +47,11 @@ struct MapListView: View {
 }
 
 #Preview {
+    let pl1 = Place(id: "1", name: "Place1", latitude: 0, longitude: 0, radius: 10)
+    let pl2 = Place(id: "2", name: "Place2", latitude: 0, longitude: 0, radius: 10)
+    
     NavigationView {
-        MapListView(places: [.init(id: "1", name: "Place1"),
-                             .init(id: "2", name: "Place2")])
-        .navigationTitle("Map")
+        MapListView(places: [pl1, pl2])
+            .navigationTitle("Map")
     }
 }

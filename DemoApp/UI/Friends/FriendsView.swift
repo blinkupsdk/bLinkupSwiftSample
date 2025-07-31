@@ -19,8 +19,6 @@ struct FriendsView: View {
     @State private var isFirstTime = true
     @State private var searchTask: Task<(), Error>?
 
-    let myId = bLinkup.user?.id
-    
     struct Record: Equatable {
         let connection: Connection
         let presence: [Place]
@@ -142,7 +140,7 @@ struct FriendsView: View {
                 }
                 let result = connections
                     .map({ con in
-                        let oppId = con.opponent(of: myId)?.id ?? ""
+                        let oppId = con.opponent.id
                         let places = presence
                             .filter({ $0.user.id == oppId && $0.isPresent })
                             .compactMap({ $0.place })
@@ -159,22 +157,9 @@ struct FriendsView: View {
     }
     
     func updateFiltered() {
-        guard let myId else {
-            filtered = connections
-            return
-        }
-        
-        let search = search.lowercased()
-        
         filtered = connections
             .filter({ segment == 0 ? true : !$0.presence.isEmpty })
-            .filter({
-                if search.isEmpty { return true }
-                let opp = $0.connection.opponent(of: myId)
-                return opp?.name?.lowercased().contains(search) == true
-                || opp?.phoneNumber?.contains(search) == true
-                || opp?.id.contains(search) == true
-            })
+            .filter({ search.isEmpty || $0.connection.opponent.contains(search) })
     }
     
     func searchUsers() {
@@ -194,8 +179,7 @@ struct FriendsView: View {
     }
     
     func block(_ c: Connection) {
-        guard let op = c.opponent(of: bLinkup.user?.id) else { return }
-        block(op)
+        block(c.opponent)
     }
     
     func delete(_ c: Connection) {

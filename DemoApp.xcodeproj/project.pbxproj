@@ -22,6 +22,10 @@
 		EB10F18B2AF00AF0006D8DC8 /* BlinkupHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1882AF00AEF006D8DC8 /* BlinkupHeaderView.swift */; };
 		EB10F1922AF00CDA006D8DC8 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1912AF00CDA006D8DC8 /* LoadingView.swift */; };
 		EB10F1A02AF014AB006D8DC8 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1842AF00A9E006D8DC8 /* StartView.swift */; };
+		EB160A1F2E326C1F00253ED4 /* User+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB160A1E2E326C1000253ED4 /* User+Extensions.swift */; };
+		EB160A202E326C1F00253ED4 /* User+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB160A1E2E326C1000253ED4 /* User+Extensions.swift */; };
+		EB160A222E326DF000253ED4 /* Connection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB160A212E326DE800253ED4 /* Connection+Extensions.swift */; };
+		EB160A232E326DF000253ED4 /* Connection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB160A212E326DE800253ED4 /* Connection+Extensions.swift */; };
 		EB1A8F132D7EEF4F008917B9 /* LogsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A8F122D7EEF4B008917B9 /* LogsManager.swift */; };
 		EB1A8F142D7EEF4F008917B9 /* LogsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A8F122D7EEF4B008917B9 /* LogsManager.swift */; };
 		EB1A8F162D7EF063008917B9 /* TrackingObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A8F152D7EF05C008917B9 /* TrackingObject.swift */; };
@@ -153,6 +157,8 @@
 		EB10F1872AF00AEF006D8DC8 /* UserUpdateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserUpdateView.swift; sourceTree = "<group>"; };
 		EB10F1882AF00AEF006D8DC8 /* BlinkupHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlinkupHeaderView.swift; sourceTree = "<group>"; };
 		EB10F1912AF00CDA006D8DC8 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		EB160A1E2E326C1000253ED4 /* User+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Extensions.swift"; sourceTree = "<group>"; };
+		EB160A212E326DE800253ED4 /* Connection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Connection+Extensions.swift"; sourceTree = "<group>"; };
 		EB1A8F122D7EEF4B008917B9 /* LogsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsManager.swift; sourceTree = "<group>"; };
 		EB1A8F152D7EF05C008917B9 /* TrackingObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingObject.swift; sourceTree = "<group>"; };
 		EB42AD712CE4D2440091CB37 /* NewCustomerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCustomerView.swift; sourceTree = "<group>"; };
@@ -298,6 +304,7 @@
 			children = (
 				EB10F14F2AF00754006D8DC8 /* DemoRootView.swift */,
 				EB10F1832AF00A9E006D8DC8 /* TabbarView.swift */,
+				EB160A1C2E326C0000253ED4 /* SDKExtensions */,
 				EB7323CA2B167C4400DF6CF1 /* Extensions */,
 				EB10F1902AF00CC9006D8DC8 /* General */,
 				EB10F1822AF009E8006D8DC8 /* Login */,
@@ -338,6 +345,15 @@
 				EB03A5DE2DB0F96B005B3A41 /* bLinkupSDK.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB160A1C2E326C0000253ED4 /* SDKExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				EB160A212E326DE800253ED4 /* Connection+Extensions.swift */,
+				EB160A1E2E326C1000253ED4 /* User+Extensions.swift */,
+			);
+			path = SDKExtensions;
 			sourceTree = "<group>";
 		};
 		EB1A8F112D7EEF41008917B9 /* Logs */ = {
@@ -634,6 +650,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBC7507D2C8B3ACE008D8763 /* AppDelegate.swift in Sources */,
+				EB160A232E326DF000253ED4 /* Connection+Extensions.swift in Sources */,
 				EBF480192AF2C1490010030D /* MatchingPhoneBookView.swift in Sources */,
 				EB832C5F2AF02DAA008B4F5C /* UIViewController+Error.swift in Sources */,
 				EB10F1A02AF014AB006D8DC8 /* StartView.swift in Sources */,
@@ -656,6 +673,7 @@
 				EB832C5B2AF02D69008B4F5C /* TrackViewController.swift in Sources */,
 				EB6B77842B0C1AAB00AD8EC7 /* MapListView.swift in Sources */,
 				EBBED7A52C931FE40041A0DC /* Target.swift in Sources */,
+				EB160A1F2E326C1F00253ED4 /* User+Extensions.swift in Sources */,
 				EB094F542B35A88700E10022 /* String+Extensions.swift in Sources */,
 				EB42AD792CE4F7C00091CB37 /* UIColor+Extenions.swift in Sources */,
 				EB094F5A2B35B0E900E10022 /* FoundUserView.swift in Sources */,
@@ -688,6 +706,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBBED77A2C931ACB0041A0DC /* AppDelegate.swift in Sources */,
+				EB160A222E326DF000253ED4 /* Connection+Extensions.swift in Sources */,
 				EBBED77B2C931ACB0041A0DC /* MatchingPhoneBookView.swift in Sources */,
 				EBBED77C2C931ACB0041A0DC /* UIViewController+Error.swift in Sources */,
 				EBBED77D2C931ACB0041A0DC /* StartView.swift in Sources */,
@@ -710,6 +729,7 @@
 				EBBED78B2C931ACB0041A0DC /* TrackViewController.swift in Sources */,
 				EBBED78C2C931ACB0041A0DC /* MapListView.swift in Sources */,
 				EBBED7A72C9320D10041A0DC /* Target.swift in Sources */,
+				EB160A202E326C1F00253ED4 /* User+Extensions.swift in Sources */,
 				EBBED78D2C931ACB0041A0DC /* String+Extensions.swift in Sources */,
 				EB42AD782CE4F7C00091CB37 /* UIColor+Extenions.swift in Sources */,
 				EBBED78E2C931ACB0041A0DC /* FoundUserView.swift in Sources */,
@@ -862,7 +882,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 77;
+				CURRENT_PROJECT_VERSION = 81;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -879,7 +899,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -903,7 +923,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 77;
+				CURRENT_PROJECT_VERSION = 81;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -920,7 +940,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1020,7 +1040,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 78;
+				CURRENT_PROJECT_VERSION = 81;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -1060,7 +1080,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 78;
+				CURRENT_PROJECT_VERSION = 81;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -1068,9 +1088,9 @@
 				INFOPLIST_FILE = DemoApp/Support/staging/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = bLinkupSTG;
 				INFOPLIST_KEY_NSContactsUsageDescription = "to identify friends using the app, allowing us to notify you when they're nearby'";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "1 to notify you when friends are nearby, facilitating spontaneous meetups";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "1 o notify you when friends are nearby, facilitating spontaneous meetups";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

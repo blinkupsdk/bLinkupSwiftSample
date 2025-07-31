@@ -55,13 +55,13 @@ struct TabbarView: View {
                     Label("Presence", systemImage: "location.fill")
                 }
 
-                NavigationView {
-                    MapListView()
-                        .navigationTitle("Map")
-                }
-                .tabItem {
-                    Label("Map", systemImage: "map")
-                }
+//                NavigationView {
+//                    MapListView()
+//                        .navigationTitle("Map")
+//                }
+//                .tabItem {
+//                    Label("Map", systemImage: "map")
+//                }
 
                 NavigationView {
                     SettingsView(isLoggedIn: $isLoggedIn)

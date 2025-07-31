@@ -44,8 +44,8 @@ class LogsManager {
     func addLogLocation(_ location: CLLocation, nearest: Place?) {
         addLog(.Location, location.message)
         if let p = nearest {
-            let l = CLLocation(latitude: p.latitude!, longitude: p.longitude!)
-            let mes = l.message(radius: p.radius ?? -1)
+            let l = CLLocation(latitude: p.latitude, longitude: p.longitude)
+            let mes = l.message(radius: p.radius)
             let dist = String(format: "%.0fm", location.distance(from: l))
             addLog(.Nearest, [p.name, mes, dist].joined(separator:" "))
         }
