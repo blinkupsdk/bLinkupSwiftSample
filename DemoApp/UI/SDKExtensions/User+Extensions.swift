@@ -32,8 +32,8 @@ extension User {
             return true
         }
         let low = s.lowercased()
-        return name.lowercased().contains(low)
-        || phoneNumber.contains(low)
+        return name?.lowercased().contains(low) == true
+        || phoneNumber?.contains(low) == true
         || id.lowercased().contains(low)
     }
 }

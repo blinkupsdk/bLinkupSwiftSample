@@ -28,18 +28,18 @@ struct DemoAppApp: App {
             CustomerSelectorView(customer: $customer, appType: $appType)
                 .sheet(isPresented: $showApp) {
                     if let customer = customer {
-                        switch appType {
-                        case 0:
-                            DemoRootView(customer: $customer)
-                        default:
+//                        switch appType {
+//                        case 0:
+//                            DemoRootView(customer: $customer)
+//                        default:
                             BlinkupRootScreen(customer: customer.asBlinkupCustomer(),
                                               branding: customer.asBlinkupBranding(),
                                               onClose: { self.customer = nil })
                             .onChange(of: customer) { print($0.name ?? "-") }
                         }
-                    } else {
-                        EmptyView()
-                    }
+//                    } else {
+//                        EmptyView()
+//                    }
                 }
         }
         .onChange(of: appType) { v in
@@ -71,7 +71,7 @@ struct DemoAppApp: App {
                 return
             }
             let name = components.queryItems?.first(where: { $0.name == "name" })?.value
-            let c = AppCustomer(id: id, name: name)
+            let c = AppCustomer(cid: id, name: name)
             DB.shared.addCustomer(c)
         default:
             print("Unknown URL, we can't handle this one!")

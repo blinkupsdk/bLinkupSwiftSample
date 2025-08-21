@@ -28,7 +28,7 @@ struct RequestsView: View {
                         } label: {
                             HStack {
                                 Image(systemName: req.income ? "arrow.right" : "arrow.left")
-                                Text(opponent.name)
+                                Text(opponent.name ?? "?")
                                 Spacer()
                             }
                         }

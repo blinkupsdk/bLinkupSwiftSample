@@ -15,7 +15,7 @@ struct FoundUserView: View {
     
     var body: some View {
         HStack {
-            Text(user.name.nonEmpty ?? "?")
+            Text(user.name?.nonEmpty ?? "?")
             Spacer()
             Image(systemName: icon)
                 .foregroundColor(highlightIcon ? .blue : .gray)

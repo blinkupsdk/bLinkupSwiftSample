@@ -17,20 +17,21 @@ struct CustomerSelectorView: View {
     @State private var customerForMenu: AppCustomer?
     @State private var customerToEdit: AppCustomer?
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
+
     var body: some View {
-        
         HStack {
-            Picker("Choose", selection: $appType) {
-                Text("Demo").tag(0)
-                Text("SDK-UI").tag(1)
-            }
-            .pickerStyle(.segmented)
-            
+    //            Picker("Choose", selection: $appType) {
+    //                Text("Demo").tag(0)
+    //                Text("SDK-UI").tag(1)
+    //            }
+    //            .pickerStyle(.segmented)
+        Spacer()
+
             Button(action: { showAddCustomer = true },
                    label: { Image(systemName: "plus") })
         }
         .padding()
+        
         Form {
             if !customs.isEmpty {
                 Section(header: Text("Private")) {
@@ -106,5 +107,8 @@ fileprivate struct CustomerView: View {
 }
 
 #Preview {
-    CustomerSelectorView(customer: .constant(AppCustomer(id: "")), appType: .constant(0))
+    CustomerSelectorView(
+        customer: .constant(AppCustomer(cid: "")),
+        appType: .constant(0)
+    )
 }

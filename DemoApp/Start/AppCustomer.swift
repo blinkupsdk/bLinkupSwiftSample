@@ -9,7 +9,8 @@ import bLinkupSDK
 import SwiftUI
 
 struct AppCustomer: Codable, Identifiable, Equatable {
-    let id: String
+    var id: String = UUID().uuidString
+    let cid: String
     var name: String?
     var primary: String?
     var secondary: String?
@@ -17,7 +18,7 @@ struct AppCustomer: Codable, Identifiable, Equatable {
     var font: String?
 
     func asBlinkupCustomer() -> Customer {
-        Customer(id: id, name: name)
+        Customer(id: cid, name: name)
     }
     
     func asBlinkupBranding() -> Branding {

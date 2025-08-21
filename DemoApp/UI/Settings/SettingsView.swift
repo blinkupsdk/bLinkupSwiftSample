@@ -83,23 +83,23 @@ struct SettingsView: View {
     }
     
     func updateSaveButton() {
-       showSaveButton = bLinkup.user?.name.isEmpty != false || name != bLinkup.user?.name
+       showSaveButton = bLinkup.user?.name?.isEmpty != false || name != bLinkup.user?.name
     }
     
     func loadCurrentUser() async {
         guard let user = try? await bLinkup.getCurrentUser()
         else { return }
         
-        self.name = user.name
-        self.phone = user.phoneNumber
+        self.name = user.name ?? ""
+        self.phone = user.phoneNumber ?? ""
     }
     
     func updateUser() {
         Task {
-            guard let update = try? await bLinkup.updateUser(name: name, email: "")
+            guard let update = try? await bLinkup.updateUser(name: name, email: nil)
             else { return }
             
-            self.name = update.name
+            self.name = update.name ?? ""
             showSaveButton = false
         }
     }

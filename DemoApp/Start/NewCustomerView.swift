@@ -66,7 +66,7 @@ struct NewCustomerView: View {
     func addCustomer() {
         guard let id = self.id.nonEmpty else { return }
         
-        let c = AppCustomer(id: id,
+        let c = AppCustomer(cid: id,
                             name: name.nonEmpty,
                             primary: primary.nonEmpty,
                             secondary: secondary.nonEmpty)

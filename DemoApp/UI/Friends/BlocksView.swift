@@ -27,7 +27,7 @@ struct BlocksView: View {
                                 unblock(block)
                             }
                         } label: {
-                            Text(block.blockee.name)
+                            Text(block.blockee.name ?? "?")
                             Spacer()
                         }
                         .contentShape(Rectangle())

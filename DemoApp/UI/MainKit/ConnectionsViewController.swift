@@ -71,8 +71,8 @@ class ConnectionsViewController: UIViewController,
         cell.accessoryType = .disclosureIndicator
         cell.selectionStyle = .none
         cell.textLabel?.text = obj.opponent.name
-        let s = obj.sourceUser.phoneNumber
-        let t = obj.targetUser.phoneNumber
+        let s = obj.sourceUser.phoneNumber ?? "?"
+        let t = obj.targetUser.phoneNumber ?? "?"
         let st = obj.status.rawValue
         cell.detailTextLabel?.text = "\(s) -> \(t) = \(st)"
 
@@ -93,7 +93,7 @@ class ConnectionsViewController: UIViewController,
                 switch $0 {
                 case .failure(let error):
                     self?.showError(error)
-                case .success(let c):
+                case .success:
                     self?.models.remove(at: indexPath.row)
                     self?.tableView?.reloadData()
                 }
