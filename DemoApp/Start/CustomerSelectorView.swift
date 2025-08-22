@@ -96,6 +96,7 @@ fileprivate struct CustomerView: View {
     var body: some View {
         HStack {
             Image(systemName: "person")
+            Text("*" + customer.cid.suffix(5).prefix(4))
             Text(customer.name ?? customer.id)
             if customer.id == bLinkup.customer?.id {
                 Spacer()

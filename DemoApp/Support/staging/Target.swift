@@ -12,21 +12,15 @@ import UIKit
 
 enum Target {
     static let customers = [
-//        AppCustomer(cid: "TkPnD3_yP3j6dUEAksgRjJ-auYijyUECLxVEnFqHJVE=",
-//                    name: "STG-Test",
-//                    primary: "#FFFF00",
-//                    secondary: "#F0FFFF",
-//                    logo: "logoDemo"),
-//        AppCustomer(cid: "CzWgbh_Y0-Lod0VCjhwkiIDt5y3QxLLcoy0FcEDoc9E=",
-//                    name: "STG-Legacy",
-//                    logo: "logoMilwaukee",
-//                    font: "AmericanTypewriter"),
-        AppCustomer(cid: "j2LnaXXlqBhnGLNzHbKcVIJWt0NuZFVRiMmNJK19PWc=",
-                    name: "Maxim /Custom font",
+        AppCustomer(cid: "TkPnD3_yP3j6dUEAksgRjJ-auYijyUECLxVEnFqHJVE=",
+                    name: "Demo"),
+        AppCustomer(cid: "wWephArCWZ3bCkvizZ5dTnaUrn_YhZ0h8pEUnMM2Cf8=",
+                    name: "Scrut.io /Maxim"),
+        AppCustomer(cid: "Fo5TH-WjHh4THu1ges-EzCrWs-oRrzEu-20cOVOc0oE=",
+                    name: "DePaul /Maxim"),
+        AppCustomer(cid: "CzWgbh_Y0-Lod0VCjhwkiIDt5y3QxLLcoy0FcEDoc9E=",
+                    name: "Legacy",
                     logo: "logoMilwaukee",
                     font: "AmericanTypewriter"),
-        AppCustomer(cid: "j2LnaXXlqBhnGLNzHbKcVIJWt0NuZFVRiMmNJK19PWc=",
-                    name: "Maxim /Def font",
-                    logo: "logoMilwaukee"),
     ]
 }
