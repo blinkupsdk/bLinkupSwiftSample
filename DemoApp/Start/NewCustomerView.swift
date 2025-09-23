@@ -9,15 +9,17 @@ import bLinkupSDK
 import SwiftUI
 
 struct NewCustomerView: View {
-    @State var id: String
+    let id: String?
+    @State var cid: String
     @State var name: String
     @State var primary: String
     @State var secondary: String
 
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    init(id: String, name: String, primary: String, secondary: String) {
+    init(id: String?, cid: String, name: String, primary: String, secondary: String) {
         self.id = id
+        self.cid = cid
         self.name = name
         self.primary = primary
         self.secondary = secondary
@@ -25,6 +27,7 @@ struct NewCustomerView: View {
     
     init(_ c: AppCustomer?) {
         self.id = c?.id ?? ""
+        self.cid = c?.cid ?? ""
         self.name = c?.name ?? ""
         self.primary = c?.primary ?? ""
         self.secondary = c?.secondary ?? ""
@@ -37,7 +40,7 @@ struct NewCustomerView: View {
                     .multilineTextAlignment(.center)
                     .padding(.bottom)
                 
-                TextField("ID", text: $id)
+                TextField("CID", text: $cid)
                     .textFieldStyle(.roundedBorder)
                     .foregroundColor(.blBlue)
                 
@@ -64,9 +67,9 @@ struct NewCustomerView: View {
     }
     
     func addCustomer() {
-        guard let id = self.id.nonEmpty else { return }
+        guard let cid = self.cid.nonEmpty else { return }
         
-        let c = AppCustomer(cid: id,
+        let c = AppCustomer(cid: cid,
                             name: name.nonEmpty,
                             primary: primary.nonEmpty,
                             secondary: secondary.nonEmpty)

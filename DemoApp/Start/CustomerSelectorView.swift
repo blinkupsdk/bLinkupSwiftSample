@@ -41,11 +41,9 @@ struct CustomerSelectorView: View {
                             .onTapGesture {
                                 self.customer = customer
                             }
-                            .contentShape(Rectangle())
                             .onLongPressGesture(minimumDuration: 0.6, perform: {
                                 customerForMenu = customer
                             })
-                            .contentShape(Rectangle())
                     }
                 }
             }
