@@ -14,32 +14,22 @@ struct NewCustomerView: View {
     @State var name: String
     @State var primary: String
     @State var secondary: String
-
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State var group: String
     
-    init(id: String?, cid: String, name: String, primary: String, secondary: String) {
-        self.id = id
-        self.cid = cid
-        self.name = name
-        self.primary = primary
-        self.secondary = secondary
-    }
+    @Environment(\.dismiss) var dismiss
     
     init(_ c: AppCustomer?) {
         self.id = c?.id ?? ""
-        self.cid = c?.cid ?? ""
-        self.name = c?.name ?? ""
-        self.primary = c?.primary ?? ""
-        self.secondary = c?.secondary ?? ""
+        self._cid = State(initialValue: c?.cid ?? "")
+        self._name = State(initialValue: c?.name ?? "")
+        self._primary = State(initialValue: c?.primary ?? "")
+        self._secondary = State(initialValue: c?.secondary ?? "")
+        self._group = State(initialValue: c?.group ?? "")
     }
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack {
-                Text("add details of a customer")
-                    .multilineTextAlignment(.center)
-                    .padding(.bottom)
-                
                 TextField("CID", text: $cid)
                     .textFieldStyle(.roundedBorder)
                     .foregroundColor(.blBlue)
@@ -56,14 +46,28 @@ struct NewCustomerView: View {
                     .textFieldStyle(.roundedBorder)
                     .foregroundColor(.blBlue)
                 
-                Button("Save") {
-                    addCustomer()
+                HStack {
+                    Text("Config")
+                        .foregroundColor(Color(uiColor: .lightGray))
+                    Spacer()
+                    Picker("Config", selection: $group) {
+                        Text("regular").tag("")
+                        Text("hocr").tag("hocr")
+                    }
+                    .foregroundColor(.blBlue)
                 }
-                .padding(.top)
+
             }
             .frame(maxWidth: .infinity)
             .padding()
         }
+        .navigationTitle("Customer")
+        .navigationBarItems(trailing:
+                                Button("Save") {
+            addCustomer()
+        }
+            .padding(.top)
+        )
     }
     
     func addCustomer() {
@@ -72,9 +76,10 @@ struct NewCustomerView: View {
         let c = AppCustomer(cid: cid,
                             name: name.nonEmpty,
                             primary: primary.nonEmpty,
-                            secondary: secondary.nonEmpty)
+                            secondary: secondary.nonEmpty,
+                            group: group.nonEmpty)
         DB.shared.addCustomer(c)
         
-        presentationMode.wrappedValue.dismiss()
+        dismiss()
     }
 }

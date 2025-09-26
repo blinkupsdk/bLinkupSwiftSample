@@ -9,14 +9,14 @@ import bLinkupSDK
 import SwiftUI
 
 struct CustomerSelectorView: View {
-    @Binding var customer: AppCustomer?
     @Binding var appType: Int
-    
+    var onSelection: ((AppCustomer) -> ())?
+
     @State var customs: [AppCustomer] = DB.shared.get(key: .keyCustomCustomers) ?? []
     @State private var showAddCustomer = false
-    @State private var customerForMenu: AppCustomer?
     @State private var customerToEdit: AppCustomer?
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    @Environment(\.dismiss) var dismiss
 
     var body: some View {
         HStack {
@@ -36,21 +36,25 @@ struct CustomerSelectorView: View {
             if !customs.isEmpty {
                 Section(header: Text("Private")) {
                     ForEach(customs, id: \.id) { customer in
-                        CustomerView(customer: customer)
-                            .contentShape(Rectangle())
-                            .onTapGesture {
-                                self.customer = customer
+                        Button(action: {
+                            onSelection?(customer)
+                        }, label: {
+                            CustomerView(customer: customer) { action in
+                                switch action {
+                                case .edit:
+                                    customerToEdit = customer
+                                case .delete:
+                                    customs = DB.shared.removeCustomer(customer)
+                                }
                             }
-                            .onLongPressGesture(minimumDuration: 0.6, perform: {
-                                customerForMenu = customer
-                            })
+                        })
                     }
                 }
             }
             Section(header: Text("Public")) {
                 ForEach(Target.customers, id: \.id) { customer in
                     Button(action: {
-                        self.customer = customer
+                        onSelection?(customer)
                     }, label: {
                         CustomerView(customer: customer)
                     })
@@ -62,44 +66,52 @@ struct CustomerSelectorView: View {
             customs = list
         }
         .sheet(item: $customerToEdit) { c in
-            NewCustomerView(c)
-                .onDisappear() {
-                    customs = DB.shared.get(key: .keyCustomCustomers) ?? []
-                }
+            NavigationView {
+                NewCustomerView(c)
+                    .onDisappear() {
+                        customs = DB.shared.get(key: .keyCustomCustomers) ?? []
+                    }
+            }
         }
-        .sheet(isPresented: $showAddCustomer,  content: {
-            NewCustomerView(nil)
-                .onDisappear() {
-                    customs = DB.shared.get(key: .keyCustomCustomers) ?? []
-                }
-        })
-        .actionSheet(item: $customerForMenu, content: { c in
-            ActionSheet(title: Text(c.name ?? c.id),
-                        message: nil,
-                        buttons: [
-                            .default(Text("Edit"), action: {
-                                customerToEdit = c
-                            }),
-                            .destructive(Text("Delete"), action: {
-                                customs = DB.shared.removeCustomer(c)
-                            }),
-                            .cancel()
-                        ])
-        })
+        .sheet(isPresented: $showAddCustomer) {
+            NavigationView {
+                NewCustomerView(nil)
+                    .onDisappear() {
+                        customs = DB.shared.get(key: .keyCustomCustomers) ?? []
+                    }
+            }
+        }
     }
 }
 
 fileprivate struct CustomerView: View {
+    enum Action { case edit, delete }
+    
     let customer: AppCustomer
+    var onEdit: ((Action) -> ())?
+    
     var body: some View {
         HStack {
-            Image(systemName: "person")
             Text("*" + customer.cid.suffix(5).prefix(4))
             Text(customer.name ?? customer.id)
-            if customer.id == bLinkup.customer?.id {
-                Spacer()
-                Image(systemName: "checkmark")
-                    .tint(bLinkup.isLoginRequired ? .blue : .green)
+            if let g = customer.group?.nonEmpty {
+                Text("/\(g)")
+            }
+            Spacer()
+            HStack {
+                if let onEdit {
+                    Menu(content: {
+                        Button("edit", action: { onEdit(.edit) })
+                        Button("delete", action: { onEdit(.delete) })
+                    }, label: {
+                        Image(systemName: "ellipsis")
+                            .frame(width: 30, height: 30)
+                    })
+                }
+                if customer.id == bLinkup.customer?.id {
+                    Image(systemName: "checkmark")
+                        .tint(bLinkup.isLoginRequired ? .blue : .green)
+                }
             }
         }
     }
@@ -107,7 +119,7 @@ fileprivate struct CustomerView: View {
 
 #Preview {
     CustomerSelectorView(
-        customer: .constant(AppCustomer(cid: "")),
-        appType: .constant(0)
+        appType: .constant(0),
+        onSelection: { _ in }
     )
 }

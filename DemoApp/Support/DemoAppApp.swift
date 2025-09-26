@@ -25,22 +25,21 @@ struct DemoAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            CustomerSelectorView(customer: $customer, appType: $appType)
-                .sheet(isPresented: $showApp) {
-                    if let customer = customer {
+            CustomerSelectorView(appType: $appType) {
+                UserDefaults.standard.setValue($0.group, forKey: "com.blinktech.sdk.group")
+                customer = $0
+            }
+            .sheet(item: $customer) { customer in
 //                        switch appType {
 //                        case 0:
 //                            DemoRootView(customer: $customer)
 //                        default:
-                            BlinkupRootScreen(customer: customer.asBlinkupCustomer(),
-                                              branding: customer.asBlinkupBranding(),
-                                              onClose: { self.customer = nil })
-                            .onChange(of: customer) { print($0.name ?? "-") }
+                BlinkupRootScreen(customer: customer.asBlinkupCustomer(),
+                                  branding: customer.asBlinkupBranding())
                         }
 //                    } else {
 //                        EmptyView()
 //                    }
-                }
         }
         .onChange(of: appType) { v in
             UserDefaults.standard.set(v, forKey: "AppType")
