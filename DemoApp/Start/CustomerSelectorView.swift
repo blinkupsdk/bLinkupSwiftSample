@@ -45,6 +45,8 @@ struct CustomerSelectorView: View {
                                     customerToEdit = customer
                                 case .delete:
                                     customs = DB.shared.removeCustomer(customer)
+                                case .copyToken:
+                                    UIPasteboard.general.string = customer.cid
                                 }
                             }
                         })
@@ -56,7 +58,13 @@ struct CustomerSelectorView: View {
                     Button(action: {
                         onSelection?(customer)
                     }, label: {
-                        CustomerView(customer: customer)
+                        CustomerView(customer: customer, actions: [.copyToken]) {
+                            switch $0 {
+                            case .copyToken:
+                                UIPasteboard.general.string = customer.cid
+                            case .edit, .delete: ()
+                            }
+                        }
                     })
                 }
             }
@@ -85,9 +93,10 @@ struct CustomerSelectorView: View {
 }
 
 fileprivate struct CustomerView: View {
-    enum Action { case edit, delete }
+    enum Action { case edit, delete, copyToken }
     
     let customer: AppCustomer
+    var actions: Set<Action> = [.edit , .delete, .copyToken]
     var onEdit: ((Action) -> ())?
     
     var body: some View {
@@ -101,8 +110,15 @@ fileprivate struct CustomerView: View {
             HStack {
                 if let onEdit {
                     Menu(content: {
-                        Button("edit", action: { onEdit(.edit) })
-                        Button("delete", action: { onEdit(.delete) })
+                        if actions.contains(.copyToken) {
+                            Button("copy token", action: { onEdit(.copyToken) })
+                        }
+                        if actions.contains(.edit) {
+                            Button("edit", action: { onEdit(.edit) })
+                        }
+                        if actions.contains(.delete) {
+                            Button("delete", action: { onEdit(.delete) })
+                        }
                     }, label: {
                         Image(systemName: "ellipsis")
                             .frame(width: 30, height: 30)
