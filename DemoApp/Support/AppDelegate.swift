@@ -22,7 +22,7 @@ class AppDelegate: NSObject, UIApplicationDelegate,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
     ) -> Bool {
         FirebaseApp.configure()
-        
+        bLinkup.configure()
         Messaging.messaging().delegate = self
 
         UNUserNotificationCenter.current().delegate = self

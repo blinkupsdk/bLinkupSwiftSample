@@ -57,4 +57,8 @@ enum Target {
         AppCustomer(cid: "845hxVpXeRyfJ2IlVfF6fNSNfUU3w0V3W1VZ0R6bhlI=",
                     name: "Marquette University"),
     ]
+    
+    static var hosts = [
+        "https://blinkup.fly.dev/api/",
+    ]
 }

@@ -17,6 +17,8 @@ struct AppCustomer: Codable, Identifiable, Equatable {
     var logo: String?
     var font: String?
     var group: String?
+    var host: String?
+    var helper: String?
     
     func asBlinkupCustomer() -> Customer {
         Customer(id: cid, name: name)

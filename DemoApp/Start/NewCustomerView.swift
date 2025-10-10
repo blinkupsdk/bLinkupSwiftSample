@@ -8,6 +8,10 @@
 import bLinkupSDK
 import SwiftUI
 
+let kCustomerTypeKey = "com.blinktech.sdk.group"
+let kHostKey = "com.blinktech.sdk.host"
+let kDevTokenKey = "com.blinktech.sdk.dev"
+
 struct NewCustomerView: View {
     let id: String?
     @State var cid: String
@@ -15,6 +19,8 @@ struct NewCustomerView: View {
     @State var primary: String
     @State var secondary: String
     @State var group: String
+    @State var host: String?
+    @State var helper: String
     
     @Environment(\.dismiss) var dismiss
     
@@ -25,6 +31,8 @@ struct NewCustomerView: View {
         self._primary = State(initialValue: c?.primary ?? "")
         self._secondary = State(initialValue: c?.secondary ?? "")
         self._group = State(initialValue: c?.group ?? "")
+        self._host = State(initialValue: c?.host ?? Target.hosts.first)
+        self._helper = State(initialValue: c?.helper ?? "")
     }
     
     var body: some View {
@@ -56,7 +64,25 @@ struct NewCustomerView: View {
                     }
                     .foregroundColor(.blBlue)
                 }
-
+                
+                if Target.hosts.count > 1 {
+                    HStack {
+                        Text("Environment")
+                            .foregroundColor(Color(uiColor: .lightGray))
+                        Spacer()
+                        Picker("Environment", selection: $host) {
+                            ForEach(Target.hosts, id: \.self) { h in
+                                Text(URL(string: h)!.host?.split(separator: ".").first ?? "?")
+                                    .tag(h)
+                            }
+                        }
+                        .foregroundColor(.blBlue)
+                    }
+                }
+                
+                SecureField("Helper", text: $helper)
+                    .textFieldStyle(.roundedBorder)
+                    .foregroundColor(.blBlue)
             }
             .frame(maxWidth: .infinity)
             .padding()
@@ -77,7 +103,9 @@ struct NewCustomerView: View {
                             name: name.nonEmpty,
                             primary: primary.nonEmpty,
                             secondary: secondary.nonEmpty,
-                            group: group.nonEmpty)
+                            group: group.nonEmpty,
+                            host: host,
+                            helper: helper.nonEmpty)
         DB.shared.addCustomer(c)
         
         dismiss()

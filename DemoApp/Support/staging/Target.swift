@@ -17,10 +17,11 @@ enum Target {
         AppCustomer(cid: "wWephArCWZ3bCkvizZ5dTnaUrn_YhZ0h8pEUnMM2Cf8=",
                     name: "Scrut.io /Maxim"),
         AppCustomer(cid: "Fo5TH-WjHh4THu1ges-EzCrWs-oRrzEu-20cOVOc0oE=",
-                    name: "DePaul /Maxim"),
-        AppCustomer(cid: "CzWgbh_Y0-Lod0VCjhwkiIDt5y3QxLLcoy0FcEDoc9E=",
-                    name: "Legacy",
-                    logo: "logoMilwaukee",
-                    font: "AmericanTypewriter"),
+                    name: "DePaul /Maxim")
+    ]
+    
+    static var hosts = [
+        "https://blinkup-staging.fly.dev/api/",
+        "http://dev01.mobilauto.com.ua:4000/api/",
     ]
 }
