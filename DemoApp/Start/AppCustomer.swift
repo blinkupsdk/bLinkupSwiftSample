@@ -19,6 +19,7 @@ struct AppCustomer: Codable, Identifiable, Equatable {
     var group: String?
     var host: String?
     var helper: String?
+    var isFavorite: Bool?
     
     func asBlinkupCustomer() -> Customer {
         Customer(id: cid, name: name)
@@ -30,5 +31,9 @@ struct AppCustomer: Codable, Identifiable, Equatable {
                  fontName: font,
                  logo: logo,
                  name: name)
+    }
+    
+    mutating func togleFavorite() {
+        isFavorite = !(isFavorite ?? false)
     }
 }

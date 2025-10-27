@@ -12,9 +12,10 @@ struct CustomerSelectorView: View {
     @Binding var appType: Int
     var onSelection: ((AppCustomer) -> ())?
 
-    @State var customs: [AppCustomer] = DB.shared.get(key: .keyCustomCustomers) ?? []
+    @State var customers: [AppCustomer] = DB.shared.get(key: .keyCustomCustomers) ?? []
     @State private var showAddCustomer = false
     @State private var customerToEdit: AppCustomer?
+    @AppStorage("Favorite") private var onlyFavorite: Bool = false
     
     @Environment(\.dismiss) var dismiss
 
@@ -27,15 +28,22 @@ struct CustomerSelectorView: View {
     //            .pickerStyle(.segmented)
         Spacer()
 
+            Button(action: {
+                onlyFavorite.toggle()
+            }, label: {
+                Image(systemName: onlyFavorite ? "heart.fill" : "heart")
+            })
+            
             Button(action: { showAddCustomer = true },
                    label: { Image(systemName: "plus") })
         }
         .padding()
         
         Form {
-            if !customs.isEmpty {
+            let list = customers.filterFavorite(onlyFavorite)
+            if !list.isEmpty {
                 Section(header: Text("Private")) {
-                    ForEach(customs, id: \.id) { customer in
+                    ForEach(list, id: \.id) { customer in
                         Button(action: {
                             onSelection?(customer)
                         }, label: {
@@ -44,9 +52,12 @@ struct CustomerSelectorView: View {
                                 case .edit:
                                     customerToEdit = customer
                                 case .delete:
-                                    customs = DB.shared.removeCustomer(customer)
+                                    customers = DB.shared.removeCustomer(customer)
+                                    loadData()
                                 case .copyToken:
                                     UIPasteboard.general.string = customer.cid
+                                case .favorite:
+                                    togleIsFavorit(customer)
                                 }
                             }
                         })
@@ -62,7 +73,7 @@ struct CustomerSelectorView: View {
                             switch $0 {
                             case .copyToken:
                                 UIPasteboard.general.string = customer.cid
-                            case .edit, .delete: ()
+                            case .edit, .delete, .favorite: ()
                             }
                         }
                     })
@@ -70,33 +81,48 @@ struct CustomerSelectorView: View {
             }
         }
         .refreshable {
-            let list: [AppCustomer] = DB.shared.get(key: .keyCustomCustomers) ?? []
-            customs = list
+            loadData()
         }
         .sheet(item: $customerToEdit) { c in
             NavigationView {
                 NewCustomerView(c)
-                    .onDisappear() {
-                        customs = DB.shared.get(key: .keyCustomCustomers) ?? []
-                    }
+                    .onDisappear(perform: loadData)
             }
         }
         .sheet(isPresented: $showAddCustomer) {
             NavigationView {
                 NewCustomerView(nil)
-                    .onDisappear() {
-                        customs = DB.shared.get(key: .keyCustomCustomers) ?? []
-                    }
+                    .onDisappear(perform: loadData)
             }
         }
+    }
+    
+    func loadData() {
+        withAnimation {
+            customers = DB.shared.get(key: .keyCustomCustomers) ?? []
+        }
+    }
+    
+    func togleIsFavorit(_ customer: AppCustomer) {
+        var c = customer
+        c.togleFavorite()
+        DB.shared.addCustomer(c)
+        loadData()
+    }
+}
+
+extension [AppCustomer] {
+    func filterFavorite(_ filter: Bool) -> [AppCustomer]{
+        self
+            .filter({ !filter || $0.isFavorite == true })
     }
 }
 
 fileprivate struct CustomerView: View {
-    enum Action { case edit, delete, copyToken }
+    enum Action { case edit, delete, copyToken, favorite }
     
     let customer: AppCustomer
-    var actions: Set<Action> = [.edit , .delete, .copyToken]
+    var actions: Set<Action> = [.edit , .delete, .copyToken, .favorite]
     var onEdit: ((Action) -> ())?
     
     var body: some View {
@@ -105,6 +131,9 @@ fileprivate struct CustomerView: View {
             Text(customer.name ?? customer.id)
             if let g = customer.group?.nonEmpty {
                 Text("/\(g)")
+            }
+            if (customer.isFavorite == true) {
+                Text("*")
             }
             Spacer()
             HStack {
@@ -115,6 +144,12 @@ fileprivate struct CustomerView: View {
                         }
                         if actions.contains(.edit) {
                             Button("edit", action: { onEdit(.edit) })
+                        }
+                        if actions.contains(.favorite) {
+                            let text = customer.isFavorite == true
+                            ? "remove from favorites"
+                            : "add to favorites"
+                            Button(text, action: { onEdit(.favorite) })
                         }
                         if actions.contains(.delete) {
                             Button("delete", action: { onEdit(.delete) })
