@@ -51,6 +51,10 @@
 		EB832C542AF02D69008B4F5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB832C4A2AF02D68008B4F5C /* Main.storyboard */; };
 		EB832C5B2AF02D69008B4F5C /* TrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C512AF02D69008B4F5C /* TrackViewController.swift */; };
 		EB832C5F2AF02DAA008B4F5C /* UIViewController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C5E2AF02DAA008B4F5C /* UIViewController+Error.swift */; };
+		EB9DF8A92EB18C0600C3D551 /* CustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DF8A82EB18C0200C3D551 /* CustomerView.swift */; };
+		EB9DF8AA2EB18C0600C3D551 /* CustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DF8A82EB18C0200C3D551 /* CustomerView.swift */; };
+		EB9DF8AC2EB1925600C3D551 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DF8AB2EB1925300C3D551 /* View+Ext.swift */; };
+		EB9DF8AD2EB1925600C3D551 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DF8AB2EB1925300C3D551 /* View+Ext.swift */; };
 		EBB8F1AF2B10E3A200E782EA /* ConnectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB8F1AE2B10E3A200E782EA /* ConnectionCell.swift */; };
 		EBB8F1B42B10FC0000E782EA /* ConnectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB8F1B32B10FC0000E782EA /* ConnectionsViewController.swift */; };
 		EBBED77A2C931ACB0041A0DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC7507C2C8B3ACE008D8763 /* AppDelegate.swift */; };
@@ -178,6 +182,8 @@
 		EB832C4A2AF02D68008B4F5C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		EB832C512AF02D69008B4F5C /* TrackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackViewController.swift; sourceTree = "<group>"; };
 		EB832C5E2AF02DAA008B4F5C /* UIViewController+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Error.swift"; sourceTree = "<group>"; };
+		EB9DF8A82EB18C0200C3D551 /* CustomerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerView.swift; sourceTree = "<group>"; };
+		EB9DF8AB2EB1925300C3D551 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		EBB8F1AE2B10E3A200E782EA /* ConnectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionCell.swift; sourceTree = "<group>"; };
 		EBB8F1B32B10FC0000E782EA /* ConnectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionsViewController.swift; sourceTree = "<group>"; };
 		EBBED79F2C931ACB0041A0DC /* DemoAppSTG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoAppSTG.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -466,6 +472,8 @@
 		EBCD6B3F2D67946D00164F35 /* Start */ = {
 			isa = PBXGroup;
 			children = (
+				EB9DF8AB2EB1925300C3D551 /* View+Ext.swift */,
+				EB9DF8A82EB18C0200C3D551 /* CustomerView.swift */,
 				EB56B5C72BBB0D9500CF7195 /* CustomerSelectorView.swift */,
 				EB42AD742CE4D34E0091CB37 /* AppCustomer.swift */,
 				EB42AD712CE4D2440091CB37 /* NewCustomerView.swift */,
@@ -649,6 +657,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB9DF8AD2EB1925600C3D551 /* View+Ext.swift in Sources */,
 				EBC7507D2C8B3ACE008D8763 /* AppDelegate.swift in Sources */,
 				EB160A232E326DF000253ED4 /* Connection+Extensions.swift in Sources */,
 				EBF480192AF2C1490010030D /* MatchingPhoneBookView.swift in Sources */,
@@ -657,6 +666,7 @@
 				EBB8F1B42B10FC0000E782EA /* ConnectionsViewController.swift in Sources */,
 				EB10F1502AF00754006D8DC8 /* DemoRootView.swift in Sources */,
 				EB1A8F162D7EF063008917B9 /* TrackingObject.swift in Sources */,
+				EB9DF8A92EB18C0600C3D551 /* CustomerView.swift in Sources */,
 				EB7F3F102B0C228D004CC2D8 /* MyPresenceView.swift in Sources */,
 				EB42AD752CE4D3510091CB37 /* AppCustomer.swift in Sources */,
 				EBB8F1AF2B10E3A200E782EA /* ConnectionCell.swift in Sources */,
@@ -705,6 +715,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB9DF8AC2EB1925600C3D551 /* View+Ext.swift in Sources */,
 				EBBED77A2C931ACB0041A0DC /* AppDelegate.swift in Sources */,
 				EB160A222E326DF000253ED4 /* Connection+Extensions.swift in Sources */,
 				EBBED77B2C931ACB0041A0DC /* MatchingPhoneBookView.swift in Sources */,
@@ -713,6 +724,7 @@
 				EBBED77E2C931ACB0041A0DC /* ConnectionsViewController.swift in Sources */,
 				EBBED77F2C931ACB0041A0DC /* DemoRootView.swift in Sources */,
 				EB1A8F172D7EF063008917B9 /* TrackingObject.swift in Sources */,
+				EB9DF8AA2EB18C0600C3D551 /* CustomerView.swift in Sources */,
 				EBBED7802C931ACB0041A0DC /* MyPresenceView.swift in Sources */,
 				EB42AD762CE4D3510091CB37 /* AppCustomer.swift in Sources */,
 				EBBED7812C931ACB0041A0DC /* ConnectionCell.swift in Sources */,
@@ -882,7 +894,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 120;
+				CURRENT_PROJECT_VERSION = 121;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -923,7 +935,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 120;
+				CURRENT_PROJECT_VERSION = 121;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -1040,7 +1052,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 120;
+				CURRENT_PROJECT_VERSION = 121;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -1056,7 +1068,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1080,7 +1092,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 120;
+				CURRENT_PROJECT_VERSION = 121;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -1096,7 +1108,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

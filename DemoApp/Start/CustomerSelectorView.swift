@@ -20,69 +20,83 @@ struct CustomerSelectorView: View {
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
-        HStack {
-    //            Picker("Choose", selection: $appType) {
-    //                Text("Demo").tag(0)
-    //                Text("SDK-UI").tag(1)
-    //            }
-    //            .pickerStyle(.segmented)
-        Spacer()
-
-            Button(action: {
-                onlyFavorite.toggle()
-            }, label: {
-                Image(systemName: onlyFavorite ? "heart.fill" : "heart")
-            })
-            
-            Button(action: { showAddCustomer = true },
-                   label: { Image(systemName: "plus") })
-        }
-        .padding()
-        
-        Form {
-            let list = customers.filterFavorite(onlyFavorite)
-            if !list.isEmpty {
-                Section(header: Text("Private")) {
-                    ForEach(list, id: \.id) { customer in
+        VStack(spacing: 0) {
+            Form {
+                let list = customers.filterFavorite(onlyFavorite)
+                if !list.isEmpty {
+                    Section(header: Text("Private")) {
+                        ForEach(list, id: \.id) { customer in
+                            Button(action: {
+                                onSelection?(customer)
+                            }, label: {
+                                CustomerView(customer: customer) { action in
+                                    switch action {
+                                    case .edit:
+                                        customerToEdit = customer
+                                    case .delete:
+                                        customers = DB.shared.removeCustomer(customer)
+                                        loadData()
+                                    case .copyToken:
+                                        UIPasteboard.general.string = customer.cid
+                                    case .favorite:
+                                        togleIsFavorit(customer)
+                                    }
+                                }
+                            })
+                        }
+                    }
+                }
+                Section(header: Text("Public")) {
+                    ForEach(Target.customers, id: \.id) { customer in
                         Button(action: {
                             onSelection?(customer)
                         }, label: {
-                            CustomerView(customer: customer) { action in
-                                switch action {
-                                case .edit:
-                                    customerToEdit = customer
-                                case .delete:
-                                    customers = DB.shared.removeCustomer(customer)
-                                    loadData()
+                            CustomerView(customer: customer, actions: []) {
+                                switch $0 {
                                 case .copyToken:
                                     UIPasteboard.general.string = customer.cid
-                                case .favorite:
-                                    togleIsFavorit(customer)
+                                case .edit, .delete, .favorite: ()
                                 }
                             }
                         })
                     }
                 }
             }
-            Section(header: Text("Public")) {
-                ForEach(Target.customers, id: \.id) { customer in
-                    Button(action: {
-                        onSelection?(customer)
-                    }, label: {
-                        CustomerView(customer: customer, actions: [.copyToken]) {
-                            switch $0 {
-                            case .copyToken:
-                                UIPasteboard.general.string = customer.cid
-                            case .edit, .delete, .favorite: ()
-                            }
-                        }
-                    })
+            .animation(.easeInOut, value: onlyFavorite)
+            .modify({
+                if #available(iOS 17, *) {
+                    $0.transition(.blurReplace)
+                } else {
+                    $0.transition(.slide)
                 }
+            })
+            .refreshable {
+                loadData()
             }
+                        
+            Text(infoString())
+                .font(.caption)
+                .foregroundStyle(.gray.opacity(0.5))
+                .padding(.horizontal)
+                .frame(maxWidth: .infinity, alignment: .trailing)
         }
-        .refreshable {
-            loadData()
-        }
+        .navigationTitle("")
+        .toolbar(content: {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button(action: {
+                    withAnimation(.easeInOut(duration: 0.2)) {
+                        onlyFavorite.toggle()
+                    }
+                }, label: {
+                    Image(systemName: onlyFavorite ? "heart.fill" : "heart")
+                })
+            }
+            ToolbarItem(placement: .topBarTrailing) {
+                Button(action: { showAddCustomer = true },
+                       label: { Image(systemName: "plus") })
+
+            }
+        })
         .sheet(item: $customerToEdit) { c in
             NavigationView {
                 NewCustomerView(c)
@@ -109,6 +123,21 @@ struct CustomerSelectorView: View {
         DB.shared.addCustomer(c)
         loadData()
     }
+    
+    func infoString() -> String {
+        let buildKey = kCFBundleVersionKey as String
+        let info = Bundle.main.infoDictionary
+        let target = info?["CFBundleName"] as? String ?? "?"
+        let app = target == "DemoAppSTG" ? "ST" : "PR"
+        let build = info?[buildKey] as? String ?? "?"
+        
+        var str = app + " #" + build
+        if #available(iOS 16, *) {
+            str += "/" + bLinkupSDK.kBUILD
+        }
+        
+        return str
+    }
 }
 
 extension [AppCustomer] {
@@ -118,59 +147,11 @@ extension [AppCustomer] {
     }
 }
 
-fileprivate struct CustomerView: View {
-    enum Action { case edit, delete, copyToken, favorite }
-    
-    let customer: AppCustomer
-    var actions: Set<Action> = [.edit , .delete, .copyToken, .favorite]
-    var onEdit: ((Action) -> ())?
-    
-    var body: some View {
-        HStack {
-            Text("*" + customer.cid.suffix(5).prefix(4))
-            Text(customer.name ?? customer.id)
-            if let g = customer.group?.nonEmpty {
-                Text("/\(g)")
-            }
-            if (customer.isFavorite == true) {
-                Text("*")
-            }
-            Spacer()
-            HStack {
-                if let onEdit {
-                    Menu(content: {
-                        if actions.contains(.copyToken) {
-                            Button("copy token", action: { onEdit(.copyToken) })
-                        }
-                        if actions.contains(.edit) {
-                            Button("edit", action: { onEdit(.edit) })
-                        }
-                        if actions.contains(.favorite) {
-                            let text = customer.isFavorite == true
-                            ? "remove from favorites"
-                            : "add to favorites"
-                            Button(text, action: { onEdit(.favorite) })
-                        }
-                        if actions.contains(.delete) {
-                            Button("delete", action: { onEdit(.delete) })
-                        }
-                    }, label: {
-                        Image(systemName: "ellipsis")
-                            .frame(width: 30, height: 30)
-                    })
-                }
-                if customer.id == bLinkup.customer?.id {
-                    Image(systemName: "checkmark")
-                        .tint(bLinkup.isLoginRequired ? .blue : .green)
-                }
-            }
-        }
-    }
-}
-
 #Preview {
-    CustomerSelectorView(
-        appType: .constant(0),
-        onSelection: { _ in }
-    )
+    NavigationView {
+        CustomerSelectorView(
+            appType: .constant(0),
+            onSelection: { _ in }
+        )
+    }
 }

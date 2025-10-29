@@ -25,11 +25,13 @@ struct DemoAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            CustomerSelectorView(appType: $appType) {
-                UserDefaults.standard.setValue($0.group, forKey: "com.blinktech.sdk.group")
-                UserDefaults.standard.setValue($0.host ?? Target.hosts.first, forKey: "com.blinktech.sdk.host")
-                UserDefaults.standard.setValue($0.helper, forKey: "com.blinktech.sdk.helper")
-                customer = $0
+            NavigationView {
+                CustomerSelectorView(appType: $appType) {
+                    UserDefaults.standard.setValue($0.group, forKey: "com.blinktech.sdk.group")
+                    UserDefaults.standard.setValue($0.host ?? Target.hosts.first, forKey: "com.blinktech.sdk.host")
+                    UserDefaults.standard.setValue($0.helper, forKey: "com.blinktech.sdk.helper")
+                    customer = $0
+                }
             }
             .sheet(item: $customer) { customer in
 //                        switch appType {

@@ -88,26 +88,37 @@ struct NewCustomerView: View {
             .padding()
         }
         .navigationTitle("Customer")
-        .navigationBarItems(trailing:
-                                Button("Save") {
-            addCustomer()
-        }
-            .padding(.top)
-        )
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar(content: {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button("Save") {
+                    addCustomer()
+                }
+            }
+        })
     }
     
     func addCustomer() {
         guard let cid = self.cid.nonEmpty else { return }
         
-        let c = AppCustomer(cid: cid,
-                            name: name.nonEmpty,
-                            primary: primary.nonEmpty,
-                            secondary: secondary.nonEmpty,
-                            group: group.nonEmpty,
-                            host: host,
-                            helper: helper.nonEmpty)
+        let c = AppCustomer(
+            id: id ?? UUID().uuidString,
+            cid: cid,
+            name: name.nonEmpty,
+            primary: primary.nonEmpty,
+            secondary: secondary.nonEmpty,
+            group: group.nonEmpty,
+            host: host,
+            helper: helper.nonEmpty
+        )
         DB.shared.addCustomer(c)
         
         dismiss()
+    }
+}
+
+#Preview {
+    NavigationView {
+        NewCustomerView(nil)
     }
 }
