@@ -33,8 +33,8 @@ class DB {
     @discardableResult
     func addCustomer(_ c: AppCustomer) -> [AppCustomer] {
         var list: [AppCustomer] = get(key: .keyCustomCustomers) ?? []
-        let index = list.firstIndex(where: {$0.cid == c.cid}) ?? 0
-        list.removeAll(where: {$0.cid == c.cid})
+        let index = list.firstIndex(where: {$0.id == c.id}) ?? 0
+        list.removeAll(where: {$0.id == c.id})
         list.insert(c, at: index)
         set(list, key: .keyCustomCustomers)
         return list
@@ -44,14 +44,6 @@ class DB {
     func removeCustomer(_ c: AppCustomer) -> [AppCustomer] {
         var list: [AppCustomer] = get(key: .keyCustomCustomers) ?? []
         list = list.filter({ $0.id != c.id })
-        set(list, key: .keyCustomCustomers)
-        return list
-    }
-    
-    @discardableResult
-    func removeCustomer(_ c: Customer) -> [AppCustomer] {
-        var list: [AppCustomer] = get(key: .keyCustomCustomers) ?? []
-        list = list.filter({ $0.cid != c.id })
         set(list, key: .keyCustomCustomers)
         return list
     }
