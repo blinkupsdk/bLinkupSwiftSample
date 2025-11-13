@@ -5,6 +5,7 @@
 //  Created by Oleksandr Chernov on 01.04.2024.
 //
 
+import Contacts
 import bLinkupSDK
 import SwiftUI
 
@@ -96,6 +97,13 @@ struct CustomerSelectorView: View {
                        label: { Image(systemName: "plus") })
 
             }
+            #if DEBUG
+            ToolbarItem(placement: .topBarTrailing) {
+                Button(action: { addDummyContacts() },
+                       label: { Image(systemName: "person.badge.plus") })
+
+            }
+            #endif
         })
         .sheet(item: $customerToEdit) { c in
             NavigationView {
@@ -138,6 +146,34 @@ struct CustomerSelectorView: View {
         
         return str
     }
+    
+    #if DEBUG
+    func addDummyContacts() {
+        let store = CNContactStore()
+        
+        for i in 1...1500 {
+            let contact = CNMutableContact()
+            let suffix = String(format: "%05i", i)
+            contact.givenName = "Test"
+            contact.familyName = "User" + suffix
+            var phones = [CNLabeledValue(
+                label: CNLabelPhoneNumberMobile,
+                value: CNPhoneNumber(stringValue: "555-50"+suffix)
+            )]
+            if i%2 == 0 {
+                phones.append(CNLabeledValue(
+                    label: CNLabelPhoneNumberiPhone,
+                    value: CNPhoneNumber(stringValue: "555-51"+suffix)
+                ))
+            }
+            
+            contact.phoneNumbers = phones
+            let saveRequest = CNSaveRequest()
+            saveRequest.add(contact, toContainerWithIdentifier: nil)
+            try? store.execute(saveRequest)
+        }
+    }
+    #endif
 }
 
 extension [AppCustomer] {
