@@ -84,26 +84,24 @@ struct CustomerSelectorView: View {
         .navigationTitle("")
         .toolbar(content: {
             ToolbarItem(placement: .topBarTrailing) {
-                Button(action: {
-                    withAnimation(.easeInOut(duration: 0.2)) {
-                        onlyFavorite.toggle()
-                    }
-                }, label: {
-                    Image(systemName: onlyFavorite ? "heart.fill" : "heart")
-                })
+                HStack {
+                    Button(action: {
+                        withAnimation(.easeInOut(duration: 0.2)) {
+                            onlyFavorite.toggle()
+                        }
+                    }, label: {
+                        Image(systemName: onlyFavorite ? "heart.fill" : "heart")
+                    })
+                    
+                    Button(action: { showAddCustomer = true },
+                           label: { Image(systemName: "plus") })
+                    
+                    #if DEBUG
+                    Button(action: { addDummyContacts() },
+                           label: { Image(systemName: "person.badge.plus") })
+                    #endif
+                }
             }
-            ToolbarItem(placement: .topBarTrailing) {
-                Button(action: { showAddCustomer = true },
-                       label: { Image(systemName: "plus") })
-
-            }
-            #if DEBUG
-            ToolbarItem(placement: .topBarTrailing) {
-                Button(action: { addDummyContacts() },
-                       label: { Image(systemName: "person.badge.plus") })
-
-            }
-            #endif
         })
         .sheet(item: $customerToEdit) { c in
             NavigationView {
