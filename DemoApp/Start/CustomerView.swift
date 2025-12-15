@@ -9,48 +9,62 @@ import bLinkupSDK
 import SwiftUI
 
 struct CustomerView: View {
-    enum Action { case edit, delete, copyToken, favorite }
+    enum Action: CaseIterable { case open, edit, delete, copyToken, favorite }
     
     let customer: AppCustomer
-    var actions: Set<Action> = [.edit , .delete, .copyToken, .favorite]
+    let isFavorite: Bool
+    var actions: Set<Action> = Set(Action.allCases)
     var onEdit: ((Action) -> ())?
     
     var body: some View {
-        HStack {
-            Text(customer.name ?? customer.id)
-//                .fontWeight(customer.cid == bLinkup.customer?.id ? .bold : .regular)
-
-            if let g = customer.group?.nonEmpty {
-                Text("/\(g)")
+        Button(action: {
+            if actions.contains(.open) {
+                onEdit?(.open)
             }
-            if (customer.isFavorite == true) {
-                Text("*")
-            }
-            Spacer()
+        }, label: {
             HStack {
-                if let onEdit, !actions.isEmpty {
-                    Menu(content: {
-                        if actions.contains(.copyToken) {
+                Text(customer.name ?? customer.id)
+                    .fontWeight(customer.cid == bLinkup.customer?.id ? .bold : .regular)
+                
+                if let g = customer.group?.nonEmpty {
+                    Text("/\(g)")
+                }
+                if isFavorite {
+                    Text("*")
+                }
+                Spacer()
+                HStack {
+                    if let onEdit, !actions.isEmpty {
+                        Menu(content: {
+                            if actions.contains(.open) {
+                                Button("open", action: { onEdit(.open) })
+                            }
+                            if actions.contains(.copyToken) {
+                                Button("copy token", action: { onEdit(.copyToken) })
+                            }
+                            if actions.contains(.edit) {
+                                Button("edit", action: { onEdit(.edit) })
+                            }
+                            if actions.contains(.favorite) {
+                                let text = isFavorite == true
+                                ? "remove from favorites"
+                                : "add to favorites"
+                                Button(text, action: { onEdit(.favorite) })
+                            }
+                            if actions.contains(.delete) {
+                                Button("delete", action: { onEdit(.delete) })
+                            }
+                            #if DEBUG
+                            Divider()
                             Button("copy token", action: { onEdit(.copyToken) })
-                        }
-                        if actions.contains(.edit) {
-                            Button("edit", action: { onEdit(.edit) })
-                        }
-                        if actions.contains(.favorite) {
-                            let text = customer.isFavorite == true
-                            ? "remove from favorites"
-                            : "add to favorites"
-                            Button(text, action: { onEdit(.favorite) })
-                        }
-                        if actions.contains(.delete) {
-                            Button("delete", action: { onEdit(.delete) })
-                        }
-                    }, label: {
-                        Image(systemName: "ellipsis")
-                            .frame(width: 30, height: 30)
-                    })
+                            #endif
+                        }, label: {
+                            Image(systemName: "ellipsis")
+                                .frame(width: 30, height: 30)
+                        })
+                    }
                 }
             }
-        }
+        })
     }
 }

@@ -9,57 +9,53 @@ import Contacts
 import bLinkupSDK
 import SwiftUI
 
+private let kPubFavsDataKey = "pubFavs"
+
 struct CustomerSelectorView: View {
-    @Binding var appType: Int
-    var onSelection: ((AppCustomer) -> ())?
+    typealias Action = CustomerView.Action
 
     @State var customers: [AppCustomer] = DB.shared.get(key: .keyCustomCustomers) ?? []
-    @State private var showAddCustomer = false
-    @State private var customerToEdit: AppCustomer?
-    @AppStorage("Favorite") private var onlyFavorite: Bool = false
     
-    @Environment(\.dismiss) var dismiss
+    @State private var customerToEdit: AppCustomer?
+    @State private var customerToFull: AppCustomer?
+    @State private var customerToPresent: AppCustomer?
+    @AppStorage("overFullScreen") private var overFullScreen: Bool?
+    @AppStorage("Favorite") private var onlyFavoriteState: Bool?
+    var onlyFavorite: Bool { onlyFavoriteState ?? false }
+    
+    @State private var pubFavs: [String] = []
 
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         VStack(spacing: 0) {
             Form {
-                let list = customers.filterFavorite(onlyFavorite)
-                if !list.isEmpty {
+                let priv = customers.filter({ $0.isFavorite ?? !onlyFavorite })
+                if !priv.isEmpty {
                     Section(header: Text("Private")) {
-                        ForEach(list, id: \.id) { customer in
-                            Button(action: {
-                                onSelection?(customer)
-                            }, label: {
-                                CustomerView(customer: customer) { action in
-                                    switch action {
-                                    case .edit:
-                                        customerToEdit = customer
-                                    case .delete:
-                                        customers = DB.shared.removeCustomer(customer)
-                                        loadData()
-                                    case .copyToken:
-                                        UIPasteboard.general.string = customer.cid
-                                    case .favorite:
-                                        togleIsFavorit(customer)
-                                    }
-                                }
-                            })
+                        ForEach(priv, id: \.id) { customer in
+                            CustomerView(
+                                customer: customer,
+                                isFavorite: customer.isFavorite == true
+                            ) { action in
+                                process(customer, action, pub: false)
+                            }
                         }
                     }
                 }
-                Section(header: Text("Public")) {
-                    ForEach(Target.customers, id: \.id) { customer in
-                        Button(action: {
-                            onSelection?(customer)
-                        }, label: {
-                            CustomerView(customer: customer, actions: []) {
-                                switch $0 {
-                                case .copyToken:
-                                    UIPasteboard.general.string = customer.cid
-                                case .edit, .delete, .favorite: ()
-                                }
+                let f = pubFavs
+                let pub = Target.customers.filter({ f.contains($0.cid) || !onlyFavorite })
+                if !pub.isEmpty {
+                    Section(header: Text("Public")) {
+                        ForEach(pub, id: \.id) { customer in
+                            CustomerView(
+                                customer: customer,
+                                isFavorite: pubFavs.contains(customer.cid),
+                                actions: [.open, .favorite]
+                            ) {
+                                process(customer, $0, pub: true)
                             }
-                        })
+                        }
                     }
                 }
             }
@@ -81,25 +77,45 @@ struct CustomerSelectorView: View {
                 .padding(.horizontal)
                 .frame(maxWidth: .infinity, alignment: .trailing)
         }
+        .task({
+            loadData()
+        })
         .navigationTitle("")
         .toolbar(content: {
             ToolbarItem(placement: .topBarTrailing) {
                 HStack {
                     Button(action: {
                         withAnimation(.easeInOut(duration: 0.2)) {
-                            onlyFavorite.toggle()
+                            onlyFavoriteState = !onlyFavorite
                         }
                     }, label: {
                         Image(systemName: onlyFavorite ? "heart.fill" : "heart")
                     })
                     
-                    Button(action: { showAddCustomer = true },
+                    Button(action: { customerToEdit = AppCustomer() },
                            label: { Image(systemName: "plus") })
                     
-                    #if DEBUG
-                    Button(action: { addDummyContacts() },
-                           label: { Image(systemName: "person.badge.plus") })
-                    #endif
+                    Menu {
+                        Button(action: {
+                            overFullScreen = true
+                        }, label: {
+                            if overFullScreen ?? false { Image(systemName: "checkmark" ) }
+                            Text("Full")
+                        })
+                        Button(action: {
+                            overFullScreen = false
+                        }, label: {
+                            if !(overFullScreen ?? false) { Image(systemName: "checkmark" ) }
+                            Text("Card")
+                        })
+                        #if DEBUG
+                        Divider()
+                        Button(action: { addDummyContacts() },
+                               label: { Image(systemName: "person.badge.plus") })
+                        #endif
+                    } label: {
+                        Image(systemName: "line.3.horizontal")
+                    }
                 }
             }
         })
@@ -109,25 +125,38 @@ struct CustomerSelectorView: View {
                     .onDisappear(perform: loadData)
             }
         }
-        .sheet(isPresented: $showAddCustomer) {
-            NavigationView {
-                NewCustomerView(nil)
-                    .onDisappear(perform: loadData)
-            }
+        .sheet(item: $customerToPresent) {
+            blinkupScreen($0, exit: false)
+        }
+        .fullScreenCover(item: $customerToFull) {
+            blinkupScreen($0, exit: true)
         }
     }
     
     func loadData() {
+        let pubFavs = loadPublicFavs()
+        let customers = DB.shared.get(key: .keyCustomCustomers) ?? [AppCustomer]()
+        
         withAnimation {
-            customers = DB.shared.get(key: .keyCustomCustomers) ?? []
+            self.pubFavs = pubFavs
+            self.customers = customers
         }
     }
     
-    func togleIsFavorit(_ customer: AppCustomer) {
+    func togleIsFavorit(_ customer: AppCustomer, pub: Bool) {
         var c = customer
-        c.togleFavorite()
-        DB.shared.addCustomer(c)
-        loadData()
+        if pub {
+            if pubFavs.contains(customer.cid) {
+                pubFavs.removeAll(where: { $0 == c.cid })
+            } else {
+                pubFavs.append(c.cid)
+            }
+            savePublicFavs(pubFavs)
+        } else {
+            c.togleFavorite()
+            DB.shared.addCustomer(c)
+            loadData()
+        }
     }
     
     func infoString() -> String {
@@ -145,11 +174,59 @@ struct CustomerSelectorView: View {
         return str
     }
     
+    func process(_ customer: AppCustomer, _ action: Action, pub: Bool) {
+        switch action {
+        case .open:
+            if overFullScreen ?? false {
+                customerToFull = customer
+            } else {
+                customerToPresent = customer
+            }
+        case .edit:
+            customerToEdit = customer
+        case .delete:
+            customers = DB.shared.removeCustomer(customer)
+            loadData()
+        case .copyToken:
+            UIPasteboard.general.string = customer.cid
+        case .favorite:
+            togleIsFavorit(customer, pub: pub)
+        }
+    }
+    
+    func blinkupScreen(_ c: AppCustomer?, exit: Bool) -> BlinkupRootScreen? {
+        guard let c else {
+            return nil
+        }
+        UserDefaults.standard.setValue(c.group, forKey: "com.blinktech.sdk.group")
+        UserDefaults.standard.setValue(c.host ?? Target.hosts.first, forKey: "com.blinktech.sdk.host")
+        UserDefaults.standard.setValue(c.helper, forKey: "com.blinktech.sdk.helper")
+
+        return BlinkupRootScreen(
+            customer: c.asBlinkupCustomer(),
+            branding: .init(primary: nil),
+            onClose: exit ? { customerToFull = nil; customerToPresent = nil } : nil
+        )
+    }
+    
+    // MARK: - public favs
+    
+    func loadPublicFavs() -> [String] {
+        let pubData = UserDefaults.standard.data(forKey: kPubFavsDataKey) ?? Data()
+        let pubFavs: [String] = (try? JSONDecoder().decode([String].self, from: pubData)) ?? []
+        return pubFavs
+    }
+    
+    func savePublicFavs(_ favs: [String]) {
+        let data = try? JSONSerialization.data(withJSONObject: pubFavs)
+        UserDefaults.standard.set(data, forKey: kPubFavsDataKey)
+    }
+    
     #if DEBUG
     func addDummyContacts() {
         let store = CNContactStore()
         
-        for i in 1...1500 {
+        for i in 1...500 {
             let contact = CNMutableContact()
             let suffix = String(format: "%05i", i)
             contact.givenName = "Test"
@@ -174,18 +251,8 @@ struct CustomerSelectorView: View {
     #endif
 }
 
-extension [AppCustomer] {
-    func filterFavorite(_ filter: Bool) -> [AppCustomer]{
-        self
-            .filter({ !filter || $0.isFavorite == true })
-    }
-}
-
 #Preview {
     NavigationView {
-        CustomerSelectorView(
-            appType: .constant(0),
-            onSelection: { _ in }
-        )
+        CustomerSelectorView()
     }
 }

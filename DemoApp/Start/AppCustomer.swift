@@ -10,7 +10,7 @@ import SwiftUI
 
 struct AppCustomer: Codable, Identifiable, Equatable {
     var id: String = UUID().uuidString
-    let cid: String
+    var cid: String = ""
     var name: String?
     var primary: String?
     var secondary: String?
