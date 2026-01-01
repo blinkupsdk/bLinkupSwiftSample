@@ -226,7 +226,7 @@ struct CustomerSelectorView: View {
     func addDummyContacts() {
         let store = CNContactStore()
         
-        for i in 1...500 {
+        for i in 1...1000 {
             let contact = CNMutableContact()
             let suffix = String(format: "%05i", i)
             contact.givenName = "Test"
