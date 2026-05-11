@@ -19,6 +19,10 @@ struct CustomerSelectorView: View {
     @State private var customerToEdit: AppCustomer?
     @State private var customerToFull: AppCustomer?
     @State private var customerToPresent: AppCustomer?
+    @State private var showBotyDemo = false
+    @State private var showWvuDemo = false
+    @State private var showSbuxDemo = false
+    @State private var showRavensDemo = false
     @AppStorage("overFullScreen") private var overFullScreen: Bool?
     @AppStorage("Favorite") private var onlyFavoriteState: Bool?
     var onlyFavorite: Bool { onlyFavoriteState ?? false }
@@ -112,6 +116,14 @@ struct CustomerSelectorView: View {
                         Divider()
                         Button(action: { addDummyContacts() },
                                label: { Image(systemName: "person.badge.plus") })
+                        Button(action: { resetBotyDemo() },
+                               label: { Text("Reset BOTY Demo") })
+                        Button(action: { resetWvuDemo() },
+                               label: { Text("Reset WVU Demo") })
+                        Button(action: { resetSbuxDemo() },
+                               label: { Text("Reset Starbucks Demo") })
+                        Button(action: { resetRavensDemo() },
+                               label: { Text("Reset Ravens Demo") })
                         #endif
                     } label: {
                         Image(systemName: "line.3.horizontal")
@@ -130,6 +142,39 @@ struct CustomerSelectorView: View {
         }
         .fullScreenCover(item: $customerToFull) {
             blinkupScreen($0, exit: true)
+        }
+        .fullScreenCover(isPresented: $showWvuDemo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#002855",
+                secondaryHEX: "#EAAA00",
+                customerName: "wvu",
+                arenaMapImage: UIImage(named: "wvu_stadium_map"),
+                onClose: { showWvuDemo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showBotyDemo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#3A6896",
+                secondaryHEX: "#EDE5D3",
+                customerName: "boty",
+                onClose: { showBotyDemo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showSbuxDemo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#00704A",
+                secondaryHEX: "#CBA258",
+                customerName: "sbux",
+                onClose: { showSbuxDemo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showRavensDemo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#241773",
+                secondaryHEX: "#000000",
+                customerName: "ravens",
+                onClose: { showRavensDemo = false }
+            )
         }
     }
     
@@ -177,6 +222,22 @@ struct CustomerSelectorView: View {
     func process(_ customer: AppCustomer, _ action: Action, pub: Bool) {
         switch action {
         case .open:
+            if customer.cid == "wvu-local-demo" {
+                showWvuDemo = true
+                return
+            }
+            if customer.cid == "boty-local-demo" {
+                showBotyDemo = true
+                return
+            }
+            if customer.cid == "sbux-local-demo" {
+                showSbuxDemo = true
+                return
+            }
+            if customer.cid == "ravens-local-demo" {
+                showRavensDemo = true
+                return
+            }
             if overFullScreen ?? false {
                 customerToFull = customer
             } else {
@@ -204,7 +265,7 @@ struct CustomerSelectorView: View {
 
         return BlinkupRootScreen(
             customer: c.asBlinkupCustomer(),
-            branding: .init(primary: nil),
+            branding: c.asBlinkupBranding(),
             onClose: exit ? { customerToFull = nil; customerToPresent = nil } : nil
         )
     }
@@ -223,6 +284,51 @@ struct CustomerSelectorView: View {
     }
     
     #if DEBUG
+    func resetBotyDemo() {
+        let defaults = UserDefaults.standard
+        let botyIds = ["boty-main", "boty-cart-1", "boty-cart-2"]
+        for id in botyIds {
+            defaults.removeObject(forKey: "boty_invites_\(id)")
+            defaults.removeObject(forKey: "boty_redeemed_\(id)")
+            defaults.removeObject(forKey: "checkin_\(id)")
+        }
+    }
+
+    func resetWvuDemo() {
+        let defaults = UserDefaults.standard
+        let wvuIds = ["wvu-keglers", "wvu-goat", "wvu-msb-downtown", "wvu-msb-evansdale",
+                      "wvu-bww-suncrest", "wvu-bww-utc", "wvu-bigtimes", "wvu-lakehouse", "wvu-tropics"]
+        for id in wvuIds {
+            defaults.removeObject(forKey: "wvu_invites_\(id)")
+            defaults.removeObject(forKey: "wvu_redeemed_\(id)")
+            defaults.removeObject(forKey: "checkin_\(id)")
+        }
+    }
+
+    func resetSbuxDemo() {
+        let defaults = UserDefaults.standard
+        let sbuxIds = ["sbux-beacon", "sbux-la-costa", "sbux-via-campanile", "sbux-encinitas", "sbux-bressi", "sbux-carlsbad", "sbux-oceanside"]
+        for id in sbuxIds {
+            defaults.removeObject(forKey: "sbux_invites_\(id)")
+            defaults.removeObject(forKey: "sbux_redeemed_\(id)")
+            defaults.removeObject(forKey: "checkin_\(id)")
+        }
+        defaults.removeObject(forKey: "sbux_demo_last_reset")
+    }
+
+    func resetRavensDemo() {
+        let defaults = UserDefaults.standard
+        let ravensIds = ["ravens-pickles", "ravens-pratt", "ravens-sliders", "ravens-dempsey", "ravens-bullpen"]
+        for id in ravensIds {
+            defaults.removeObject(forKey: "ravens_invites_\(id)")
+            defaults.removeObject(forKey: "ravens_redeemed_\(id)")
+            defaults.removeObject(forKey: "checkin_\(id)")
+        }
+        defaults.removeObject(forKey: "ravens_demo_last_reset")
+        defaults.removeObject(forKey: "ravens_attendance")
+        defaults.removeObject(forKey: "ravens_passport")
+    }
+
     func addDummyContacts() {
         let store = CNContactStore()
         

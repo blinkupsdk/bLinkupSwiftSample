@@ -10,6 +10,14 @@ import UIKit
 
 enum Target {
     static let customers = [
+        AppCustomer(cid: "wvu-local-demo",
+                    name: "West Virginia University 🏟️"),
+        AppCustomer(cid: "boty-local-demo",
+                    name: "Back of the Yards Coffee ☕"),
+        AppCustomer(cid: "sbux-local-demo",
+                    name: "Starbucks ☕"),
+        AppCustomer(cid: "ravens-local-demo",
+                    name: "Baltimore Ravens 🦅"),
         AppCustomer(cid: "Ph1bFOq1moKmm0in2lxsfZ5v-No-Og6wWxEKM-6F1OM=",
                     name: "Test",
                     primary: "004020",
@@ -17,7 +25,7 @@ enum Target {
                     logo: "logoDemo",
                     font: "AmericanTypewriter"),
         AppCustomer(cid: "h9AQnvY33HmMLhYD88lyFFcrp4WqjhW-2PVwlmzo6kE=",
-                    name: "Milwaukee Bucks"),
+                    name: "West Virginia University"),
         AppCustomer(cid: "Mb9QPCopsCNBr8QI8jAZ0qqUWrAXIMCgkr_PuvaUY08=",
                     name: "HOCR"),
         AppCustomer(cid: "845hxVpXeRyfJ2IlVfF6fNSNfUU3w0V3W1VZ0R6bhlI=",
