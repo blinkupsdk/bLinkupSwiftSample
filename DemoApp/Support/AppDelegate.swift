@@ -48,7 +48,7 @@ class AppDelegate: NSObject, UIApplicationDelegate,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
     {
-        completionHandler(.banner)
+        completionHandler([.banner, .sound])
     }
     
     // MARK: - MessagingDelegate

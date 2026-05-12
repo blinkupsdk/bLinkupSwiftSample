@@ -16,6 +16,7 @@ struct AppCustomer: Codable, Identifiable, Equatable {
     var secondary: String?
     var logo: String?
     var font: String?
+    var mapTabTitle: String?
     var group: String?
     var host: String?
     var helper: String?
@@ -30,7 +31,8 @@ struct AppCustomer: Codable, Identifiable, Equatable {
                  secondaryHEX: secondary,
                  fontName: font,
                  logo: logo,
-                 name: name)
+                 name: name,
+                 mapTabTitle: mapTabTitle)
     }
     
     mutating func togleFavorite() {
