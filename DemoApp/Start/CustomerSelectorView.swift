@@ -327,6 +327,8 @@ struct CustomerSelectorView: View {
         defaults.removeObject(forKey: "ravens_demo_last_reset")
         defaults.removeObject(forKey: "ravens_attendance")
         defaults.removeObject(forKey: "ravens_passport")
+        defaults.removeObject(forKey: "ravens_popup_date")
+        defaults.removeObject(forKey: "ravens_bonus_outcome")
     }
 
     func addDummyContacts() {
