@@ -25,6 +25,7 @@ struct DemoAppApp: App {
             NavigationView {
                 CustomerSelectorView()
             }
+            .preferredColorScheme(.light)
         }
     }
     
