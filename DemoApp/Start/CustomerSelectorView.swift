@@ -23,6 +23,9 @@ struct CustomerSelectorView: View {
     @State private var showWvuDemo = false
     @State private var showSbuxDemo = false
     @State private var showRavensDemo = false
+    @State private var showRavensV2Demo = false
+    @State private var showSixersDemo = false
+    @State private var showEugeneDemo = false
     @AppStorage("overFullScreen") private var overFullScreen: Bool?
     @AppStorage("Favorite") private var onlyFavoriteState: Bool?
     var onlyFavorite: Bool { onlyFavoriteState ?? false }
@@ -124,6 +127,12 @@ struct CustomerSelectorView: View {
                                label: { Text("Reset Starbucks Demo") })
                         Button(action: { resetRavensDemo() },
                                label: { Text("Reset Ravens Demo") })
+                        Button(action: { resetRavensDemo() },
+                               label: { Text("Reset Ravens V2 Demo") })
+                        Button(action: { resetSixersDemo() },
+                               label: { Text("Reset Sixers Demo") })
+                        Button(action: { resetEugeneDemo() },
+                               label: { Text("Reset Eugene Demo") })
                         #endif
                     } label: {
                         Image(systemName: "line.3.horizontal")
@@ -174,6 +183,30 @@ struct CustomerSelectorView: View {
                 secondaryHEX: "#000000",
                 customerName: "ravens",
                 onClose: { showRavensDemo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showRavensV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#241773",
+                secondaryHEX: "#000000",
+                customerName: "ravens2",
+                onClose: { showRavensV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showSixersDemo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#006BB6",
+                secondaryHEX: "#ED174C",
+                customerName: "sixers",
+                onClose: { showSixersDemo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showEugeneDemo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#241773",
+                secondaryHEX: "#000000",
+                customerName: "eugene",
+                onClose: { showEugeneDemo = false }
             )
         }
     }
@@ -236,6 +269,18 @@ struct CustomerSelectorView: View {
             }
             if customer.cid == "ravens-local-demo" {
                 showRavensDemo = true
+                return
+            }
+            if customer.cid == "ravens2-local-demo" {
+                showRavensV2Demo = true
+                return
+            }
+            if customer.cid == "sixers-local-demo" {
+                showSixersDemo = true
+                return
+            }
+            if customer.cid == "eugene-local-demo" {
+                showEugeneDemo = true
                 return
             }
             if overFullScreen ?? false {
@@ -329,6 +374,36 @@ struct CustomerSelectorView: View {
         defaults.removeObject(forKey: "ravens_passport")
         defaults.removeObject(forKey: "ravens_popup_date")
         defaults.removeObject(forKey: "ravens_bonus_outcome")
+    }
+
+    func resetSixersDemo() {
+        let defaults = UserDefaults.standard
+        let sixersIds = ["sixers-arena", "sixers-xfinity", "sixers-chickies", "sixers-stogies", "sixers-fado", "sixers-mcgillin"]
+        for id in sixersIds {
+            defaults.removeObject(forKey: "sixers_invites_\(id)")
+            defaults.removeObject(forKey: "sixers_redeemed_\(id)")
+            defaults.removeObject(forKey: "checkin_\(id)")
+        }
+        defaults.removeObject(forKey: "sixers_demo_last_reset")
+        defaults.removeObject(forKey: "sixers_attendance")
+        defaults.removeObject(forKey: "sixers_passport")
+        defaults.removeObject(forKey: "sixers_popup_date")
+        defaults.removeObject(forKey: "sixers_bonus_outcome")
+        defaults.removeObject(forKey: "sixers_is_checked_in")
+    }
+
+    func resetEugeneDemo() {
+        let defaults = UserDefaults.standard
+        let eugeneIds = ["eugene-pickles", "eugene-pratt", "eugene-sliders", "eugene-dempsey", "eugene-stadium"]
+        for id in eugeneIds {
+            defaults.removeObject(forKey: "eugene_invites_\(id)")
+            defaults.removeObject(forKey: "eugene_redeemed_\(id)")
+            defaults.removeObject(forKey: "checkin_\(id)")
+        }
+        defaults.removeObject(forKey: "eugene_demo_last_reset")
+        defaults.removeObject(forKey: "eugene_is_checked_in")
+        defaults.removeObject(forKey: "eugene_is_gameday")
+        defaults.removeObject(forKey: "eugene_popup_date")
     }
 
     func addDummyContacts() {
