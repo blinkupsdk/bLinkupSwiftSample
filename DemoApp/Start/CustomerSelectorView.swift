@@ -374,6 +374,8 @@ struct CustomerSelectorView: View {
         defaults.removeObject(forKey: "ravens_passport")
         defaults.removeObject(forKey: "ravens_popup_date")
         defaults.removeObject(forKey: "ravens_bonus_outcome")
+        defaults.removeObject(forKey: "ravens_v2_points")
+        defaults.removeObject(forKey: "ravens_v2_stadium_checkin")
     }
 
     func resetSixersDemo() {
