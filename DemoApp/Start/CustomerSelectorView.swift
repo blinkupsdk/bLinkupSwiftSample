@@ -387,6 +387,7 @@ struct CustomerSelectorView: View {
         defaults.removeObject(forKey: "ravens_v2_points")
         defaults.removeObject(forKey: "ravens_v2_stadium_checkin")
         defaults.removeObject(forKey: "ravens_v2_bar_checkin")
+        defaults.removeObject(forKey: "ravens_popup_date")
         defaults.set("stadium", forKey: "ravens_v2_demo_mode")
     }
 
@@ -395,6 +396,7 @@ struct CustomerSelectorView: View {
         defaults.removeObject(forKey: "ravens_v2_points")
         defaults.removeObject(forKey: "ravens_v2_stadium_checkin")
         defaults.removeObject(forKey: "ravens_v2_bar_checkin")
+        defaults.removeObject(forKey: "ravens_popup_date")
         defaults.set("bar", forKey: "ravens_v2_demo_mode")
     }
 
