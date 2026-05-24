@@ -127,8 +127,10 @@ struct CustomerSelectorView: View {
                                label: { Text("Reset Starbucks Demo") })
                         Button(action: { resetRavensDemo() },
                                label: { Text("Reset Ravens Demo") })
-                        Button(action: { resetRavensDemo() },
-                               label: { Text("Reset Ravens V2 Demo") })
+                        Button(action: { resetRavensV2StadiumDemo() },
+                               label: { Text("Reset V2 — Stadium Demo") })
+                        Button(action: { resetRavensV2BarDemo() },
+                               label: { Text("Reset V2 — Bar Demo") })
                         Button(action: { resetSixersDemo() },
                                label: { Text("Reset Sixers Demo") })
                         Button(action: { resetEugeneDemo() },
@@ -376,6 +378,24 @@ struct CustomerSelectorView: View {
         defaults.removeObject(forKey: "ravens_bonus_outcome")
         defaults.removeObject(forKey: "ravens_v2_points")
         defaults.removeObject(forKey: "ravens_v2_stadium_checkin")
+        defaults.removeObject(forKey: "ravens_v2_bar_checkin")
+        defaults.removeObject(forKey: "ravens_v2_demo_mode")
+    }
+
+    func resetRavensV2StadiumDemo() {
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "ravens_v2_points")
+        defaults.removeObject(forKey: "ravens_v2_stadium_checkin")
+        defaults.removeObject(forKey: "ravens_v2_bar_checkin")
+        defaults.set("stadium", forKey: "ravens_v2_demo_mode")
+    }
+
+    func resetRavensV2BarDemo() {
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "ravens_v2_points")
+        defaults.removeObject(forKey: "ravens_v2_stadium_checkin")
+        defaults.removeObject(forKey: "ravens_v2_bar_checkin")
+        defaults.set("bar", forKey: "ravens_v2_demo_mode")
     }
 
     func resetSixersDemo() {
