@@ -24,6 +24,7 @@ struct CustomerSelectorView: View {
     @State private var showSbuxDemo = false
     @State private var showRavensDemo = false
     @State private var showRavensV2Demo = false
+    @State private var showRavensBudLightDemo = false
     @State private var showSixersDemo = false
     @State private var showEugeneDemo = false
     @AppStorage("overFullScreen") private var overFullScreen: Bool?
@@ -195,6 +196,14 @@ struct CustomerSelectorView: View {
                 onClose: { showRavensV2Demo = false }
             )
         }
+        .fullScreenCover(isPresented: $showRavensBudLightDemo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#241773",
+                secondaryHEX: "#000000",
+                customerName: "ravens-bl",
+                onClose: { showRavensBudLightDemo = false }
+            )
+        }
         .fullScreenCover(isPresented: $showSixersDemo) {
             BlinkupLocalDemo(
                 primaryHEX: "#006BB6",
@@ -275,6 +284,10 @@ struct CustomerSelectorView: View {
             }
             if customer.cid == "ravens2-local-demo" {
                 showRavensV2Demo = true
+                return
+            }
+            if customer.cid == "ravens-bl-local-demo" {
+                showRavensBudLightDemo = true
                 return
             }
             if customer.cid == "sixers-local-demo" {

@@ -25,6 +25,8 @@ enum Target {
                     name: "Baltimore Ravens 🦅"),
         AppCustomer(cid: "ravens2-local-demo",
                     name: "Ravens V2 🦅"),
+        AppCustomer(cid: "ravens-bl-local-demo",
+                    name: "Ravens x Bud Light 🍺"),
         AppCustomer(cid: "sixers-local-demo",
                     name: "Philadelphia 76ers 🏀"),
         AppCustomer(cid: "eugene-local-demo",
