@@ -25,6 +25,11 @@ struct CustomerSelectorView: View {
     @State private var showRavensDemo = false
     @State private var showRavensV2Demo = false
     @State private var showRavensBudLightDemo = false
+    @State private var showMobbinUXDemo = false
+    @State private var showBucksDemo = false
+    @State private var showSixers76Demo = false
+    @State private var showChargersV2Demo = false
+    @State private var showCommandersV2Demo = false
     @State private var showSixersDemo = false
     @State private var showEugeneDemo = false
     @AppStorage("overFullScreen") private var overFullScreen: Bool?
@@ -132,10 +137,20 @@ struct CustomerSelectorView: View {
                                label: { Text("Reset V2 — Stadium Demo") })
                         Button(action: { resetRavensV2BarDemo() },
                                label: { Text("Reset V2 — Bar Demo") })
+                        Button(action: { resetChargersV2Demo() },
+                               label: { Text("Reset Chargers Demo") })
+                        Button(action: { resetCommandersV2Demo() },
+                               label: { Text("Reset Commanders Demo") })
                         Button(action: { resetSixersDemo() },
                                label: { Text("Reset Sixers Demo") })
                         Button(action: { resetEugeneDemo() },
                                label: { Text("Reset Eugene Demo") })
+                        Button(action: { resetMobbinUXDemo() },
+                               label: { Text("Reset Mobbin UX/UI Demo") })
+                        Button(action: { resetBucksDemo() },
+                               label: { Text("Reset Bucks Demo") })
+                        Button(action: { resetSixers76Demo() },
+                               label: { Text("Reset 76ers Demo") })
                         #endif
                     } label: {
                         Image(systemName: "line.3.horizontal")
@@ -202,6 +217,46 @@ struct CustomerSelectorView: View {
                 secondaryHEX: "#000000",
                 customerName: "ravens-bl",
                 onClose: { showRavensBudLightDemo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showMobbinUXDemo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#241773",
+                secondaryHEX: "#000000",
+                customerName: "ravens-mobbin",
+                onClose: { showMobbinUXDemo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showBucksDemo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#00471B",
+                secondaryHEX: "#EEE1C6",
+                customerName: "bucks",
+                onClose: { showBucksDemo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showSixers76Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#006BB6",
+                secondaryHEX: "#ED174C",
+                customerName: "76ers",
+                onClose: { showSixers76Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showChargersV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#0080C6",
+                secondaryHEX: "#002A5E",
+                customerName: "chargers2",
+                onClose: { showChargersV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showCommandersV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#5A1414",
+                secondaryHEX: "#FFB612",
+                customerName: "commanders2",
+                onClose: { showCommandersV2Demo = false }
             )
         }
         .fullScreenCover(isPresented: $showSixersDemo) {
@@ -288,6 +343,26 @@ struct CustomerSelectorView: View {
             }
             if customer.cid == "ravens-bl-local-demo" {
                 showRavensBudLightDemo = true
+                return
+            }
+            if customer.cid == "ravens-mobbin-local-demo" {
+                showMobbinUXDemo = true
+                return
+            }
+            if customer.cid == "bucks-local-demo" {
+                showBucksDemo = true
+                return
+            }
+            if customer.cid == "76ers-local-demo" {
+                showSixers76Demo = true
+                return
+            }
+            if customer.cid == "chargers2-local-demo" {
+                showChargersV2Demo = true
+                return
+            }
+            if customer.cid == "commanders2-local-demo" {
+                showCommandersV2Demo = true
                 return
             }
             if customer.cid == "sixers-local-demo" {
@@ -415,6 +490,69 @@ struct CustomerSelectorView: View {
         defaults.set("bar", forKey: "ravens_v2_demo_mode")
     }
 
+    func resetChargersV2Demo() {
+        let defaults = UserDefaults.standard
+        let chargersIds = ["chargers-stadium", "chargers-toms", "chargers-tavern", "chargers-busbys",
+                           "chargers-33taps", "chargers-lopez", "chargers-harp", "chargers-cruisers"]
+        for id in chargersIds {
+            defaults.removeObject(forKey: "chargers_redeemed_\(id)")
+            defaults.removeObject(forKey: "checkin_\(id)")
+        }
+        defaults.removeObject(forKey: "chargers_bonus_outcome")
+        defaults.removeObject(forKey: "chargers_popup_date")
+        defaults.set(false,  forKey: "chargers_v2_stadium_checkin")
+        defaults.set("",     forKey: "chargers_v2_bar_checkin")
+        defaults.set(0,      forKey: "chargers_v2_points")
+        defaults.set(false,  forKey: "chargers_v2_simulate_not_at_venue")
+        defaults.set("",     forKey: "chargers_v2_pending_bar")
+        defaults.set(false,  forKey: "chargers_is_checked_in")
+        defaults.set(6,      forKey: "chargers_first_mover_count")
+        defaults.removeObject(forKey: "chargers_v2_concession_date")
+        defaults.removeObject(forKey: "chargers_v2_bar_deal_date")
+        defaults.set(2,      forKey: "chargers_season_checkins_v3")
+        defaults.set(1,      forKey: "chargers_season_stadium_games_v3")
+        defaults.set(1,      forKey: "chargers_season_stadium_deals_v3")
+        defaults.set(0,      forKey: "chargers_season_bar_deals")
+        defaults.set(false,  forKey: "chargers_v2_deal_saved")
+        defaults.set(false,  forKey: "chargers_v2_spinner_shown")
+        defaults.set("",     forKey: "chargers_v2_detected_venue")
+        defaults.set(false,  forKey: "chargers_v2_account_saved")
+        defaults.set("",     forKey: "chargers_v2_phone")
+        defaults.set(false,  forKey: "chargers_v2_intro_shown")
+    }
+
+    func resetCommandersV2Demo() {
+        let defaults = UserDefaults.standard
+        let commandersIds = ["commanders-stadium", "commanders-pennquarter", "commanders-duffys",
+                             "commanders-brotherjimmys", "commanders-brasstap", "commanders-irishwhisper",
+                             "commanders-cornerstone", "commanders-looneys"]
+        for id in commandersIds {
+            defaults.removeObject(forKey: "commanders_redeemed_\(id)")
+            defaults.removeObject(forKey: "checkin_\(id)")
+        }
+        defaults.removeObject(forKey: "commanders_bonus_outcome")
+        defaults.removeObject(forKey: "commanders_popup_date")
+        defaults.set(false,  forKey: "commanders_v2_stadium_checkin")
+        defaults.set("",     forKey: "commanders_v2_bar_checkin")
+        defaults.set(0,      forKey: "commanders_v2_points")
+        defaults.set(false,  forKey: "commanders_v2_simulate_not_at_venue")
+        defaults.set("",     forKey: "commanders_v2_pending_bar")
+        defaults.set(false,  forKey: "commanders_is_checked_in")
+        defaults.set(6,      forKey: "commanders_first_mover_count")
+        defaults.removeObject(forKey: "commanders_v2_concession_date")
+        defaults.removeObject(forKey: "commanders_v2_bar_deal_date")
+        defaults.set(2,      forKey: "commanders_season_checkins_v3")
+        defaults.set(1,      forKey: "commanders_season_stadium_games_v3")
+        defaults.set(1,      forKey: "commanders_season_stadium_deals_v3")
+        defaults.set(0,      forKey: "commanders_season_bar_deals")
+        defaults.set(false,  forKey: "commanders_v2_deal_saved")
+        defaults.set(false,  forKey: "commanders_v2_spinner_shown")
+        defaults.set("",     forKey: "commanders_v2_detected_venue")
+        defaults.set(false,  forKey: "commanders_v2_account_saved")
+        defaults.set("",     forKey: "commanders_v2_phone")
+        defaults.set(false,  forKey: "commanders_v2_intro_shown")
+    }
+
     func resetSixersDemo() {
         let defaults = UserDefaults.standard
         let sixersIds = ["sixers-arena", "sixers-xfinity", "sixers-chickies", "sixers-stogies", "sixers-fado", "sixers-mcgillin"]
@@ -429,6 +567,78 @@ struct CustomerSelectorView: View {
         defaults.removeObject(forKey: "sixers_popup_date")
         defaults.removeObject(forKey: "sixers_bonus_outcome")
         defaults.removeObject(forKey: "sixers_is_checked_in")
+    }
+
+    func resetMobbinUXDemo() {
+        let d = UserDefaults.standard
+        d.set(false,  forKey: "ravens_v2_stadium_checkin")
+        d.set("",     forKey: "ravens_v2_bar_checkin")
+        d.set(0,      forKey: "ravens_v2_points")
+        d.set(false,  forKey: "ravens_v2_location_denied")
+        d.set(false,  forKey: "ravens_v2_simulate_not_at_venue")
+        d.set("",     forKey: "ravens_v2_pending_bar")
+        d.set(false,  forKey: "ravens_is_checked_in")
+        d.removeObject(forKey: "ravens_v2_concession_date")
+        d.removeObject(forKey: "ravens_v2_bar_deal_date")
+        d.set(2,      forKey: "ravens_season_checkins")
+        d.set(false,  forKey: "ravens_v2_deal_saved")
+        d.set(false,  forKey: "ravens_v2_spinner_shown")
+        d.set("",     forKey: "ravens_v2_detected_venue")
+        d.set(false,  forKey: "ravens_v2_account_saved")
+        d.set("",     forKey: "ravens_v2_phone")
+        d.set(false,  forKey: "ravens_v2_intro_shown")
+        d.set(false,  forKey: "ravens_v2_home_checkin")
+        d.set(false,  forKey: "ravens_demo_bud_winner")
+        d.set("stadium", forKey: "ravens_v2_demo_mode")
+        d.set(0,      forKey: "mobbin_prize_scenario")
+        d.set(true,   forKey: "ravens_is_gameday")
+        d.removeObject(forKey: "mobbin_won_prizes")
+    }
+
+    func resetSixers76Demo() {
+        let d = UserDefaults.standard
+        let ids = ["sixers76-arena", "sixers76-tradesmans", "sixers76-xfinity", "sixers76-chickies", "sixers76-fado", "sixers76-garage"]
+        for id in ids {
+            d.removeObject(forKey: "sixers76_redeemed_\(id)")
+            d.removeObject(forKey: "checkin_\(id)")
+        }
+        d.set(false,  forKey: "ravens_v2_stadium_checkin")
+        d.set("",     forKey: "ravens_v2_bar_checkin")
+        d.set(0,      forKey: "ravens_v2_points")
+        d.set(false,  forKey: "ravens_v2_spinner_shown")
+        d.set("",     forKey: "ravens_v2_detected_venue")
+        d.set(false,  forKey: "ravens_v2_account_saved")
+        d.set("",     forKey: "ravens_v2_phone")
+        d.set(false,  forKey: "ravens_v2_intro_shown")
+        d.set(2,      forKey: "ravens_season_checkins_v3")
+        d.removeObject(forKey: "ravens_v2_concession_date")
+        d.removeObject(forKey: "ravens_v2_bar_deal_date")
+        d.set(0,      forKey: "sixers76_prize_scenario")
+        d.set("stadium", forKey: "sixers76_demo_mode")
+        d.removeObject(forKey: "mobbin_won_prizes")
+    }
+
+    func resetBucksDemo() {
+        let d = UserDefaults.standard
+        let bucksIds = ["bucks-arena", "bucks-district14", "bucks-highbury", "bucks-drink-wisc", "bucks-mos-irish", "bucks-swig"]
+        for id in bucksIds {
+            d.removeObject(forKey: "bucks_redeemed_\(id)")
+            d.removeObject(forKey: "checkin_\(id)")
+        }
+        d.set(false,  forKey: "ravens_v2_stadium_checkin")
+        d.set("",     forKey: "ravens_v2_bar_checkin")
+        d.set(0,      forKey: "ravens_v2_points")
+        d.set(false,  forKey: "ravens_v2_spinner_shown")
+        d.set("",     forKey: "ravens_v2_detected_venue")
+        d.set(false,  forKey: "ravens_v2_account_saved")
+        d.set("",     forKey: "ravens_v2_phone")
+        d.set(false,  forKey: "ravens_v2_intro_shown")
+        d.set(2,      forKey: "ravens_season_checkins_v3")
+        d.removeObject(forKey: "ravens_v2_concession_date")
+        d.removeObject(forKey: "ravens_v2_bar_deal_date")
+        d.set(0,      forKey: "bucks_prize_scenario")
+        d.set("stadium", forKey: "bucks_demo_mode")
+        d.removeObject(forKey: "mobbin_won_prizes")
     }
 
     func resetEugeneDemo() {
