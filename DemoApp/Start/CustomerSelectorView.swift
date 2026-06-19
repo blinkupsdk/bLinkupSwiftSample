@@ -30,6 +30,8 @@ struct CustomerSelectorView: View {
     @State private var showSixers76Demo = false
     @State private var showChargersV2Demo = false
     @State private var showCommandersV2Demo = false
+    @State private var showSabresDemo = false
+    @State private var showCavsDemo = false
     @State private var showSixersDemo = false
     @State private var showEugeneDemo = false
     @AppStorage("overFullScreen") private var overFullScreen: Bool?
@@ -37,6 +39,7 @@ struct CustomerSelectorView: View {
     var onlyFavorite: Bool { onlyFavoriteState ?? false }
     
     @State private var pubFavs: [String] = []
+    @State private var legacyExpanded: Bool = false
 
     @Environment(\.dismiss) var dismiss
     
@@ -57,10 +60,10 @@ struct CustomerSelectorView: View {
                     }
                 }
                 let f = pubFavs
-                let pub = Target.customers.filter({ f.contains($0.cid) || !onlyFavorite })
-                if !pub.isEmpty {
-                    Section(header: Text("Public")) {
-                        ForEach(pub, id: \.id) { customer in
+                let current = Target.currentCustomers.filter({ f.contains($0.cid) || !onlyFavorite })
+                if !current.isEmpty {
+                    Section(header: Text("Current Demos")) {
+                        ForEach(current, id: \.id) { customer in
                             CustomerView(
                                 customer: customer,
                                 isFavorite: pubFavs.contains(customer.cid),
@@ -68,6 +71,26 @@ struct CustomerSelectorView: View {
                             ) {
                                 process(customer, $0, pub: true)
                             }
+                        }
+                    }
+                }
+                let legacy = Target.legacyCustomers.filter({ f.contains($0.cid) || !onlyFavorite })
+                if !legacy.isEmpty {
+                    Section {
+                        DisclosureGroup(isExpanded: $legacyExpanded) {
+                            ForEach(legacy, id: \.id) { customer in
+                                CustomerView(
+                                    customer: customer,
+                                    isFavorite: pubFavs.contains(customer.cid),
+                                    actions: [.open, .favorite]
+                                ) {
+                                    process(customer, $0, pub: true)
+                                }
+                            }
+                        } label: {
+                            Text("Legacy Demos")
+                                .font(.footnote)
+                                .foregroundStyle(.secondary)
                         }
                     }
                 }
@@ -238,7 +261,7 @@ struct CustomerSelectorView: View {
         .fullScreenCover(isPresented: $showSixers76Demo) {
             BlinkupLocalDemo(
                 primaryHEX: "#006BB6",
-                secondaryHEX: "#ED174C",
+                secondaryHEX: "#002963",
                 customerName: "76ers",
                 onClose: { showSixers76Demo = false }
             )
@@ -257,6 +280,22 @@ struct CustomerSelectorView: View {
                 secondaryHEX: "#FFB612",
                 customerName: "commanders2",
                 onClose: { showCommandersV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showSabresDemo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#002654",
+                secondaryHEX: "#FCB81C",
+                customerName: "sabres",
+                onClose: { showSabresDemo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showCavsDemo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#860038",
+                secondaryHEX: "#FDBB30",
+                customerName: "cavs",
+                onClose: { showCavsDemo = false }
             )
         }
         .fullScreenCover(isPresented: $showSixersDemo) {
@@ -363,6 +402,14 @@ struct CustomerSelectorView: View {
             }
             if customer.cid == "commanders2-local-demo" {
                 showCommandersV2Demo = true
+                return
+            }
+            if customer.cid == "sabres-local-demo" {
+                showSabresDemo = true
+                return
+            }
+            if customer.cid == "cavs-local-demo" {
+                showCavsDemo = true
                 return
             }
             if customer.cid == "sixers-local-demo" {
@@ -604,13 +651,14 @@ struct CustomerSelectorView: View {
         }
         d.set(false,  forKey: "ravens_v2_stadium_checkin")
         d.set("",     forKey: "ravens_v2_bar_checkin")
-        d.set(0,      forKey: "ravens_v2_points")
+        d.set(21000,  forKey: "ravens_v2_points")
         d.set(false,  forKey: "ravens_v2_spinner_shown")
         d.set("",     forKey: "ravens_v2_detected_venue")
         d.set(false,  forKey: "ravens_v2_account_saved")
         d.set("",     forKey: "ravens_v2_phone")
         d.set(false,  forKey: "ravens_v2_intro_shown")
-        d.set(2,      forKey: "ravens_season_checkins_v3")
+        d.set(20,     forKey: "ravens_season_checkins_v3")
+        d.set(30,     forKey: "ravens_season_stadium_games_v3")
         d.removeObject(forKey: "ravens_v2_concession_date")
         d.removeObject(forKey: "ravens_v2_bar_deal_date")
         d.set(0,      forKey: "sixers76_prize_scenario")

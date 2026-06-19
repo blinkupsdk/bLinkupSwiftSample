@@ -11,41 +11,45 @@ import bLinkupSDK
 import UIKit
 
 enum Target {
-    static let customers = [
-        AppCustomer(cid: "TkPnD3_yP3j6dUEAksgRjJ-auYijyUECLxVEnFqHJVE=",
-                    name: "Demo"),
-        AppCustomer(cid: "wvu-local-demo",
-                    name: "West Virginia University 🏟️"),
-
-        AppCustomer(cid: "boty-local-demo",
-                    name: "Back of the Yards Coffee ☕"),
-        AppCustomer(cid: "sbux-local-demo",
-                    name: "Starbucks ☕"),
-        AppCustomer(cid: "ravens-local-demo",
-                    name: "Baltimore Ravens 🦅"),
-        AppCustomer(cid: "ravens2-local-demo",
-                    name: "Ravens V2 🦅"),
+    static let currentCustomers = [
+        AppCustomer(cid: "ravens-mobbin-local-demo",
+                    name: "Test This One ✅"),
+        AppCustomer(cid: "76ers-local-demo",
+                    name: "Philadelphia 76ers 🏀"),
+        AppCustomer(cid: "sabres-local-demo",
+                    name: "Buffalo Sabres 🏒"),
+        AppCustomer(cid: "bucks-local-demo",
+                    name: "Milwaukee Bucks x Michelob ULTRA 🏀"),
         AppCustomer(cid: "chargers2-local-demo",
                     name: "LA Chargers ⚡"),
         AppCustomer(cid: "commanders2-local-demo",
                     name: "Washington Commanders 🏈"),
+        AppCustomer(cid: "cavs-local-demo",
+                    name: "Cleveland Cavaliers 🏀"),
+    ]
+
+    static let legacyCustomers = [
+        AppCustomer(cid: "ravens-local-demo",
+                    name: "Baltimore Ravens 🦅"),
+        AppCustomer(cid: "ravens2-local-demo",
+                    name: "Ravens V2 🦅"),
         AppCustomer(cid: "ravens-bl-local-demo",
                     name: "Ravens x Bud Light 🍺"),
-        AppCustomer(cid: "ravens-mobbin-local-demo",
-                    name: "Test This One ✅"),
-        AppCustomer(cid: "bucks-local-demo",
-                    name: "Milwaukee Bucks x Michelob ULTRA 🏀"),
-        AppCustomer(cid: "76ers-local-demo",
-                    name: "Philadelphia 76ers 🏀"),
         AppCustomer(cid: "sixers-local-demo",
-                    name: "Philadelphia 76ers 🏀"),
+                    name: "Philadelphia 76ers (Old) 🏀"),
         AppCustomer(cid: "eugene-local-demo",
                     name: "Ravens Demo Eugene 🦅"),
-//        AppCustomer(cid: "wWephArCWZ3bCkvizZ5dTnaUrn_YhZ0h8pEUnMM2Cf8=",
-//                    name: "Scrut.io /Maxim"),
-//        AppCustomer(cid: "Fo5TH-WjHh4THu1ges-EzCrWs-oRrzEu-20cOVOc0oE=",
-//                    name: "DePaul /Maxim")
+        AppCustomer(cid: "wvu-local-demo",
+                    name: "West Virginia University 🏟️"),
+        AppCustomer(cid: "boty-local-demo",
+                    name: "Back of the Yards Coffee ☕"),
+        AppCustomer(cid: "sbux-local-demo",
+                    name: "Starbucks ☕"),
+        AppCustomer(cid: "TkPnD3_yP3j6dUEAksgRjJ-auYijyUECLxVEnFqHJVE=",
+                    name: "Demo"),
     ]
+
+    static let customers = currentCustomers + legacyCustomers
     
     static var hosts = [
         "https://blinkup-staging.fly.dev/api/",
