@@ -1,11 +1,9 @@
 //
 //  String+Extensions.swift
-//  DemoApp
 //
-//  Created by Oleksandr Chernov on 22.12.2023.
 //
-
-import Foundation
+//  Created by Oleksandr Chernov on 13.05.2024.
+//
 
 extension String {
     var nonEmpty: String? {

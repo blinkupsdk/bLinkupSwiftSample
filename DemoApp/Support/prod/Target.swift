@@ -9,7 +9,9 @@ import bLinkupSDK
 import UIKit
 
 enum Target {
-    static let customers = [
+    static let customers = currentCustomers + legacyCustomers
+
+    static let currentCustomers = [
         AppCustomer(cid: "wvu-local-demo",
                     name: "West Virginia University 🏟️"),
         AppCustomer(cid: "boty-local-demo",
@@ -28,6 +30,9 @@ enum Target {
                     name: "Philadelphia 76ers 🏀"),
         AppCustomer(cid: "eugene-local-demo",
                     name: "Ravens Demo Eugene 🦅"),
+    ]
+    
+    static let legacyCustomers = [
         AppCustomer(cid: "Ph1bFOq1moKmm0in2lxsfZ5v-No-Og6wWxEKM-6F1OM=",
                     name: "Test",
                     primary: "004020",

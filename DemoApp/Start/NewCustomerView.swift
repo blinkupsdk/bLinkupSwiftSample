@@ -8,7 +8,6 @@
 import bLinkupSDK
 import SwiftUI
 
-let kCustomerTypeKey = "com.blinktech.sdk.group"
 let kHostKey = "com.blinktech.sdk.host"
 let kDevTokenKey = "com.blinktech.sdk.dev"
 
@@ -18,19 +17,17 @@ struct NewCustomerView: View {
     @State var name: String
     @State var primary: String
     @State var secondary: String
-    @State var group: String
     @State var host: String?
     @State var helper: String
     
     @Environment(\.dismiss) var dismiss
     
     init(_ c: AppCustomer?) {
-        self.id = c?.id ?? ""
+        self.id = c?.id
         self._cid = State(initialValue: c?.cid ?? "")
         self._name = State(initialValue: c?.name ?? "")
         self._primary = State(initialValue: c?.primary ?? "")
         self._secondary = State(initialValue: c?.secondary ?? "")
-        self._group = State(initialValue: c?.group ?? "")
         self._host = State(initialValue: c?.host ?? Target.hosts.first)
         self._helper = State(initialValue: c?.helper ?? "")
     }
@@ -53,17 +50,6 @@ struct NewCustomerView: View {
                 TextField("Secondary", text: $secondary)
                     .textFieldStyle(.roundedBorder)
                     .foregroundColor(.blBlue)
-                
-                HStack {
-                    Text("Config")
-                        .foregroundColor(Color(uiColor: .lightGray))
-                    Spacer()
-                    Picker("Config", selection: $group) {
-                        Text("regular").tag("")
-                        Text("hocr").tag("hocr")
-                    }
-                    .foregroundColor(.blBlue)
-                }
                 
                 if Target.hosts.count > 1 {
                     HStack {
@@ -107,7 +93,6 @@ struct NewCustomerView: View {
             name: name.nonEmpty,
             primary: primary.nonEmpty,
             secondary: secondary.nonEmpty,
-            group: group.nonEmpty,
             host: host,
             helper: helper.nonEmpty
         )

@@ -26,9 +26,6 @@ struct CustomerView: View {
                 Text(customer.name ?? customer.id)
                     .fontWeight(customer.cid == bLinkup.customer?.id ? .bold : .regular)
                 
-                if let g = customer.group?.nonEmpty {
-                    Text("/\(g)")
-                }
                 if isFavorite {
                     Text("*")
                 }
