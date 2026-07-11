@@ -12,6 +12,8 @@ import UIKit
 
 enum Target {
     static let currentCustomers = [
+        AppCustomer(cid: "prodref-local-demo",
+                    name: "🏗️ Production Reference (WIP)"),
         AppCustomer(cid: "ravens-mobbin-local-demo",
                     name: "Test This One ✅"),
         AppCustomer(cid: "76ers-local-demo",
@@ -26,6 +28,24 @@ enum Target {
                     name: "Washington Commanders 🏈"),
         AppCustomer(cid: "cavs-local-demo",
                     name: "Cleveland Cavaliers 🏀"),
+        AppCustomer(cid: "philadelphia-76ers-local-demo",
+                    name: "Philadelphia 76ers V2 🏀"),
+        AppCustomer(cid: "arizona-state-sun-devils-local-demo",
+                    name: "Arizona State Sun Devils 🏈"),
+        AppCustomer(cid: "new-york-knicks-local-demo",
+                    name: "New York Knicks 🏀"),
+        AppCustomer(cid: "colorado-avalanche-local-demo",
+                    name: "Colorado Avalanche V2 🏒"),
+        AppCustomer(cid: "team-canada-local-demo",
+                    name: "Team Canada V2 🍁"),
+        AppCustomer(cid: "charlotte-hornets-local-demo",
+                    name: "Charlotte Hornets V2 🏀"),
+        AppCustomer(cid: "carolina-hurricanes-local-demo",
+                    name: "Carolina Hurricanes V2 🏒"),
+        AppCustomer(cid: "rb-leipzig-local-demo",
+                    name: "RB Leipzig V2 ⚽"),
+        AppCustomer(cid: "meetup-local-demo",
+                    name: "Meet Up — Website Demo 🎬"),
     ]
 
     static let legacyCustomers = [

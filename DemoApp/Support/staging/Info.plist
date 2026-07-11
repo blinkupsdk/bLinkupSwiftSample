@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>bLinkup uses Bluetooth to detect nearby venues and improve check-in accuracy.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>bLinkup uses your location to detect when you're at the stadium and automatically check you in to earn points.</string>
 	<key>UIUserInterfaceStyle</key>

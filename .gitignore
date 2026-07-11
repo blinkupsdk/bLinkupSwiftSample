@@ -2,6 +2,10 @@
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
+## Secrets — never commit (signing cert + script with hardcoded passwords)
+distribution.p12
+upload_testflight.sh
+
 ## User settings
 xcuserdata/
 

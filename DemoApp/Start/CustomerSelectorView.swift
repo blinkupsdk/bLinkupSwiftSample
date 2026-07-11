@@ -26,12 +26,22 @@ struct CustomerSelectorView: View {
     @State private var showRavensV2Demo = false
     @State private var showRavensBudLightDemo = false
     @State private var showMobbinUXDemo = false
+    @State private var showProdRefDemo = false
     @State private var showBucksDemo = false
     @State private var showSixers76Demo = false
     @State private var showChargersV2Demo = false
     @State private var showCommandersV2Demo = false
     @State private var showSabresDemo = false
     @State private var showCavsDemo = false
+    @State private var showPhiladelphia76ersV2Demo = false
+    @State private var showArizonaStateSunDevilsV2Demo = false
+    @State private var showNewYorkKnicksV2Demo = false
+    @State private var showColoradoAvalancheV2Demo = false
+    @State private var showCarolinaHurricanesV2Demo = false
+    @State private var showCharlotteHornetsV2Demo = false
+    @State private var showRBLeipzigV2Demo = false
+    @State private var showMeetupV2Demo = false
+    @State private var showTeamCanadaV2Demo = false
     @State private var showSixersDemo = false
     @State private var showEugeneDemo = false
     @AppStorage("overFullScreen") private var overFullScreen: Bool?
@@ -250,6 +260,14 @@ struct CustomerSelectorView: View {
                 onClose: { showMobbinUXDemo = false }
             )
         }
+        .fullScreenCover(isPresented: $showProdRefDemo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#5A1414",
+                secondaryHEX: "#FFB612",
+                customerName: "prodref",
+                onClose: { showProdRefDemo = false }
+            )
+        }
         .fullScreenCover(isPresented: $showBucksDemo) {
             BlinkupLocalDemo(
                 primaryHEX: "#00471B",
@@ -296,6 +314,78 @@ struct CustomerSelectorView: View {
                 secondaryHEX: "#FDBB30",
                 customerName: "cavs",
                 onClose: { showCavsDemo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showPhiladelphia76ersV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#006BB6",
+                secondaryHEX: "#ED174C",
+                customerName: "philadelphia-76ers",
+                onClose: { showPhiladelphia76ersV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showArizonaStateSunDevilsV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#8C1D40",
+                secondaryHEX: "#FFC627",
+                customerName: "arizona-state-sun-devils",
+                onClose: { showArizonaStateSunDevilsV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showNewYorkKnicksV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#006BB6",
+                secondaryHEX: "#F58426",
+                customerName: "new-york-knicks",
+                onClose: { showNewYorkKnicksV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showColoradoAvalancheV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#6F263D",
+                secondaryHEX: "#236192",
+                customerName: "colorado-avalanche",
+                onClose: { showColoradoAvalancheV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showCarolinaHurricanesV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#CE1126",
+                secondaryHEX: "#000000",
+                customerName: "carolina-hurricanes",
+                onClose: { showCarolinaHurricanesV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showCharlotteHornetsV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#1D1160",
+                secondaryHEX: "#00788C",
+                customerName: "charlotte-hornets",
+                onClose: { showCharlotteHornetsV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showRBLeipzigV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#DD013F",
+                secondaryHEX: "#0C2043",
+                customerName: "rb-leipzig",
+                onClose: { showRBLeipzigV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showMeetupV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#C8102E",
+                secondaryHEX: "#12336B",
+                customerName: "meetup",
+                onClose: { showMeetupV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showTeamCanadaV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#D52B1E",
+                secondaryHEX: "#FFFFFF",
+                customerName: "team-canada",
+                onClose: { showTeamCanadaV2Demo = false }
             )
         }
         .fullScreenCover(isPresented: $showSixersDemo) {
@@ -388,6 +478,10 @@ struct CustomerSelectorView: View {
                 showMobbinUXDemo = true
                 return
             }
+            if customer.cid == "prodref-local-demo" {
+                showProdRefDemo = true
+                return
+            }
             if customer.cid == "bucks-local-demo" {
                 showBucksDemo = true
                 return
@@ -410,6 +504,42 @@ struct CustomerSelectorView: View {
             }
             if customer.cid == "cavs-local-demo" {
                 showCavsDemo = true
+                return
+            }
+            if customer.cid == "philadelphia-76ers-local-demo" {
+                showPhiladelphia76ersV2Demo = true
+                return
+            }
+            if customer.cid == "arizona-state-sun-devils-local-demo" {
+                showArizonaStateSunDevilsV2Demo = true
+                return
+            }
+            if customer.cid == "new-york-knicks-local-demo" {
+                showNewYorkKnicksV2Demo = true
+                return
+            }
+            if customer.cid == "colorado-avalanche-local-demo" {
+                showColoradoAvalancheV2Demo = true
+                return
+            }
+            if customer.cid == "carolina-hurricanes-local-demo" {
+                showCarolinaHurricanesV2Demo = true
+                return
+            }
+            if customer.cid == "charlotte-hornets-local-demo" {
+                showCharlotteHornetsV2Demo = true
+                return
+            }
+            if customer.cid == "rb-leipzig-local-demo" {
+                showRBLeipzigV2Demo = true
+                return
+            }
+            if customer.cid == "meetup-local-demo" {
+                showMeetupV2Demo = true
+                return
+            }
+            if customer.cid == "team-canada-local-demo" {
+                showTeamCanadaV2Demo = true
                 return
             }
             if customer.cid == "sixers-local-demo" {
