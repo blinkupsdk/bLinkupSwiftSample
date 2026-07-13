@@ -12,24 +12,8 @@ enum Target {
     static let customers = currentCustomers + legacyCustomers
 
     static let currentCustomers = [
-        AppCustomer(cid: "wvu-local-demo",
-                    name: "West Virginia University 🏟️"),
-        AppCustomer(cid: "boty-local-demo",
-                    name: "Back of the Yards Coffee ☕"),
-        AppCustomer(cid: "sbux-local-demo",
-                    name: "Starbucks ☕"),
-        AppCustomer(cid: "ravens-local-demo",
-                    name: "Baltimore Ravens 🦅"),
-        AppCustomer(cid: "ravens2-local-demo",
-                    name: "Ravens V2 🦅"),
-        AppCustomer(cid: "chargers2-local-demo",
-                    name: "LA Chargers ⚡"),
-        AppCustomer(cid: "commanders2-local-demo",
-                    name: "Washington Commanders 🏈"),
-        AppCustomer(cid: "sixers-local-demo",
-                    name: "Philadelphia 76ers 🏀"),
-        AppCustomer(cid: "eugene-local-demo",
-                    name: "Ravens Demo Eugene 🦅"),
+        AppCustomer(cid: "ravens-mobbin-local-demo",
+                    name: "Ravens Meet Up (Local) ✅"),
     ]
     
     static let legacyCustomers = [
