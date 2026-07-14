@@ -99,9 +99,9 @@ struct CustomerSelectorView: View {
                 .padding(.horizontal)
                 .frame(maxWidth: .infinity, alignment: .trailing)
         }
-        .task({
+        .onAppear {
             loadData()
-        })
+        }
         .navigationTitle("")
         .toolbar(content: {
             ToolbarItem(placement: .topBarTrailing) {
@@ -116,7 +116,7 @@ struct CustomerSelectorView: View {
                     
                     Button(action: { customerToEdit = AppCustomer() },
                            label: { Image(systemName: "plus") })
-                    
+                    #if DEBUG
                     Menu {
                         Button(action: {
                             overFullScreen = true
@@ -130,14 +130,14 @@ struct CustomerSelectorView: View {
                             if !(overFullScreen ?? false) { Image(systemName: "checkmark" ) }
                             Text("Card")
                         })
-                        #if DEBUG
+
                         Divider()
                         Button(action: { addDummyContacts() },
                                label: { Image(systemName: "person.badge.plus") })
-                        #endif
                     } label: {
                         Image(systemName: "line.3.horizontal")
                     }
+                    #endif
                 }
             }
         })
@@ -200,9 +200,12 @@ struct CustomerSelectorView: View {
     }
     
     func process(_ customer: AppCustomer, _ action: Action, pub: Bool) {
+        #if !DEBUG
+        overFullScreen = true
+        #endif
         switch action {
         case .open:
-            if overFullScreen ?? false {
+            if overFullScreen ?? true {
                 customerToFull = customer
             } else {
                 customerToPresent = customer
