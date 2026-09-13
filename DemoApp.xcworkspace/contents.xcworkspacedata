@@ -5,6 +5,6 @@
       location = "group:DemoApp.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../_SDK/bLinkupSDK.xcodeproj">
+      location = "container:../bLinkupSwiftSDK/bLinkupSDK.xcodeproj">
    </FileRef>
 </Workspace>

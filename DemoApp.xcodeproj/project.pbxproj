@@ -902,6 +902,8 @@
 				INFOPLIST_FILE = DemoApp/Support/prod/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "bLinkup Demo";
 				INFOPLIST_KEY_NSContactsUsageDescription = "to identify friends using the app, allowing us to notify you when they're nearby'";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bluetooth lets nearby friends find and join your watch party. No location data is collected.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Bluetooth lets nearby friends find and join your watch party. No location data is collected.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
@@ -921,7 +923,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -943,6 +945,8 @@
 				INFOPLIST_FILE = DemoApp/Support/prod/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "bLinkup Demo";
 				INFOPLIST_KEY_NSContactsUsageDescription = "to identify friends using the app, allowing us to notify you when they're nearby'";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bluetooth lets nearby friends find and join your watch party. No location data is collected.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Bluetooth lets nearby friends find and join your watch party. No location data is collected.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
@@ -962,7 +966,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1060,6 +1064,8 @@
 				INFOPLIST_FILE = DemoApp/Support/staging/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "BlinkUp Demo";
 				INFOPLIST_KEY_NSContactsUsageDescription = "to identify friends using the app, allowing us to notify you when they're nearby'";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bluetooth lets nearby friends find and join your watch party. No location data is collected.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Bluetooth lets nearby friends find and join your watch party. No location data is collected.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "1 to notify you when friends are nearby, facilitating spontaneous meetups";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "1 o notify you when friends are nearby, facilitating spontaneous meetups";
@@ -1100,6 +1106,8 @@
 				INFOPLIST_FILE = DemoApp/Support/staging/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "BlinkUp Demo";
 				INFOPLIST_KEY_NSContactsUsageDescription = "to identify friends using the app, allowing us to notify you when they're nearby'";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bluetooth lets nearby friends find and join your watch party. No location data is collected.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Bluetooth lets nearby friends find and join your watch party. No location data is collected.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "1 to notify you when friends are nearby, facilitating spontaneous meetups";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "1 o notify you when friends are nearby, facilitating spontaneous meetups";

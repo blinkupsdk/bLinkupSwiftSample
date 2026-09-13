@@ -44,6 +44,13 @@ struct CustomerSelectorView: View {
     @State private var showTeamCanadaV2Demo = false
     @State private var showSixersDemo = false
     @State private var showEugeneDemo = false
+    @State private var showHoustonTexansV2Demo = false
+    @State private var showMiamiDolphinsV2Demo = false
+    @State private var showMilwaukeeBucksV2Demo = false
+    @State private var showMarquetteGoldenEaglesV2Demo = false
+    @State private var showMichiganWolverinesV2Demo = false
+    @State private var showLosAngelesKingsV2Demo = false
+    @State private var showBostonLegacyFCV2Demo = false
     @AppStorage("overFullScreen") private var overFullScreen: Bool?
     @AppStorage("Favorite") private var onlyFavoriteState: Bool?
     var onlyFavorite: Bool { onlyFavoriteState ?? false }
@@ -125,6 +132,9 @@ struct CustomerSelectorView: View {
         }
         .task({
             loadData()
+            #if DEBUG
+            autoOpenDemoIfRequested()
+            #endif
         })
         .navigationTitle("")
         .toolbar(content: {
@@ -396,6 +406,62 @@ struct CustomerSelectorView: View {
                 onClose: { showSixersDemo = false }
             )
         }
+        .fullScreenCover(isPresented: $showLosAngelesKingsV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#111111",
+                secondaryHEX: "#A2AAAD",
+                customerName: "los-angeles-kings",
+                onClose: { showLosAngelesKingsV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showBostonLegacyFCV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#19140F",
+                secondaryHEX: "#36E882",
+                customerName: "boston-legacy-fc",
+                onClose: { showBostonLegacyFCV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showMiamiDolphinsV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#008E97",
+                secondaryHEX: "#FC4C02",
+                customerName: "miami-dolphins",
+                onClose: { showMiamiDolphinsV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showMilwaukeeBucksV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#00471B",
+                secondaryHEX: "#EEE1C6",
+                customerName: "milwaukee-bucks",
+                onClose: { showMilwaukeeBucksV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showMarquetteGoldenEaglesV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#003366",
+                secondaryHEX: "#FFCC00",
+                customerName: "marquette-golden-eagles",
+                onClose: { showMarquetteGoldenEaglesV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showMichiganWolverinesV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#00274C",
+                secondaryHEX: "#FFCB05",
+                customerName: "michigan-wolverines",
+                onClose: { showMichiganWolverinesV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showHoustonTexansV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#03202F",
+                secondaryHEX: "#A71930",
+                customerName: "houston-texans",
+                onClose: { showHoustonTexansV2Demo = false }
+            )
+        }
         .fullScreenCover(isPresented: $showEugeneDemo) {
             BlinkupLocalDemo(
                 primaryHEX: "#241773",
@@ -447,6 +513,27 @@ struct CustomerSelectorView: View {
         return str
     }
     
+    #if DEBUG
+    /// Screenshot/automation hook: `xcrun simctl launch <udid> <bundle> -autoDemo carolina-hurricanes`
+    /// jumps straight into that team's demo instead of requiring a tap in this list.
+    /// Accepts either the full cid ("carolina-hurricanes-local-demo") or its slug ("carolina-hurricanes").
+    func autoOpenDemoIfRequested() {
+        let args = ProcessInfo.processInfo.arguments
+        guard let flag = args.firstIndex(of: "-autoDemo"), args.indices.contains(flag + 1) else { return }
+        let requested = args[flag + 1]
+        let cid = requested.hasSuffix("-local-demo") ? requested : requested + "-local-demo"
+        let all = Target.currentCustomers + Target.legacyCustomers
+        guard let customer = all.first(where: { $0.cid == cid }) else {
+            print("[autoDemo] no demo matching '\(requested)'")
+            return
+        }
+        // Let the Form finish its first layout pass before presenting the cover.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            process(customer, .open, pub: true)
+        }
+    }
+    #endif
+
     func process(_ customer: AppCustomer, _ action: Action, pub: Bool) {
         switch action {
         case .open:
@@ -544,6 +631,34 @@ struct CustomerSelectorView: View {
             }
             if customer.cid == "sixers-local-demo" {
                 showSixersDemo = true
+                return
+            }
+            if customer.cid == "los-angeles-kings-local-demo" {
+                showLosAngelesKingsV2Demo = true
+                return
+            }
+            if customer.cid == "boston-legacy-fc-local-demo" {
+                showBostonLegacyFCV2Demo = true
+                return
+            }
+            if customer.cid == "miami-dolphins-local-demo" {
+                showMiamiDolphinsV2Demo = true
+                return
+            }
+            if customer.cid == "milwaukee-bucks-local-demo" {
+                showMilwaukeeBucksV2Demo = true
+                return
+            }
+            if customer.cid == "marquette-golden-eagles-local-demo" {
+                showMarquetteGoldenEaglesV2Demo = true
+                return
+            }
+            if customer.cid == "michigan-wolverines-local-demo" {
+                showMichiganWolverinesV2Demo = true
+                return
+            }
+            if customer.cid == "houston-texans-local-demo" {
+                showHoustonTexansV2Demo = true
                 return
             }
             if customer.cid == "eugene-local-demo" {

@@ -46,6 +46,20 @@ enum Target {
                     name: "RB Leipzig V2 ⚽"),
         AppCustomer(cid: "meetup-local-demo",
                     name: "Meet Up — Website Demo 🎬"),
+        AppCustomer(cid: "houston-texans-local-demo",
+                    name: "Houston Texans V2 🏈"),
+        AppCustomer(cid: "miami-dolphins-local-demo",
+                    name: "Miami Dolphins V2 🏈"),
+        AppCustomer(cid: "milwaukee-bucks-local-demo",
+                    name: "Milwaukee Bucks V2 🏀"),
+        AppCustomer(cid: "marquette-golden-eagles-local-demo",
+                    name: "Marquette Golden Eagles V2 🏀"),
+        AppCustomer(cid: "michigan-wolverines-local-demo",
+                    name: "Michigan Wolverines V2 🏈"),
+        AppCustomer(cid: "los-angeles-kings-local-demo",
+                    name: "LA Kings V2 🏒"),
+        AppCustomer(cid: "boston-legacy-fc-local-demo",
+                    name: "Boston Legacy FC V2 ⚽"),
     ]
 
     static let legacyCustomers = [

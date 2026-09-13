@@ -9,7 +9,7 @@ import bLinkupSDK
 import UIKit
 
 enum Target {
-    static let customers = [
+    static let currentCustomers = [
         AppCustomer(cid: "wvu-local-demo",
                     name: "West Virginia University 🏟️"),
         AppCustomer(cid: "boty-local-demo",
@@ -44,8 +44,25 @@ enum Target {
                     name: "RB Leipzig V2 ⚽"),
         AppCustomer(cid: "meetup-local-demo",
                     name: "Meet Up — Website Demo 🎬"),
+        AppCustomer(cid: "houston-texans-local-demo",
+                    name: "Houston Texans V2 🏈"),
+        AppCustomer(cid: "miami-dolphins-local-demo",
+                    name: "Miami Dolphins V2 🏈"),
+        AppCustomer(cid: "milwaukee-bucks-local-demo",
+                    name: "Milwaukee Bucks V2 🏀"),
+        AppCustomer(cid: "marquette-golden-eagles-local-demo",
+                    name: "Marquette Golden Eagles V2 🏀"),
+        AppCustomer(cid: "michigan-wolverines-local-demo",
+                    name: "Michigan Wolverines V2 🏈"),
+        AppCustomer(cid: "los-angeles-kings-local-demo",
+                    name: "LA Kings V2 🏒"),
+        AppCustomer(cid: "boston-legacy-fc-local-demo",
+                    name: "Boston Legacy FC V2 ⚽"),
         AppCustomer(cid: "eugene-local-demo",
                     name: "Ravens Demo Eugene 🦅"),
+    ]
+
+    static let legacyCustomers = [
         AppCustomer(cid: "Ph1bFOq1moKmm0in2lxsfZ5v-No-Og6wWxEKM-6F1OM=",
                     name: "Test",
                     primary: "004020",
@@ -66,7 +83,9 @@ enum Target {
                     name: "Scrut.io",
                     logo: "logoDemo"),
     ]
-    
+
+    static let customers = currentCustomers + legacyCustomers
+
     static var hosts = [
         "https://blinkup.fly.dev/api/",
     ]
