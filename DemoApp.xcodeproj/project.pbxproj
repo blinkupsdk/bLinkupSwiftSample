@@ -7,6 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		092BAF8E89A23CEC07B306B5 /* bLinkupSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4A7E7F2DE8BBF900EA2E41 /* bLinkupSDK.framework */; };
+		0C42C17CCA986D2B2B2290D4 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB094F532B35A88700E10022 /* String+Extensions.swift */; };
+		0F14036CE6A7F2677FA17E85 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56B5C52BBB0BAA00CF7195 /* DB.swift */; };
+		0F9AEC0FA0B60F808A45B59D /* MatchingPhoneBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF480182AF2C1490010030D /* MatchingPhoneBookView.swift */; };
+		2467B6EEFBBE68ADC4FC0D4A /* TrackingObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A8F152D7EF05C008917B9 /* TrackingObject.swift */; };
+		2B2D50766B508DD105F08761 /* UIColor+Extenions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42AD772CE4F7B90091CB37 /* UIColor+Extenions.swift */; };
+		2CB20E8EEEACA4254AFF1A32 /* CustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DF8A82EB18C0200C3D551 /* CustomerView.swift */; };
+		2ED1769A11B1B5E65F8D0CAF /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1832AF00A9E006D8DC8 /* TabbarView.swift */; };
+		2FAAD1EF4B740BA01413DD82 /* BlocksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10D1752B4733B2006FE7AC /* BlocksView.swift */; };
+		38C740AD5CD9ED279EFF1BB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB832C4A2AF02D68008B4F5C /* Main.storyboard */; };
+		3B1C074DBAA88D670081F231 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBBED7A22C931B4C0041A0DC /* GoogleService-Info.plist */; };
+		3DC933BD399525A091EDF342 /* UserUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1872AF00AEF006D8DC8 /* UserUpdateView.swift */; };
+		3F5250D39F98EB8B1CAF1EB4 /* FoundUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB094F592B35B0E900E10022 /* FoundUserView.swift */; };
+		4977BA7C23BDC206675B1688 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DF8AB2EB1925300C3D551 /* View+Ext.swift */; };
+		4E4F60286F465D258894A32F /* RequestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7323C82B167AE400DF6CF1 /* RequestsView.swift */; };
+		4EC1C2D378A30BB554907BF1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3835330688D18E6B804357A /* Foundation.framework */; };
+		509780EBF46D262A04BFD14A /* bLinkupSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB4A7E7F2DE8BBF900EA2E41 /* bLinkupSDK.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		55E1BC1B510C60B2F1EFD700 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1912AF00CDA006D8DC8 /* LoadingView.swift */; };
+		6046A7E6EE762E12BD433422 /* MyPresenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F3F0F2B0C228D004CC2D8 /* MyPresenceView.swift */; };
+		7DE3AB1A168E634BBBBF69AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC7507C2C8B3ACE008D8763 /* AppDelegate.swift */; };
+		85F8D5101E31E4145C35D8C6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6DF24D2B0D11750036A428 /* SettingsView.swift */; };
+		89249D41CEFBBA9F9381DABB /* ConnectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB8F1AE2B10E3A200E782EA /* ConnectionCell.swift */; };
+		8E8ED78EF467C40087F75530 /* AppCustomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42AD742CE4D34E0091CB37 /* AppCustomer.swift */; };
+		9D9B18012D4839839481C7D8 /* CustomerSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56B5C72BBB0D9500CF7195 /* CustomerSelectorView.swift */; };
+		A1D53EBA5A9781FFF7FBCDD9 /* DemoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F14D2AF00754006D8DC8 /* DemoAppApp.swift */; };
+		B09947E54402F9DB432E989B /* BlinkupHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1882AF00AEF006D8DC8 /* BlinkupHeaderView.swift */; };
+		B0BC3F36059868888B4F5188 /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6DF24A2B0D10CC0036A428 /* FriendsView.swift */; };
+		C13CA13C0F237D03ECA8E990 /* TrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C512AF02D69008B4F5C /* TrackViewController.swift */; };
+		C725F1C99027A4C198F171C2 /* User+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB160A1E2E326C1000253ED4 /* User+Extensions.swift */; };
+		D1E1537120C15E0E83A9D975 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB10F1512AF00756006D8DC8 /* Assets.xcassets */; };
+		D5010BCA682D3B01CC1475A6 /* NewCustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42AD712CE4D2440091CB37 /* NewCustomerView.swift */; };
+		DF80F8730B80E456F01ED7B2 /* ConnectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB8F1B32B10FC0000E782EA /* ConnectionsViewController.swift */; };
+		E88A5FA4F63B13C0328B6F70 /* Connection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB160A212E326DE800253ED4 /* Connection+Extensions.swift */; };
 		EB094F542B35A88700E10022 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB094F532B35A88700E10022 /* String+Extensions.swift */; };
 		EB094F5A2B35B0E900E10022 /* FoundUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB094F592B35B0E900E10022 /* FoundUserView.swift */; };
 		EB10D1782B4733B2006FE7AC /* BlocksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10D1752B4733B2006FE7AC /* BlocksView.swift */; };
@@ -96,6 +129,14 @@
 		EBC7507A2C8B33F5008D8763 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = EBC750792C8B33F5008D8763 /* FirebaseMessaging */; };
 		EBC7507D2C8B3ACE008D8763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC7507C2C8B3ACE008D8763 /* AppDelegate.swift */; };
 		EBF480192AF2C1490010030D /* MatchingPhoneBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF480182AF2C1490010030D /* MatchingPhoneBookView.swift */; };
+		EC0DE05FF920F9CAD08C2E98 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1842AF00A9E006D8DC8 /* StartView.swift */; };
+		F292B92BF7618321DB1DB04B /* LogsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A8F122D7EEF4B008917B9 /* LogsManager.swift */; };
+		F30D3BC0938E829983A80D67 /* DemoRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F14F2AF00754006D8DC8 /* DemoRootView.swift */; };
+		F3139CE15DD873692480FED2 /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBED7A62C9320D10041A0DC /* Target.swift */; };
+		F6D3CF15176BDB11F40A258D /* MyPresenceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F3F112B0C24A4004CC2D8 /* MyPresenceCell.swift */; };
+		FAA34FE4241AA16ACCC1E3FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB10F1542AF00756006D8DC8 /* Preview Assets.xcassets */; };
+		FAF4140B68453F9DDC0D5D9C /* MapListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6B77832B0C1AAB00AD8EC7 /* MapListView.swift */; };
+		FC131BA6E20F5F8DA85D157D /* UIViewController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C5E2AF02DAA008B4F5C /* UIViewController+Error.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +157,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		1A0B45B0159B9CA8FFE04EF0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				509780EBF46D262A04BFD14A /* bLinkupSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EB34BB082DF6D6C800E3E7E5 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -141,6 +193,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7B4DC20EE4D63F37C9C41533 /* DemoAppWB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoAppWB.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3835330688D18E6B804357A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		EB03A5DE2DB0F96B005B3A41 /* bLinkupSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = bLinkupSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB03A5E22DB0F972005B3A41 /* bLinkupSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = bLinkupSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB094F532B35A88700E10022 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
@@ -234,9 +288,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F3A6F9616A6E10FCB7E15BC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EC1C2D378A30BB554907BF1 /* Foundation.framework in Frameworks */,
+				092BAF8E89A23CEC07B306B5 /* bLinkupSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AEB59028005B88E342B54D14 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				E3835330688D18E6B804357A /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
 		EB10F1412AF00754006D8DC8 = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +326,7 @@
 				EB10F15A2AF00756006D8DC8 /* DemoAppTests.xctest */,
 				EB10F1642AF00756006D8DC8 /* DemoAppUITests.xctest */,
 				EBBED79F2C931ACB0041A0DC /* DemoAppSTG.app */,
+				7B4DC20EE4D63F37C9C41533 /* DemoAppWB.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -349,6 +421,7 @@
 				EB4A7E7B2DE8BBF400EA2E41 /* bLinkupSDK.framework */,
 				EB03A5E22DB0F972005B3A41 /* bLinkupSDK.framework */,
 				EB03A5DE2DB0F96B005B3A41 /* bLinkupSDK.framework */,
+				AEB59028005B88E342B54D14 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -484,6 +557,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		33BA93F83D6B7B4320F0CC35 /* DemoAppWB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 696306BFCD306329F5CB8474 /* Build configuration list for PBXNativeTarget "DemoAppWB" */;
+			buildPhases = (
+				2B9F1CA59B7462B05AEC5147 /* Sources */,
+				F3A6F9616A6E10FCB7E15BC7 /* Frameworks */,
+				B2D42D71CEB1FBBA116197AF /* Resources */,
+				1A0B45B0159B9CA8FFE04EF0 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DemoAppWB;
+			packageProductDependencies = (
+				2FBEED17315FE6D0482BC847 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				A61CA5FD6888EF638945D6C2 /* FirebaseCrashlytics */,
+				33E5D818911DFC6EAF4DC00C /* FirebaseMessaging */,
+			);
+			productName = DemoAppWB;
+			productReference = 7B4DC20EE4D63F37C9C41533 /* DemoAppWB.app */;
+			productType = "com.apple.product-type.application";
+		};
 		EB10F1492AF00754006D8DC8 /* DemoApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EB10F16E2AF00756006D8DC8 /* Build configuration list for PBXNativeTarget "DemoApp" */;
@@ -609,11 +705,23 @@
 				EBBED7722C931ACB0041A0DC /* DemoAppSTG */,
 				EB10F1592AF00756006D8DC8 /* DemoAppTests */,
 				EB10F1632AF00756006D8DC8 /* DemoAppUITests */,
+				33BA93F83D6B7B4320F0CC35 /* DemoAppWB */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B2D42D71CEB1FBBA116197AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38C740AD5CD9ED279EFF1BB8 /* Main.storyboard in Resources */,
+				3B1C074DBAA88D670081F231 /* GoogleService-Info.plist in Resources */,
+				FAA34FE4241AA16ACCC1E3FF /* Preview Assets.xcassets in Resources */,
+				D1E1537120C15E0E83A9D975 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EB10F1482AF00754006D8DC8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -653,6 +761,47 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2B9F1CA59B7462B05AEC5147 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4977BA7C23BDC206675B1688 /* View+Ext.swift in Sources */,
+				7DE3AB1A168E634BBBBF69AC /* AppDelegate.swift in Sources */,
+				E88A5FA4F63B13C0328B6F70 /* Connection+Extensions.swift in Sources */,
+				0F9AEC0FA0B60F808A45B59D /* MatchingPhoneBookView.swift in Sources */,
+				FC131BA6E20F5F8DA85D157D /* UIViewController+Error.swift in Sources */,
+				EC0DE05FF920F9CAD08C2E98 /* StartView.swift in Sources */,
+				DF80F8730B80E456F01ED7B2 /* ConnectionsViewController.swift in Sources */,
+				F30D3BC0938E829983A80D67 /* DemoRootView.swift in Sources */,
+				2467B6EEFBBE68ADC4FC0D4A /* TrackingObject.swift in Sources */,
+				2CB20E8EEEACA4254AFF1A32 /* CustomerView.swift in Sources */,
+				6046A7E6EE762E12BD433422 /* MyPresenceView.swift in Sources */,
+				8E8ED78EF467C40087F75530 /* AppCustomer.swift in Sources */,
+				89249D41CEFBBA9F9381DABB /* ConnectionCell.swift in Sources */,
+				2FAAD1EF4B740BA01413DD82 /* BlocksView.swift in Sources */,
+				2ED1769A11B1B5E65F8D0CAF /* TabbarView.swift in Sources */,
+				3DC933BD399525A091EDF342 /* UserUpdateView.swift in Sources */,
+				B0BC3F36059868888B4F5188 /* FriendsView.swift in Sources */,
+				9D9B18012D4839839481C7D8 /* CustomerSelectorView.swift in Sources */,
+				4E4F60286F465D258894A32F /* RequestsView.swift in Sources */,
+				D5010BCA682D3B01CC1475A6 /* NewCustomerView.swift in Sources */,
+				B09947E54402F9DB432E989B /* BlinkupHeaderView.swift in Sources */,
+				85F8D5101E31E4145C35D8C6 /* SettingsView.swift in Sources */,
+				0F14036CE6A7F2677FA17E85 /* DB.swift in Sources */,
+				C13CA13C0F237D03ECA8E990 /* TrackViewController.swift in Sources */,
+				FAF4140B68453F9DDC0D5D9C /* MapListView.swift in Sources */,
+				F3139CE15DD873692480FED2 /* Target.swift in Sources */,
+				C725F1C99027A4C198F171C2 /* User+Extensions.swift in Sources */,
+				0C42C17CCA986D2B2B2290D4 /* String+Extensions.swift in Sources */,
+				2B2D50766B508DD105F08761 /* UIColor+Extenions.swift in Sources */,
+				3F5250D39F98EB8B1CAF1EB4 /* FoundUserView.swift in Sources */,
+				F6D3CF15176BDB11F40A258D /* MyPresenceCell.swift in Sources */,
+				F292B92BF7618321DB1DB04B /* LogsManager.swift in Sources */,
+				55E1BC1B510C60B2F1EFD700 /* LoadingView.swift in Sources */,
+				A1D53EBA5A9781FFF7FBCDD9 /* DemoAppApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EB10F1462AF00754006D8DC8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -768,6 +917,48 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		5331720655437AFF383E80AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 157;
+				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
+				DEVELOPMENT_TEAM = BT88N9P4DS;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DemoApp/Support/staging/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Demo (Will)";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bluetooth lets nearby friends find and join your watch party. No location data is collected.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Bluetooth lets nearby friends find and join your watch party. No location data is collected.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "to identify friends using the app, allowing us to notify you when they're nearby'";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "1 to notify you when friends are nearby, facilitating spontaneous meetups";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "1 o notify you when friends are nearby, facilitating spontaneous meetups";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 3.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blinktech.demowb;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
 		EB10F16C2AF00756006D8DC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -901,9 +1092,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DemoApp/Support/prod/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "bLinkup Demo";
-				INFOPLIST_KEY_NSContactsUsageDescription = "to identify friends using the app, allowing us to notify you when they're nearby'";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bluetooth lets nearby friends find and join your watch party. No location data is collected.";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Bluetooth lets nearby friends find and join your watch party. No location data is collected.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "to identify friends using the app, allowing us to notify you when they're nearby'";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
@@ -944,9 +1135,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DemoApp/Support/prod/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "bLinkup Demo";
-				INFOPLIST_KEY_NSContactsUsageDescription = "to identify friends using the app, allowing us to notify you when they're nearby'";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bluetooth lets nearby friends find and join your watch party. No location data is collected.";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Bluetooth lets nearby friends find and join your watch party. No location data is collected.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "to identify friends using the app, allowing us to notify you when they're nearby'";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
@@ -1063,9 +1254,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DemoApp/Support/staging/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "BlinkUp Demo";
-				INFOPLIST_KEY_NSContactsUsageDescription = "to identify friends using the app, allowing us to notify you when they're nearby'";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bluetooth lets nearby friends find and join your watch party. No location data is collected.";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Bluetooth lets nearby friends find and join your watch party. No location data is collected.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "to identify friends using the app, allowing us to notify you when they're nearby'";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "1 to notify you when friends are nearby, facilitating spontaneous meetups";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "1 o notify you when friends are nearby, facilitating spontaneous meetups";
@@ -1105,9 +1296,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DemoApp/Support/staging/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "BlinkUp Demo";
-				INFOPLIST_KEY_NSContactsUsageDescription = "to identify friends using the app, allowing us to notify you when they're nearby'";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bluetooth lets nearby friends find and join your watch party. No location data is collected.";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Bluetooth lets nearby friends find and join your watch party. No location data is collected.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "to identify friends using the app, allowing us to notify you when they're nearby'";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "1 to notify you when friends are nearby, facilitating spontaneous meetups";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "1 o notify you when friends are nearby, facilitating spontaneous meetups";
@@ -1133,9 +1324,60 @@
 			};
 			name = Release;
 		};
+		F35694388ABCA6DA9607B8FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 157;
+				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
+				DEVELOPMENT_TEAM = BT88N9P4DS;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DemoApp/Support/staging/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Demo (Will)";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bluetooth lets nearby friends find and join your watch party. No location data is collected.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Bluetooth lets nearby friends find and join your watch party. No location data is collected.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "to identify friends using the app, allowing us to notify you when they're nearby'";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "1 to notify you when friends are nearby, facilitating spontaneous meetups";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "1 o notify you when friends are nearby, facilitating spontaneous meetups";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 3.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blinktech.demowb;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		696306BFCD306329F5CB8474 /* Build configuration list for PBXNativeTarget "DemoAppWB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F35694388ABCA6DA9607B8FA /* Release */,
+				5331720655437AFF383E80AB /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EB10F1452AF00754006D8DC8 /* Build configuration list for PBXProject "DemoApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1203,6 +1445,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2FBEED17315FE6D0482BC847 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBBED7762C931ACB0041A0DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		33E5D818911DFC6EAF4DC00C /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBBED7762C931ACB0041A0DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		A61CA5FD6888EF638945D6C2 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBBED7762C931ACB0041A0DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
 		EBBED7752C931ACB0041A0DC /* FirebaseAnalyticsWithoutAdIdSupport */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EBBED7762C931ACB0041A0DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
