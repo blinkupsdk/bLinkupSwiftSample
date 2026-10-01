@@ -16,8 +16,14 @@ enum Target {
                     name: "Ravens Meet Up (Local) ✅"),
         AppCustomer(cid: "TkPnD3_yP3j6dUEAksgRjJ-auYijyUECLxVEnFqHJVE=",
                     name: "Demo"),
+        AppCustomer(cid: "TkPnD3_yP3j6dUEAksgRjJ-auYijyUECLxVEnFqHJVE=",
+                    name: "Demo-Barlow",
+                    font: "Barlow"),
+        AppCustomer(cid: "TkPnD3_yP3j6dUEAksgRjJ-auYijyUECLxVEnFqHJVE=",
+                    name: "Demo-Montserrat",
+                    font: "Montserrat"),
         AppCustomer(cid: "aJOqtaqHfIhnMn9xzcEgMC_vN9_WXWKpsTtOn04DEAU=",
-                    name: "Internal")
+                    name: "Internal"),
     ]
 
     static let legacyCustomers: [AppCustomer] = []

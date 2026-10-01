@@ -2,19 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>bLinkup uses your location to detect when you're at the stadium and automatically check you in to earn points.</string>
-	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>bLinkup uses Bluetooth to find nearby home watch parties.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>bLinkup uses the camera to scan a home watch party QR code.</string>
-	<key>UIUserInterfaceStyle</key>
-	<string>Light</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>bLinkup uses Bluetooth to find friends nearby so you can start or join a home watch party.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>bLinkup uses the camera to take photos for sharing and scan home watch party QR codes.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>bLinkup uses your location to confirm you're at a partner bar, so you can check in, unlock gameday deals and enter prize drops.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
 	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>

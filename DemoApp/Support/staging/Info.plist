@@ -2,14 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>bLinkup uses your location to detect when you're at the stadium and automatically check you in to earn points.</string>
-	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>bLinkup uses Bluetooth to find nearby home watch parties.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>bLinkup uses the camera to scan a home watch party QR code.</string>
-	<key>UIUserInterfaceStyle</key>
-	<string>Light</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>NSAppTransportSecurity</key>
@@ -18,22 +10,49 @@
 		<false/>
 		<key>NSExceptionDomains</key>
 		<dict>
-            <key>dev01.mobilauto.com.ua</key> <!--Include your domain at this line -->
-            <dict>
-                <key>NSIncludesSubdomains</key>
-                <true/>
-                <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-                <true/>
-                <key>NSTemporaryExceptionMinimumTLSVersion</key>
-                <string>TLSv1.1</string>
-            </dict>
-       </dict>
+			<key>dev01.mobilauto.com.ua</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSTemporaryExceptionMinimumTLSVersion</key>
+				<string>TLSv1.1</string>
+			</dict>
+		</dict>
 	</dict>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>bLinkup uses Bluetooth to find friends nearby so you can start or join a home watch party.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>bLinkup uses the camera to take photos for sharing and scan home watch party QR codes.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>bLinkup uses your location to confirm you're at a partner bar, so you can check in, unlock gameday deals and enter prize drops.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Barlow-Black.ttf</string>
+		<string>Barlow-BlackItalic.ttf</string>
+		<string>Barlow-Bold.ttf</string>
+		<string>Barlow-BoldItalic.ttf</string>
+		<string>Barlow-ExtraBold.ttf</string>
+		<string>Barlow-ExtraBoldItalic.ttf</string>
+		<string>Barlow-ExtraLight.ttf</string>
+		<string>Barlow-ExtraLightItalic.ttf</string>
+		<string>Barlow-Italic.ttf</string>
+		<string>Barlow-Light.ttf</string>
+		<string>Barlow-LightItalic.ttf</string>
+		<string>Barlow-Medium.ttf</string>
+		<string>Barlow-MediumItalic.ttf</string>
+		<string>Barlow-Regular.ttf</string>
+		<string>Barlow-SemiBold.ttf</string>
+		<string>Barlow-SemiBoldItalic.ttf</string>
+		<string>Barlow-Thin.ttf</string>
+		<string>Barlow-ThinItalic.ttf</string>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
 	</array>
-
-
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>

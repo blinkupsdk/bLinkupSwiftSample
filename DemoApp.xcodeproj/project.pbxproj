@@ -117,6 +117,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		EB01023F30640E5C00435823 /* Fonts */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Fonts; sourceTree = "<group>"; };
 		EBC8D0B62FF26E3C00EBBB34 /* Library */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Library; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -222,6 +223,7 @@
 		EB10F1772AF00780006D8DC8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EB01023F30640E5C00435823 /* Fonts */,
 				EB10F1532AF00756006D8DC8 /* Preview Content */,
 				EB10F1512AF00756006D8DC8 /* Assets.xcassets */,
 			);
@@ -307,6 +309,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				EB01023F30640E5C00435823 /* Fonts */,
 				EBC8D0B62FF26E3C00EBBB34 /* Library */,
 			);
 			name = DemoApp;
@@ -369,6 +372,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				EB01023F30640E5C00435823 /* Fonts */,
 				EBC8D0B62FF26E3C00EBBB34 /* Library */,
 			);
 			name = DemoAppSTG;
@@ -655,7 +659,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 210;
+				CURRENT_PROJECT_VERSION = 212;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -663,9 +667,6 @@
 				INFOPLIST_FILE = DemoApp/Support/prod/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "bLinkup Demo";
 				INFOPLIST_KEY_NSContactsUsageDescription = "to identify friends using the app, allowing us to notify you when they're nearby'";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -695,7 +696,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 210;
+				CURRENT_PROJECT_VERSION = 212;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -703,9 +704,6 @@
 				INFOPLIST_FILE = DemoApp/Support/prod/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "bLinkup Demo";
 				INFOPLIST_KEY_NSContactsUsageDescription = "to identify friends using the app, allowing us to notify you when they're nearby'";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -811,7 +809,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 210;
+				CURRENT_PROJECT_VERSION = 213;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -819,9 +817,6 @@
 				INFOPLIST_FILE = DemoApp/Support/staging/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "BlinkUp Demo";
 				INFOPLIST_KEY_NSContactsUsageDescription = "to identify friends using the app, allowing us to notify you when they're nearby'";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "1 to notify you when friends are nearby, facilitating spontaneous meetups";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "1 o notify you when friends are nearby, facilitating spontaneous meetups";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -851,7 +846,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 210;
+				CURRENT_PROJECT_VERSION = 213;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -859,9 +854,6 @@
 				INFOPLIST_FILE = DemoApp/Support/staging/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "BlinkUp Demo";
 				INFOPLIST_KEY_NSContactsUsageDescription = "to identify friends using the app, allowing us to notify you when they're nearby'";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "1 to notify you when friends are nearby, facilitating spontaneous meetups";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "1 o notify you when friends are nearby, facilitating spontaneous meetups";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
