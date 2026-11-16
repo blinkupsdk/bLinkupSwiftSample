@@ -7,37 +7,76 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04387B350421DBE6BDECD6BD /* NewCustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42AD712CE4D2440091CB37 /* NewCustomerView.swift */; };
+		05E98E807E2F3B62CFAB1EB0 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = EBBED7772C931ACB0041A0DC /* FirebaseCrashlytics */; };
 		092BAF8E89A23CEC07B306B5 /* bLinkupSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4A7E7F2DE8BBF900EA2E41 /* bLinkupSDK.framework */; };
 		0C42C17CCA986D2B2B2290D4 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB094F532B35A88700E10022 /* String+Extensions.swift */; };
 		0F14036CE6A7F2677FA17E85 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56B5C52BBB0BAA00CF7195 /* DB.swift */; };
+		0F3226B3FE813060596FB9D1 /* MyPresenceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F3F112B0C24A4004CC2D8 /* MyPresenceCell.swift */; };
 		0F9AEC0FA0B60F808A45B59D /* MatchingPhoneBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF480182AF2C1490010030D /* MatchingPhoneBookView.swift */; };
+		152DC7983A6C5023174FCAC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB832C4A2AF02D68008B4F5C /* Main.storyboard */; };
+		1FC0F37BAE92EE5312EC3526 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DF8AB2EB1925300C3D551 /* View+Ext.swift */; };
 		2467B6EEFBBE68ADC4FC0D4A /* TrackingObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A8F152D7EF05C008917B9 /* TrackingObject.swift */; };
 		2B2D50766B508DD105F08761 /* UIColor+Extenions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42AD772CE4F7B90091CB37 /* UIColor+Extenions.swift */; };
 		2CB20E8EEEACA4254AFF1A32 /* CustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DF8A82EB18C0200C3D551 /* CustomerView.swift */; };
 		2ED1769A11B1B5E65F8D0CAF /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1832AF00A9E006D8DC8 /* TabbarView.swift */; };
 		2FAAD1EF4B740BA01413DD82 /* BlocksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10D1752B4733B2006FE7AC /* BlocksView.swift */; };
+		36CECAF07EEB299A94629094 /* MapListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6B77832B0C1AAB00AD8EC7 /* MapListView.swift */; };
 		38C740AD5CD9ED279EFF1BB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB832C4A2AF02D68008B4F5C /* Main.storyboard */; };
+		3A50FB764D404C8F8D89B94F /* TrackingObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A8F152D7EF05C008917B9 /* TrackingObject.swift */; };
 		3B1C074DBAA88D670081F231 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBBED7A22C931B4C0041A0DC /* GoogleService-Info.plist */; };
+		3B94217CB04008E51A86EEF7 /* bLinkupSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4A7E7F2DE8BBF900EA2E41 /* bLinkupSDK.framework */; };
 		3DC933BD399525A091EDF342 /* UserUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1872AF00AEF006D8DC8 /* UserUpdateView.swift */; };
 		3F5250D39F98EB8B1CAF1EB4 /* FoundUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB094F592B35B0E900E10022 /* FoundUserView.swift */; };
 		4977BA7C23BDC206675B1688 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DF8AB2EB1925300C3D551 /* View+Ext.swift */; };
+		4C6BD8A1A3DD388F8712CD60 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1912AF00CDA006D8DC8 /* LoadingView.swift */; };
 		4E4F60286F465D258894A32F /* RequestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7323C82B167AE400DF6CF1 /* RequestsView.swift */; };
 		4EC1C2D378A30BB554907BF1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3835330688D18E6B804357A /* Foundation.framework */; };
 		509780EBF46D262A04BFD14A /* bLinkupSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB4A7E7F2DE8BBF900EA2E41 /* bLinkupSDK.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		55E1BC1B510C60B2F1EFD700 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1912AF00CDA006D8DC8 /* LoadingView.swift */; };
+		589202041C0DD7CB8A659304 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC7507C2C8B3ACE008D8763 /* AppDelegate.swift */; };
+		5FB55436A50D5CDA3A5B173D /* LogsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A8F122D7EEF4B008917B9 /* LogsManager.swift */; };
 		6046A7E6EE762E12BD433422 /* MyPresenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F3F0F2B0C228D004CC2D8 /* MyPresenceView.swift */; };
+		62ADC364D98F21DEF1AD1B98 /* UIViewController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C5E2AF02DAA008B4F5C /* UIViewController+Error.swift */; };
+		65FA3579260DCB252070626E /* bLinkupSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB4A7E7F2DE8BBF900EA2E41 /* bLinkupSDK.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6C6695A8E2B9EE9D72CD969A /* TrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C512AF02D69008B4F5C /* TrackViewController.swift */; };
+		6D02235A41BF10F12FBA7F8A /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB094F532B35A88700E10022 /* String+Extensions.swift */; };
+		7217408A28380F17188AAD56 /* BlocksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10D1752B4733B2006FE7AC /* BlocksView.swift */; };
+		7DD1B854ED6CAF50CB52A8E2 /* BlinkupHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1882AF00AEF006D8DC8 /* BlinkupHeaderView.swift */; };
 		7DE3AB1A168E634BBBBF69AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC7507C2C8B3ACE008D8763 /* AppDelegate.swift */; };
+		82BA5829B4AD6A285A849248 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = EBBED7752C931ACB0041A0DC /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		843C4BDEB9E5DAF1174DF6E2 /* DemoRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F14F2AF00754006D8DC8 /* DemoRootView.swift */; };
 		85F8D5101E31E4145C35D8C6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6DF24D2B0D11750036A428 /* SettingsView.swift */; };
 		89249D41CEFBBA9F9381DABB /* ConnectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB8F1AE2B10E3A200E782EA /* ConnectionCell.swift */; };
 		8E8ED78EF467C40087F75530 /* AppCustomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42AD742CE4D34E0091CB37 /* AppCustomer.swift */; };
+		93B234B4F74AFA3EE93B8F3F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB10F1542AF00756006D8DC8 /* Preview Assets.xcassets */; };
+		956D9724B7E775CC197EB9CF /* ConnectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB8F1AE2B10E3A200E782EA /* ConnectionCell.swift */; };
+		970E3BF9526FE574ABFA8337 /* Connection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB160A212E326DE800253ED4 /* Connection+Extensions.swift */; };
+		995819AE98332E41E157201F /* CustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DF8A82EB18C0200C3D551 /* CustomerView.swift */; };
 		9D9B18012D4839839481C7D8 /* CustomerSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56B5C72BBB0D9500CF7195 /* CustomerSelectorView.swift */; };
+		CDD976A35F3A481302A11A50 /* SixersHomeV6Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC81EC72477FC99837F8884 /* SixersHomeV6Demo.swift */; };
+		6F3A80A3799DD0096115325A /* CommandersHomeV6Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2520CFC5820DA068FACE4C0F /* CommandersHomeV6Demo.swift */; };
+		A174BE83DB38D753ADEBFB40 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = EBBED7782C931ACB0041A0DC /* FirebaseMessaging */; };
 		A1D53EBA5A9781FFF7FBCDD9 /* DemoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F14D2AF00754006D8DC8 /* DemoAppApp.swift */; };
 		B09947E54402F9DB432E989B /* BlinkupHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1882AF00AEF006D8DC8 /* BlinkupHeaderView.swift */; };
 		B0BC3F36059868888B4F5188 /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6DF24A2B0D10CC0036A428 /* FriendsView.swift */; };
+		B27517A0241DA2ACF4D2C50F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6DF24D2B0D11750036A428 /* SettingsView.swift */; };
+		B6450F565152BB80DB4D353E /* FoundUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB094F592B35B0E900E10022 /* FoundUserView.swift */; };
+		B73E7D1FFFAC0D763B0E0FD5 /* User+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB160A1E2E326C1000253ED4 /* User+Extensions.swift */; };
+		B9CEEB12FFE3F3939ABC3993 /* RequestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7323C82B167AE400DF6CF1 /* RequestsView.swift */; };
+		BA55933420DAEB498976F033 /* UserUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1872AF00AEF006D8DC8 /* UserUpdateView.swift */; };
+		BCDEF50FF694A7743CAFC1DD /* MatchingPhoneBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF480182AF2C1490010030D /* MatchingPhoneBookView.swift */; };
 		C13CA13C0F237D03ECA8E990 /* TrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C512AF02D69008B4F5C /* TrackViewController.swift */; };
+		C45ECE0DC96DA4B638105DB5 /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBED7A62C9320D10041A0DC /* Target.swift */; };
+		C66717A52B4545ECF26AAB07 /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1832AF00A9E006D8DC8 /* TabbarView.swift */; };
 		C725F1C99027A4C198F171C2 /* User+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB160A1E2E326C1000253ED4 /* User+Extensions.swift */; };
+		CF33B1C92CE2C2833A25862B /* AppCustomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42AD742CE4D34E0091CB37 /* AppCustomer.swift */; };
 		D1E1537120C15E0E83A9D975 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB10F1512AF00756006D8DC8 /* Assets.xcassets */; };
+		D22953DC8C050DD1869A68EE /* ConnectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB8F1B32B10FC0000E782EA /* ConnectionsViewController.swift */; };
+		D33C9B0EFA17F9549EAA7874 /* UIColor+Extenions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42AD772CE4F7B90091CB37 /* UIColor+Extenions.swift */; };
 		D5010BCA682D3B01CC1475A6 /* NewCustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42AD712CE4D2440091CB37 /* NewCustomerView.swift */; };
+		D8FBA1930BA06554239FC2F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB10F1512AF00756006D8DC8 /* Assets.xcassets */; };
+		DB2706761B478FD220C19877 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56B5C52BBB0BAA00CF7195 /* DB.swift */; };
 		DF80F8730B80E456F01ED7B2 /* ConnectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB8F1B32B10FC0000E782EA /* ConnectionsViewController.swift */; };
 		E88A5FA4F63B13C0328B6F70 /* Connection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB160A212E326DE800253ED4 /* Connection+Extensions.swift */; };
 		EB094F542B35A88700E10022 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB094F532B35A88700E10022 /* String+Extensions.swift */; };
@@ -75,6 +114,8 @@
 		EB4A7E7D2DE8BBF400EA2E41 /* bLinkupSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB4A7E7B2DE8BBF400EA2E41 /* bLinkupSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EB56B5C62BBB0BAA00CF7195 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56B5C52BBB0BAA00CF7195 /* DB.swift */; };
 		EB56B5C82BBB0D9500CF7195 /* CustomerSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56B5C72BBB0D9500CF7195 /* CustomerSelectorView.swift */; };
+		EF6210219AD5A4908D3C5B7E /* SixersHomeV6Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC81EC72477FC99837F8884 /* SixersHomeV6Demo.swift */; };
+		4C0A4E5A3C55BAB3E385A0A6 /* CommandersHomeV6Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2520CFC5820DA068FACE4C0F /* CommandersHomeV6Demo.swift */; };
 		EB6B77842B0C1AAB00AD8EC7 /* MapListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6B77832B0C1AAB00AD8EC7 /* MapListView.swift */; };
 		EB6DF24B2B0D10CC0036A428 /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6DF24A2B0D10CC0036A428 /* FriendsView.swift */; };
 		EB6DF24E2B0D11750036A428 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6DF24D2B0D11750036A428 /* SettingsView.swift */; };
@@ -84,6 +125,7 @@
 		EB832C542AF02D69008B4F5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB832C4A2AF02D68008B4F5C /* Main.storyboard */; };
 		EB832C5B2AF02D69008B4F5C /* TrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C512AF02D69008B4F5C /* TrackViewController.swift */; };
 		EB832C5F2AF02DAA008B4F5C /* UIViewController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C5E2AF02DAA008B4F5C /* UIViewController+Error.swift */; };
+		EB91F4942DF1A30F6D8B41CC /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6DF24A2B0D10CC0036A428 /* FriendsView.swift */; };
 		EB9DF8A92EB18C0600C3D551 /* CustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DF8A82EB18C0200C3D551 /* CustomerView.swift */; };
 		EB9DF8AA2EB18C0600C3D551 /* CustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DF8A82EB18C0200C3D551 /* CustomerView.swift */; };
 		EB9DF8AC2EB1925600C3D551 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DF8AB2EB1925300C3D551 /* View+Ext.swift */; };
@@ -103,6 +145,8 @@
 		EBBED7842C931ACB0041A0DC /* UserUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1872AF00AEF006D8DC8 /* UserUpdateView.swift */; };
 		EBBED7852C931ACB0041A0DC /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6DF24A2B0D10CC0036A428 /* FriendsView.swift */; };
 		EBBED7862C931ACB0041A0DC /* CustomerSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56B5C72BBB0D9500CF7195 /* CustomerSelectorView.swift */; };
+		507001B3DAADA572BAA7FD92 /* SixersHomeV6Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC81EC72477FC99837F8884 /* SixersHomeV6Demo.swift */; };
+		8425601866017C0E5E4C3A06 /* CommandersHomeV6Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2520CFC5820DA068FACE4C0F /* CommandersHomeV6Demo.swift */; };
 		EBBED7872C931ACB0041A0DC /* RequestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7323C82B167AE400DF6CF1 /* RequestsView.swift */; };
 		EBBED7882C931ACB0041A0DC /* BlinkupHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1882AF00AEF006D8DC8 /* BlinkupHeaderView.swift */; };
 		EBBED7892C931ACB0041A0DC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6DF24D2B0D11750036A428 /* SettingsView.swift */; };
@@ -130,13 +174,20 @@
 		EBC7507D2C8B3ACE008D8763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC7507C2C8B3ACE008D8763 /* AppDelegate.swift */; };
 		EBF480192AF2C1490010030D /* MatchingPhoneBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF480182AF2C1490010030D /* MatchingPhoneBookView.swift */; };
 		EC0DE05FF920F9CAD08C2E98 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1842AF00A9E006D8DC8 /* StartView.swift */; };
+		ECE4EFBCED04A4798B4C4C10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBBED7A22C931B4C0041A0DC /* GoogleService-Info.plist */; };
+		EE2D54DDD030F0431EDDA3E4 /* MyPresenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F3F0F2B0C228D004CC2D8 /* MyPresenceView.swift */; };
 		F292B92BF7618321DB1DB04B /* LogsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A8F122D7EEF4B008917B9 /* LogsManager.swift */; };
+		F2D8FAD900B74D45E347E0D5 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1842AF00A9E006D8DC8 /* StartView.swift */; };
 		F30D3BC0938E829983A80D67 /* DemoRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F14F2AF00754006D8DC8 /* DemoRootView.swift */; };
 		F3139CE15DD873692480FED2 /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBED7A62C9320D10041A0DC /* Target.swift */; };
 		F6D3CF15176BDB11F40A258D /* MyPresenceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F3F112B0C24A4004CC2D8 /* MyPresenceCell.swift */; };
+		F8DF26E91E306CAB68480A45 /* DemoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F14D2AF00754006D8DC8 /* DemoAppApp.swift */; };
 		FAA34FE4241AA16ACCC1E3FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB10F1542AF00756006D8DC8 /* Preview Assets.xcassets */; };
 		FAF4140B68453F9DDC0D5D9C /* MapListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6B77832B0C1AAB00AD8EC7 /* MapListView.swift */; };
 		FC131BA6E20F5F8DA85D157D /* UIViewController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB832C5E2AF02DAA008B4F5C /* UIViewController+Error.swift */; };
+		FD0E4643CABDFE20182B5945 /* CustomerSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56B5C72BBB0D9500CF7195 /* CustomerSelectorView.swift */; };
+		8675DB84966370D139BCC460 /* SixersHomeV6Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC81EC72477FC99837F8884 /* SixersHomeV6Demo.swift */; };
+		7E78ABF4F9BAD99FB55D579E /* CommandersHomeV6Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2520CFC5820DA068FACE4C0F /* CommandersHomeV6Demo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +219,17 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B4AFF885BB9E7B6B06EA2753 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				65FA3579260DCB252070626E /* bLinkupSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EB34BB082DF6D6C800E3E7E5 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -195,6 +257,7 @@
 /* Begin PBXFileReference section */
 		7B4DC20EE4D63F37C9C41533 /* DemoAppWB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoAppWB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3835330688D18E6B804357A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		E59F9023C7A0F13DC65C54DD /* DemoAppPartner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; lastKnownFileType = wrapper.application; path = DemoAppPartner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB03A5DE2DB0F96B005B3A41 /* bLinkupSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = bLinkupSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB03A5E22DB0F972005B3A41 /* bLinkupSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = bLinkupSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB094F532B35A88700E10022 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
@@ -226,6 +289,8 @@
 		EB4A7E7F2DE8BBF900EA2E41 /* bLinkupSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = bLinkupSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB520DE42AF32FE300BDDCF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB56B5C52BBB0BAA00CF7195 /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
+		2AC81EC72477FC99837F8884 /* SixersHomeV6Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixersHomeV6Demo.swift; sourceTree = "<group>"; };
+		2520CFC5820DA068FACE4C0F /* CommandersHomeV6Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandersHomeV6Demo.swift; sourceTree = "<group>"; };
 		EB56B5C72BBB0D9500CF7195 /* CustomerSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerSelectorView.swift; sourceTree = "<group>"; };
 		EB6B77832B0C1AAB00AD8EC7 /* MapListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapListView.swift; sourceTree = "<group>"; };
 		EB6DF24A2B0D10CC0036A428 /* FriendsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
@@ -252,6 +317,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1A8F14502021463AB6C57F9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A174BE83DB38D753ADEBFB40 /* FirebaseMessaging in Frameworks */,
+				05E98E807E2F3B62CFAB1EB0 /* FirebaseCrashlytics in Frameworks */,
+				82BA5829B4AD6A285A849248 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				3B94217CB04008E51A86EEF7 /* bLinkupSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EB10F1472AF00754006D8DC8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -327,6 +403,7 @@
 				EB10F1642AF00756006D8DC8 /* DemoAppUITests.xctest */,
 				EBBED79F2C931ACB0041A0DC /* DemoAppSTG.app */,
 				7B4DC20EE4D63F37C9C41533 /* DemoAppWB.app */,
+				E59F9023C7A0F13DC65C54DD /* DemoAppPartner.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -548,6 +625,8 @@
 				EB9DF8AB2EB1925300C3D551 /* View+Ext.swift */,
 				EB9DF8A82EB18C0200C3D551 /* CustomerView.swift */,
 				EB56B5C72BBB0D9500CF7195 /* CustomerSelectorView.swift */,
+				2AC81EC72477FC99837F8884 /* SixersHomeV6Demo.swift */,
+				2520CFC5820DA068FACE4C0F /* CommandersHomeV6Demo.swift */,
 				EB42AD742CE4D34E0091CB37 /* AppCustomer.swift */,
 				EB42AD712CE4D2440091CB37 /* NewCustomerView.swift */,
 			);
@@ -578,6 +657,29 @@
 			);
 			productName = DemoAppWB;
 			productReference = 7B4DC20EE4D63F37C9C41533 /* DemoAppWB.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E75281A029D88563386219E9 /* DemoAppPartner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA9947A701E05F384E49F992 /* Build configuration list for PBXNativeTarget "DemoAppPartner" */;
+			buildPhases = (
+				B37B56B2D9F358F9A541F4FD /* Sources */,
+				1A8F14502021463AB6C57F9B /* Frameworks */,
+				07751EF375E80CE8223E91F6 /* Resources */,
+				B4AFF885BB9E7B6B06EA2753 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DemoAppPartner;
+			packageProductDependencies = (
+				1C88C00B6535E2A9255F4578 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				27965A6F8CAC1BA7DD5E379E /* FirebaseCrashlytics */,
+				EBD1EB288F8674B788DBEC2C /* FirebaseMessaging */,
+			);
+			productName = DemoAppPartner;
+			productReference = E59F9023C7A0F13DC65C54DD /* DemoAppPartner.app */;
 			productType = "com.apple.product-type.application";
 		};
 		EB10F1492AF00754006D8DC8 /* DemoApp */ = {
@@ -672,6 +774,9 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					E75281A029D88563386219E9 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
 					EB10F1492AF00754006D8DC8 = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
@@ -706,11 +811,23 @@
 				EB10F1592AF00756006D8DC8 /* DemoAppTests */,
 				EB10F1632AF00756006D8DC8 /* DemoAppUITests */,
 				33BA93F83D6B7B4320F0CC35 /* DemoAppWB */,
+				E75281A029D88563386219E9 /* DemoAppPartner */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		07751EF375E80CE8223E91F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				152DC7983A6C5023174FCAC8 /* Main.storyboard in Resources */,
+				ECE4EFBCED04A4798B4C4C10 /* GoogleService-Info.plist in Resources */,
+				93B234B4F74AFA3EE93B8F3F /* Preview Assets.xcassets in Resources */,
+				D8FBA1930BA06554239FC2F3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B2D42D71CEB1FBBA116197AF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -783,6 +900,8 @@
 				3DC933BD399525A091EDF342 /* UserUpdateView.swift in Sources */,
 				B0BC3F36059868888B4F5188 /* FriendsView.swift in Sources */,
 				9D9B18012D4839839481C7D8 /* CustomerSelectorView.swift in Sources */,
+				CDD976A35F3A481302A11A50 /* SixersHomeV6Demo.swift in Sources */,
+				6F3A80A3799DD0096115325A /* CommandersHomeV6Demo.swift in Sources */,
 				4E4F60286F465D258894A32F /* RequestsView.swift in Sources */,
 				D5010BCA682D3B01CC1475A6 /* NewCustomerView.swift in Sources */,
 				B09947E54402F9DB432E989B /* BlinkupHeaderView.swift in Sources */,
@@ -799,6 +918,49 @@
 				F292B92BF7618321DB1DB04B /* LogsManager.swift in Sources */,
 				55E1BC1B510C60B2F1EFD700 /* LoadingView.swift in Sources */,
 				A1D53EBA5A9781FFF7FBCDD9 /* DemoAppApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B37B56B2D9F358F9A541F4FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FC0F37BAE92EE5312EC3526 /* View+Ext.swift in Sources */,
+				589202041C0DD7CB8A659304 /* AppDelegate.swift in Sources */,
+				970E3BF9526FE574ABFA8337 /* Connection+Extensions.swift in Sources */,
+				BCDEF50FF694A7743CAFC1DD /* MatchingPhoneBookView.swift in Sources */,
+				62ADC364D98F21DEF1AD1B98 /* UIViewController+Error.swift in Sources */,
+				F2D8FAD900B74D45E347E0D5 /* StartView.swift in Sources */,
+				D22953DC8C050DD1869A68EE /* ConnectionsViewController.swift in Sources */,
+				843C4BDEB9E5DAF1174DF6E2 /* DemoRootView.swift in Sources */,
+				3A50FB764D404C8F8D89B94F /* TrackingObject.swift in Sources */,
+				995819AE98332E41E157201F /* CustomerView.swift in Sources */,
+				EE2D54DDD030F0431EDDA3E4 /* MyPresenceView.swift in Sources */,
+				CF33B1C92CE2C2833A25862B /* AppCustomer.swift in Sources */,
+				956D9724B7E775CC197EB9CF /* ConnectionCell.swift in Sources */,
+				7217408A28380F17188AAD56 /* BlocksView.swift in Sources */,
+				C66717A52B4545ECF26AAB07 /* TabbarView.swift in Sources */,
+				BA55933420DAEB498976F033 /* UserUpdateView.swift in Sources */,
+				EB91F4942DF1A30F6D8B41CC /* FriendsView.swift in Sources */,
+				FD0E4643CABDFE20182B5945 /* CustomerSelectorView.swift in Sources */,
+				8675DB84966370D139BCC460 /* SixersHomeV6Demo.swift in Sources */,
+				7E78ABF4F9BAD99FB55D579E /* CommandersHomeV6Demo.swift in Sources */,
+				B9CEEB12FFE3F3939ABC3993 /* RequestsView.swift in Sources */,
+				04387B350421DBE6BDECD6BD /* NewCustomerView.swift in Sources */,
+				7DD1B854ED6CAF50CB52A8E2 /* BlinkupHeaderView.swift in Sources */,
+				B27517A0241DA2ACF4D2C50F /* SettingsView.swift in Sources */,
+				DB2706761B478FD220C19877 /* DB.swift in Sources */,
+				6C6695A8E2B9EE9D72CD969A /* TrackViewController.swift in Sources */,
+				36CECAF07EEB299A94629094 /* MapListView.swift in Sources */,
+				C45ECE0DC96DA4B638105DB5 /* Target.swift in Sources */,
+				B73E7D1FFFAC0D763B0E0FD5 /* User+Extensions.swift in Sources */,
+				6D02235A41BF10F12FBA7F8A /* String+Extensions.swift in Sources */,
+				D33C9B0EFA17F9549EAA7874 /* UIColor+Extenions.swift in Sources */,
+				B6450F565152BB80DB4D353E /* FoundUserView.swift in Sources */,
+				0F3226B3FE813060596FB9D1 /* MyPresenceCell.swift in Sources */,
+				5FB55436A50D5CDA3A5B173D /* LogsManager.swift in Sources */,
+				4C6BD8A1A3DD388F8712CD60 /* LoadingView.swift in Sources */,
+				F8DF26E91E306CAB68480A45 /* DemoAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -824,6 +986,8 @@
 				EB10F18A2AF00AF0006D8DC8 /* UserUpdateView.swift in Sources */,
 				EB6DF24B2B0D10CC0036A428 /* FriendsView.swift in Sources */,
 				EB56B5C82BBB0D9500CF7195 /* CustomerSelectorView.swift in Sources */,
+				EF6210219AD5A4908D3C5B7E /* SixersHomeV6Demo.swift in Sources */,
+				4C0A4E5A3C55BAB3E385A0A6 /* CommandersHomeV6Demo.swift in Sources */,
 				EB7323C92B167AE400DF6CF1 /* RequestsView.swift in Sources */,
 				EB42AD732CE4D24B0091CB37 /* NewCustomerView.swift in Sources */,
 				EB10F18B2AF00AF0006D8DC8 /* BlinkupHeaderView.swift in Sources */,
@@ -882,6 +1046,8 @@
 				EBBED7842C931ACB0041A0DC /* UserUpdateView.swift in Sources */,
 				EBBED7852C931ACB0041A0DC /* FriendsView.swift in Sources */,
 				EBBED7862C931ACB0041A0DC /* CustomerSelectorView.swift in Sources */,
+				507001B3DAADA572BAA7FD92 /* SixersHomeV6Demo.swift in Sources */,
+				8425601866017C0E5E4C3A06 /* CommandersHomeV6Demo.swift in Sources */,
 				EBBED7872C931ACB0041A0DC /* RequestsView.swift in Sources */,
 				EB42AD722CE4D24B0091CB37 /* NewCustomerView.swift in Sources */,
 				EBBED7882C931ACB0041A0DC /* BlinkupHeaderView.swift in Sources */,
@@ -923,7 +1089,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 157;
+				CURRENT_PROJECT_VERSION = 159;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -952,6 +1118,92 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		81583607BB413626DEC542E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 159;
+				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
+				DEVELOPMENT_TEAM = BT88N9P4DS;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DemoApp/Support/staging/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = bLinkup;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bluetooth lets nearby friends find and join your watch party. No location data is collected.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Bluetooth lets nearby friends find and join your watch party. No location data is collected.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "to identify friends using the app, allowing us to notify you when they're nearby'";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "1 to notify you when friends are nearby, facilitating spontaneous meetups";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "1 o notify you when friends are nearby, facilitating spontaneous meetups";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 3.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blinktech.partnerdemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) PARTNER_DEMO";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		B029983216C860B6609D4D2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 159;
+				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
+				DEVELOPMENT_TEAM = BT88N9P4DS;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DemoApp/Support/staging/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = bLinkup;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bluetooth lets nearby friends find and join your watch party. No location data is collected.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Bluetooth lets nearby friends find and join your watch party. No location data is collected.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "to identify friends using the app, allowing us to notify you when they're nearby'";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "1 to notify you when friends are nearby, facilitating spontaneous meetups";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "to notify you when friends are nearby, facilitating spontaneous meetups";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "1 o notify you when friends are nearby, facilitating spontaneous meetups";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 3.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blinktech.partnerdemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) PARTNER_DEMO";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1084,7 +1336,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 157;
+				CURRENT_PROJECT_VERSION = 159;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -1127,7 +1379,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 157;
+				CURRENT_PROJECT_VERSION = 159;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -1169,7 +1421,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 157;
+				CURRENT_PROJECT_VERSION = 159;
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -1189,7 +1441,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 157;
+				CURRENT_PROJECT_VERSION = 159;
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -1208,7 +1460,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 157;
+				CURRENT_PROJECT_VERSION = 159;
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
@@ -1226,7 +1478,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 157;
+				CURRENT_PROJECT_VERSION = 159;
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
@@ -1246,7 +1498,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 157;
+				CURRENT_PROJECT_VERSION = 159;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -1288,7 +1540,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/Support/DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 157;
+				CURRENT_PROJECT_VERSION = 159;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -1329,7 +1581,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 157;
+				CURRENT_PROJECT_VERSION = 159;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = BT88N9P4DS;
 				ENABLE_PREVIEWS = YES;
@@ -1372,6 +1624,15 @@
 			buildConfigurations = (
 				F35694388ABCA6DA9607B8FA /* Release */,
 				5331720655437AFF383E80AB /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA9947A701E05F384E49F992 /* Build configuration list for PBXNativeTarget "DemoAppPartner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B029983216C860B6609D4D2B /* Debug */,
+				81583607BB413626DEC542E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1443,6 +1704,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1C88C00B6535E2A9255F4578 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBBED7762C931ACB0041A0DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		27965A6F8CAC1BA7DD5E379E /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBBED7762C931ACB0041A0DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
 		2FBEED17315FE6D0482BC847 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EBBED7762C931ACB0041A0DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -1486,6 +1757,11 @@
 		EBC750792C8B33F5008D8763 /* FirebaseMessaging */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EBC750742C8B33F5008D8763 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		EBD1EB288F8674B788DBEC2C /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBBED7762C931ACB0041A0DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */

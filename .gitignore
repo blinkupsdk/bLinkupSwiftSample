@@ -5,6 +5,10 @@
 ## Secrets — never commit (signing cert + script with hardcoded passwords)
 distribution.p12
 upload_testflight.sh
+upload_testflight_partner.sh
+
+## macOS
+.DS_Store
 
 ## User settings
 xcuserdata/

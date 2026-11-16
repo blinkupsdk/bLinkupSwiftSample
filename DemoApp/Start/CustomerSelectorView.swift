@@ -11,6 +11,15 @@ import SwiftUI
 
 private let kPubFavsDataKey = "pubFavs"
 
+/// Partner builds (DemoAppPartner target, `PARTNER_DEMO` flag) are handed to prospects, so the
+/// selector shows only `Target.partnerCustomers`: no Private/Legacy sections, no favorites,
+/// no add/dev menu. Every other build is unchanged.
+#if PARTNER_DEMO
+private let kIsPartnerBuild = true
+#else
+private let kIsPartnerBuild = false
+#endif
+
 struct CustomerSelectorView: View {
     typealias Action = CustomerView.Action
 
@@ -29,6 +38,9 @@ struct CustomerSelectorView: View {
     @State private var showProdRefDemo = false
     @State private var showBucksDemo = false
     @State private var showSixers76Demo = false
+    @State private var showSixersHomeV6Demo = false
+    @State private var showSixersHomeV6Test = false
+    @State private var showCommandersHomeV6Demo = false
     @State private var showChargersV2Demo = false
     @State private var showCommandersV2Demo = false
     @State private var showSabresDemo = false
@@ -36,6 +48,7 @@ struct CustomerSelectorView: View {
     @State private var showPhiladelphia76ersV2Demo = false
     @State private var showArizonaStateSunDevilsV2Demo = false
     @State private var showNewYorkKnicksV2Demo = false
+    @State private var showLosAngelesLakersV2Demo = false
     @State private var showColoradoAvalancheV2Demo = false
     @State private var showCarolinaHurricanesV2Demo = false
     @State private var showCharlotteHornetsV2Demo = false
@@ -48,7 +61,17 @@ struct CustomerSelectorView: View {
     @State private var showMiamiDolphinsV2Demo = false
     @State private var showMilwaukeeBucksV2Demo = false
     @State private var showMarquetteGoldenEaglesV2Demo = false
+    @State private var showMatchdayDallasV2Demo = false
     @State private var showMichiganWolverinesV2Demo = false
+    @State private var showNewYorkRedBullsV2Demo = false
+    @State private var showPortlandTrailBlazersV2Demo = false
+    @State private var showBrooklynNetsV2Demo = false
+    @State private var showDenverNuggetsV2Demo = false
+    @State private var showNewYorkGiantsV2Demo = false
+    @State private var showClevelandBrownsV2Demo = false
+    @State private var showBaltimoreRavensV2Demo = false
+    @State private var showSeattleSeahawksV2Demo = false
+    @State private var showPhiladelphiaFlyersV2Demo = false
     @State private var showLosAngelesKingsV2Demo = false
     @State private var showBostonLegacyFCV2Demo = false
     @AppStorage("overFullScreen") private var overFullScreen: Bool?
@@ -64,7 +87,14 @@ struct CustomerSelectorView: View {
         VStack(spacing: 0) {
             Form {
                 let priv = customers.filter({ $0.isFavorite ?? !onlyFavorite })
-                if !priv.isEmpty {
+                if kIsPartnerBuild {
+                    Section {
+                        Text("Pick a demo to see how fans check in, win prizes, and unlock deals.")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+                if !kIsPartnerBuild && !priv.isEmpty {
                     Section(header: Text("Private")) {
                         ForEach(priv, id: \.id) { customer in
                             CustomerView(
@@ -77,14 +107,15 @@ struct CustomerSelectorView: View {
                     }
                 }
                 let f = pubFavs
-                let current = Target.currentCustomers.filter({ f.contains($0.cid) || !onlyFavorite })
+                let current = listedCurrentCustomers.filter({ kIsPartnerBuild || f.contains($0.cid) || !onlyFavorite })
                 if !current.isEmpty {
-                    Section(header: Text("Current Demos")) {
+                    Section(header: Text(kIsPartnerBuild ? "Demos" : "Current Demos")) {
                         ForEach(current, id: \.id) { customer in
                             CustomerView(
                                 customer: customer,
-                                isFavorite: pubFavs.contains(customer.cid),
-                                actions: [.open, .favorite]
+                                isFavorite: !kIsPartnerBuild && pubFavs.contains(customer.cid),
+                                actions: kIsPartnerBuild ? [.open] : [.open, .favorite],
+                                showsMenu: !kIsPartnerBuild
                             ) {
                                 process(customer, $0, pub: true)
                             }
@@ -92,7 +123,7 @@ struct CustomerSelectorView: View {
                     }
                 }
                 let legacy = Target.legacyCustomers.filter({ f.contains($0.cid) || !onlyFavorite })
-                if !legacy.isEmpty {
+                if !kIsPartnerBuild && !legacy.isEmpty {
                     Section {
                         DisclosureGroup(isExpanded: $legacyExpanded) {
                             ForEach(legacy, id: \.id) { customer in
@@ -138,6 +169,7 @@ struct CustomerSelectorView: View {
         })
         .navigationTitle("")
         .toolbar(content: {
+            if !kIsPartnerBuild {
             ToolbarItem(placement: .topBarTrailing) {
                 HStack {
                     Button(action: {
@@ -200,6 +232,7 @@ struct CustomerSelectorView: View {
                     }
                 }
             }
+            } // !kIsPartnerBuild
         })
         .sheet(item: $customerToEdit) { c in
             NavigationView {
@@ -294,6 +327,21 @@ struct CustomerSelectorView: View {
                 onClose: { showSixers76Demo = false }
             )
         }
+        .fullScreenCover(isPresented: $showSixersHomeV6Demo) {
+            if #available(iOS 16.0, *) {
+                SixersHomeV6Demo(onClose: { showSixersHomeV6Demo = false })
+            }
+        }
+        .fullScreenCover(isPresented: $showSixersHomeV6Test) {
+            if #available(iOS 16.0, *) {
+                SixersHomeV6Demo(onClose: { showSixersHomeV6Test = false }, testMode: true)
+            }
+        }
+        .fullScreenCover(isPresented: $showCommandersHomeV6Demo) {
+            if #available(iOS 16.0, *) {
+                CommandersHomeV6Demo(onClose: { showCommandersHomeV6Demo = false })
+            }
+        }
         .fullScreenCover(isPresented: $showChargersV2Demo) {
             BlinkupLocalDemo(
                 primaryHEX: "#0080C6",
@@ -340,6 +388,14 @@ struct CustomerSelectorView: View {
                 secondaryHEX: "#FFC627",
                 customerName: "arizona-state-sun-devils",
                 onClose: { showArizonaStateSunDevilsV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showLosAngelesLakersV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#31006F",
+                secondaryHEX: "#FDB927",
+                customerName: "los-angeles-lakers",
+                onClose: { showLosAngelesLakersV2Demo = false }
             )
         }
         .fullScreenCover(isPresented: $showNewYorkKnicksV2Demo) {
@@ -438,12 +494,92 @@ struct CustomerSelectorView: View {
                 onClose: { showMilwaukeeBucksV2Demo = false }
             )
         }
+        .fullScreenCover(isPresented: $showMatchdayDallasV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#0C2B44",   // PPA navy (ppatour.com --color-ppa-navy) — MATCHDAY is the PPA/MLP fan app
+                secondaryHEX: "#228BE6", // PPA blue (--color-ppa-blue)
+                customerName: "matchday-dallas",
+                onClose: { showMatchdayDallasV2Demo = false }
+            )
+        }
         .fullScreenCover(isPresented: $showMarquetteGoldenEaglesV2Demo) {
             BlinkupLocalDemo(
                 primaryHEX: "#003366",
                 secondaryHEX: "#FFCC00",
                 customerName: "marquette-golden-eagles",
                 onClose: { showMarquetteGoldenEaglesV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showNewYorkRedBullsV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#ED1E36",   // Red Bull red (PMS 1788 C)
+                secondaryHEX: "#FABB23", // crest sun yellow (PMS 7409 C) — navy #23326A is too dark to accent on red
+                customerName: "new-york-red-bulls",
+                onClose: { showNewYorkRedBullsV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showPortlandTrailBlazersV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#C8102E",   // official Blazers red — the pinwheel stripes sample #CF0A2C; the Team Library's #E03A3E reads too light
+                secondaryHEX: "#000000", // official secondary black
+                customerName: "portland-trail-blazers",
+                onClose: { showPortlandTrailBlazersV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showBrooklynNetsV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#000000",   // Nets black
+                secondaryHEX: "#FFFFFF", // Nets white — the whole palette is black/white
+                customerName: "brooklyn-nets",
+                onClose: { showBrooklynNetsV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showPhiladelphiaFlyersV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#D24303",   // Flyers orange (nhl.com/flyers site theme; crest dot)
+                secondaryHEX: "#000000", // Flyers black
+                customerName: "philadelphia-flyers",
+                onClose: { showPhiladelphiaFlyersV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showSeattleSeahawksV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#002244",   // Seahawks College Navy
+                secondaryHEX: "#69BE28", // Seahawks Action Green
+                customerName: "seattle-seahawks",
+                onClose: { showSeattleSeahawksV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showBaltimoreRavensV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#241773",   // Ravens purple
+                secondaryHEX: "#9E7C0C", // Ravens metallic gold
+                customerName: "baltimore-ravens",
+                onClose: { showBaltimoreRavensV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showClevelandBrownsV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#311D00",   // Browns brown
+                secondaryHEX: "#FF3C00", // Browns orange
+                customerName: "cleveland-browns",
+                onClose: { showClevelandBrownsV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showNewYorkGiantsV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#0B2265",   // Giants dark blue (sampled from the official "ny")
+                secondaryHEX: "#A71930", // Giants red
+                customerName: "new-york-giants",
+                onClose: { showNewYorkGiantsV2Demo = false }
+            )
+        }
+        .fullScreenCover(isPresented: $showDenverNuggetsV2Demo) {
+            BlinkupLocalDemo(
+                primaryHEX: "#0E2240",   // Nuggets midnight blue
+                secondaryHEX: "#FEC524", // Nuggets sunshine yellow
+                customerName: "denver-nuggets",
+                onClose: { showDenverNuggetsV2Demo = false }
             )
         }
         .fullScreenCover(isPresented: $showMichiganWolverinesV2Demo) {
@@ -472,6 +608,15 @@ struct CustomerSelectorView: View {
         }
     }
     
+    /// The "Current Demos" source: the curated partner list in partner builds, the full list otherwise.
+    private var listedCurrentCustomers: [AppCustomer] {
+        #if PARTNER_DEMO
+        return Target.partnerCustomers
+        #else
+        return Target.currentCustomers
+        #endif
+    }
+
     func loadData() {
         let pubFavs = loadPublicFavs()
         let customers = DB.shared.get(key: .keyCustomCustomers) ?? [AppCustomer]()
@@ -504,6 +649,7 @@ struct CustomerSelectorView: View {
         let target = info?["CFBundleName"] as? String ?? "?"
         let app = target == "DemoAppSTG" ? "ST" : "PR"
         let build = info?[buildKey] as? String ?? "?"
+        if kIsPartnerBuild { return "Build " + build }
         
         var str = app + " #" + build
         if #available(iOS 16, *) {
@@ -573,6 +719,18 @@ struct CustomerSelectorView: View {
                 showBucksDemo = true
                 return
             }
+            if customer.cid == "76ers-home-v6-test-local-demo" {
+                showSixersHomeV6Test = true
+                return
+            }
+            if customer.cid == "76ers-home-v6-local-demo" {
+                showSixersHomeV6Demo = true
+                return
+            }
+            if customer.cid == "commanders-home-v6-local-demo" {
+                showCommandersHomeV6Demo = true
+                return
+            }
             if customer.cid == "76ers-local-demo" {
                 showSixers76Demo = true
                 return
@@ -599,6 +757,10 @@ struct CustomerSelectorView: View {
             }
             if customer.cid == "arizona-state-sun-devils-local-demo" {
                 showArizonaStateSunDevilsV2Demo = true
+                return
+            }
+            if customer.cid == "los-angeles-lakers-local-demo" {
+                showLosAngelesLakersV2Demo = true
                 return
             }
             if customer.cid == "new-york-knicks-local-demo" {
@@ -649,8 +811,48 @@ struct CustomerSelectorView: View {
                 showMilwaukeeBucksV2Demo = true
                 return
             }
+            if customer.cid == "matchday-dallas-local-demo" {
+                showMatchdayDallasV2Demo = true
+                return
+            }
             if customer.cid == "marquette-golden-eagles-local-demo" {
                 showMarquetteGoldenEaglesV2Demo = true
+                return
+            }
+            if customer.cid == "new-york-red-bulls-local-demo" {
+                showNewYorkRedBullsV2Demo = true
+                return
+            }
+            if customer.cid == "portland-trail-blazers-local-demo" {
+                showPortlandTrailBlazersV2Demo = true
+                return
+            }
+            if customer.cid == "brooklyn-nets-local-demo" {
+                showBrooklynNetsV2Demo = true
+                return
+            }
+            if customer.cid == "philadelphia-flyers-local-demo" {
+                showPhiladelphiaFlyersV2Demo = true
+                return
+            }
+            if customer.cid == "seattle-seahawks-local-demo" {
+                showSeattleSeahawksV2Demo = true
+                return
+            }
+            if customer.cid == "baltimore-ravens-local-demo" {
+                showBaltimoreRavensV2Demo = true
+                return
+            }
+            if customer.cid == "cleveland-browns-local-demo" {
+                showClevelandBrownsV2Demo = true
+                return
+            }
+            if customer.cid == "new-york-giants-local-demo" {
+                showNewYorkGiantsV2Demo = true
+                return
+            }
+            if customer.cid == "denver-nuggets-local-demo" {
+                showDenverNuggetsV2Demo = true
                 return
             }
             if customer.cid == "michigan-wolverines-local-demo" {

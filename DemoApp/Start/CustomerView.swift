@@ -14,6 +14,9 @@ struct CustomerView: View {
     let customer: AppCustomer
     let isFavorite: Bool
     var actions: Set<Action> = Set(Action.allCases)
+    /// Partner builds show a plain disclosure chevron instead of the "…" action menu.
+    /// Declared before `onEdit` so the trailing-closure call sites keep working.
+    var showsMenu: Bool = true
     var onEdit: ((Action) -> ())?
     
     var body: some View {
@@ -34,7 +37,11 @@ struct CustomerView: View {
                 }
                 Spacer()
                 HStack {
-                    if let onEdit, !actions.isEmpty {
+                    if !showsMenu {
+                        Image(systemName: "chevron.right")
+                            .font(.footnote.weight(.semibold))
+                            .foregroundStyle(.tertiary)
+                    } else if let onEdit, !actions.isEmpty {
                         Menu(content: {
                             if actions.contains(.open) {
                                 Button("open", action: { onEdit(.open) })
